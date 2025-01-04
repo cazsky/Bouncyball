@@ -1,9 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://2edwhbltk0kg"]
+[gd_scene load_steps=9 format=3 uid="uid://2edwhbltk0kg"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_n0h2w"]
+[ext_resource type="PackedScene" uid="uid://gor1tghl876f" path="res://Scenes/ball.tscn" id="2_iqe1k"]
+[ext_resource type="Shape2D" uid="uid://bwqovvdbqora6" path="res://Scenes/horizontal_border.tres" id="3_0gjxv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yd75t"]
 font_size = 12
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ce1v3"]
+friction = 0.15
+bounce = 1.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_4i8t1"]
+resource_local_to_scene = true
+a = Vector2(0, 1000)
+b = Vector2(720, 1000)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_2a47e"]
+resource_local_to_scene = true
+b = Vector2(0, 1280)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_sw5tf"]
+resource_local_to_scene = true
+a = Vector2(720, 0)
+b = Vector2(720, 1280)
 
 [node name="Game" type="Node2D"]
 texture_filter = 6
@@ -59,5 +79,22 @@ anchor_bottom = 1.0
 offset_top = 34.8
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Ball" parent="." instance=ExtResource("2_iqe1k")]
+
+[node name="Border" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_ce1v3")
+
+[node name="TopBorder" type="CollisionShape2D" parent="Border"]
+shape = ExtResource("3_0gjxv")
+
+[node name="BottomBorder" type="CollisionShape2D" parent="Border"]
+shape = SubResource("SegmentShape2D_4i8t1")
+
+[node name="LeftBorder" type="CollisionShape2D" parent="Border"]
+shape = SubResource("SegmentShape2D_2a47e")
+
+[node name="RightBorder" type="CollisionShape2D" parent="Border"]
+shape = SubResource("SegmentShape2D_sw5tf")
 
 [connection signal="pressed" from="Control/Click" to="." method="_on_click_pressed"]
