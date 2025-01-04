@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://2edwhbltk0kg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yd75t"]
+font_size = 12
+
+[node name="Game" type="Node2D"]
+texture_filter = 6
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(720, 1280)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 720.0
+offset_bottom = 1280.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="GameName" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Bouncy balls"
+label_settings = SubResource("LabelSettings_yd75t")
+
+[node name="Stats" type="VBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(60, 100)
+layout_mode = 2
+offset_right = 93.0
+offset_bottom = 100.0
+theme_override_constants/separation = 20
+
+[node name="Speed" type="Label" parent="Control/Stats"]
+layout_mode = 2
+text = "Speed: "
+
+[node name="PerBounce" type="Label" parent="Control/Stats"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "PerBounce: "
