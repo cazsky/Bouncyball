@@ -9,7 +9,6 @@ extends Node2D
 # Init variables
 var score: int = 0
 var add: int = 1
-var add_per_bounce: int = 0
 var combo: int = 0
 var speed: float = 0 
 
@@ -18,7 +17,7 @@ var speed: float = 0
 func _ready() -> void:
 	speed = ball.speed
 	score_label.text = str("Score: ", score)
-	per_bounce_label.text = str("PerBounce: ", add_per_bounce)
+	per_bounce_label.text = str("PerBounce: ", add)
 	speed_label.text = str("Speed: ", speed)
 
 
