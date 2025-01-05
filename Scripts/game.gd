@@ -25,10 +25,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	score_label.text = str("Score: ", score)
 
-# Prolly not needing this
-func _on_click_pressed() -> void:
-	score += add
-
 
 func _on_ball_bounce() -> void:
 	score += add

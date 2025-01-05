@@ -69,18 +69,6 @@ text = "PerBounce: "
 layout_mode = 2
 text = "Score: "
 
-[node name="Click" type="Button" parent="Control"]
-visible = false
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.065
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 34.8
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="Ball" parent="." instance=ExtResource("2_iqe1k")]
 position = Vector2(402.631, 416.837)
 
@@ -100,5 +88,4 @@ shape = SubResource("SegmentShape2D_2a47e")
 [node name="RightBorder" type="CollisionShape2D" parent="Border"]
 shape = SubResource("SegmentShape2D_sw5tf")
 
-[connection signal="pressed" from="Control/Click" to="." method="_on_click_pressed"]
 [connection signal="bounce" from="Ball" to="." method="_on_ball_bounce"]
