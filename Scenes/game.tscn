@@ -91,6 +91,7 @@ physics_material_override = SubResource("PhysicsMaterial_ce1v3")
 shape = ExtResource("3_0gjxv")
 
 [node name="BottomBorder" type="CollisionShape2D" parent="Border"]
+position = Vector2(3, 177)
 shape = SubResource("SegmentShape2D_4i8t1")
 
 [node name="LeftBorder" type="CollisionShape2D" parent="Border"]
