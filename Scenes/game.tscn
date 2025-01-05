@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://2edwhbltk0kg"]
+[gd_scene load_steps=10 format=3 uid="uid://2edwhbltk0kg"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_n0h2w"]
 [ext_resource type="PackedScene" uid="uid://gor1tghl876f" path="res://Scenes/ball.tscn" id="2_iqe1k"]
@@ -24,6 +24,8 @@ b = Vector2(0, 1280)
 resource_local_to_scene = true
 a = Vector2(720, 0)
 b = Vector2(720, 1280)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dj2rs"]
 
 [node name="Game" type="Node2D"]
 texture_filter = 1
@@ -87,5 +89,32 @@ shape = SubResource("SegmentShape2D_2a47e")
 
 [node name="RightBorder" type="CollisionShape2D" parent="Border"]
 shape = SubResource("SegmentShape2D_sw5tf")
+
+[node name="Obstacles" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(180, 320)
+shape = SubResource("CircleShape2D_dj2rs")
+one_way_collision_margin = 0.5
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(540, 320)
+shape = SubResource("CircleShape2D_dj2rs")
+one_way_collision_margin = 0.5
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(180, 640)
+shape = SubResource("CircleShape2D_dj2rs")
+one_way_collision_margin = 0.5
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(540, 640)
+shape = SubResource("CircleShape2D_dj2rs")
+one_way_collision_margin = 0.5
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Obstacles"]
+position = Vector2(360, 960)
+shape = SubResource("CircleShape2D_dj2rs")
+one_way_collision_margin = 0.5
 
 [connection signal="bounce" from="Ball" to="." method="_on_ball_bounce"]

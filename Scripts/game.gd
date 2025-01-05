@@ -12,6 +12,9 @@ var add: int = 1
 var combo: int = 0
 var speed: float = 0 
 
+func _init() -> void:
+	# Start the game launching ball in random direction
+	randomize()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -8,7 +8,14 @@ var current_trail: Trail
 signal bounce
 
 func _ready() -> void:
-	velocity = Vector2(speed, speed)
+	# Generate a random direction
+	# TAU is 2PI, gives a random angle in radians
+	# Use TAU for a full 360 degrees
+	var angle = randf() * TAU 
+	# cos(angle) gives the distance along the x-axis and sin(angle) for y-axis
+	var direction = Vector2(cos(angle), sin(angle)).normalized()
+	velocity = direction * speed
+	
 	make_trail()
 
 
