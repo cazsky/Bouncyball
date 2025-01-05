@@ -26,7 +26,7 @@ a = Vector2(720, 0)
 b = Vector2(720, 1280)
 
 [node name="Game" type="Node2D"]
-texture_filter = 6
+texture_filter = 1
 script = ExtResource("1_n0h2w")
 
 [node name="Control" type="Control" parent="."]

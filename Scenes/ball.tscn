@@ -29,3 +29,12 @@ shape = SubResource("CapsuleShape2D_yupbf")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(267, 252)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+visible = false
+position = Vector2(152.773, 92.9329)
+emission_shape = 1
+emission_sphere_radius = 64.0
+scale_amount_max = 10.0
+anim_speed_min = 1.0
+anim_speed_max = 10.0
