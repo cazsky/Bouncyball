@@ -1,7 +1,8 @@
 class_name Trail
 extends Line2D
 
-const MAX_POINTS: int = 2000
+# Change this to change the length of trail
+const MAX_POINTS: int = 200
 @onready var curve := Curve2D.new()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
