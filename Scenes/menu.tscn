@@ -44,23 +44,20 @@ layout_mode = 2
 text = "Speed
 "
 
-[node name="Speed2" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
+[node name="Burst" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-text = "Speed
-"
+text = "Burst"
 
-[node name="Speed3" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
+[node name="Power" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-text = "Speed
-"
+text = "Power"
 
-[node name="Speed4" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
+[node name="Bounciness" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-text = "Speed
-"
+text = "Bounciness"
 
 [node name="Perks" type="TabBar" parent="Control/TabContainer"]
 visible = false

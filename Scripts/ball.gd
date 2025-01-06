@@ -20,12 +20,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if get_last_slide_collision():
-		var collision: KinematicCollision2D = get_last_slide_collision()
-		velocity = velocity.bounce(collision.get_normal())
-		# Connect signal to main game to add score whenever ball bounces
-		emit_signal("bounce")
-		
+	
+	detect_bounce()
 	move_and_slide()
 
 
@@ -34,3 +30,10 @@ func make_trail() -> void:
 		current_trail.stop()
 	current_trail = Trail.create()
 	add_child(current_trail)
+	
+func detect_bounce() -> void:
+	if get_last_slide_collision():
+		var collision: KinematicCollision2D = get_last_slide_collision()
+		velocity = velocity.bounce(collision.get_normal())
+		# Connect signal to main game to add score whenever ball bounces
+		emit_signal("bounce")
