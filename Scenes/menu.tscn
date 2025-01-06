@@ -25,12 +25,42 @@ metadata/_tab_index = 0
 
 [node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Upgrades"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -88.0
+offset_top = 60.0
+offset_right = 88.0
+offset_bottom = 91.0
 grow_horizontal = 2
-grow_vertical = 2
-columns = 3
+theme_override_constants/h_separation = 150
+theme_override_constants/v_separation = 100
+columns = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Speed" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Speed
+"
+
+[node name="Speed2" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Speed
+"
+
+[node name="Speed3" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Speed
+"
+
+[node name="Speed4" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Speed
+"
 
 [node name="Perks" type="TabBar" parent="Control/TabContainer"]
 visible = false
