@@ -13,8 +13,8 @@ bounce = 1.0
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_4i8t1"]
 resource_local_to_scene = true
-a = Vector2(0, 1000)
-b = Vector2(720, 1000)
+a = Vector2(0, 1180)
+b = Vector2(720, 1180)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_2a47e"]
 resource_local_to_scene = true
@@ -71,6 +71,13 @@ text = "PerBounce: "
 layout_mode = 2
 text = "Score: "
 
+[node name="Button" type="Button" parent="Control"]
+custom_minimum_size = Vector2(720, 1170)
+layout_mode = 1
+offset_right = 8.0
+offset_bottom = 8.0
+flat = true
+
 [node name="Ball" parent="." instance=ExtResource("2_iqe1k")]
 position = Vector2(402.631, 416.837)
 
@@ -81,7 +88,6 @@ physics_material_override = SubResource("PhysicsMaterial_ce1v3")
 shape = ExtResource("3_0gjxv")
 
 [node name="BottomBorder" type="CollisionShape2D" parent="Border"]
-position = Vector2(3, 177)
 shape = SubResource("SegmentShape2D_4i8t1")
 
 [node name="LeftBorder" type="CollisionShape2D" parent="Border"]
@@ -117,4 +123,5 @@ position = Vector2(360, 960)
 shape = SubResource("CircleShape2D_dj2rs")
 one_way_collision_margin = 0.5
 
+[connection signal="pressed" from="Control/Button" to="Ball" method="_on_button_pressed"]
 [connection signal="bounce" from="Ball" to="." method="_on_ball_bounce"]

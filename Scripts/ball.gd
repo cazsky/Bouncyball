@@ -37,3 +37,7 @@ func detect_bounce() -> void:
 		velocity = velocity.bounce(collision.get_normal())
 		# Connect signal to main game to add score whenever ball bounces
 		emit_signal("bounce")
+
+
+func _on_button_pressed() -> void:
+	pass # Replace with function body.
