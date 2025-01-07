@@ -10,7 +10,7 @@ var current_trail: Trail
 var is_moving: bool = false
 var can_push: bool = true
 var damping: float = 0.98
-var upgrade_multiplier: float = 1.1
+var upgrade_multiplier: float = 1.05
 
 @warning_ignore("unused_signal")
 signal bounce
