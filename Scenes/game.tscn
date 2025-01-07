@@ -123,5 +123,12 @@ position = Vector2(360, 960)
 shape = SubResource("CircleShape2D_dj2rs")
 one_way_collision_margin = 0.5
 
+[node name="upgrade test" type="Button" parent="."]
+offset_left = 538.0
+offset_top = 1068.0
+offset_right = 676.0
+offset_bottom = 1138.0
+
 [connection signal="pressed" from="Control/Button" to="Ball" method="_on_button_pressed"]
 [connection signal="bounce" from="Ball" to="." method="_on_ball_bounce"]
+[connection signal="pressed" from="upgrade test" to="Ball" method="_on_upgrade_test_pressed"]

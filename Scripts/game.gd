@@ -18,7 +18,7 @@ func _init() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	speed = ball.speed
+	speed = ball.current_speed
 	score_label.text = str("Score: ", score)
 	per_bounce_label.text = str("PerBounce: ", add)
 	speed_label.text = str("Speed: ", speed)

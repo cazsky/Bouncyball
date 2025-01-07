@@ -1,9 +1,16 @@
 extends CharacterBody2D
 
-@export var speed: float = 600.0 
+@export var base_speed: float = 600.0 
+@export var push_force: float = 100.0
 
+@onready var speed_stat_label: Label = $"../Control/Stats/Speed"
+
+var current_speed = base_speed
 var current_trail: Trail
 var is_moving: bool = false
+var can_push: bool = true
+var damping: float = 0.98
+var upgrade_multiplier: float = 1.1
 
 @warning_ignore("unused_signal")
 signal bounce
@@ -18,7 +25,15 @@ func _physics_process(delta: float) -> void:
 	if is_moving:
 		detect_bounce()
 		move_and_slide()
+		
+		# Gradually reduce velocity to simulate deceleration
+		# Frame rate independant damping
+		velocity *= pow(damping, delta * 60)
 
+		# Stop movement when velocity is near zero
+		if velocity.length() < 10:
+			is_moving = false
+			velocity = Vector2.ZERO
 
 func make_trail() -> void:
 	if current_trail:
@@ -35,12 +50,19 @@ func detect_bounce() -> void:
 
 # We want for the ball to move a certain distance whenever the screen is tapped.
 func _on_button_pressed() -> void:
-	if not is_moving:
-		# Generate a random direction
-		# TAU is 2PI, gives a random angle in radians
-		# Use TAU for a full 360 degrees
-		var angle = randf() * TAU 
-		# cos(angle) gives the distance along the x-axis and sin(angle) for y-axis
-		var direction = Vector2(cos(angle), sin(angle)).normalized()
-		velocity = direction * speed
-		is_moving = true
+	# Generate a random direction
+	# TAU is 2PI, gives a random angle in radians
+	# Use TAU for a full 360 degrees
+	var angle = randf() * TAU 
+	# cos(angle) gives the distance along the x-axis and sin(angle) for y-axis
+	var direction = Vector2(cos(angle), sin(angle)).normalized()
+	velocity = direction * current_speed
+	is_moving = true
+
+func upgrade_push_force() -> void:
+	current_speed *= upgrade_multiplier
+	speed_stat_label.text = str("Speed: ", roundf(current_speed))
+	
+
+func _on_upgrade_test_pressed() -> void:
+	upgrade_push_force()
