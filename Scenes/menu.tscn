@@ -44,20 +44,80 @@ layout_mode = 2
 text = "Speed
 "
 
+[node name="Label" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Speed"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 110.0
+offset_top = -11.5
+offset_right = 110.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "asdadasdsad"
+
 [node name="Burst" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "Burst"
+
+[node name="Label" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Burst"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 110.0
+offset_top = -11.5
+offset_right = 110.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "asdadasdsad"
 
 [node name="Power" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "Power"
 
+[node name="Label" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Power"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 110.0
+offset_top = -11.5
+offset_right = 110.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "asdadasdsad"
+
 [node name="Bounciness" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "Bounciness"
+
+[node name="Label" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Bounciness"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 110.0
+offset_top = -11.5
+offset_right = 110.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "asdadasdsad"
 
 [node name="Perks" type="TabBar" parent="Control/TabContainer"]
 visible = false
