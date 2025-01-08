@@ -51,13 +51,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 110.0
+offset_left = 60.0
 offset_top = -11.5
-offset_right = 110.0
+offset_right = 180.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "asdadasdsad"
+text = "Decrease damping"
+autowrap_mode = 2
 
 [node name="Burst" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
@@ -71,13 +72,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 110.0
+offset_left = 60.0
 offset_top = -11.5
-offset_right = 110.0
+offset_right = 180.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "asdadasdsad"
+text = "Increase burst speed per tap"
+autowrap_mode = 2
 
 [node name="Power" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
@@ -91,13 +93,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 110.0
+offset_left = 60.0
 offset_top = -11.5
-offset_right = 110.0
+offset_right = 180.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "asdadasdsad"
+text = "Figure this out"
+autowrap_mode = 2
 
 [node name="Bounciness" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
@@ -111,13 +114,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 110.0
+offset_left = 60.0
 offset_top = -11.5
-offset_right = 110.0
+offset_right = 180.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "asdadasdsad"
+text = "Decrease bounciness absorbsion"
+autowrap_mode = 2
 
 [node name="Perks" type="TabBar" parent="Control/TabContainer"]
 visible = false
