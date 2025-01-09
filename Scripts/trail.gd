@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 
 
 func stop() -> void:
+	await get_tree().create_timer(10.0).timeout
 	set_process(false)
 	var tw := get_tree().create_tween()
 	tw.tween_property(self, "modulate:a", 0.0, 3.0)

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var base_speed: float = 600.0 
 @export var push_force: float = 100.0
+@export var friction: float = 1.0
 
 @onready var speed_stat_label: Label = $"../Control/Stats/Speed"
 @onready var velocity_stat_label: Label = $"../Control/Stats/Velocity"
@@ -11,7 +12,8 @@ var current_trail: Trail
 var is_moving: bool = false
 var can_push: bool = true
 var damping: float = 0.98
-var upgrade_multiplier: float = 1.05
+var speed_upgrade_multiplier: float = 1.05
+var friction_upgrade_multiplier: float = 0.95
 
 @warning_ignore("unused_signal")
 signal bounce
@@ -29,13 +31,13 @@ func _physics_process(delta: float) -> void:
 		
 		# Gradually reduce velocity to simulate deceleration
 		# Frame rate independant damping
-		velocity *= pow(damping, delta * 60)
+		velocity *= pow(damping, delta * 60 * friction)
 
 		# Stop movement when velocity is near zero
 		if velocity.length() < 10:
 			is_moving = false
 			velocity = Vector2.ZERO
-	velocity_stat_label.text = str("Velocity: ", snapped(velocity.length(), 0.01))
+		
 
 func make_trail() -> void:
 	if current_trail:
@@ -62,7 +64,7 @@ func _on_button_pressed() -> void:
 	is_moving = true
 
 func upgrade_push_force() -> void:
-	current_speed *= upgrade_multiplier
+	current_speed *= speed_upgrade_multiplier
 	speed_stat_label.text = str("Speed: ", roundf(current_speed))
 	
 

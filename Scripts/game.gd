@@ -4,6 +4,7 @@ extends Node2D
 @onready var speed_label: Label = $Control/Stats/Speed
 @onready var per_bounce_label: Label = $Control/Stats/PerBounce
 @onready var score_label: Label = $Control/Stats/Score
+@onready var velocity_label: Label = $Control/Stats/Velocity
 @onready var ball: CharacterBody2D = $Ball
 
 # Init variables
@@ -27,7 +28,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	score_label.text = str("Score: ", score)
-
+	velocity_label.text = str("Velocity: ", snapped(ball.velocity.length(), 0.01))
 
 func _on_ball_bounce() -> void:
 	score += add

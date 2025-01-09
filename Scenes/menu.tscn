@@ -56,15 +56,15 @@ offset_right = 180.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Decrease damping"
+text = "Increase burst speed per tap"
 autowrap_mode = 2
 
-[node name="Burst" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
+[node name="Friction" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-text = "Burst"
+text = "Friction"
 
-[node name="Label" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Burst"]
+[node name="Label" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Friction"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -77,7 +77,7 @@ offset_right = 180.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Increase burst speed per tap"
+text = "Decreases amount of friction"
 autowrap_mode = 2
 
 [node name="Power" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
