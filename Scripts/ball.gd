@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var push_force: float = 100.0
 
 @onready var speed_stat_label: Label = $"../Control/Stats/Speed"
+@onready var velocity_stat_label: Label = $"../Control/Stats/Velocity"
 
 var current_speed = base_speed
 var current_trail: Trail
@@ -34,6 +35,7 @@ func _physics_process(delta: float) -> void:
 		if velocity.length() < 10:
 			is_moving = false
 			velocity = Vector2.ZERO
+	velocity_stat_label.text = str("Velocity: ", snapped(velocity.length(), 0.01))
 
 func make_trail() -> void:
 	if current_trail:

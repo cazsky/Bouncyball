@@ -71,6 +71,11 @@ text = "PerBounce: "
 layout_mode = 2
 text = "Score: "
 
+[node name="Velocity" type="Label" parent="Control/Stats"]
+layout_mode = 2
+text = "Velocity: 
+"
+
 [node name="Button" type="Button" parent="Control"]
 custom_minimum_size = Vector2(720, 1170)
 layout_mode = 1

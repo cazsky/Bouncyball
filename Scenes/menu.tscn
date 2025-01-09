@@ -28,15 +28,14 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -88.0
-offset_top = 60.0
-offset_right = 88.0
-offset_bottom = 91.0
-grow_horizontal = 2
+offset_left = -175.0
+offset_top = 50.0
+offset_right = 175.0
+offset_bottom = 200.0
+grow_vertical = 2
 theme_override_constants/h_separation = 150
 theme_override_constants/v_separation = 100
 columns = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="Speed" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
@@ -84,7 +83,7 @@ autowrap_mode = 2
 [node name="Power" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-text = "Power"
+text = "XP Gain"
 
 [node name="Label" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Power"]
 layout_mode = 1
@@ -99,7 +98,7 @@ offset_right = 180.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Figure this out"
+text = "Gain more XP per bounce"
 autowrap_mode = 2
 
 [node name="Bounciness" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
@@ -120,7 +119,7 @@ offset_right = 180.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Decrease bounciness absorbsion"
+text = "Add speed on bounce"
 autowrap_mode = 2
 
 [node name="Perks" type="TabBar" parent="Control/TabContainer"]
