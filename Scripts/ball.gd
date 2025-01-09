@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @export var base_speed: float = 600.0 
 @export var push_force: float = 100.0
+# Friction above 1 makes it stickier, closer to 0 means less sticky
+# Dont go to negative friction
 @export var friction: float = 1.0
 
 @onready var speed_stat_label: Label = $"../Control/Stats/Speed"
