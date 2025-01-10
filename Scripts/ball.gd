@@ -14,13 +14,11 @@ var is_moving: bool = false
 var can_push: bool = true
 var damping: float = 0.98
 
+
 # Ball stats upgrades multipliers
 var speed_upgrade_stat_multiplier: float = 1.05
 var friction_upgrade_stat_multiplier: float = 0.95
 
-# Ball price upgrade multiplers
-var speed_upgrade_price_multiplier: float = 1.2
-var friction_upgrade_price_multiplier: float = 1.2
 
 @warning_ignore("unused_signal")
 signal bounce
@@ -74,6 +72,3 @@ func upgrade_push_force() -> void:
 	current_speed *= speed_upgrade_stat_multiplier
 	speed_stat_label.text = str("Speed: ", roundf(current_speed))
 	
-
-func _on_upgrade_test_pressed() -> void:
-	upgrade_push_force()
