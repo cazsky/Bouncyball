@@ -121,8 +121,7 @@ autowrap_mode = 2
 [node name="Score" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-text = "Speed
-"
+text = "Score"
 
 [node name="Label" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Score"]
 layout_mode = 1
