@@ -157,6 +157,11 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
+[node name="Arrow" type="Sprite2D" parent="Control"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_uvdmk")
+offset = Vector2(350, 10)
+
 [node name="Popup" type="Button" parent="Control"]
 texture_filter = 1
 layout_mode = 1
@@ -175,10 +180,5 @@ offset_bottom = 35.0
 grow_horizontal = 2
 mouse_filter = 2
 color = Color(0.180392, 0.180392, 0.180392, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="Control/Popup"]
-scale = Vector2(2, 2)
-texture = ExtResource("1_uvdmk")
-offset = Vector2(350, 10)
 
 [connection signal="pressed" from="Control/Popup" to="." method="_on_texture_button_pressed"]
