@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://2edwhbltk0kg"]
+[gd_scene load_steps=11 format=3 uid="uid://2edwhbltk0kg"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_n0h2w"]
+[ext_resource type="PackedScene" uid="uid://5mv5pcy1k2tg" path="res://Scenes/menu.tscn" id="2_au3wm"]
 [ext_resource type="PackedScene" uid="uid://gor1tghl876f" path="res://Scenes/ball.tscn" id="2_iqe1k"]
 [ext_resource type="Shape2D" uid="uid://bwqovvdbqora6" path="res://Scenes/horizontal_border.tres" id="3_0gjxv"]
 
@@ -127,6 +128,9 @@ one_way_collision_margin = 0.5
 position = Vector2(360, 960)
 shape = SubResource("CircleShape2D_dj2rs")
 one_way_collision_margin = 0.5
+
+[node name="Menu" parent="." instance=ExtResource("2_au3wm")]
+position = Vector2(0, 1180)
 
 [connection signal="pressed" from="Control/Button" to="Ball" method="_on_button_pressed"]
 [connection signal="bounce" from="Ball" to="." method="_on_ball_bounce"]

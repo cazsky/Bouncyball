@@ -24,9 +24,14 @@ func close_menu() -> void:
 	pass
 	
 func open_menu() -> void:
-	pass
-
+	var tw := get_tree().create_tween()
+	tw.tween_property(self, "global_position", Vector2(0,300), 0.2)
+	await tw.finished
 
 
 func _on_texture_button_pressed() -> void:
-	print_debug("???")
+	if is_menu_open:
+		close_menu()
+	else:
+		open_menu()
+	is_menu_open = !is_menu_open
