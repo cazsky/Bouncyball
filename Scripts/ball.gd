@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @export var base_speed: float = 600.0 
-@export var push_force: float = 100.0
 # Friction above 1 makes it stickier, closer to 0 means less sticky
 # Dont go to negative friction
 @export var friction: float = 1.0
@@ -14,8 +13,14 @@ var current_trail: Trail
 var is_moving: bool = false
 var can_push: bool = true
 var damping: float = 0.98
-var speed_upgrade_multiplier: float = 1.05
-var friction_upgrade_multiplier: float = 0.95
+
+# Ball stats upgrades multipliers
+var speed_upgrade_stat_multiplier: float = 1.05
+var friction_upgrade_stat_multiplier: float = 0.95
+
+# Ball price upgrade multiplers
+var speed_upgrade_price_multiplier: float = 1.2
+var friction_upgrade_price_multiplier: float = 1.2
 
 @warning_ignore("unused_signal")
 signal bounce
@@ -66,7 +71,7 @@ func _on_button_pressed() -> void:
 	is_moving = true
 
 func upgrade_push_force() -> void:
-	current_speed *= speed_upgrade_multiplier
+	current_speed *= speed_upgrade_stat_multiplier
 	speed_stat_label.text = str("Speed: ", roundf(current_speed))
 	
 
