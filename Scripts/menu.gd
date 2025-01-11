@@ -7,6 +7,9 @@ extends Node2D
 @onready var score_button: Button = $Control/TabContainer/Upgrades/GridContainer/Score
 @onready var popup: Button = $Control/Popup
 @onready var arrow: Sprite2D = $Control/Arrow
+@onready var ball: CharacterBody2D = $"../Ball"
+@onready var speed_stat_label: Label = $"../Control/Stats/Speed"
+@onready var velocity_stat_label: Label = $"../Control/Stats/Velocity"
 
 const MENU_TIME: float = 0.15
 
@@ -15,8 +18,13 @@ var speed_upgrade_price_multiplier: float = 1.2
 var friction_upgrade_price_multiplier: float = 1.2
 var is_menu_open: bool = false
 
+# Ball stats upgrades multipliers
+var speed_upgrade_stat_multiplier: float = 1.05
+var friction_upgrade_stat_multiplier: float = 0.95
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print_debug(ball)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -55,3 +63,12 @@ func _on_texture_button_pressed() -> void:
 	else:
 		open_menu()
 	is_menu_open = !is_menu_open
+
+# Speed upgrade
+func _on_speed_pressed() -> void:
+	ball.current_speed *= speed_upgrade_stat_multiplier
+	speed_stat_label.text = str("Speed: ", roundf(ball.current_speed))
+
+# Friction upgrade
+func _on_friction_pressed() -> void:
+	ball.friction *= friction_upgrade_stat_multiplier
