@@ -14,7 +14,6 @@ var is_moving: bool = false
 var can_push: bool = true
 var damping: float = 0.98
 
-
 @warning_ignore("unused_signal")
 signal bounce
 
@@ -32,12 +31,13 @@ func _physics_process(delta: float) -> void:
 		# Gradually reduce velocity to simulate deceleration
 		# Frame rate independant damping
 		velocity *= pow(damping, delta * 60 * friction)
+		velocity = velocity.clampf(-10000, current_speed * 3)
 
 		# Stop movement when velocity is near zero
 		if velocity.length() < 10:
 			is_moving = false
 			velocity = Vector2.ZERO
-		
+			
 
 func make_trail() -> void:
 	if current_trail:

@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var speed_button: Button = $Control/TabContainer/Upgrades/GridContainer/Speed
 @onready var friction_button: Button = $Control/TabContainer/Upgrades/GridContainer/Friction
-@onready var power_button: Button = $Control/TabContainer/Upgrades/GridContainer/Power
+@onready var xp_button: Button = $Control/TabContainer/Upgrades/GridContainer/XPGain
 @onready var bounciness_button: Button = $Control/TabContainer/Upgrades/GridContainer/Bounciness
 @onready var score_button: Button = $Control/TabContainer/Upgrades/GridContainer/Score
 @onready var popup: Button = $Control/Popup
@@ -16,15 +16,24 @@ const MENU_TIME: float = 0.15
 # Ball price upgrade multiplers
 var speed_upgrade_price_multiplier: float = 1.2
 var friction_upgrade_price_multiplier: float = 1.2
-var is_menu_open: bool = false
+var bounciness_upgrade_price_multiplier: float = 1.3
 
 # Ball stats upgrades multipliers
 var speed_upgrade_stat_multiplier: float = 1.05
 var friction_upgrade_stat_multiplier: float = 0.95
+var bounciness_upgrade_stat_multiplier: float = 1.1
+
+
+var is_menu_open: bool = false
+var base_bounciness: float = 1.0
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print_debug(ball)
+	# Connect the ball bounce signal
+	ball.bounce.connect(_on_ball_bounce)
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -72,3 +81,8 @@ func _on_speed_pressed() -> void:
 # Friction upgrade
 func _on_friction_pressed() -> void:
 	ball.friction *= friction_upgrade_stat_multiplier
+
+
+func _on_ball_bounce() -> void:
+	ball.velocity *= 2
+	pass # Replace with function body.

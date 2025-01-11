@@ -87,12 +87,12 @@ text = "Decreases amount of friction"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Power" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
+[node name="XPGain" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "XP Gain"
 
-[node name="Label" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Power"]
+[node name="Label" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/XPGain"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
