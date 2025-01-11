@@ -44,7 +44,7 @@ func open_menu() -> void:
 	# Changing size of the pop up button
 	# This is crazy spaghetti
 	# get_viewport_rect().size.x returns a fixed 720 as compared to get_viewport()
-	tw.tween_property(popup, "global_position", Vector2(get_viewport_rect().size.x - (get_viewport_rect().size.x / 11),300), MENU_TIME).set_trans(tw.TRANS_SINE).set_ease(tw.EASE_OUT)
+	tw.tween_property(popup, "global_position", Vector2(get_viewport_rect().size.x - (get_viewport_rect().size.x / 11), (get_viewport_rect().size.y - 980)), MENU_TIME).set_trans(tw.TRANS_SINE).set_ease(tw.EASE_OUT)
 	tw.tween_property(popup, "size", Vector2(64,popup.size.y), MENU_TIME)
 	await tw.finished
 	
