@@ -25,18 +25,26 @@ func _process(delta: float) -> void:
 	
 	
 func close_menu() -> void:
-	pass
-	
+	arrow.flip_v = false
+	var tw := get_tree().create_tween()
+	tw.set_parallel()
+	# Moving the whole menu board down
+	tw.tween_property(self, "global_position", Vector2(0, 1180), MENU_TIME)
+	# Changing size of the pop up button
+	tw.tween_property(popup, "size", Vector2(1000,popup.size.y), MENU_TIME)
+	tw.tween_property(popup, "global_position", Vector2(0,1180), MENU_TIME).set_trans(tw.TRANS_SINE).set_ease(tw.EASE_OUT)
+	await tw.finished
+		
 func open_menu() -> void:
 	arrow.flip_v = true
 	var tw := get_tree().create_tween()
 	tw.set_parallel()
-	# Moving the whole menu baord up
+	# Moving the whole menu board up
 	tw.tween_property(self, "global_position", Vector2(0,300), MENU_TIME).set_trans(tw.TRANS_SINE).set_ease(tw.EASE_OUT)
 	# Changing size of the pop up button
 	# This is crazy spaghetti
 	tw.tween_property(popup, "global_position", Vector2(get_viewport().size.x - 45,300), MENU_TIME).set_trans(tw.TRANS_SINE).set_ease(tw.EASE_OUT)
-	tw.tween_property(popup, "size", Vector2(1000,popup.size.y), MENU_TIME)
+	tw.tween_property(popup, "size", Vector2(64,popup.size.y), MENU_TIME)
 	await tw.finished
 	
 
