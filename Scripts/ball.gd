@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var base_speed: float = 600.0 
+@export var base_speed: float = 700.0
 # Friction above 1 makes it stickier, closer to 0 means less sticky
 # Dont go to negative friction
 @export var friction: float = 1.0
@@ -24,6 +24,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	print_debug("???")
 	if is_moving:
 		detect_bounce()
 		move_and_slide()
@@ -31,7 +32,8 @@ func _physics_process(delta: float) -> void:
 		# Gradually reduce velocity to simulate deceleration
 		# Frame rate independant damping
 		velocity *= pow(damping, delta * 60 * friction)
-		velocity = velocity.clampf(-10000, current_speed * 3)
+		# Cant set to 0 or the ball will just stop i guess
+		velocity = velocity.clampf(-10000, current_speed)
 
 		# Stop movement when velocity is near zero
 		if velocity.length() < 10:
