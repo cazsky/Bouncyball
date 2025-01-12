@@ -3,7 +3,7 @@ extends Node2D
 # Scene nodes
 @onready var speed_label: Label = $Control/Stats/Speed
 @onready var per_bounce_label: Label = $Control/Stats/PerBounce
-@onready var score_label: Label = $Control/Stats/Score
+@onready var score_label: Label = $Control/ScoreBox/Score
 @onready var velocity_label: Label = $Control/Stats/Velocity
 @onready var ball: CharacterBody2D = $Ball
 
@@ -14,7 +14,7 @@ var combo: int = 0
 var speed: float = 0 
 
 func _init() -> void:
-	# Start the game launching ball in random direction
+	# Randomise seed to start the game launching ball in random direction
 	randomize()
 
 # Called when the node enters the scene tree for the first time.
