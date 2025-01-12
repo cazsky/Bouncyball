@@ -33,12 +33,14 @@ var speed_upgrade_stat_multiplier: float = 1.05
 var friction_upgrade_stat_multiplier: float = 0.95
 var bounciness_upgrade_stat_multiplier: float = 1.2
 
-
+# Initialise vars
 var is_menu_open: bool = false
 var base_bounciness: float = 1.0
 var bounciness: float = base_bounciness
-
-
+var friction_price: int = BASE_FRICTION_PRICE
+var bounciness_price: int = BASE_BOUNCINESS_PRICE
+var score_price: int = BASE_SCORE_PRICE
+var speed_price: int = BASE_SPEED_PRICE
 
 
 # Called when the node enters the scene tree for the first time.
@@ -89,10 +91,12 @@ func _on_texture_button_pressed() -> void:
 func _on_speed_pressed() -> void:
 	ball.current_speed *= speed_upgrade_stat_multiplier
 	speed_stat_label.text = str("Speed: ", roundf(ball.current_speed))
+	speed_price *= speed_upgrade_price_multiplier
 
 # Friction upgrade
 func _on_friction_pressed() -> void:
 	ball.friction *= friction_upgrade_stat_multiplier
+	friction_price *= friction_upgrade_price_multiplier
 
 # Bounciness effect on collide
 func _on_ball_bounce() -> void:
@@ -101,3 +105,4 @@ func _on_ball_bounce() -> void:
 # Bounciness upgrade
 func _on_bounciness_pressed() -> void:
 	bounciness *= bounciness_upgrade_stat_multiplier
+	bounciness_price *= bounciness_upgrade_price_multiplier

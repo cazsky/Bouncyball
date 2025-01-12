@@ -67,6 +67,23 @@ text = "Increase burst speed per tap"
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="PriceLabel" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Speed"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = 120.0
+offset_right = 60.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Current Price: "
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="Friction" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
@@ -84,6 +101,23 @@ offset_top = -25.0
 offset_right = 180.0
 offset_bottom = 11.5
 text = "Decreases amount of friction"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="PriceLabel" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Friction"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = 120.0
+offset_right = 60.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Current Price: "
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -107,6 +141,23 @@ text = "Gain more XP per bounce"
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="PriceLabel" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/XPGain"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = 120.0
+offset_right = 60.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Current Price: "
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="Bounciness" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
@@ -127,6 +178,23 @@ text = "Add speed on bounce"
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="PriceLabel" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Bounciness"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = 120.0
+offset_right = 60.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Current Price: "
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="Score" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
@@ -144,6 +212,23 @@ offset_top = -25.0
 offset_right = 180.0
 offset_bottom = 11.5
 text = "Increase score gained per bounce"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="PriceLabel" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Score"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = 120.0
+offset_right = 60.0
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Current Price: "
 horizontal_alignment = 1
 autowrap_mode = 2
 
