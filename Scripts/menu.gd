@@ -11,6 +11,16 @@ extends Node2D
 @onready var speed_stat_label: Label = $"../Control/Stats/Speed"
 @onready var velocity_stat_label: Label = $"../Control/Stats/Velocity"
 
+
+# Base upgrade price
+const BASE_SPEED_PRICE: int = 5
+const BASE_FRICTION_PRICE: int = 10
+const BASE_BOUNCINESS_PRICE: int = 30
+const BASE_SCORE_PRICE: int = 50
+
+
+
+# Consts UI
 const MENU_TIME: float = 0.15
 
 # Ball price upgrade multiplers
@@ -87,3 +97,7 @@ func _on_friction_pressed() -> void:
 # Bounciness effect on collide
 func _on_ball_bounce() -> void:
 	ball.velocity *= bounciness
+
+# Bounciness upgrade
+func _on_bounciness_pressed() -> void:
+	bounciness *= bounciness_upgrade_stat_multiplier

@@ -24,7 +24,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	print_debug("???")
 	if is_moving:
 		detect_bounce()
 		move_and_slide()
@@ -32,7 +31,7 @@ func _physics_process(delta: float) -> void:
 		# Gradually reduce velocity to simulate deceleration
 		# Frame rate independant damping
 		velocity *= pow(damping, delta * 60 * friction)
-		# Cant set to 0 or the ball will just stop i guess
+		# Cant set to minimum 0 or the ball will just stop i guess
 		velocity = velocity.clampf(-10000, current_speed)
 
 		# Stop movement when velocity is near zero

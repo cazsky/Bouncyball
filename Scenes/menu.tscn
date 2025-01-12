@@ -183,4 +183,5 @@ color = Color(0.180392, 0.180392, 0.180392, 1)
 
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Speed" to="." method="_on_speed_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Friction" to="." method="_on_friction_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Bounciness" to="." method="_on_bounciness_pressed"]
 [connection signal="pressed" from="Control/Popup" to="." method="_on_texture_button_pressed"]
