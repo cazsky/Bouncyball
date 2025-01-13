@@ -42,7 +42,7 @@ offset_right = -60.0
 offset_bottom = 155.0
 theme_override_constants/separation = 100
 
-[node name="PriceLabel" type="Label" parent="Control/TabContainer/Upgrades/VBoxContainer"]
+[node name="SpeedPrice" type="Label" parent="Control/TabContainer/Upgrades/VBoxContainer"]
 custom_minimum_size = Vector2(140, 50)
 layout_mode = 2
 text = "Current Price:
@@ -50,7 +50,7 @@ text = "Current Price:
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="PriceLabel4" type="Label" parent="Control/TabContainer/Upgrades/VBoxContainer"]
+[node name="VelocityPrice" type="Label" parent="Control/TabContainer/Upgrades/VBoxContainer"]
 custom_minimum_size = Vector2(140, 50)
 layout_mode = 2
 text = "Current Price:
@@ -58,7 +58,7 @@ text = "Current Price:
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="PriceLabel5" type="Label" parent="Control/TabContainer/Upgrades/VBoxContainer"]
+[node name="XPPrice" type="Label" parent="Control/TabContainer/Upgrades/VBoxContainer"]
 custom_minimum_size = Vector2(140, 50)
 layout_mode = 2
 text = "Current Price:
@@ -66,14 +66,14 @@ text = "Current Price:
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="PriceLabel2" type="Label" parent="Control/TabContainer/Upgrades/VBoxContainer"]
+[node name="BouncinessPrice" type="Label" parent="Control/TabContainer/Upgrades/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "Current Price: "
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="PriceLabel3" type="Label" parent="Control/TabContainer/Upgrades/VBoxContainer"]
+[node name="ScorePrice" type="Label" parent="Control/TabContainer/Upgrades/VBoxContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "Current Price: "
@@ -113,12 +113,12 @@ pivot_offset = Vector2(0, 17)
 theme_override_font_sizes/font_size = 24
 text = "Speed of ball"
 
-[node name="Friction" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
+[node name="Velocity" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "Velocity"
 
-[node name="Label" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Friction"]
+[node name="Label" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Velocity"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -227,6 +227,6 @@ texture = ExtResource("1_uvdmk")
 offset = Vector2(350, 10)
 
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Speed" to="." method="_on_speed_pressed"]
-[connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Friction" to="." method="_on_friction_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Velocity" to="." method="_on_velocity_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Bounciness" to="." method="_on_bounciness_pressed"]
 [connection signal="pressed" from="Control/Popup" to="." method="_on_texture_button_pressed"]
