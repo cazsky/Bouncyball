@@ -19,7 +19,6 @@ const BASE_BOUNCINESS_PRICE: int = 30
 const BASE_SCORE_PRICE: int = 50
 
 
-
 # Consts UI
 const MENU_TIME: float = 0.15
 
@@ -106,3 +105,7 @@ func _on_ball_bounce() -> void:
 func _on_bounciness_pressed() -> void:
 	bounciness *= bounciness_upgrade_stat_multiplier
 	bounciness_price *= bounciness_upgrade_price_multiplier
+
+# Function to update price values on labels easier
+func update_price(label: Label, price: int) -> void:
+	label.text = str("Current Price: \n", price)
