@@ -10,7 +10,6 @@ extends CharacterBody2D
 
 var current_speed = base_speed
 var current_trail: Trail
-var is_moving: bool = false
 var can_push: bool = true
 var damping: float = 0.98
 var max_velocity: float = current_speed
@@ -40,7 +39,6 @@ func _physics_process(delta: float) -> void:
 
 	# Stop movement when velocity is near zero
 	if velocity.length() < 10:
-		is_moving = false
 		velocity = Vector2.ZERO
 		
 
