@@ -37,7 +37,7 @@ var bounciness_upgrade_price_multiplier: float = 1.3
 
 # Ball stats upgrades multipliers
 var speed_upgrade_stat_multiplier: float = 1.05
-var velocity_upgrade_stat_multiplier: float = 0.95
+var velocity_upgrade_stat_multiplier: float = 1.05
 var bounciness_upgrade_stat_multiplier: float = 1.2
 
 # Initialise vars
