@@ -103,12 +103,14 @@ func _on_speed_pressed() -> void:
 	ball.velocity *= speed_upgrade_stat_multiplier
 	speed_stat_label.text = str("Speed: ", roundf(ball.current_speed))
 	speed_price *= speed_upgrade_price_multiplier
+	ball.max_velocity = ball.current_speed
 	update_price(speed_price_label, speed_price)
 
 
 # Bounciness effect on collide
 func _on_ball_bounce() -> void:
 	ball.velocity *= bounciness
+	print_debug(ball.velocity.length(),", ", bounciness)
 
 # Bounciness upgrade
 func _on_bounciness_pressed() -> void:
