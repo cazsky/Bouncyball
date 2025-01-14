@@ -1,0 +1,232 @@
+[gd_scene load_steps=3 format=3 uid="uid://5mv5pcy1k2tg"]
+
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_5y3mv"]
+[ext_resource type="Texture2D" uid="uid://dx0tnrqipipfo" path="res://Sprites/tile_0604.png" id="1_uvdmk"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_5y3mv")
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(720, 1280)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 720.0
+offset_bottom = 1280.0
+focus_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="Control"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+mouse_filter = 2
+tab_alignment = 1
+current_tab = 1
+
+[node name="Upgrades" type="Control" parent="Control/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Upgrades"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -170.0
+offset_top = 100.0
+offset_right = -60.0
+offset_bottom = 155.0
+theme_override_constants/separation = 100
+
+[node name="SpeedPrice" type="Label" parent="Control/TabContainer/Upgrades/VBoxContainer"]
+custom_minimum_size = Vector2(140, 50)
+layout_mode = 2
+text = "Current Price:
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VelocityPrice" type="Label" parent="Control/TabContainer/Upgrades/VBoxContainer"]
+custom_minimum_size = Vector2(140, 50)
+layout_mode = 2
+text = "Current Price:
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="XPPrice" type="Label" parent="Control/TabContainer/Upgrades/VBoxContainer"]
+custom_minimum_size = Vector2(140, 50)
+layout_mode = 2
+text = "Current Price:
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="BouncinessPrice" type="Label" parent="Control/TabContainer/Upgrades/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Current Price: "
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ScorePrice" type="Label" parent="Control/TabContainer/Upgrades/VBoxContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Current Price: "
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Upgrades"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.9
+offset_top = 100.0
+offset_bottom = 650.0
+grow_horizontal = 2
+pivot_offset = Vector2(175, 0)
+theme_override_constants/h_separation = 150
+theme_override_constants/v_separation = 100
+
+[node name="Speed" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Speed
+"
+
+[node name="Label" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Speed"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 59.0
+offset_right = 390.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(0, 17)
+theme_override_font_sizes/font_size = 24
+text = "Speed of ball"
+
+[node name="Velocity" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Velocity"
+
+[node name="Label" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Velocity"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_right = 396.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(0, 17)
+theme_override_font_sizes/font_size = 24
+text = "Max velocity of ball"
+
+[node name="XPGain" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "XP Gain"
+
+[node name="Label" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/XPGain"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_right = 355.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(0, 17)
+theme_override_font_sizes/font_size = 24
+text = "Gain more XP per bounce"
+
+[node name="Bounciness" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Bounciness"
+
+[node name="Label" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Bounciness"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_right = 309.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(0, 17)
+theme_override_font_sizes/font_size = 24
+text = "Add speed on bounce"
+
+[node name="Score" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+text = "Score"
+
+[node name="Label" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Score"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_right = 395.0
+grow_vertical = 2
+pivot_offset = Vector2(0, 17)
+theme_override_font_sizes/font_size = 24
+text = "Score gained per bounce"
+
+[node name="Perks" type="Control" parent="Control/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Ascension" type="Control" parent="Control/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Popup" type="Button" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_bottom = 89.0
+grow_horizontal = 0
+pivot_offset = Vector2(720, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Control/Popup"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 35.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[node name="Arrow" type="Sprite2D" parent="Control"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_uvdmk")
+offset = Vector2(350, 10)
+
+[connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Speed" to="." method="_on_speed_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Velocity" to="." method="_on_velocity_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Bounciness" to="." method="_on_bounciness_pressed"]
+[connection signal="pressed" from="Control/Popup" to="." method="_on_texture_button_pressed"]
