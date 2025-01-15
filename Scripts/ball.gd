@@ -13,6 +13,7 @@ var current_trail: Trail
 var can_push: bool = true
 var damping: float = 0.98
 var max_velocity: float = current_speed
+var direction: Vector2
 
 @warning_ignore("unused_signal")
 signal bounce
@@ -23,7 +24,7 @@ func _ready() -> void:
 	# Use TAU for a full 360 degrees
 	var angle = randf() * TAU 
 	# cos(angle) gives the distance along the x-axis and sin(angle) for y-axis
-	var direction = Vector2(cos(angle), sin(angle)).normalized()
+	direction = Vector2(cos(angle), sin(angle)).normalized()
 	velocity = direction * current_speed
 
 	make_trail()

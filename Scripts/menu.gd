@@ -115,8 +115,11 @@ func _on_ball_bounce() -> void:
 
 # Bounciness upgrade
 func _on_bounciness_pressed() -> void:
-	bounciness *= bounciness_upgrade_stat_multiplier
-	bounciness_price *= bounciness_upgrade_price_multiplier
+	if game.score >= bounciness_price:
+		game.score -= bounciness_price
+		bounciness *= bounciness_upgrade_stat_multiplier
+		bounciness_price *= bounciness_upgrade_price_multiplier
+		update_price(bounciness_price_label, speed_price)
 
 # Function to update price values on labels easier
 func update_price(label: Label, price: int) -> void:
@@ -124,5 +127,8 @@ func update_price(label: Label, price: int) -> void:
 
 # Velocity upgrade
 func _on_velocity_pressed() -> void:
-	ball.max_velocity *= velocity_upgrade_stat_multiplier
-	velocity_price *= velocity_upgrade_price_multiplier
+	if game.score >= velocity_price:
+		game.score -= velocity_price
+		ball.max_velocity *= velocity_upgrade_stat_multiplier
+		velocity_price *= velocity_upgrade_price_multiplier
+		update_price(velocity_price_label, velocity_price)
