@@ -5,7 +5,6 @@ extends CharacterBody2D
 # Dont go to negative friction
 @export var friction: float = 1.0
 
-@onready var speed_stat_label: Label = $"../Control/Stats/Speed"
 @onready var velocity_stat_label: Label = $"../Control/Stats/Velocity"
 
 var current_speed = base_speed

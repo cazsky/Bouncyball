@@ -1,7 +1,6 @@
 extends Node2D
 
 # Scene nodes
-@onready var speed_label: Label = $Control/Stats/Speed
 @onready var per_bounce_label: Label = $Control/Stats/PerBounce
 @onready var score_label: Label = $Control/ScoreBox/Score
 @onready var velocity_label: Label = $Control/Stats/Velocity
@@ -22,7 +21,6 @@ func _ready() -> void:
 	speed = ball.current_speed
 	score_label.text = str("Score: ", score)
 	per_bounce_label.text = str("PerBounce: ", add)
-	speed_label.text = str("Speed: ", speed)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

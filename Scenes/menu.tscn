@@ -113,6 +113,21 @@ pivot_offset = Vector2(0, 17)
 theme_override_font_sizes/font_size = 24
 text = "Speed of ball"
 
+[node name="StatLabel" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Speed"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 50.0
+offset_right = 20.0
+offset_bottom = 100.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+vertical_alignment = 1
+
 [node name="Velocity" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
@@ -132,6 +147,21 @@ grow_vertical = 2
 pivot_offset = Vector2(0, 17)
 theme_override_font_sizes/font_size = 24
 text = "Max velocity of ball"
+
+[node name="StatLabel" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Velocity"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 50.0
+offset_right = 20.0
+offset_bottom = 100.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+vertical_alignment = 1
 
 [node name="XPGain" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
@@ -153,6 +183,21 @@ pivot_offset = Vector2(0, 17)
 theme_override_font_sizes/font_size = 24
 text = "Gain more XP per bounce"
 
+[node name="StatLabel" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/XPGain"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 50.0
+offset_right = 20.0
+offset_bottom = 100.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+vertical_alignment = 1
+
 [node name="Bounciness" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
@@ -173,6 +218,21 @@ pivot_offset = Vector2(0, 17)
 theme_override_font_sizes/font_size = 24
 text = "Add speed on bounce"
 
+[node name="StatLabel" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Bounciness"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 50.0
+offset_right = 20.0
+offset_bottom = 100.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+vertical_alignment = 1
+
 [node name="Score" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
@@ -191,6 +251,21 @@ grow_vertical = 2
 pivot_offset = Vector2(0, 17)
 theme_override_font_sizes/font_size = 24
 text = "Score gained per bounce"
+
+[node name="StatLabel" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Score"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 50.0
+offset_right = 20.0
+offset_bottom = 100.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+vertical_alignment = 1
 
 [node name="Perks" type="Control" parent="Control/TabContainer"]
 visible = false

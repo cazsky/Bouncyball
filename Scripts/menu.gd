@@ -1,21 +1,30 @@
 extends Node2D
 
+# Buttons
 @onready var speed_button: Button = $Control/TabContainer/Upgrades/GridContainer/Speed
 @onready var velocity_button: Button = $Control/TabContainer/Upgrades/GridContainer/Velocity
 @onready var xp_button: Button = $Control/TabContainer/Upgrades/GridContainer/XPGain
 @onready var bounciness_button: Button = $Control/TabContainer/Upgrades/GridContainer/Bounciness
 @onready var score_button: Button = $Control/TabContainer/Upgrades/GridContainer/Score
 
+# Price Labels
 @onready var speed_price_label: Label = $Control/TabContainer/Upgrades/VBoxContainer/SpeedPrice
 @onready var velocity_price_label: Label = $Control/TabContainer/Upgrades/VBoxContainer/VelocityPrice
 @onready var xp_price_label: Label = $Control/TabContainer/Upgrades/VBoxContainer/XPPrice
 @onready var bounciness_price_label: Label = $Control/TabContainer/Upgrades/VBoxContainer/BouncinessPrice
 @onready var score_price_label: Label = $Control/TabContainer/Upgrades/VBoxContainer/ScorePrice
 
+# Stat Labels
+@onready var speed_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/Speed/StatLabel
+@onready var max_velocity_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/Velocity/StatLabel
+@onready var xp_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/XPGain/StatLabel
+@onready var bounciness_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/Bounciness/StatLabel
+@onready var score_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/Score/StatLabel
+
+
 @onready var popup: Button = $Control/Popup
 @onready var arrow: Sprite2D = $Control/Arrow
 @onready var ball: CharacterBody2D = $"../Ball"
-@onready var speed_stat_label: Label = $"../Control/Stats/Speed"
 @onready var velocity_stat_label: Label = $"../Control/Stats/Velocity"
 @onready var game: Node2D = $"../../Game"
 
@@ -60,6 +69,8 @@ func _ready() -> void:
 	update_price(bounciness_price_label, bounciness_price)
 	update_price(score_price_label, score_price)
 	
+	update_stat(speed_stat_label, ball.current_speed, speed_upgrade_stat_multiplier)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -103,7 +114,6 @@ func _on_speed_pressed() -> void:
 		game.score -= speed_price
 		ball.current_speed *= speed_upgrade_stat_multiplier
 		ball.velocity *= speed_upgrade_stat_multiplier
-		speed_stat_label.text = str("Speed: ", roundf(ball.current_speed))
 		speed_price *= speed_upgrade_price_multiplier
 		ball.max_velocity = ball.current_speed
 		update_price(speed_price_label, speed_price)
@@ -124,6 +134,9 @@ func _on_bounciness_pressed() -> void:
 # Function to update price values on labels easier
 func update_price(label: Label, price: int) -> void:
 	label.text = str("Current Price: \n", price)
+
+func update_stat(label: Label, stat: int, multiplier: float) -> void:
+	label.text = str(stat, " -> ", stat*multiplier)
 
 # Velocity upgrade
 func _on_velocity_pressed() -> void:

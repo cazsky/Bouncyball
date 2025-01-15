@@ -65,10 +65,6 @@ offset_right = 93.0
 offset_bottom = 100.0
 theme_override_constants/separation = 20
 
-[node name="Speed" type="Label" parent="Control/Stats"]
-layout_mode = 2
-text = "Speed: "
-
 [node name="PerBounce" type="Label" parent="Control/Stats"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -106,7 +102,7 @@ offset_bottom = 8.0
 flat = true
 
 [node name="Ball" parent="." instance=ExtResource("2_iqe1k")]
-position = Vector2(402.631, 416.837)
+position = Vector2(354, 482)
 
 [node name="Border" type="StaticBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_ce1v3")
