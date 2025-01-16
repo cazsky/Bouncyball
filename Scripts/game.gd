@@ -7,9 +7,8 @@ extends Node2D
 @onready var ball: CharacterBody2D = $Ball
 
 # Init variables
-var score: int = 0
+var score: int = 100
 var add: int = 1
-var combo: int = 0
 var speed: float = 0 
 
 func _init() -> void:
