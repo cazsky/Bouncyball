@@ -43,11 +43,15 @@ const MENU_TIME: float = 0.15
 var speed_upgrade_price_multiplier: float = 1.2
 var velocity_upgrade_price_multiplier: float = 1.2
 var bounciness_upgrade_price_multiplier: float = 1.3
+var xp_upgrade_price_multiplier: float = 1.3
+var score_upgrade_price_multiplier: float = 1.5
 
 # Ball stats upgrades multipliers
 var speed_upgrade_stat_multiplier: float = 1.05
 var velocity_upgrade_stat_multiplier: float = 1.05
 var bounciness_upgrade_stat_multiplier: float = 1.2
+var xp_upgrade_stat_multiplier: float = 1.3
+var score_upgrade_stat_multiplier: float = 1.5
 
 # Initialise vars
 var is_menu_open: bool = false
@@ -63,11 +67,11 @@ var score_price: int = BASE_SCORE_PRICE
 func _ready() -> void:
 	# Connect the ball bounce signal
 	ball.bounce.connect(_on_ball_bounce)
-	update_price(speed_price_label,speed_price)
-	update_price(velocity_price_label, velocity_price)
-	update_price(xp_price_label, xp_price)
-	update_price(bounciness_price_label, bounciness_price)
-	update_price(score_price_label, score_price)
+	ball.velocity *= update_price(speed_price_label, speed_price, speed_upgrade_price_multiplier, speed_upgrade_stat_multiplier)
+	ball.max_velocity *= update_price(velocity_price_label, velocity_price, velocity_upgrade_price_multiplier, velocity_upgrade_stat_multiplier)
+	ball.xp_gain *= update_price(xp_price_label, xp_price, xp_upgrade_price_multiplier, xp_upgrade_stat_multiplier)
+	bounciness *= update_price(bounciness_price_label, bounciness_price, bounciness_upgrade_price_multiplier, bounciness_upgrade_stat_multiplier)
+	game.add *= update_price(score_price_label, score_price, score_upgrade_price_multiplier, score_upgrade_stat_multiplier)
 	
 	update_stat(speed_stat_label, ball.current_speed, speed_upgrade_stat_multiplier)
 	
@@ -110,13 +114,7 @@ func _on_texture_button_pressed() -> void:
 
 # Speed upgrade
 func _on_speed_pressed() -> void:
-	if game.score >= speed_price:
-		game.score -= speed_price
-		ball.current_speed *= speed_upgrade_stat_multiplier
-		ball.velocity *= speed_upgrade_stat_multiplier
-		speed_price *= speed_upgrade_price_multiplier
-		ball.max_velocity = ball.current_speed
-		update_price(speed_price_label, speed_price)
+	ball.velocity *= update_price(speed_price_label, speed_price, speed_upgrade_price_multiplier, speed_upgrade_stat_multiplier)
 
 
 # Bounciness effect on collide
@@ -125,23 +123,21 @@ func _on_ball_bounce() -> void:
 
 # Bounciness upgrade
 func _on_bounciness_pressed() -> void:
-	if game.score >= bounciness_price:
-		game.score -= bounciness_price
-		bounciness *= bounciness_upgrade_stat_multiplier
-		bounciness_price *= bounciness_upgrade_price_multiplier
-		update_price(bounciness_price_label, speed_price)
+	bounciness *= update_price(bounciness_price_label, bounciness_price, bounciness_upgrade_price_multiplier,  bounciness_upgrade_stat_multiplier)
 
 # Function to update price values on labels easier
-func update_price(label: Label, price: int) -> void:
+func update_price(label: Label, price: int, price_multiplier: float, stat_multiplier: float) -> float:
+	if game.score >= price:
+		game.score -= price
+		price *= price_multiplier
+		label.text = str("Current Price: \n", price)
+		return stat_multiplier
 	label.text = str("Current Price: \n", price)
+	return 1
 
 func update_stat(label: Label, stat: int, multiplier: float) -> void:
 	label.text = str(stat, " -> ", stat*multiplier)
 
 # Velocity upgrade
 func _on_velocity_pressed() -> void:
-	if game.score >= velocity_price:
-		game.score -= velocity_price
-		ball.max_velocity *= velocity_upgrade_stat_multiplier
-		velocity_price *= velocity_upgrade_price_multiplier
-		update_price(velocity_price_label, velocity_price)
+	ball.max_velocity *= update_price(velocity_price_label, velocity_price, velocity_upgrade_price_multiplier, velocity_upgrade_stat_multiplier)

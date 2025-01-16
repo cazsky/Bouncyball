@@ -13,6 +13,7 @@ var can_push: bool = true
 var damping: float = 0.98
 var max_velocity: float = current_speed
 var direction: Vector2
+var xp_gain: float = 1.0
 
 @warning_ignore("unused_signal")
 signal bounce
