@@ -11,7 +11,6 @@ var current_speed = base_speed
 var current_trail: Trail
 var can_push: bool = true
 var damping: float = 0.98
-var max_velocity: float = current_speed
 var direction: Vector2
 
 @warning_ignore("unused_signal")
@@ -35,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	# Cant set to minimum 0 or the ball will just stop i guess
-	velocity = velocity.clampf(-10000, max_velocity)
+	velocity = velocity.clampf(-10000, current_speed)
 
 	# Stop movement when velocity is near zero
 	if velocity.length() < 10:

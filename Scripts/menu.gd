@@ -111,6 +111,7 @@ func _on_texture_button_pressed() -> void:
 func _on_speed_pressed() -> void:
 	if game.score >= speed_price:
 		game.score -= speed_price
+		ball.current_speed *= speed_upgrade_stat_multiplier
 		ball.velocity *= speed_upgrade_stat_multiplier
 		speed_price *= speed_upgrade_price_multiplier
 		update_price(speed_price_label, speed_price)
