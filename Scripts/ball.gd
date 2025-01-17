@@ -33,8 +33,13 @@ func _physics_process(delta: float) -> void:
 	detect_bounce()
 	move_and_slide()
 	
+	# Apply friction while the ball has added speed from bounce
+	if velocity.length() > current_speed:
+		velocity *= pow(damping, delta * 60 * friction)
+		#velocity = velocity.normalized() * lerp(velocity.length(), current_speed, delta * friction)
+		
 	# Cant set to minimum 0 or the ball will just stop i guess
-	velocity = velocity.clampf(-10000, current_speed)
+	#velocity = velocity.clampf(-10000, current_speed)
 
 	# Stop movement when velocity is near zero
 	if velocity.length() < 10:

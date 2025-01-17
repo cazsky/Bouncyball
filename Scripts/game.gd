@@ -6,7 +6,7 @@ extends Node2D
 @onready var ball: CharacterBody2D = $Ball
 
 # Init variables
-var score: int = 100
+var score: int = 10000
 var add: int = 1
 var combo: int = 0
 

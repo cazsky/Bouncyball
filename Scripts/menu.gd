@@ -120,7 +120,9 @@ func _on_speed_pressed() -> void:
 
 # Bounciness effect on collide
 func _on_ball_bounce() -> void:
-	ball.velocity *= bounciness
+	print_debug(ball.velocity.length())
+	if snapped(ball.velocity.length(),2) <= ball.current_speed:
+		ball.velocity *= bounciness
 
 # Bounciness upgrade
 func _on_bounciness_pressed() -> void:
@@ -128,7 +130,8 @@ func _on_bounciness_pressed() -> void:
 		game.score -= bounciness_price
 		bounciness *= bounciness_upgrade_stat_multiplier
 		bounciness_price *= bounciness_upgrade_price_multiplier
-		update_price(bounciness_price_label, speed_price)
+		update_price(bounciness_price_label, bounciness_price)
+		update_stat(bounciness_stat_label, bounciness, bounciness_upgrade_stat_multiplier)
 
 # Function to update price values on labels easier
 func update_price(label: Label, price: int) -> void:
