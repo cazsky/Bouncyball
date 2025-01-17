@@ -1,7 +1,6 @@
 extends Node2D
 
 # Scene nodes
-@onready var per_bounce_label: Label = $Control/Stats/PerBounce
 @onready var score_label: Label = $Control/ScoreBox/Score
 @onready var velocity_label: Label = $Control/Stats/Velocity
 @onready var ball: CharacterBody2D = $Ball
@@ -10,7 +9,6 @@ extends Node2D
 var score: int = 0
 var add: int = 1
 var combo: int = 0
-var speed: float = 0 
 
 func _init() -> void:
 	# Randomise seed to start the game launching ball in random direction
@@ -18,9 +16,7 @@ func _init() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	speed = ball.current_speed
 	score_label.text = str("Score: ", score)
-	per_bounce_label.text = str("PerBounce: ", add)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

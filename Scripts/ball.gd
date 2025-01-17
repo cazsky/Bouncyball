@@ -55,16 +55,4 @@ func detect_bounce() -> void:
 		# Connect signal to main game to add score whenever ball bounces
 		emit_signal("bounce")
 
-# Changing from tapping game to idle game
-# We want for the ball to move a certain distance whenever the screen is tapped.
-#func _on_button_pressed() -> void:
-	## Generate a random direction
-	## TAU is 2PI, gives a random angle in radians
-	## Use TAU for a full 360 degrees
-	#var angle = randf() * TAU 
-	## cos(angle) gives the distance along the x-axis and sin(angle) for y-axis
-	#var direction = Vector2(cos(angle), sin(angle)).normalized()
-	#velocity = direction * current_speed
-	#is_moving = true
-
 	
