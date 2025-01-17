@@ -2,21 +2,21 @@ extends Node2D
 
 # Buttons
 @onready var speed_button: Button = $Control/TabContainer/Upgrades/GridContainer/Speed
-@onready var velocity_button: Button = $Control/TabContainer/Upgrades/GridContainer/Velocity
+@onready var friction_button: Button = $Control/TabContainer/Upgrades/GridContainer/Friction
 @onready var xp_button: Button = $Control/TabContainer/Upgrades/GridContainer/XPGain
 @onready var bounciness_button: Button = $Control/TabContainer/Upgrades/GridContainer/Bounciness
 @onready var score_button: Button = $Control/TabContainer/Upgrades/GridContainer/Score
 
 # Price Labels
 @onready var speed_price_label: Label = $Control/TabContainer/Upgrades/VBoxContainer/SpeedPrice
-@onready var velocity_price_label: Label = $Control/TabContainer/Upgrades/VBoxContainer/VelocityPrice
+@onready var friction_price_label: Label = $Control/TabContainer/Upgrades/VBoxContainer/FrictionPrice
 @onready var xp_price_label: Label = $Control/TabContainer/Upgrades/VBoxContainer/XPPrice
 @onready var bounciness_price_label: Label = $Control/TabContainer/Upgrades/VBoxContainer/BouncinessPrice
 @onready var score_price_label: Label = $Control/TabContainer/Upgrades/VBoxContainer/ScorePrice
 
 # Stat Labels
 @onready var speed_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/Speed/StatLabel
-@onready var max_velocity_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/Velocity/StatLabel
+@onready var friction_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/Friction/StatLabel
 @onready var xp_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/XPGain/StatLabel
 @onready var bounciness_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/Bounciness/StatLabel
 @onready var score_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/Score/StatLabel
@@ -25,12 +25,11 @@ extends Node2D
 @onready var popup: Button = $Control/Popup
 @onready var arrow: Sprite2D = $Control/Arrow
 @onready var ball: CharacterBody2D = $"../Ball"
-@onready var velocity_stat_label: Label = $"../Control/Stats/Velocity"
 @onready var game: Node2D = $"../../Game"
 
 # Base upgrade price
 const BASE_SPEED_PRICE: int = 5
-const BASE_VELOCITY_PRICE: int = 10
+const BASE_FRICTION_PRICE: int = 10
 const BASE_XP_PRICE: int = 15
 const BASE_BOUNCINESS_PRICE: int = 30
 const BASE_SCORE_PRICE: int = 50
@@ -41,19 +40,19 @@ const MENU_TIME: float = 0.15
 
 # Ball price upgrade multiplers
 var speed_upgrade_price_multiplier: float = 1.2
-var velocity_upgrade_price_multiplier: float = 1.2
+var friction_upgrade_price_multiplier: float = 1.2
 var bounciness_upgrade_price_multiplier: float = 1.3
 
 # Ball stats upgrades multipliers
 var speed_upgrade_stat_multiplier: float = 1.05
-var velocity_upgrade_stat_multiplier: float = 1.05
+var friction_upgrade_stat_multiplier: float = 1.05
 var bounciness_upgrade_stat_multiplier: float = 1.2
 
 # Initialise vars
 var is_menu_open: bool = false
 var base_bounciness: float = 1.0
 var bounciness: float = base_bounciness
-var velocity_price: int = BASE_VELOCITY_PRICE
+var friction_price: int = BASE_FRICTION_PRICE
 var speed_price: int = BASE_SPEED_PRICE
 var xp_price: int = BASE_XP_PRICE
 var bounciness_price: int = BASE_BOUNCINESS_PRICE
@@ -64,7 +63,7 @@ func _ready() -> void:
 	# Connect the ball bounce signal
 	ball.bounce.connect(_on_ball_bounce)
 	update_price(speed_price_label,speed_price)
-	update_price(velocity_price_label, velocity_price)
+	update_price(friction_price_label, friction_price)
 	update_price(xp_price_label, xp_price)
 	update_price(bounciness_price_label, bounciness_price)
 	update_price(score_price_label, score_price)
@@ -112,10 +111,8 @@ func _on_texture_button_pressed() -> void:
 func _on_speed_pressed() -> void:
 	if game.score >= speed_price:
 		game.score -= speed_price
-		ball.current_speed *= speed_upgrade_stat_multiplier
 		ball.velocity *= speed_upgrade_stat_multiplier
 		speed_price *= speed_upgrade_price_multiplier
-		ball.max_velocity = ball.current_speed
 		update_price(speed_price_label, speed_price)
 		update_stat(speed_stat_label, ball.current_speed, speed_upgrade_stat_multiplier)
 
@@ -139,10 +136,10 @@ func update_price(label: Label, price: int) -> void:
 func update_stat(label: Label, stat: int, multiplier: float) -> void:
 	label.text = str(stat, " -> ", stat*multiplier)
 
-# Velocity upgrade
-func _on_velocity_pressed() -> void:
-	if game.score >= velocity_price:
-		game.score -= velocity_price
-		ball.max_velocity *= velocity_upgrade_stat_multiplier
-		velocity_price *= velocity_upgrade_price_multiplier
-		update_price(velocity_price_label, velocity_price)
+# Friction upgrade
+func _on_friction_pressed() -> void:
+	if game.score >= friction_price:
+		game.score -= friction_price
+		ball.friction *= friction_upgrade_stat_multiplier
+		friction_price *= friction_upgrade_price_multiplier
+		update_price(friction_price_label, friction_price)
