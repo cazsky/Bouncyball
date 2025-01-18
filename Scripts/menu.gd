@@ -155,3 +155,4 @@ func _on_friction_pressed() -> void:
 		ball.friction *= friction_upgrade_stat_multiplier
 		friction_price *= friction_upgrade_price_multiplier
 		update_price(friction_price_label, friction_price)
+		update_stat(friction_stat_label, ball.friction, friction_upgrade_stat_multiplier)

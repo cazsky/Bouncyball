@@ -131,7 +131,7 @@ vertical_alignment = 1
 [node name="Friction" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-text = "Velocity"
+text = "Friction"
 
 [node name="Label" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Friction"]
 layout_mode = 1
@@ -302,6 +302,6 @@ texture = ExtResource("1_uvdmk")
 offset = Vector2(350, 10)
 
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Speed" to="." method="_on_speed_pressed"]
-[connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Friction" to="." method="_on_velocity_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Friction" to="." method="_on_friction_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Bounciness" to="." method="_on_bounciness_pressed"]
 [connection signal="pressed" from="Control/Popup" to="." method="_on_texture_button_pressed"]
