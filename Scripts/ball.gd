@@ -35,6 +35,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Apply friction while the ball has added speed from bounce
 	if velocity.length() > current_speed:
+		# Check notes for difference
 		velocity *= pow(damping, delta * 60 * friction)
 		#velocity = velocity.normalized() * lerp(velocity.length(), current_speed, delta * friction)
 		

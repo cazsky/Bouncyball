@@ -42,11 +42,15 @@ const MENU_TIME: float = 0.15
 var speed_upgrade_price_multiplier: float = 1.2
 var friction_upgrade_price_multiplier: float = 1.2
 var bounciness_upgrade_price_multiplier: float = 1.3
+var xp_upgrade_price_multiplier: float = 1.3
+var score_upgrade_price_multiplier: float = 1.3
 
 # Ball stats upgrades multipliers
 var speed_upgrade_stat_multiplier: float = 1.05
 var friction_upgrade_stat_multiplier: float = 1.05
 var bounciness_upgrade_stat_multiplier: float = 1.2
+var xp_upgrade_stat_multiplier: float = 1.2
+var score_upgrade_stat_multiplier: float = 1.2
 
 # Initialise vars
 var is_menu_open: bool = false
@@ -69,6 +73,10 @@ func _ready() -> void:
 	update_price(score_price_label, score_price)
 	
 	update_stat(speed_stat_label, ball.current_speed, speed_upgrade_stat_multiplier)
+	update_stat(friction_stat_label, ball.friction, friction_upgrade_stat_multiplier)
+	update_stat(xp_stat_label, game.xp_gain, xp_upgrade_stat_multiplier)
+	update_stat(bounciness_stat_label, bounciness, bounciness_upgrade_stat_multiplier)
+	update_stat(score_stat_label, game.add, score_upgrade_stat_multiplier)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -120,7 +128,6 @@ func _on_speed_pressed() -> void:
 
 # Bounciness effect on collide
 func _on_ball_bounce() -> void:
-	print_debug(ball.velocity.length())
 	if snapped(ball.velocity.length(),2) <= ball.current_speed:
 		ball.velocity *= bounciness
 
@@ -132,13 +139,14 @@ func _on_bounciness_pressed() -> void:
 		bounciness_price *= bounciness_upgrade_price_multiplier
 		update_price(bounciness_price_label, bounciness_price)
 		update_stat(bounciness_stat_label, bounciness, bounciness_upgrade_stat_multiplier)
+	print_debug(bounciness)
 
 # Function to update price values on labels easier
 func update_price(label: Label, price: int) -> void:
 	label.text = str("Current Price: \n", price)
 
-func update_stat(label: Label, stat: int, multiplier: float) -> void:
-	label.text = str(stat, " -> ", stat*multiplier)
+func update_stat(label: Label, stat: float, multiplier: float) -> void:
+	label.text = str(snapped(stat, 0.01), " -> ", snapped(stat*multiplier, 0.01))
 
 # Friction upgrade
 func _on_friction_pressed() -> void:
