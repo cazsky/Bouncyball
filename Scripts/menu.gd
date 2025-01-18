@@ -139,7 +139,6 @@ func _on_bounciness_pressed() -> void:
 		bounciness_price *= bounciness_upgrade_price_multiplier
 		update_price(bounciness_price_label, bounciness_price)
 		update_stat(bounciness_stat_label, bounciness, bounciness_upgrade_stat_multiplier)
-	print_debug(bounciness)
 
 # Function to update price values on labels easier
 func update_price(label: Label, price: int) -> void:
