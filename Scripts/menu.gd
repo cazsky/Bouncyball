@@ -47,7 +47,7 @@ var score_upgrade_price_multiplier: float = 1.3
 
 # Ball stats upgrades multipliers
 var speed_upgrade_stat_multiplier: float = 1.05
-var friction_upgrade_stat_multiplier: float = 1.05
+var friction_upgrade_stat_multiplier: float = 0.98
 var bounciness_upgrade_stat_multiplier: float = 1.2
 var xp_upgrade_stat_multiplier: float = 1.2
 var score_upgrade_stat_multiplier: float = 1.2
@@ -152,6 +152,8 @@ func _on_friction_pressed() -> void:
 	if game.score >= friction_price:
 		game.score -= friction_price
 		ball.friction *= friction_upgrade_stat_multiplier
+		ball.inverse_friction += 10 * ball.friction
+		print_debug(ball.inverse_friction) 
 		friction_price *= friction_upgrade_price_multiplier
 		update_price(friction_price_label, friction_price)
 		update_stat(friction_stat_label, ball.friction, friction_upgrade_stat_multiplier)

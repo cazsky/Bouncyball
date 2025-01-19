@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var base_speed: float = 350.0
 # Friction above 1 makes it stickier, closer to 0 means less sticky
 # Dont go to negative friction
-@export var friction: float = 1.0
+@export var friction: float = 2.0
 
 @onready var velocity_stat_label: Label = $"../Control/Stats/Velocity"
 
@@ -12,6 +12,7 @@ var current_trail: Trail
 var can_push: bool = true
 var damping: float = 0.98
 var direction: Vector2
+var inverse_friction: float = 0 
 
 @warning_ignore("unused_signal")
 signal bounce
@@ -34,10 +35,10 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	# Apply friction while the ball has added speed from bounce
-	if velocity.length() > current_speed:
+	if velocity.length() > current_speed + inverse_friction:
 		# Check notes for difference
-		velocity *= pow(damping, delta * 60 * friction)
-		#velocity = velocity.normalized() * lerp(velocity.length(), current_speed, delta * friction)
+		#velocity *= pow(damping, delta * 60 * friction)
+		velocity = velocity.normalized() * lerp(velocity.length(), current_speed, delta * friction)
 		
 	# Cant set to minimum 0 or the ball will just stop i guess
 	#velocity = velocity.clampf(-10000, current_speed)
