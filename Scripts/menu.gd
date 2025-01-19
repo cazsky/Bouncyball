@@ -28,9 +28,9 @@ extends Node2D
 @onready var game: Node2D = $"../../Game"
 
 # Base upgrade price
-const BASE_SPEED_PRICE: int = 5
+const BASE_SPEED_PRICE: int = 10
 const BASE_FRICTION_PRICE: int = 10
-const BASE_XP_PRICE: int = 15
+const BASE_XP_PRICE: int = 20
 const BASE_BOUNCINESS_PRICE: int = 30
 const BASE_SCORE_PRICE: int = 50
 
@@ -167,7 +167,6 @@ func _on_xp_gain_pressed() -> void:
 
 
 func _on_score_pressed() -> void:
-	print_debug(game.add)
 	if game.score >= score_price:
 		game.score -= score_price
 		game.add *= score_upgrade_stat_multiplier
