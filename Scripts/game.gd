@@ -6,8 +6,8 @@ extends Node2D
 @onready var ball: CharacterBody2D = $Ball
 
 # Init variables
-var score: int = 10000
-var add: int = 1
+var score: float = 10000
+var add: float = 1
 var combo: int = 0
 var xp_gain: float = 1.0
 
@@ -17,12 +17,12 @@ func _init() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	score_label.text = str("Score: ", score)
+	score_label.text = str("Score: ", snapped(score, 0.01))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	score_label.text = str("Score: ", score)
+	score_label.text = str("Score: ", snapped(score, 0.01))
 	velocity_label.text = str("Current velocity: ", snapped(ball.velocity.length(), 0.01))
 
 func _on_ball_bounce() -> void:

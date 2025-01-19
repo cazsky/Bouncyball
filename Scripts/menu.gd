@@ -155,3 +155,22 @@ func _on_friction_pressed() -> void:
 		friction_price *= friction_upgrade_price_multiplier
 		update_price(friction_price_label, friction_price)
 		update_stat(friction_stat_label, ball.friction, friction_upgrade_stat_multiplier)
+
+
+func _on_xp_gain_pressed() -> void:
+	if game.score >= xp_price:
+		game.score -= xp_price
+		game.xp_gain *= xp_upgrade_stat_multiplier
+		xp_price *= xp_upgrade_price_multiplier
+		update_price(xp_price_label, xp_price)
+		update_stat(xp_stat_label, game.xp_gain, xp_upgrade_stat_multiplier)
+
+
+func _on_score_pressed() -> void:
+	print_debug(game.add)
+	if game.score >= score_price:
+		game.score -= score_price
+		game.add *= score_upgrade_stat_multiplier
+		score_price *= score_upgrade_price_multiplier
+		update_price(score_price_label, score_price)
+		update_stat(score_stat_label, game.add, score_upgrade_stat_multiplier)
