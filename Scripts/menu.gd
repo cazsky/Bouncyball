@@ -56,11 +56,11 @@ var score_upgrade_stat_multiplier: float = 1.2
 var is_menu_open: bool = false
 var base_bounciness: float = 1.0
 var bounciness: float = base_bounciness
-var friction_price: int = BASE_FRICTION_PRICE
-var speed_price: int = BASE_SPEED_PRICE
-var xp_price: int = BASE_XP_PRICE
-var bounciness_price: int = BASE_BOUNCINESS_PRICE
-var score_price: int = BASE_SCORE_PRICE
+var friction_price: float = BASE_FRICTION_PRICE
+var speed_price: float = BASE_SPEED_PRICE
+var xp_price: float = BASE_XP_PRICE
+var bounciness_price: float = BASE_BOUNCINESS_PRICE
+var score_price: float = BASE_SCORE_PRICE
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -141,8 +141,8 @@ func _on_bounciness_pressed() -> void:
 		update_stat(bounciness_stat_label, bounciness, bounciness_upgrade_stat_multiplier)
 
 # Function to update price values on labels easier
-func update_price(label: Label, price: int) -> void:
-	label.text = str("Current Price: \n", price)
+func update_price(label: Label, price: float) -> void:
+	label.text = str("Current Price: \n", snapped(price,0.01))
 
 func update_stat(label: Label, stat: float, multiplier: float) -> void:
 	label.text = str(snapped(stat, 0.01), " -> ", snapped(stat*multiplier, 0.01))
