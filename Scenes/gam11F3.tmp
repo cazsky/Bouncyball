@@ -2,45 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_n0h2w"]
 [ext_resource type="PackedScene" uid="uid://5mv5pcy1k2tg" path="res://Scenes/menu.tscn" id="2_au3wm"]
+[ext_resource type="Script" path="res://Scripts/trail_effect.gd" id="2_hyanx"]
 [ext_resource type="PackedScene" uid="uid://gor1tghl876f" path="res://Scenes/ball.tscn" id="2_iqe1k"]
 [ext_resource type="Shape2D" uid="uid://bwqovvdbqora6" path="res://Scenes/horizontal_border.tres" id="3_0gjxv"]
-
-[sub_resource type="GDScript" id="GDScript_rlaeb"]
-script/source = "extends Node
-
-
-@export var line: Line2D
-@export var max_points: int = 100
-@export var point_spacing: float = 10
-
-var distance_accumulated: float = 0.0
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	if line != null:
-		line.clear_points()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if line != null:
-		var mouse_position = get_parent().global_position
-		if line.get_point_count() > 0:
-			var last_point = line.get_point_position(line.get_point_count() - 1)
-			var distance = mouse_position.distance_to(last_point)
-			distance_accumulated += distance
-		else:
-			distance_accumulated = point_spacing
-		if distance_accumulated >= point_spacing:
-			line.add_point(mouse_position)
-			distance_accumulated = 0.0
-			if line.get_point_count() > max_points:
-				line.remove_point(0)
-				
-
-		
-"
 
 [sub_resource type="LabelSettings" id="LabelSettings_yd75t"]
 font_size = 12
@@ -83,7 +47,7 @@ offset_right = 720.0
 offset_bottom = 1280.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
-script = SubResource("GDScript_rlaeb")
+script = ExtResource("2_hyanx")
 
 [node name="GameName" type="Label" parent="Control"]
 layout_mode = 1

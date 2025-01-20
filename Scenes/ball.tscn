@@ -17,6 +17,7 @@ radius = 30.0
 height = 60.0
 
 [node name="Ball" type="CharacterBody2D"]
+z_index = -2
 texture_filter = 1
 motion_mode = 1
 script = ExtResource("1_hqxyu")
