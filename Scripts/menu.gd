@@ -128,7 +128,7 @@ func _on_speed_pressed() -> void:
 
 # Bounciness effect on collide
 func _on_ball_bounce() -> void:
-	if snapped(ball.velocity.length(),2) <= ball.current_speed:
+	if snapped(ball.velocity.length(),2) <= ball.current_speed + ball.inverse_friction:
 		ball.velocity *= bounciness
 
 # Bounciness upgrade
