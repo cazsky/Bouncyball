@@ -7,7 +7,6 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_au6bg"]
-interpolation_mode = 2
 offsets = PackedFloat32Array(0, 0.671937)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 1, 1)
 
@@ -15,7 +14,6 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 1, 1)
 top_level = true
 z_index = -5
 points = PackedVector2Array(20, 12, 303, 115)
-closed = true
 width = 32.0
 width_curve = SubResource("Curve_fbdj4")
 gradient = SubResource("Gradient_au6bg")
