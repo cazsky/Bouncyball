@@ -7,6 +7,12 @@ extends CharacterBody2D
 
 @onready var velocity_stat_label: Label = $"../Control/Stats/Velocity"
 
+@export var level: int = 1
+
+var experience: float = 0
+var experience_total: float = 0
+var experience_required: int = get_required_expereience(level + 1)
+
 var current_speed = base_speed
 var current_trail: Trail
 var can_push: bool = true
@@ -61,4 +67,17 @@ func detect_bounce() -> void:
 		# Connect signal to main game to add score whenever ball bounces
 		emit_signal("bounce")
 
+func get_required_expereience(level: int) -> int:
+	return round(pow(level, 1.8) + level * 4 + 10)
+
+func gain_experience(amount: float) -> void:
+	experience_total += amount
+	experience += amount
+	while experience >= experience_required:
+		experience -= experience_required
+		level_up()
+		
+func level_up() -> void:
+	level += 1
+	experience_required = get_required_expereience(level + 1)
 	
