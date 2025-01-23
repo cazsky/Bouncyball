@@ -64,7 +64,6 @@ func make_trail() -> void:
 	
 func detect_bounce() -> void:
 	if get_last_slide_collision():
-		gain_experience(50)
 		var collision: KinematicCollision2D = get_last_slide_collision()
 		velocity = velocity.bounce(collision.get_normal())
 		# Connect signal to main game to add score whenever ball bounces
