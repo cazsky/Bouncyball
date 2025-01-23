@@ -23,6 +23,7 @@ var inverse_friction: float = 0
 
 @warning_ignore("unused_signal")
 signal bounce
+@warning_ignore("unused_signal")
 signal experience_gained(growth_data)
 
 func _ready() -> void:
@@ -69,8 +70,8 @@ func detect_bounce() -> void:
 		# Connect signal to main game to add score whenever ball bounces
 		emit_signal("bounce")
 
-func get_required_expereience(level: int) -> int:
-	return round(pow(level, 1.8) + level * 4 + 10)
+func get_required_expereience(lvl: int) -> int:
+	return round(pow(lvl, 1.8) + lvl * 4 + 10)
 
 func gain_experience(amount: float) -> void:
 	experience_total += amount

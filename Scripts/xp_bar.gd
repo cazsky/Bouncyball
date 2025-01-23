@@ -1,7 +1,6 @@
 extends TextureProgressBar
 
 @onready var label: Label = $Label
-@onready var ball: CharacterBody2D = $Ball
 
 func initialise(current, maximum) -> void:
 	max_value = maximum
