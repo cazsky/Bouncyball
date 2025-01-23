@@ -24,7 +24,7 @@ func _on_ball_experience_gained(growth_data: Variant) -> void:
 		if abs(value - max_value) < 0.01:
 			value = min_value
 		
-func animate_value(target, tween_duration=0.2) -> void:
+func animate_value(target, tween_duration=0.1) -> void:
 	var tw := get_tree().create_tween()
 	tw.tween_property(self, "value", target, tween_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	await tw.finished
