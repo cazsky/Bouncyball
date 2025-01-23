@@ -9,6 +9,7 @@ extends CharacterBody2D
 
 @export var level: int = 1
 
+
 var experience: float = 0
 var experience_total: float = 0
 var experience_required: int = get_required_expereience(level + 1)
@@ -22,6 +23,7 @@ var inverse_friction: float = 0
 
 @warning_ignore("unused_signal")
 signal bounce
+signal experience_gained(growth_data)
 
 func _ready() -> void:
 	# Generate a random direction
@@ -62,6 +64,7 @@ func make_trail() -> void:
 	
 func detect_bounce() -> void:
 	if get_last_slide_collision():
+		gain_experience(50)
 		var collision: KinematicCollision2D = get_last_slide_collision()
 		velocity = velocity.bounce(collision.get_normal())
 		# Connect signal to main game to add score whenever ball bounces
@@ -73,9 +76,13 @@ func get_required_expereience(level: int) -> int:
 func gain_experience(amount: float) -> void:
 	experience_total += amount
 	experience += amount
+	var growth_data = []
 	while experience >= experience_required:
 		experience -= experience_required
+		growth_data.append([experience_required, experience_required])
 		level_up()
+	growth_data.append([experience, experience_required])
+	emit_signal("experience_gained", growth_data)
 		
 func level_up() -> void:
 	level += 1
