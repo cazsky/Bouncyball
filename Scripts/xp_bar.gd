@@ -1,14 +1,16 @@
 extends TextureProgressBar
 
+@onready var label: Label = $Label
+@onready var ball: CharacterBody2D = $Ball
 
 func initialise(current, maximum) -> void:
 	max_value = maximum
 	value = current
+	label.text = str(value, " / ", max_value)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -20,9 +22,11 @@ func _on_ball_experience_gained(growth_data: Variant) -> void:
 		var target_experience = line[0]
 		var max_experience = line[1]
 		max_value = max_experience
+		label.text = str(target_experience, " / ", max_experience)
 		await animate_value(target_experience)
 		if abs(value - max_value) < 0.01:
 			value = min_value
+	
 		
 func animate_value(target, tween_duration=0.1) -> void:
 	var tw := get_tree().create_tween()
