@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjc1b3aal4l0l"
-path="res://.godot/imported/Neon Tiles.png-ce54bc217146011ba37a36926563991f.ctex"
+uid="uid://qgh2hwgbl4hg"
+path="res://.godot/imported/tile_0604 (2).png-6fb223fc4fef4459823ee0d190d1faa4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Neon Tiles.png"
-dest_files=["res://.godot/imported/Neon Tiles.png-ce54bc217146011ba37a36926563991f.ctex"]
+source_file="res://Sprites/tile_0604 (2).png"
+dest_files=["res://.godot/imported/tile_0604 (2).png-6fb223fc4fef4459823ee0d190d1faa4.ctex"]
 
 [params]
 
