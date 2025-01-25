@@ -151,3 +151,4 @@ position = Vector2(0, 1180)
 
 [connection signal="bounce" from="Ball" to="." method="_on_ball_bounce"]
 [connection signal="experience_gained" from="Ball" to="Control/xp_bar" method="_on_ball_experience_gained"]
+[connection signal="levelled_up" from="Ball" to="." method="_on_ball_levelled_up"]

@@ -7,7 +7,7 @@ extends Node2D
 @onready var xp_bar: TextureProgressBar = $Control/xp_bar
 
 # Init variables
-var score: float = 100000000
+var score: float = 0
 var add: float = 1
 var combo: int = 0
 var xp_gain: float = 5.0
@@ -30,3 +30,7 @@ func _process(delta: float) -> void:
 func _on_ball_bounce() -> void:
 	ball.gain_experience(xp_gain)
 	score += add
+
+
+func _on_ball_levelled_up() -> void:
+	score += 10
