@@ -52,3 +52,6 @@ func display_level_up_text() -> void:
 	tw.set_parallel()
 	tw.tween_property(level_up_text, "modulate:a", 1, 0.2)
 	tw.tween_property(level_up_text, "global_position", target_position, 0.4)
+	await tw.finished
+	await get_tree().create_timer(0.5).timeout
+	xp_bar.remove_child(level_up_text)
