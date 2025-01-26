@@ -26,7 +26,7 @@ signal bounce
 @warning_ignore("unused_signal")
 signal experience_gained(growth_data)
 @warning_ignore("unused_signal")
-signal levelled_up
+signal levelled_up(level)
 
 func _ready() -> void:
 	# Generate a random direction
@@ -89,5 +89,5 @@ func gain_experience(amount: float) -> void:
 func level_up() -> void:
 	level += 1
 	experience_required = get_required_expereience(level + 1)
-	emit_signal("levelled_up")
+	emit_signal("levelled_up", level)
 	

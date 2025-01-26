@@ -1,6 +1,8 @@
 extends TextureProgressBar
 
 @onready var label: Label = $Label
+@onready var level_label: Label = $level
+@onready var ball: CharacterBody2D = $"../../Ball"
 
 func initialise(current, maximum) -> void:
 	max_value = maximum
@@ -9,7 +11,8 @@ func initialise(current, maximum) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	level_label.text = str(ball.level, " ")
+	ball.levelled_up.connect(_on_ball_levelled_up)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -31,3 +34,6 @@ func animate_value(target, tween_duration=0.1) -> void:
 	var tw := get_tree().create_tween()
 	tw.tween_property(self, "value", target, tween_duration).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	await tw.finished
+	
+func _on_ball_levelled_up(level: int) -> void:
+	level_label.text = str(level, " ")

@@ -283,12 +283,13 @@ pivot_offset = Vector2(175, 0)
 theme_override_constants/h_separation = 150
 theme_override_constants/v_separation = 100
 
-[node name="Burst" type="Button" parent="Control/TabContainer/Perks/GridContainer"]
+[node name="Double_Speed" type="Button" parent="Control/TabContainer/Perks/GridContainer"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
-text = "Burst"
+text = "Double
+Speed"
 
-[node name="Label" type="Label" parent="Control/TabContainer/Perks/GridContainer/Burst"]
+[node name="Label" type="Label" parent="Control/TabContainer/Perks/GridContainer/Double_Speed"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -297,13 +298,12 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 59.0
 offset_right = 390.0
-grow_horizontal = 0
 grow_vertical = 2
 pivot_offset = Vector2(0, 17)
 theme_override_font_sizes/font_size = 24
-text = "Burst of speed "
+text = "Doubles max speed for 1 minute"
 
-[node name="StatLabel" type="Label" parent="Control/TabContainer/Perks/GridContainer/Burst"]
+[node name="StatLabel" type="Label" parent="Control/TabContainer/Perks/GridContainer/Double_Speed"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -539,7 +539,7 @@ offset = Vector2(350, 10)
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/XPGain" to="." method="_on_xp_gain_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Score" to="." method="_on_score_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Friction" to="." method="_on_friction_pressed"]
-[connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Burst" to="." method="_on_speed_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Speed" to="." method="_on_speed_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Score" to="." method="_on_bounciness_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_XP" to="." method="_on_xp_gain_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Score" to="." method="_on_score_pressed"]

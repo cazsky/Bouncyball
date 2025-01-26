@@ -33,7 +33,7 @@ func _on_ball_bounce() -> void:
 	score += add
 
 
-func _on_ball_levelled_up() -> void:
+func _on_ball_levelled_up(_level: int) -> void:
 	score += 10
 	display_level_up_text()
 
