@@ -8,7 +8,7 @@ extends Node2D
 #@onready var level_up_text: Label = $Control/xp_bar/level_up_text
 
 # Init variables
-var score: float = 0
+var score: float = 50
 var add: float = 1
 var combo: int = 0
 var xp_gain: float = 20.0

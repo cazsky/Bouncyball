@@ -25,10 +25,9 @@ grow_vertical = 2
 focus_mode = 2
 mouse_filter = 2
 tab_alignment = 1
-current_tab = 1
+current_tab = 0
 
 [node name="Upgrades" type="Control" parent="Control/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -268,6 +267,7 @@ theme_override_font_sizes/font_size = 32
 vertical_alignment = 1
 
 [node name="Perks" type="Control" parent="Control/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -539,9 +539,6 @@ offset = Vector2(350, 10)
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/XPGain" to="." method="_on_xp_gain_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Score" to="." method="_on_score_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Friction" to="." method="_on_friction_pressed"]
-[connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Speed" to="." method="_on_speed_pressed"]
-[connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Score" to="." method="_on_bounciness_pressed"]
-[connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_XP" to="." method="_on_xp_gain_pressed"]
-[connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Score" to="." method="_on_score_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Speed" to="." method="_on_double_speed_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Friction" to="." method="_on_friction_pressed"]
 [connection signal="pressed" from="Control/Popup" to="." method="_on_texture_button_pressed"]

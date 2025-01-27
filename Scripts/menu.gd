@@ -175,3 +175,23 @@ func _on_score_pressed() -> void:
 		score_price *= score_upgrade_price_multiplier
 		update_price(score_price_label, score_price)
 		update_stat(score_stat_label, game.add, score_upgrade_stat_multiplier)
+
+
+func _on_double_speed_pressed() -> void:
+	ball.velocity *= 2
+	ball.current_speed *= 2
+	await get_tree().create_timer(60).timeout
+	ball.current_speed /= 2
+	
+
+# ???
+func can_upgrade(price: float, stat, stat_multiplier: float, price_multiplier: float, price_label: Label, stat_label: Label) -> bool:
+	if game.score < price:
+		return false
+	else:
+		game.score -= price
+		stat *= stat_multiplier
+		price *= price_multiplier
+		#update_price(price_label, price)
+		#update_stat(stat_label, stat, stat_multiplier)
+		return true
