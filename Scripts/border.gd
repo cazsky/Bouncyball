@@ -23,7 +23,7 @@ var thickness: float
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# This formula caps at 700mil
-	thickness = snapped(ball.current_speed/DIFFERENCE,10) + 30
+	thickness = pow(snapped(ball.current_speed/DIFFERENCE,10),2) + 30
 	set_horizontal_border()
 	set_vertical_border()
 	

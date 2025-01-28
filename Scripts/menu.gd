@@ -135,6 +135,7 @@ func _on_speed_pressed() -> void:
 func _on_ball_bounce() -> void:
 	if snapped(ball.velocity.length(),2) <= ball.current_speed + ball.inverse_friction:
 		ball.velocity *= bounciness
+		emit_signal("velocity_changed", ball.velocity)
 
 # Bounciness upgrade
 func _on_bounciness_pressed() -> void:
