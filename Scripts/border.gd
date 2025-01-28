@@ -28,7 +28,7 @@ func _ready() -> void:
 	set_vertical_border()
 	
 func set_horizontal_border() -> void:
-	horizontal_rect.size = Vector2(width, thickness)
+	horizontal_rect.size = Vector2(width + thickness*2, thickness)
 	top_border.shape = horizontal_rect
 	top_border.global_position = Vector2(width/2, -thickness/2)
 	bottom_border.shape = horizontal_rect
@@ -44,5 +44,7 @@ func set_vertical_border() -> void:
 
 func _on_menu_velocity_changed(current_speed: float) -> void:
 	thickness = snapped(current_speed/DIFFERENCE,10) + 30
+	print_debug(thickness)
 	set_horizontal_border()
+	print_debug(horizontal_rect.size)
 	set_vertical_border()
