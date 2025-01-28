@@ -62,6 +62,10 @@ var xp_price: float = BASE_XP_PRICE
 var bounciness_price: float = BASE_BOUNCINESS_PRICE
 var score_price: float = BASE_SCORE_PRICE
 
+# Signals
+signal velocity_changed
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Connect the ball bounce signal
@@ -124,6 +128,7 @@ func _on_speed_pressed() -> void:
 		speed_price *= speed_upgrade_price_multiplier
 		update_price(speed_price_label, speed_price)
 		update_stat(speed_stat_label, ball.current_speed, speed_upgrade_stat_multiplier)
+		emit_signal("velocity_changed", ball.current_speed)
 
 
 # Bounciness effect on collide
@@ -180,8 +185,10 @@ func _on_score_pressed() -> void:
 func _on_double_speed_pressed() -> void:
 	ball.velocity *= 2
 	ball.current_speed *= 2
+	emit_signal("velocity_changed", ball.current_speed)
 	await get_tree().create_timer(60).timeout
 	ball.current_speed /= 2
+	emit_signal("velocity_changed", ball.current_speed)
 	
 
 # ???

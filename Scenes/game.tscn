@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://2edwhbltk0kg"]
+[gd_scene load_steps=13 format=3 uid="uid://2edwhbltk0kg"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_n0h2w"]
 [ext_resource type="PackedScene" uid="uid://5mv5pcy1k2tg" path="res://Scenes/menu.tscn" id="2_au3wm"]
 [ext_resource type="PackedScene" uid="uid://gor1tghl876f" path="res://Scenes/ball.tscn" id="2_iqe1k"]
 [ext_resource type="PackedScene" uid="uid://fjfbecm0ff1n" path="res://Scenes/xp_bar.tscn" id="2_qb754"]
+[ext_resource type="Script" path="res://Scripts/border.gd" id="4_2w6me"]
 [ext_resource type="Shape2D" uid="uid://gwc2tflbixj4" path="res://Scenes/rectangle_border.tres" id="4_moxe7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yd75t"]
@@ -97,6 +98,7 @@ position = Vector2(354, 482)
 
 [node name="Border" type="StaticBody2D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_ce1v3")
+script = ExtResource("4_2w6me")
 
 [node name="TopBorder" type="CollisionShape2D" parent="Border"]
 position = Vector2(360, -15)
@@ -152,3 +154,4 @@ position = Vector2(0, 1180)
 [connection signal="bounce" from="Ball" to="." method="_on_ball_bounce"]
 [connection signal="experience_gained" from="Ball" to="Control/xp_bar" method="_on_ball_experience_gained"]
 [connection signal="levelled_up" from="Ball" to="." method="_on_ball_levelled_up"]
+[connection signal="velocity_changed" from="Menu" to="Border" method="_on_menu_velocity_changed"]
