@@ -15,7 +15,7 @@ func _ready() -> void:
 	ball.levelled_up.connect(_on_ball_levelled_up)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 

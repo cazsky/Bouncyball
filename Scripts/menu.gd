@@ -63,6 +63,7 @@ var bounciness_price: float = BASE_BOUNCINESS_PRICE
 var score_price: float = BASE_SCORE_PRICE
 
 # Signals
+@warning_ignore("unused_signal")
 signal velocity_changed
 
 
@@ -83,7 +84,7 @@ func _ready() -> void:
 	update_stat(score_stat_label, game.add, score_upgrade_stat_multiplier)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
 	
@@ -135,7 +136,7 @@ func _on_speed_pressed() -> void:
 func _on_ball_bounce() -> void:
 	if snapped(ball.velocity.length(),2) <= ball.current_speed + ball.inverse_friction:
 		ball.velocity *= bounciness
-		emit_signal("velocity_changed", ball.velocity)
+		emit_signal("velocity_changed", ball.velocity.length())
 
 # Bounciness upgrade
 func _on_bounciness_pressed() -> void:
