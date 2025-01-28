@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3oy3s6hqw1b4"]
+
+[ext_resource type="Script" path="res://Scripts/trail_2.gd" id="1_eurhb"]
+
+[sub_resource type="Curve" id="Curve_sm8wr"]
+bake_resolution = 1000
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_pkx17"]
+offsets = PackedFloat32Array(0.0118577, 1)
+colors = PackedColorArray(0, 0, 1, 1, 1, 1, 0.113725, 1)
+
+[node name="trail2" type="Line2D"]
+show_behind_parent = true
+top_level = true
+z_index = -5
+width = 33.015
+width_curve = SubResource("Curve_sm8wr")
+gradient = SubResource("Gradient_pkx17")
+script = ExtResource("1_eurhb")

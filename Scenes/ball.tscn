@@ -30,7 +30,6 @@ shape = SubResource("CapsuleShape2D_yupbf")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 visible = false
-position = Vector2(152.773, 92.9329)
 emission_shape = 1
 emission_sphere_radius = 0.01
 scale_amount_max = 10.0
