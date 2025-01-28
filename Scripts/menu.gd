@@ -159,8 +159,8 @@ func _on_friction_pressed() -> void:
 	if game.score >= friction_price:
 		game.score -= friction_price
 		ball.friction *= friction_upgrade_stat_multiplier
+		# Increase kinda ok
 		ball.inverse_friction += pow(10 + (0.25 * friction_price), ball.friction)
-		print_debug(ball.inverse_friction)
 		friction_price *= friction_upgrade_price_multiplier
 		update_price(friction_price_label, friction_price)
 		update_stat(friction_stat_label, ball.friction, friction_upgrade_stat_multiplier)

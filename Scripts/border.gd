@@ -44,7 +44,5 @@ func set_vertical_border() -> void:
 
 func _on_menu_velocity_changed(current_speed: float) -> void:
 	thickness = snapped(current_speed/DIFFERENCE,10) + 30
-	print_debug(thickness)
 	set_horizontal_border()
-	print_debug(horizontal_rect.size)
 	set_vertical_border()
