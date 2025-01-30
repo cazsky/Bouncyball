@@ -60,8 +60,6 @@ signal velocity_changed
 func _ready() -> void:
 	# Connect the ball bounce signal
 	ball.bounce.connect(_on_ball_bounce)
-	#speed_button.update_price(speed_price)
-	#speed_button.update_stat(ball.current_speed, speed_upgrade_stat_multiplier)
 	speed_button.update_label(ball.current_speed, speed_upgrade_stat_multiplier, speed_price)
 	bounciness_button.update_label(bounciness, bounciness_upgrade_stat_multiplier, bounciness_price)
 	xp_button.update_label(game.xp_gain, xp_upgrade_stat_multiplier, xp_price)

@@ -18,5 +18,4 @@ radius = 15.0
 texture = SubResource("GradientTexture2D_nsxiq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CircleShape2D_hcdgv")
