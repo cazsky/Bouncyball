@@ -67,7 +67,8 @@ label_text = "Score gained per bounce"
 [node name="Friction" parent="Control/TabContainer/Upgrades/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
 text = "Friction"
-label_text = "Decreases friction after bounce"
+label_text = "Decreases friction after 
+bounce"
 
 [node name="Perks" type="Control" parent="Control/TabContainer"]
 visible = false
@@ -343,5 +344,4 @@ offset = Vector2(350, 10)
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Score" to="." method="_on_score_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Friction" to="." method="_on_friction_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Speed" to="." method="_on_double_speed_pressed"]
-[connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Friction" to="." method="_on_friction_pressed"]
 [connection signal="pressed" from="Control/Popup" to="." method="_on_texture_button_pressed"]
