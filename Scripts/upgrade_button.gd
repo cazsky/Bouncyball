@@ -12,9 +12,7 @@ class_name UpgradeButton
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	label.text = label_text
-	
-func update_stat(stat: float, multiplier: float) -> void:
-	stat_label.text = str(snapped(stat, 0.01), " -> ", snapped(stat*multiplier, 0.01))
 
-func update_price(price: float) -> void:
-	price_label.text = str("Current Price: \n", snapped(price,0.01))
+func update_label(stat: float, multiplier: float, price: float) -> void:
+		stat_label.text = str(snapped(stat, 0.01), " -> ", snapped(stat*multiplier, 0.01))
+		price_label.text = str("Current Price: \n", snapped(price,0.01))

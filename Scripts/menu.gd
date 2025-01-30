@@ -2,22 +2,10 @@ extends Node2D
 
 # Buttons
 @onready var speed_button: UpgradeButton = $Control/TabContainer/Upgrades/GridContainer/Speed
-@onready var friction_button: Button = $Control/TabContainer/Upgrades/GridContainer/Friction
-@onready var xp_button: Button = $Control/TabContainer/Upgrades/GridContainer/XPGain
-@onready var bounciness_button: Button = $Control/TabContainer/Upgrades/GridContainer/Bounciness
-@onready var score_button: Button = $Control/TabContainer/Upgrades/GridContainer/Score
-
-# Price Labels
-@onready var friction_price_label: Label = $Control/TabContainer/Upgrades/VBoxContainer/FrictionPrice
-@onready var xp_price_label: Label = $Control/TabContainer/Upgrades/VBoxContainer/XPPrice
-@onready var bounciness_price_label: Label = $Control/TabContainer/Upgrades/VBoxContainer/BouncinessPrice
-@onready var score_price_label: Label = $Control/TabContainer/Upgrades/VBoxContainer/ScorePrice
-
-# Stat Labels
-@onready var friction_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/Friction/StatLabel
-@onready var xp_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/XPGain/StatLabel
-@onready var bounciness_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/Bounciness/StatLabel
-@onready var score_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/Score/StatLabel
+@onready var friction_button: UpgradeButton = $Control/TabContainer/Upgrades/GridContainer/Friction
+@onready var xp_button: UpgradeButton = $Control/TabContainer/Upgrades/GridContainer/XPGain
+@onready var bounciness_button: UpgradeButton = $Control/TabContainer/Upgrades/GridContainer/Bounciness
+@onready var score_button: UpgradeButton = $Control/TabContainer/Upgrades/GridContainer/Score
 
 @onready var popup: Button = $Control/Popup
 @onready var arrow: Sprite2D = $Control/Arrow
@@ -72,17 +60,14 @@ signal velocity_changed
 func _ready() -> void:
 	# Connect the ball bounce signal
 	ball.bounce.connect(_on_ball_bounce)
-	speed_button.update_price(speed_price)
-	speed_button.update_stat(ball.current_speed, speed_upgrade_stat_multiplier)
-	update_price(friction_price_label, friction_price)
-	update_price(xp_price_label, xp_price)
-	update_price(bounciness_price_label, bounciness_price)
-	update_price(score_price_label, score_price)
+	#speed_button.update_price(speed_price)
+	#speed_button.update_stat(ball.current_speed, speed_upgrade_stat_multiplier)
+	speed_button.update_label(ball.current_speed, speed_upgrade_stat_multiplier, speed_price)
+	bounciness_button.update_label(bounciness, bounciness_upgrade_stat_multiplier, bounciness_price)
+	xp_button.update_label(game.xp_gain, xp_upgrade_stat_multiplier, xp_price)
+	score_button.update_label(game.add, score_upgrade_stat_multiplier, score_price)
+	friction_button.update_label(ball.friction, friction_upgrade_stat_multiplier, friction_price)
 	
-	update_stat(friction_stat_label, ball.friction, friction_upgrade_stat_multiplier)
-	update_stat(xp_stat_label, game.xp_gain, xp_upgrade_stat_multiplier)
-	update_stat(bounciness_stat_label, bounciness, bounciness_upgrade_stat_multiplier)
-	update_stat(score_stat_label, game.add, score_upgrade_stat_multiplier)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -129,10 +114,7 @@ func _on_speed_pressed() -> void:
 		ball.current_speed *= speed_upgrade_stat_multiplier
 		ball.velocity *= speed_upgrade_stat_multiplier
 		speed_price *= speed_upgrade_price_multiplier
-		speed_button.update_price(speed_price)
-		speed_button.update_stat(ball.current_speed, speed_upgrade_stat_multiplier)
-		#update_price(speed_price_label, speed_price)
-		#update_stat(speed_button.stat_label, ball.current_speed, speed_upgrade_stat_multiplier)
+		speed_button.update_label(ball.current_speed, speed_upgrade_stat_multiplier, speed_price)
 		emit_signal("velocity_changed", ball.current_speed)
 
 
@@ -148,10 +130,9 @@ func _on_bounciness_pressed() -> void:
 		game.score -= bounciness_price
 		bounciness *= bounciness_upgrade_stat_multiplier
 		bounciness_price *= bounciness_upgrade_price_multiplier
-		update_price(bounciness_price_label, bounciness_price)
-		update_stat(bounciness_stat_label, bounciness, bounciness_upgrade_stat_multiplier)
+		bounciness_button.update_label(bounciness, bounciness_upgrade_stat_multiplier, bounciness_price)
 
-# Function to update price values on labels easier
+# Function to update price values on labels easier	
 func update_price(label: Label, price: float) -> void:
 	label.text = str("Current Price: \n", snapped(price,0.01))
 
@@ -166,8 +147,7 @@ func _on_friction_pressed() -> void:
 		# Increase kinda ok
 		ball.inverse_friction += pow(10 + (0.25 * friction_price), ball.friction)
 		friction_price *= friction_upgrade_price_multiplier
-		update_price(friction_price_label, friction_price)
-		update_stat(friction_stat_label, ball.friction, friction_upgrade_stat_multiplier)
+		friction_button.update_label(ball.friction, friction_upgrade_stat_multiplier, friction_price)
 
 
 func _on_xp_gain_pressed() -> void:
@@ -175,8 +155,7 @@ func _on_xp_gain_pressed() -> void:
 		game.score -= xp_price
 		game.xp_gain *= xp_upgrade_stat_multiplier
 		xp_price *= xp_upgrade_price_multiplier
-		update_price(xp_price_label, xp_price)
-		update_stat(xp_stat_label, game.xp_gain, xp_upgrade_stat_multiplier)
+		xp_button.update_label(game.xp_gain, xp_upgrade_stat_multiplier, xp_price)
 
 
 func _on_score_pressed() -> void:
@@ -184,8 +163,7 @@ func _on_score_pressed() -> void:
 		game.score -= score_price
 		game.add *= score_upgrade_stat_multiplier
 		score_price *= score_upgrade_price_multiplier
-		update_price(score_price_label, score_price)
-		update_stat(score_stat_label, game.add, score_upgrade_stat_multiplier)
+		score_button.update_label(game.add, score_upgrade_stat_multiplier, score_price)
 
 
 func _on_double_speed_pressed() -> void:
