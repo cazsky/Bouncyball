@@ -1,7 +1,8 @@
 extends Node2D
 
 # Buttons
-@onready var speed_button: Button = $Control/TabContainer/Upgrades/GridContainer/Speed
+#@onready var speed_button: Button = $Control/TabContainer/Upgrades/GridContainer/Speed
+@onready var speed_button: UpgradeButton = $Control/TabContainer/Upgrades/GridContainer/Speed
 @onready var friction_button: Button = $Control/TabContainer/Upgrades/GridContainer/Friction
 @onready var xp_button: Button = $Control/TabContainer/Upgrades/GridContainer/XPGain
 @onready var bounciness_button: Button = $Control/TabContainer/Upgrades/GridContainer/Bounciness
@@ -15,12 +16,11 @@ extends Node2D
 @onready var score_price_label: Label = $Control/TabContainer/Upgrades/VBoxContainer/ScorePrice
 
 # Stat Labels
-@onready var speed_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/Speed/StatLabel
+#@onready var speed_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/Speed/StatLabel
 @onready var friction_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/Friction/StatLabel
 @onready var xp_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/XPGain/StatLabel
 @onready var bounciness_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/Bounciness/StatLabel
 @onready var score_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/Score/StatLabel
-
 
 @onready var popup: Button = $Control/Popup
 @onready var arrow: Sprite2D = $Control/Arrow
@@ -81,7 +81,7 @@ func _ready() -> void:
 	update_price(bounciness_price_label, bounciness_price)
 	update_price(score_price_label, score_price)
 	
-	update_stat(speed_stat_label, ball.current_speed, speed_upgrade_stat_multiplier)
+	update_stat(speed_button.stat_label, ball.current_speed, speed_upgrade_stat_multiplier)
 	update_stat(friction_stat_label, ball.friction, friction_upgrade_stat_multiplier)
 	update_stat(xp_stat_label, game.xp_gain, xp_upgrade_stat_multiplier)
 	update_stat(bounciness_stat_label, bounciness, bounciness_upgrade_stat_multiplier)
@@ -131,8 +131,22 @@ func _on_speed_pressed() -> void:
 		ball.current_speed *= speed_upgrade_stat_multiplier
 		ball.velocity *= speed_upgrade_stat_multiplier
 		speed_price *= speed_upgrade_price_multiplier
+		speed_button.update_price(speed_price)
+		speed_button.update_stat(ball.current_speed, speed_upgrade_stat_multiplier)
+		#update_price(speed_price_label, speed_price)
+		#update_stat(speed_button.stat_label, ball.current_speed, speed_upgrade_stat_multiplier)
+		emit_signal("velocity_changed", ball.current_speed)
+
+func _on_speed2_pressed() -> void:
+	if game.score >= speed_price:
+		game.score -= speed_price
+		ball.current_speed *= speed_upgrade_stat_multiplier
+		ball.velocity *= speed_upgrade_stat_multiplier
+		speed_price *= speed_upgrade_price_multiplier
+		#speed_button.update_price(speed_price)
+		speed_button.update_stat(ball.current_speed, speed_upgrade_stat_multiplier)
 		update_price(speed_price_label, speed_price)
-		update_stat(speed_stat_label, ball.current_speed, speed_upgrade_stat_multiplier)
+		#update_stat(speed_button.stat_label, ball.current_speed, speed_upgrade_stat_multiplier)
 		emit_signal("velocity_changed", ball.current_speed)
 
 

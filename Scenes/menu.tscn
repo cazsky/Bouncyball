@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://5mv5pcy1k2tg"]
+[gd_scene load_steps=4 format=3 uid="uid://5mv5pcy1k2tg"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_5y3mv"]
+[ext_resource type="PackedScene" uid="uid://c0ysgqsg6bis3" path="res://Scenes/upgrade_button.tscn" id="2_8dn8m"]
 [ext_resource type="Texture2D" uid="uid://qgh2hwgbl4hg" path="res://Sprites/tile_0604 (2).png" id="2_a8udu"]
 
 [node name="Menu" type="Node2D"]
@@ -92,13 +93,19 @@ pivot_offset = Vector2(175, 0)
 theme_override_constants/h_separation = 150
 theme_override_constants/v_separation = 100
 
-[node name="Speed" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
+[node name="Speed" parent="Control/TabContainer/Upgrades/GridContainer" instance=ExtResource("2_8dn8m")]
+layout_mode = 2
+text = "Speed"
+label_text = "Speed of ball"
+
+[node name="Speed3" type="Button" parent="Control/TabContainer/Upgrades/GridContainer"]
+visible = false
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 text = "Speed
 "
 
-[node name="Label" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Speed"]
+[node name="Label" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Speed3"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -113,7 +120,7 @@ pivot_offset = Vector2(0, 17)
 theme_override_font_sizes/font_size = 24
 text = "Speed of ball"
 
-[node name="StatLabel" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Speed"]
+[node name="StatLabel" type="Label" parent="Control/TabContainer/Upgrades/GridContainer/Speed3"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -534,7 +541,8 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_a8udu")
 offset = Vector2(350, 10)
 
-[connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Speed" to="." method="_on_speed_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Speed" to="." method="_on_speed2_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Speed3" to="." method="_on_speed_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Bounciness" to="." method="_on_bounciness_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/XPGain" to="." method="_on_xp_gain_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Score" to="." method="_on_score_pressed"]
