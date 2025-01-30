@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://vjcg5lifm6nx"]
+
+[sub_resource type="Gradient" id="Gradient_4s5ts"]
+offsets = PackedFloat32Array(0.330739, 0.346303)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nsxiq"]
+gradient = SubResource("Gradient_4s5ts")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hcdgv"]
+radius = 15.0
+
+[node name="pin_ball" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_nsxiq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hcdgv")
