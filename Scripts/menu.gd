@@ -1,7 +1,6 @@
 extends Node2D
 
 # Buttons
-#@onready var speed_button: Button = $Control/TabContainer/Upgrades/GridContainer/Speed
 @onready var speed_button: UpgradeButton = $Control/TabContainer/Upgrades/GridContainer/Speed
 @onready var friction_button: Button = $Control/TabContainer/Upgrades/GridContainer/Friction
 @onready var xp_button: Button = $Control/TabContainer/Upgrades/GridContainer/XPGain
@@ -9,14 +8,12 @@ extends Node2D
 @onready var score_button: Button = $Control/TabContainer/Upgrades/GridContainer/Score
 
 # Price Labels
-@onready var speed_price_label: Label = $Control/TabContainer/Upgrades/VBoxContainer/SpeedPrice
 @onready var friction_price_label: Label = $Control/TabContainer/Upgrades/VBoxContainer/FrictionPrice
 @onready var xp_price_label: Label = $Control/TabContainer/Upgrades/VBoxContainer/XPPrice
 @onready var bounciness_price_label: Label = $Control/TabContainer/Upgrades/VBoxContainer/BouncinessPrice
 @onready var score_price_label: Label = $Control/TabContainer/Upgrades/VBoxContainer/ScorePrice
 
 # Stat Labels
-#@onready var speed_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/Speed/StatLabel
 @onready var friction_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/Friction/StatLabel
 @onready var xp_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/XPGain/StatLabel
 @onready var bounciness_stat_label: Label = $Control/TabContainer/Upgrades/GridContainer/Bounciness/StatLabel
@@ -75,7 +72,7 @@ signal velocity_changed
 func _ready() -> void:
 	# Connect the ball bounce signal
 	ball.bounce.connect(_on_ball_bounce)
-	update_price(speed_price_label,speed_price)
+	speed_button.update_price(speed_price)
 	update_price(friction_price_label, friction_price)
 	update_price(xp_price_label, xp_price)
 	update_price(bounciness_price_label, bounciness_price)
@@ -143,9 +140,9 @@ func _on_speed2_pressed() -> void:
 		ball.current_speed *= speed_upgrade_stat_multiplier
 		ball.velocity *= speed_upgrade_stat_multiplier
 		speed_price *= speed_upgrade_price_multiplier
-		#speed_button.update_price(speed_price)
+		speed_button.update_price(speed_price)
 		speed_button.update_stat(ball.current_speed, speed_upgrade_stat_multiplier)
-		update_price(speed_price_label, speed_price)
+		#update_price(speed_price_label, speed_price)
 		#update_stat(speed_button.stat_label, ball.current_speed, speed_upgrade_stat_multiplier)
 		emit_signal("velocity_changed", ball.current_speed)
 
