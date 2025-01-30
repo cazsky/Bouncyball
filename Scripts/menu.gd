@@ -54,6 +54,7 @@ var score_upgrade_stat_multiplier: float = 1.2
 
 # Perk vars
 var double_speed_stack: int = 0
+var double_speed_price: int = 50
 
 # Initialise vars
 var is_menu_open: bool = false
@@ -188,17 +189,18 @@ func _on_score_pressed() -> void:
 
 
 func _on_double_speed_pressed() -> void:
-	# Max of 3 stacks
-	if double_speed_stack < 3:
-		ball.velocity *= 2
-		ball.current_speed *= 2
-		emit_signal("velocity_changed", ball.current_speed)
-		double_speed_stack += 1
-		print_debug(double_speed_stack)
-		await get_tree().create_timer(60).timeout
-		ball.current_speed /= 2
-		double_speed_stack -= 1
-		emit_signal("velocity_changed", ball.current_speed)
+	if game.gems >= double_speed_price:
+		game.gems -= double_speed_price
+		# Max of 3 stacks
+		if double_speed_stack < 3:
+			ball.velocity *= 2
+			ball.current_speed *= 2
+			emit_signal("velocity_changed", ball.current_speed)
+			double_speed_stack += 1
+			await get_tree().create_timer(60).timeout
+			ball.current_speed /= 2
+			double_speed_stack -= 1
+			emit_signal("velocity_changed", ball.current_speed)
 	
 
 # ???
