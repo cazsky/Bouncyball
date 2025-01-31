@@ -1,15 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://2edwhbltk0kg"]
+[gd_scene load_steps=14 format=3 uid="uid://2edwhbltk0kg"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_n0h2w"]
 [ext_resource type="PackedScene" uid="uid://5mv5pcy1k2tg" path="res://Scenes/menu.tscn" id="2_au3wm"]
 [ext_resource type="PackedScene" uid="uid://gor1tghl876f" path="res://Scenes/ball.tscn" id="2_iqe1k"]
 [ext_resource type="PackedScene" uid="uid://fjfbecm0ff1n" path="res://Scenes/xp_bar.tscn" id="2_qb754"]
+[ext_resource type="FontFile" uid="uid://c572enc7hn4ys" path="res://fonts/Rubik/static/Rubik-Bold.ttf" id="2_tlbd8"]
 [ext_resource type="Script" path="res://Scripts/border.gd" id="4_2w6me"]
 [ext_resource type="Shape2D" uid="uid://gwc2tflbixj4" path="res://Scenes/rectangle_border.tres" id="4_moxe7"]
 [ext_resource type="PackedScene" uid="uid://vjcg5lifm6nx" path="res://Scenes/pin_ball.tscn" id="6_xdthl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yd75t"]
-font_size = 12
+font_size = 24
 
 [sub_resource type="LabelSettings" id="LabelSettings_vek5k"]
 resource_local_to_scene = true
@@ -40,15 +41,17 @@ offset_bottom = 1280.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="GameName" type="Label" parent="Control"]
+[node name="GemsLabel" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
+offset_left = -93.0
+offset_bottom = 15.0
 grow_horizontal = 0
-text = "Bouncy balls"
+theme_override_fonts/font = ExtResource("2_tlbd8")
+theme_override_font_sizes/font_size = 64
+text = "Gems: "
 label_settings = SubResource("LabelSettings_yd75t")
 
 [node name="Stats" type="VBoxContainer" parent="Control"]

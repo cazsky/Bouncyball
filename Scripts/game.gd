@@ -5,6 +5,7 @@ extends Node2D
 @onready var velocity_label: Label = $Control/Stats/Velocity
 @onready var ball: CharacterBody2D = $Ball
 @onready var xp_bar: TextureProgressBar = $Control/xp_bar
+@onready var gems_label: Label = $Control/GemsLabel
 #@onready var level_up_text: Label = $Control/xp_bar/level_up_text
 
 # Init variables
@@ -27,6 +28,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	score_label.text = str("Score: ", snapped(score, 0.01))
+	gems_label.text = str("Gems: ", gems, " ")
 	velocity_label.text = str("Current velocity: ", snapped(ball.velocity.length(), 0.01))
 
 func _on_ball_bounce() -> void:
@@ -35,7 +37,8 @@ func _on_ball_bounce() -> void:
 
 
 func _on_ball_levelled_up(_level: int) -> void:
-	score += 10
+	score += 20
+	gems += 10
 	display_level_up_text()
 
 
