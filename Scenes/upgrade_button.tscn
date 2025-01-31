@@ -21,11 +21,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 65.0
-offset_right = 390.0
+offset_top = -14.0
+offset_right = 407.0
+offset_bottom = 15.0
 grow_vertical = 2
 pivot_offset = Vector2(0, 17)
 theme_override_font_sizes/font_size = 24
 text = "Speed of ball"
+autowrap_mode = 3
 
 [node name="StatLabel" type="Label" parent="."]
 layout_mode = 1

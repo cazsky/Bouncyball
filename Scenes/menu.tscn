@@ -26,9 +26,10 @@ grow_vertical = 2
 focus_mode = 2
 mouse_filter = 2
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 
 [node name="Upgrades" type="Control" parent="Control/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -67,11 +68,9 @@ label_text = "Score gained per bounce"
 [node name="Friction" parent="Control/TabContainer/Upgrades/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
 text = "Friction"
-label_text = "Decreases friction after 
-bounce"
+label_text = "Decreases friction after bounce"
 
 [node name="Perks" type="Control" parent="Control/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -87,227 +86,29 @@ pivot_offset = Vector2(175, 0)
 theme_override_constants/h_separation = 150
 theme_override_constants/v_separation = 100
 
-[node name="Double_Speed" type="Button" parent="Control/TabContainer/Perks/GridContainer"]
-custom_minimum_size = Vector2(100, 50)
+[node name="Double_Speed" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
 text = "Double
 Speed"
+label_text = "Doubles max speed for 1 minute"
 
-[node name="Label" type="Label" parent="Control/TabContainer/Perks/GridContainer/Double_Speed"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 59.0
-offset_right = 390.0
-grow_vertical = 2
-pivot_offset = Vector2(0, 17)
-theme_override_font_sizes/font_size = 24
-text = "Doubles max speed for 1 minute"
-
-[node name="StatLabel" type="Label" parent="Control/TabContainer/Perks/GridContainer/Double_Speed"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = 50.0
-offset_right = 20.0
-offset_bottom = 100.0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-vertical_alignment = 1
-
-[node name="Double_Score" type="Button" parent="Control/TabContainer/Perks/GridContainer"]
-custom_minimum_size = Vector2(100, 50)
-layout_mode = 2
-text = "Double
-Score"
-
-[node name="Label" type="Label" parent="Control/TabContainer/Perks/GridContainer/Double_Score"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 60.0
-offset_right = 309.0
-grow_vertical = 2
-pivot_offset = Vector2(0, 17)
-theme_override_font_sizes/font_size = 24
-text = "Double score gain for 1 minute"
-
-[node name="StatLabel" type="Label" parent="Control/TabContainer/Perks/GridContainer/Double_Score"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = 50.0
-offset_right = 20.0
-offset_bottom = 100.0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-vertical_alignment = 1
-
-[node name="Double_XP" type="Button" parent="Control/TabContainer/Perks/GridContainer"]
-custom_minimum_size = Vector2(100, 50)
+[node name="Double_XP" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
 text = "Double
 XP"
+label_text = "Doubles XP gain for 1 minute"
 
-[node name="Label" type="Label" parent="Control/TabContainer/Perks/GridContainer/Double_XP"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 60.0
-offset_right = 355.0
-grow_vertical = 2
-pivot_offset = Vector2(0, 17)
-theme_override_font_sizes/font_size = 24
-text = "Double XP gain for 1 minute"
-
-[node name="StatLabel" type="Label" parent="Control/TabContainer/Perks/GridContainer/Double_XP"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = 50.0
-offset_right = 20.0
-offset_bottom = 100.0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-vertical_alignment = 1
-
-[node name="Score" type="Button" parent="Control/TabContainer/Perks/GridContainer"]
-custom_minimum_size = Vector2(100, 50)
+[node name="Double_Score" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
-text = "Score"
+text = "Double
+Score"
+label_text = "Doubles Score for 1 minute"
 
-[node name="Label" type="Label" parent="Control/TabContainer/Perks/GridContainer/Score"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 60.0
-offset_right = 395.0
-grow_vertical = 2
-pivot_offset = Vector2(0, 17)
-theme_override_font_sizes/font_size = 24
-text = "Score gained per bounce"
-
-[node name="StatLabel" type="Label" parent="Control/TabContainer/Perks/GridContainer/Score"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = 50.0
-offset_right = 20.0
-offset_bottom = 100.0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-vertical_alignment = 1
-
-[node name="Friction" type="Button" parent="Control/TabContainer/Perks/GridContainer"]
-custom_minimum_size = Vector2(100, 50)
+[node name="upgrade_button3" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
-text = "Friction"
 
-[node name="Label" type="Label" parent="Control/TabContainer/Perks/GridContainer/Friction"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 60.0
-offset_right = 396.0
-grow_vertical = 2
-pivot_offset = Vector2(0, 17)
-theme_override_font_sizes/font_size = 24
-text = "Decreases friction after bounce"
-
-[node name="StatLabel" type="Label" parent="Control/TabContainer/Perks/GridContainer/Friction"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = 50.0
-offset_right = 20.0
-offset_bottom = 100.0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 32
-vertical_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/TabContainer/Perks"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -170.0
-offset_top = 100.0
-offset_right = -60.0
-offset_bottom = 155.0
-theme_override_constants/separation = 100
-
-[node name="SpeedPrice" type="Label" parent="Control/TabContainer/Perks/VBoxContainer"]
-custom_minimum_size = Vector2(140, 50)
+[node name="upgrade_button4" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
-text = "Current Price:
-"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="BouncinessPrice" type="Label" parent="Control/TabContainer/Perks/VBoxContainer"]
-custom_minimum_size = Vector2(100, 50)
-layout_mode = 2
-text = "Current Price: "
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="XPPrice" type="Label" parent="Control/TabContainer/Perks/VBoxContainer"]
-custom_minimum_size = Vector2(140, 50)
-layout_mode = 2
-text = "Current Price:
-"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="ScorePrice" type="Label" parent="Control/TabContainer/Perks/VBoxContainer"]
-custom_minimum_size = Vector2(100, 50)
-layout_mode = 2
-text = "Current Price: "
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="FrictionPrice" type="Label" parent="Control/TabContainer/Perks/VBoxContainer"]
-custom_minimum_size = Vector2(140, 50)
-layout_mode = 2
-text = "Current Price:
-"
-horizontal_alignment = 1
-autowrap_mode = 2
 
 [node name="Ascension" type="Control" parent="Control/TabContainer"]
 visible = false
