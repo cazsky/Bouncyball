@@ -140,13 +140,6 @@ func _on_bounciness_pressed() -> void:
 		bounciness_price *= bounciness_upgrade_price_multiplier
 		bounciness_button.update_label(bounciness, bounciness_upgrade_stat_multiplier, bounciness_price)
 
-# Function to update price values on labels easier	
-func update_price(label: Label, price: float) -> void:
-	label.text = str("Current Price: \n", snapped(price,0.01))
-
-func update_stat(label: Label, stat: float, multiplier: float) -> void:
-	label.text = str(snapped(stat, 0.01), " -> ", snapped(stat*multiplier, 0.01))
-
 # Friction upgrade
 func _on_friction_pressed() -> void:
 	if game.score >= friction_price:
