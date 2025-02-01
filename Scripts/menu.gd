@@ -45,6 +45,8 @@ var score_upgrade_stat_multiplier: float = 1.2
 # Perk vars
 var double_speed_stack: int = 0
 var double_speed_price: int = 50
+var double_xp_stack: int = 0
+var double_xp_price: int = 100
 
 # Initialise vars
 var is_menu_open: bool = false
@@ -55,6 +57,7 @@ var speed_price: float = BASE_SPEED_PRICE
 var xp_price: float = BASE_XP_PRICE
 var bounciness_price: float = BASE_BOUNCINESS_PRICE
 var score_price: float = BASE_SCORE_PRICE
+var max_stacks: int = 3
 
 # Signals
 @warning_ignore("unused_signal")
@@ -71,7 +74,8 @@ func _ready() -> void:
 	score_button.update_label(game.add, score_upgrade_stat_multiplier, score_price)
 	friction_button.update_label(ball.friction, friction_upgrade_stat_multiplier, friction_price)
 	
-	double_speed_button.stat_label.text = str(double_speed_stack, " / ", 3)
+	double_speed_button.stat_label.text = str(double_speed_stack, " / ", max_stacks)
+	double_xp_button.stat_label.text = str(double_xp_stack, " / ", max_stacks)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -173,19 +177,30 @@ func _on_score_pressed() -> void:
 func _on_double_speed_pressed() -> void:
 	if game.gems >= double_speed_price:
 		game.gems -= double_speed_price
-		# Max of 3 stacks
-		if double_speed_stack < 3:
+		if double_speed_stack < max_stacks:
 			ball.velocity *= 2
 			ball.current_speed *= 2
 			emit_signal("velocity_changed", ball.current_speed)
 			double_speed_stack += 1
-			double_speed_button.stat_label.text = str(double_speed_stack, " / ", 3)
+			double_speed_button.stat_label.text = str(double_speed_stack, " / ", max_stacks)
 			await get_tree().create_timer(60).timeout
 			ball.current_speed /= 2
 			double_speed_stack -= 1
-			double_speed_button.stat_label.text = str(double_speed_stack, " / ", 3)
+			double_speed_button.stat_label.text = str(double_speed_stack, " / ", max_stacks)
 			emit_signal("velocity_changed", ball.current_speed)
 	
+
+func _on_double_xp_pressed() -> void:
+	if game.gems >= double_xp_price:
+		game.gems -= double_xp_price
+		if double_xp_stack < max_stacks:
+			game.xp_gain *= 2
+			double_xp_stack += 1
+			double_xp_button.stat_label.text = str(double_xp_stack, " / ", max_stacks)
+			await get_tree().create_timer(60).timeout
+			game.xp_gain /= 2
+			double_xp_stack -= 1
+			double_xp_button.stat_label.text = str(double_xp_stack, " / ", max_stacks)
 
 # ???
 #func can_upgrade(price: float, stat, stat_multiplier: float, price_multiplier: float, price_label: Label, stat_label: Label) -> bool:
