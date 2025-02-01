@@ -7,6 +7,11 @@ extends Node2D
 @onready var bounciness_button: UpgradeButton = $Control/TabContainer/Upgrades/GridContainer/Bounciness
 @onready var score_button: UpgradeButton = $Control/TabContainer/Upgrades/GridContainer/Score
 
+@onready var double_speed_button: UpgradeButton = $Control/TabContainer/Perks/GridContainer/Double_Speed
+@onready var double_xp_button: UpgradeButton = $Control/TabContainer/Perks/GridContainer/Double_XP
+@onready var double_score_button: UpgradeButton = $Control/TabContainer/Perks/GridContainer/Double_Score
+
+
 @onready var popup: Button = $Control/Popup
 @onready var arrow: Sprite2D = $Control/Arrow
 @onready var ball: CharacterBody2D = $"../Ball"
@@ -66,6 +71,7 @@ func _ready() -> void:
 	score_button.update_label(game.add, score_upgrade_stat_multiplier, score_price)
 	friction_button.update_label(ball.friction, friction_upgrade_stat_multiplier, friction_price)
 	
+	double_speed_button.stat_label.text = str(double_speed_stack, " / ", 3)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -173,9 +179,11 @@ func _on_double_speed_pressed() -> void:
 			ball.current_speed *= 2
 			emit_signal("velocity_changed", ball.current_speed)
 			double_speed_stack += 1
+			double_speed_button.stat_label.text = str(double_speed_stack, " / ", 3)
 			await get_tree().create_timer(60).timeout
 			ball.current_speed /= 2
 			double_speed_stack -= 1
+			double_speed_button.stat_label.text = str(double_speed_stack, " / ", 3)
 			emit_signal("velocity_changed", ball.current_speed)
 	
 
