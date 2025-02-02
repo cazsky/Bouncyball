@@ -75,7 +75,9 @@ func _ready() -> void:
 	friction_button.update_label(ball.friction, friction_upgrade_stat_multiplier, friction_price)
 	
 	double_speed_button.stat_label.text = str(double_speed_stack, " / ", max_stacks)
+	double_speed_button.price_label.text = str("Current Price: ", "\n", double_speed_price)
 	double_xp_button.stat_label.text = str(double_xp_stack, " / ", max_stacks)
+	double_xp_button.price_label.text = str("Current Price: ", "\n", double_xp_price)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
