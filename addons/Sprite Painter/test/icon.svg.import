@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjmypnfjkbve6"
-path="res://.godot/imported/icon.svg-9ffd99e4b8a55380f3055552bd81b639.ctex"
+path="res://.godot/imported/icon.svg-6d8d6598107625aac4dc08b4b7d22c1d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://test/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-9ffd99e4b8a55380f3055552bd81b639.ctex"]
+source_file="res://addons/Sprite Painter/test/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-6d8d6598107625aac4dc08b4b7d22c1d.ctex"]
 
 [params]
 

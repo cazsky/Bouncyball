@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7nymhfcdr3hl"
-path="res://.godot/imported/diags.png-8f1f755b2561632401e027e528c97db7.ctex"
+path="res://.godot/imported/diags.png-defe3d48d81d4fec506adc5fe994d075.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/sprite_painter/graphics/diags.png"
-dest_files=["res://.godot/imported/diags.png-8f1f755b2561632401e027e528c97db7.ctex"]
+source_file="res://addons/Sprite Painter/addons/sprite_painter/graphics/diags.png"
+dest_files=["res://.godot/imported/diags.png-defe3d48d81d4fec506adc5fe994d075.ctex"]
 
 [params]
 

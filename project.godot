@@ -26,6 +26,10 @@ window/stretch/mode="viewport"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/Sprite Painter/addons/sprite_painter/plugin.cfg")
+
 [gui]
 
 theme/custom_font="res://fonts/Rubik/static/Rubik-Bold.ttf"
