@@ -19,10 +19,10 @@ extends Node2D
 
 # Base upgrade price
 const BASE_SPEED_PRICE: int = 10
-const BASE_FRICTION_PRICE: int = 10
-const BASE_XP_PRICE: int = 20
-const BASE_BOUNCINESS_PRICE: int = 30
-const BASE_SCORE_PRICE: int = 50
+const BASE_XP_PRICE: int = 50
+const BASE_BOUNCINESS_PRICE: int = 150
+const BASE_SCORE_PRICE: int = 500
+const BASE_FRICTION_PRICE: int = 1000
 
 
 # Consts UI
