@@ -146,4 +146,5 @@ offset = Vector2(350, 10)
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Friction" to="." method="_on_friction_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Speed" to="." method="_on_double_speed_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_XP" to="." method="_on_double_xp_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Score" to="." method="_on_double_score_pressed"]
 [connection signal="pressed" from="Control/Popup" to="." method="_on_texture_button_pressed"]

@@ -31,6 +31,7 @@ size = Vector2(30, 1280)
 [node name="Game" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_n0h2w")
+gems = 7755
 
 [node name="Control" type="Control" parent="."]
 custom_minimum_size = Vector2(720, 1280)

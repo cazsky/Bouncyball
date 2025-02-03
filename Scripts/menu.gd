@@ -44,9 +44,11 @@ var score_upgrade_stat_multiplier: float = 1.2
 
 # Perk vars
 var double_speed_stack: int = 0
-var double_speed_price: int = 50
+var double_speed_price: int = 200
 var double_xp_stack: int = 0
-var double_xp_price: int = 100
+var double_xp_price: int = 500
+var double_score_stack: int = 0
+var double_score_price: int = 1000
 
 # Initialise vars
 var is_menu_open: bool = false
@@ -78,6 +80,8 @@ func _ready() -> void:
 	double_speed_button.price_label.text = str("Current Price: ", "\n", double_speed_price)
 	double_xp_button.stat_label.text = str(double_xp_stack, " / ", max_stacks)
 	double_xp_button.price_label.text = str("Current Price: ", "\n", double_xp_price)
+	double_score_button.stat_label.text = str(double_score_stack, " / ", max_stacks)
+	double_score_button.price_label.text = str("Current Price: ", "\n", double_score_price)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -196,6 +200,19 @@ func _on_double_xp_pressed() -> void:
 			game.xp_gain /= 2
 			double_xp_stack -= 1
 			double_xp_button.stat_label.text = str(double_xp_stack, " / ", max_stacks)
+
+
+func _on_double_score_pressed() -> void:
+	if game.gems >= double_score_price:
+		game.gems -= double_score_price
+		if double_score_stack < max_stacks:
+			game.add *= 2
+			double_score_stack += 1
+			double_score_button.stat_label.text = str(double_score_stack, " / ", max_stacks)
+			await get_tree().create_timer(60).timeout
+			game.add /= 2
+			double_score_stack -= 1
+			double_score_button.stat_label.text = str(double_score_stack, " / ", max_stacks)
 
 # ???
 #func can_upgrade(price: float, stat, stat_multiplier: float, price_multiplier: float, price_label: Label, stat_label: Label) -> bool:
