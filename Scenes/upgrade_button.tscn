@@ -26,7 +26,7 @@ offset_right = 407.0
 offset_bottom = 15.0
 grow_vertical = 2
 pivot_offset = Vector2(0, 17)
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 32
 text = "Speed of ball"
 autowrap_mode = 3
 
@@ -53,12 +53,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 424.0
-offset_top = -25.0
-offset_right = 564.0
-offset_bottom = 25.0
+offset_left = 425.0
+offset_top = 3.0
+offset_right = 565.0
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 24
 text = "Current Price:
 "
 horizontal_alignment = 1
