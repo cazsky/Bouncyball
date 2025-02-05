@@ -26,10 +26,9 @@ grow_vertical = 2
 focus_mode = 2
 mouse_filter = 2
 tab_alignment = 1
-current_tab = 1
+current_tab = 0
 
 [node name="Upgrades" type="Control" parent="Control/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -50,15 +49,15 @@ layout_mode = 2
 text = "Speed"
 label_text = "Speed of ball"
 
-[node name="Bounciness" parent="Control/TabContainer/Upgrades/GridContainer" instance=ExtResource("2_8dn8m")]
-layout_mode = 2
-text = "Bounciness"
-label_text = "Add speed on bounce"
-
 [node name="XPGain" parent="Control/TabContainer/Upgrades/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
 text = "XP Gain"
 label_text = "Gain more XP per bounce"
+
+[node name="Bounciness" parent="Control/TabContainer/Upgrades/GridContainer" instance=ExtResource("2_8dn8m")]
+layout_mode = 2
+text = "Bounciness"
+label_text = "Add speed on bounce"
 
 [node name="Score" parent="Control/TabContainer/Upgrades/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
@@ -71,6 +70,7 @@ text = "Friction"
 label_text = "Decreases friction after bounce"
 
 [node name="Perks" type="Control" parent="Control/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -140,8 +140,8 @@ texture = ExtResource("2_a8udu")
 offset = Vector2(350, 10)
 
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Speed" to="." method="_on_speed_pressed"]
-[connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Bounciness" to="." method="_on_bounciness_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/XPGain" to="." method="_on_xp_gain_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Bounciness" to="." method="_on_bounciness_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Score" to="." method="_on_score_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Friction" to="." method="_on_friction_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Speed" to="." method="_on_double_speed_pressed"]
