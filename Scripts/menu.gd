@@ -10,6 +10,7 @@ extends Node2D
 @onready var double_speed_button: UpgradeButton = $Control/TabContainer/Perks/GridContainer/Double_Speed
 @onready var double_xp_button: UpgradeButton = $Control/TabContainer/Perks/GridContainer/Double_XP
 @onready var double_score_button: UpgradeButton = $Control/TabContainer/Perks/GridContainer/Double_Score
+@onready var double_bounce_button: UpgradeButton = $Control/TabContainer/Perks/GridContainer/Double_Bounciness
 
 
 @onready var popup: Button = $Control/Popup
@@ -47,8 +48,10 @@ var double_speed_stack: int = 0
 var double_speed_price: int = 200
 var double_xp_stack: int = 0
 var double_xp_price: int = 500
+var double_bounce_stack: int = 0
+var double_bounce_price = 1000
 var double_score_stack: int = 0
-var double_score_price: int = 1000
+var double_score_price: int = 2000
 
 # Initialise vars
 var is_menu_open: bool = false
@@ -82,6 +85,8 @@ func _ready() -> void:
 	double_xp_button.price_label.text = str("Current Price: ", "\n", double_xp_price)
 	double_score_button.stat_label.text = str(double_score_stack, " / ", max_stacks)
 	double_score_button.price_label.text = str("Current Price: ", "\n", double_score_price)
+	double_bounce_button.stat_label.text = str(double_score_stack, " / ", max_stacks)
+	double_bounce_button.price_label.text = str("Current Price: ", "\n", double_score_price)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -213,3 +218,16 @@ func _on_double_score_pressed() -> void:
 			game.add /= 2
 			double_score_stack -= 1
 			double_score_button.stat_label.text = str(double_score_stack, " / ", max_stacks)
+			
+			
+func _on_double_bounciness_pressed() -> void:
+	if game.gems >= double_bounce_price:
+		game.gems -= double_bounce_price
+		if double_bounce_stack < max_stacks:
+			bounciness *= 2
+			double_bounce_stack += 1
+			double_bounce_button.stat_label.text = str(double_score_stack, " / ", max_stacks)
+			await get_tree().create_timer(60).timeout
+			bounciness /= 2
+			double_bounce_stack -= 1
+			double_bounce_button.stat_label.text = str(double_score_stack, " / ", max_stacks)

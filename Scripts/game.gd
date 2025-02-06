@@ -9,7 +9,7 @@ extends Node2D
 #@onready var level_up_text: Label = $Control/xp_bar/level_up_text
 
 @export var score: float = 0
-@export var gems = 50
+@export var gems = 0
 
 
 # Init variables

@@ -98,14 +98,14 @@ text = "Double
 XP"
 label_text = "Doubles XP gain for 1 minute"
 
+[node name="Double_Bounciness" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
+layout_mode = 2
+
 [node name="Double_Score" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
 text = "Double
 Score"
 label_text = "Doubles Score for 1 minute"
-
-[node name="upgrade_button3" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
-layout_mode = 2
 
 [node name="upgrade_button4" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
@@ -146,5 +146,6 @@ offset = Vector2(350, 10)
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Friction" to="." method="_on_friction_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Speed" to="." method="_on_double_speed_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_XP" to="." method="_on_double_xp_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Bounciness" to="." method="_on_double_bounciness_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Score" to="." method="_on_double_score_pressed"]
 [connection signal="pressed" from="Control/Popup" to="." method="_on_texture_button_pressed"]
