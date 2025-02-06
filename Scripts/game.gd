@@ -15,7 +15,7 @@ extends Node2D
 # Init variables
 var add: float = 1
 var combo: int = 0
-var xp_gain: float = 1.0
+var xp_gain: float = 5.0
 
 func _init() -> void:
 	# Randomise seed to start the game launching ball in random direction

@@ -73,7 +73,7 @@ func detect_bounce() -> void:
 		emit_signal("bounce")
 
 func get_required_expereience(lvl: int) -> int:
-	return round(pow(lvl, 1.3) + lvl * 4 + 5)
+	return round(pow(lvl, 1.8) + lvl * 4 + 10)
 
 func gain_experience(amount: float) -> void:
 	experience_total += amount
