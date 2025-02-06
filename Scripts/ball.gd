@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var base_speed: float = 350.0
+@export var base_speed: float = 400.0
 # Friction above 1 makes it stickier, closer to 0 means less sticky
 # Dont go to negative friction
 @export var friction: float = 2.0
@@ -73,7 +73,7 @@ func detect_bounce() -> void:
 		emit_signal("bounce")
 
 func get_required_expereience(lvl: int) -> int:
-	return round(pow(lvl, 1.8) + lvl * 4 + 10)
+	return round(pow(lvl, 1.3) + lvl * 4 + 5)
 
 func gain_experience(amount: float) -> void:
 	experience_total += amount

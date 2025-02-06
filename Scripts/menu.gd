@@ -213,15 +213,3 @@ func _on_double_score_pressed() -> void:
 			game.add /= 2
 			double_score_stack -= 1
 			double_score_button.stat_label.text = str(double_score_stack, " / ", max_stacks)
-
-# ???
-#func can_upgrade(price: float, stat, stat_multiplier: float, price_multiplier: float, price_label: Label, stat_label: Label) -> bool:
-	#if game.score < price:
-		#return false
-	#else:
-		#game.score -= price
-		#stat *= stat_multiplier
-		#price *= price_multiplier
-		##update_price(price_label, price)
-		##update_stat(stat_label, stat, stat_multiplier)
-		#return true
