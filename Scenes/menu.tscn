@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://5mv5pcy1k2tg"]
+[gd_scene load_steps=5 format=3 uid="uid://5mv5pcy1k2tg"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_5y3mv"]
 [ext_resource type="PackedScene" uid="uid://c0ysgqsg6bis3" path="res://Scenes/upgrade_button.tscn" id="2_8dn8m"]
 [ext_resource type="Texture2D" uid="uid://qgh2hwgbl4hg" path="res://Sprites/tile_0604 (2).png" id="2_a8udu"]
+[ext_resource type="Script" path="res://Scripts/perk_button.gd" id="3_hfjpc"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_5y3mv")
@@ -26,9 +27,10 @@ grow_vertical = 2
 focus_mode = 2
 mouse_filter = 2
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 
 [node name="Upgrades" type="Control" parent="Control/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -70,7 +72,6 @@ text = "Friction"
 label_text = "Decreases friction after bounce"
 
 [node name="Perks" type="Control" parent="Control/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -90,25 +91,29 @@ theme_override_constants/v_separation = 100
 layout_mode = 2
 text = "Double
 Speed"
+script = ExtResource("3_hfjpc")
 label_text = "Doubles max speed for 1 minute"
 
 [node name="Double_XP" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
 text = "Double
 XP"
-label_text = "Doubles XP gain for 1 minute"
+script = ExtResource("3_hfjpc")
+label_text = "Doubles XP gain on bounce for 1 minute"
 
 [node name="Double_Bounciness" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
 text = "Double
 Bounciness"
-label_text = "Doubles speed added on bounce"
+script = ExtResource("3_hfjpc")
+label_text = "Doubles speed gained on bounce for 1 minute"
 
 [node name="Double_Score" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
 text = "Double
 Score"
-label_text = "Doubles Score for 1 minute"
+script = ExtResource("3_hfjpc")
+label_text = "Doubles score gained per bounce for 1 minute"
 
 [node name="upgrade_button4" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2

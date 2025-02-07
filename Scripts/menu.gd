@@ -7,10 +7,10 @@ extends Node2D
 @onready var bounciness_button: UpgradeButton = $Control/TabContainer/Upgrades/GridContainer/Bounciness
 @onready var score_button: UpgradeButton = $Control/TabContainer/Upgrades/GridContainer/Score
 
-@onready var double_speed_button: UpgradeButton = $Control/TabContainer/Perks/GridContainer/Double_Speed
-@onready var double_xp_button: UpgradeButton = $Control/TabContainer/Perks/GridContainer/Double_XP
-@onready var double_score_button: UpgradeButton = $Control/TabContainer/Perks/GridContainer/Double_Score
-@onready var double_bounce_button: UpgradeButton = $Control/TabContainer/Perks/GridContainer/Double_Bounciness
+@onready var double_speed_button: PerkButton = $Control/TabContainer/Perks/GridContainer/Double_Speed
+@onready var double_xp_button: PerkButton = $Control/TabContainer/Perks/GridContainer/Double_XP
+@onready var double_score_button: PerkButton = $Control/TabContainer/Perks/GridContainer/Double_Score
+@onready var double_bounce_button: PerkButton = $Control/TabContainer/Perks/GridContainer/Double_Bounciness
 
 
 @onready var popup: Button = $Control/Popup
@@ -79,14 +79,11 @@ func _ready() -> void:
 	score_button.update_label(game.add, score_upgrade_stat_multiplier, score_price)
 	friction_button.update_label(ball.friction, friction_upgrade_stat_multiplier, friction_price)
 	
-	double_speed_button.stat_label.text = str(double_speed_stack, " / ", max_stacks)
-	double_speed_button.price_label.text = str("Current Price: ", "\n", double_speed_price)
-	double_xp_button.stat_label.text = str(double_xp_stack, " / ", max_stacks)
-	double_xp_button.price_label.text = str("Current Price: ", "\n", double_xp_price)
-	double_score_button.stat_label.text = str(double_score_stack, " / ", max_stacks)
-	double_score_button.price_label.text = str("Current Price: ", "\n", double_score_price)
-	double_bounce_button.stat_label.text = str(double_score_stack, " / ", max_stacks)
-	double_bounce_button.price_label.text = str("Current Price: ", "\n", double_score_price)
+	
+	double_speed_button.update_perk(double_speed_stack, max_stacks, double_speed_price)
+	double_xp_button.update_perk(double_xp_stack, max_stacks, double_xp_price)
+	double_score_button.update_perk(double_score_stack, max_stacks, double_score_price)
+	double_bounce_button.update_perk(double_bounce_stack, max_stacks, double_bounce_price)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -186,11 +183,11 @@ func _on_double_speed_pressed() -> void:
 			ball.current_speed *= 2
 			emit_signal("velocity_changed", ball.current_speed)
 			double_speed_stack += 1
-			double_speed_button.stat_label.text = str(double_speed_stack, " / ", max_stacks)
+			double_speed_button.update_perk(double_speed_stack, max_stacks, double_speed_price)
 			await get_tree().create_timer(60).timeout
 			ball.current_speed /= 2
 			double_speed_stack -= 1
-			double_speed_button.stat_label.text = str(double_speed_stack, " / ", max_stacks)
+			double_speed_button.update_perk(double_speed_stack, max_stacks, double_speed_price)
 			emit_signal("velocity_changed", ball.current_speed)
 	
 
@@ -200,11 +197,11 @@ func _on_double_xp_pressed() -> void:
 		if double_xp_stack < max_stacks:
 			game.xp_gain *= 2
 			double_xp_stack += 1
-			double_xp_button.stat_label.text = str(double_xp_stack, " / ", max_stacks)
+			double_xp_button.update_perk(double_xp_stack, max_stacks, double_xp_price)
 			await get_tree().create_timer(60).timeout
 			game.xp_gain /= 2
 			double_xp_stack -= 1
-			double_xp_button.stat_label.text = str(double_xp_stack, " / ", max_stacks)
+			double_xp_button.update_perk(double_xp_stack, max_stacks, double_xp_price)
 
 
 func _on_double_score_pressed() -> void:
@@ -213,11 +210,11 @@ func _on_double_score_pressed() -> void:
 		if double_score_stack < max_stacks:
 			game.add *= 2
 			double_score_stack += 1
-			double_score_button.stat_label.text = str(double_score_stack, " / ", max_stacks)
+			double_score_button.update_perk(double_score_stack, max_stacks, double_score_price)
 			await get_tree().create_timer(60).timeout
 			game.add /= 2
 			double_score_stack -= 1
-			double_score_button.stat_label.text = str(double_score_stack, " / ", max_stacks)
+			double_score_button.update_perk(double_score_stack, max_stacks, double_score_price)
 			
 			
 func _on_double_bounciness_pressed() -> void:
@@ -226,8 +223,8 @@ func _on_double_bounciness_pressed() -> void:
 		if double_bounce_stack < max_stacks:
 			bounciness *= 2
 			double_bounce_stack += 1
-			double_bounce_button.stat_label.text = str(double_score_stack, " / ", max_stacks)
+			double_bounce_button.update_perk(double_bounce_stack, max_stacks, double_bounce_price)
 			await get_tree().create_timer(60).timeout
 			bounciness /= 2
 			double_bounce_stack -= 1
-			double_bounce_button.stat_label.text = str(double_score_stack, " / ", max_stacks)
+			double_bounce_button.update_perk(double_bounce_stack, max_stacks, double_bounce_price)

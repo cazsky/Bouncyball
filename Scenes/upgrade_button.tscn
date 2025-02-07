@@ -26,7 +26,7 @@ offset_right = 407.0
 offset_bottom = 15.0
 grow_vertical = 2
 pivot_offset = Vector2(0, 17)
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 24
 text = "Speed of ball"
 autowrap_mode = 3
 
