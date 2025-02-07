@@ -100,6 +100,9 @@ label_text = "Doubles XP gain for 1 minute"
 
 [node name="Double_Bounciness" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
+text = "Double
+Bounciness"
+label_text = "Doubles speed added on bounce"
 
 [node name="Double_Score" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
