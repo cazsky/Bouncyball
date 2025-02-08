@@ -229,3 +229,11 @@ func _on_double_bounciness_pressed() -> void:
 			bounciness /= 2
 			double_bounce_stack -= 1
 			double_bounce_button.update_perk(double_bounce_stack, max_stacks, double_bounce_price)
+
+
+func _on_upgrade_button_4_pressed() -> void:
+	var extra_ball = ball.duplicate()
+	extra_ball.global_position = ball.global_position/2
+	get_parent().add_child(extra_ball)
+	await get_tree().create_timer(60).timeout
+	get_parent().remove_child(extra_ball)

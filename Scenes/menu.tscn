@@ -117,6 +117,7 @@ label_text = "Doubles score gained per bounce for 1 minute"
 
 [node name="upgrade_button4" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
+script = ExtResource("3_hfjpc")
 
 [node name="Ascension" type="Control" parent="Control/TabContainer"]
 visible = false
@@ -156,4 +157,5 @@ offset = Vector2(350, 10)
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_XP" to="." method="_on_double_xp_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Bounciness" to="." method="_on_double_bounciness_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Score" to="." method="_on_double_score_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/upgrade_button4" to="." method="_on_upgrade_button_4_pressed"]
 [connection signal="pressed" from="Control/Popup" to="." method="_on_texture_button_pressed"]
