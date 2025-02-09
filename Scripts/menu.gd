@@ -11,6 +11,7 @@ extends Node2D
 @onready var double_xp_button: PerkButton = $Control/TabContainer/Perks/GridContainer/Double_XP
 @onready var double_score_button: PerkButton = $Control/TabContainer/Perks/GridContainer/Double_Score
 @onready var double_bounce_button: PerkButton = $Control/TabContainer/Perks/GridContainer/Double_Bounciness
+@onready var double_ball_button: PerkButton = $Control/TabContainer/Perks/GridContainer/Double_Ball
 
 
 @onready var popup: Button = $Control/Popup
@@ -52,6 +53,9 @@ var double_bounce_stack: int = 0
 var double_bounce_price = 1000
 var double_score_stack: int = 0
 var double_score_price: int = 2000
+var double_ball_stack: int = 0
+var double_ball_price: int = 5000
+
 
 # Initialise vars
 var is_menu_open: bool = false
@@ -84,6 +88,7 @@ func _ready() -> void:
 	double_xp_button.update_perk(double_xp_stack, max_stacks, double_xp_price)
 	double_score_button.update_perk(double_score_stack, max_stacks, double_score_price)
 	double_bounce_button.update_perk(double_bounce_stack, max_stacks, double_bounce_price)
+	double_ball_button.update_perk(double_ball_stack, max_stacks, double_ball_price)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -231,9 +236,16 @@ func _on_double_bounciness_pressed() -> void:
 			double_bounce_button.update_perk(double_bounce_stack, max_stacks, double_bounce_price)
 
 
-func _on_upgrade_button_4_pressed() -> void:
-	var extra_ball = ball.duplicate()
-	extra_ball.global_position = ball.global_position/2
-	get_parent().add_child(extra_ball)
-	await get_tree().create_timer(60).timeout
-	get_parent().remove_child(extra_ball)
+func _on_double_ball_pressed() -> void:
+	if game.gems >= double_ball_price:
+		game.gems -= double_ball_price
+		if double_ball_stack < max_stacks:
+			double_ball_stack += 1
+			var extra_ball = ball.duplicate()
+			double_ball_button.update_perk(double_ball_stack, max_stacks, double_ball_price)
+			extra_ball.global_position = ball.global_position/2
+			get_parent().add_child(extra_ball)
+			await get_tree().create_timer(60).timeout
+			get_parent().remove_child(extra_ball)
+			double_ball_stack -= 1
+			double_ball_button.update_perk(double_ball_stack, max_stacks, double_ball_price)
