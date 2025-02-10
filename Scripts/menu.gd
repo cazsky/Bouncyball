@@ -242,7 +242,6 @@ func _on_double_ball_pressed() -> void:
 		if double_ball_stack < max_stacks:
 			double_ball_stack += 1
 			var extra_ball = load("res://Scenes/ball.tscn").instantiate()
-			#extra_ball.bounce.connect(_on_ball_bounce)
 			extra_ball.bounce.connect(Callable(game, "_on_ball_bounce"))
 			extra_ball.current_speed = ball.current_speed
 			extra_ball.friction = ball.friction
