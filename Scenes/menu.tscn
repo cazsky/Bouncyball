@@ -116,6 +116,7 @@ script = ExtResource("3_hfjpc")
 label_text = "Doubles score gained per bounce for 1 minute"
 
 [node name="Double_Ball" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
+editor_description = "Extra Ball gets properties of ball at the time of buying. Does not upgrade with ball."
 layout_mode = 2
 text = "Extra 
 Ball"
