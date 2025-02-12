@@ -38,9 +38,9 @@ func _on_ball_bounce() -> void:
 	score += add
 
 
-func _on_ball_levelled_up(_level: int) -> void:
-	score += 20
-	gems += 10
+func _on_ball_levelled_up(level: int) -> void:
+	score += 1 + snapped(level, 10) * 10
+	gems += 1 + snapped (level, 10) * 5
 	display_level_up_text()
 
 
