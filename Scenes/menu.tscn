@@ -27,7 +27,7 @@ grow_vertical = 2
 focus_mode = 2
 mouse_filter = 2
 tab_alignment = 1
-current_tab = 1
+current_tab = 2
 
 [node name="Upgrades" type="Control" parent="Control/TabContainer"]
 visible = false
@@ -72,6 +72,7 @@ text = "Friction"
 label_text = "Decreases friction after bounce"
 
 [node name="Perks" type="Control" parent="Control/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -124,9 +125,27 @@ script = ExtResource("3_hfjpc")
 label_text = "Adds 1 more ball on screen"
 
 [node name="Ascension" type="Control" parent="Control/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
+
+[node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Ascension"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.9
+offset_top = 100.0
+offset_bottom = 650.0
+grow_horizontal = 2
+pivot_offset = Vector2(175, 0)
+theme_override_constants/h_separation = 150
+theme_override_constants/v_separation = 100
+
+[node name="Buy_Relic" parent="Control/TabContainer/Ascension/GridContainer" instance=ExtResource("2_8dn8m")]
+layout_mode = 2
+text = "Double
+Speed"
+script = ExtResource("3_hfjpc")
+label_text = "Doubles max speed for 1 minute"
 
 [node name="Popup" type="Button" parent="Control"]
 texture_filter = 1
@@ -162,4 +181,5 @@ offset = Vector2(350, 10)
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Bounciness" to="." method="_on_double_bounciness_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Score" to="." method="_on_double_score_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Ball" to="." method="_on_double_ball_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Ascension/GridContainer/Buy_Relic" to="." method="_on_double_speed_pressed"]
 [connection signal="pressed" from="Control/Popup" to="." method="_on_texture_button_pressed"]
