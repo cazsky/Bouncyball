@@ -147,6 +147,14 @@ text = "Buy Relic"
 script = ExtResource("3_hfjpc")
 label_text = "Buy Relic"
 
+[node name="Ascend" parent="Control/TabContainer/Ascension/GridContainer" instance=ExtResource("2_8dn8m")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Ascend"
+script = ExtResource("3_hfjpc")
+label_text = "Reset your stats for a better start"
+
 [node name="Popup" type="Button" parent="Control"]
 texture_filter = 1
 layout_mode = 1
