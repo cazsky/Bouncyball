@@ -140,14 +140,6 @@ pivot_offset = Vector2(175, 0)
 theme_override_constants/separation = 150
 alignment = 1
 
-[node name="Buy_Relic" parent="Control/TabContainer/Ascension/GridContainer" instance=ExtResource("2_8dn8m")]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "Buy Relic"
-script = ExtResource("3_hfjpc")
-label_text = "Buy Relic"
-
 [node name="Ascend" parent="Control/TabContainer/Ascension/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -155,6 +147,24 @@ size_flags_vertical = 0
 text = "Ascend"
 script = ExtResource("3_hfjpc")
 label_text = "Reset your stats for a better start"
+
+[node name="Buy_Relic" parent="Control/TabContainer/Ascension/GridContainer" instance=ExtResource("2_8dn8m")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Buy
+Relic"
+script = ExtResource("3_hfjpc")
+label_text = "Buy Relic"
+
+[node name="View_Relic" parent="Control/TabContainer/Ascension/GridContainer" instance=ExtResource("2_8dn8m")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "View
+Relics"
+script = ExtResource("3_hfjpc")
+label_text = "View currently owned relics"
 
 [node name="Relics" type="Control" parent="Control/TabContainer"]
 visible = false
