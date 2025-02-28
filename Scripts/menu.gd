@@ -69,6 +69,7 @@ var xp_price: float = BASE_XP_PRICE
 var bounciness_price: float = BASE_BOUNCINESS_PRICE
 var score_price: float = BASE_SCORE_PRICE
 var max_stacks: int = 3
+var stars: float = 0
 
 # Signals
 @warning_ignore("unused_signal")
@@ -260,9 +261,11 @@ func _on_buy_relic_pressed() -> void:
 
 
 func _on_ascend_pressed() -> void:
-	pass # Replace with function body.
+	stars = _reset_stats()
+	game.stars += stars
 	
-func _reset_stats() -> void:
+func _reset_stats() -> float:
+	stars += ball.current_speed * log(250) / 350
 	ball.current_speed = ball.base_speed
 	bounciness = base_bounciness
 	ball.friction = ball.base_friction
