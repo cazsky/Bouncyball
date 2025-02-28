@@ -8,14 +8,21 @@ extends Node2D
 @onready var gems_label: Label = $Control/GemsLabel
 #@onready var level_up_text: Label = $Control/xp_bar/level_up_text
 
-@export var score: float = 0
-@export var gems = 0
 
 
 # Init variables
-var add: float = 1
-var combo: int = 0
-var xp_gain: float = 5.0
+@export var base_add: float = 1
+@export var base_xp_gain: float = 5.0
+@export var base_score: float = 0
+@export var gems = 0
+
+
+
+
+# Init variables
+var add: float = base_add
+var xp_gain: float = base_xp_gain
+var score: float = base_score
 
 func _init() -> void:
 	# Randomise seed to start the game launching ball in random direction

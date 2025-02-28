@@ -208,5 +208,6 @@ offset = Vector2(350, 10)
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Bounciness" to="." method="_on_double_bounciness_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Score" to="." method="_on_double_score_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Ball" to="." method="_on_double_ball_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Ascension/GridContainer/Ascend" to="." method="_on_ascend_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Ascension/GridContainer/Buy_Relic" to="." method="_on_buy_relic_pressed"]
 [connection signal="pressed" from="Control/Popup" to="." method="_on_texture_button_pressed"]

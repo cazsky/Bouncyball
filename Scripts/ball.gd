@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var base_speed: float = 400.0
 # Friction above 1 makes it stickier, closer to 0 means less sticky
 # Dont go to negative friction
-@export var friction: float = 2.0
+@export var base_friction: float = 2.0
 
 @onready var velocity_stat_label: Label = $"../Control/Stats/Velocity"
 
@@ -14,6 +14,7 @@ var experience: float = 0
 var experience_total: float = 0
 var experience_required: int = get_required_expereience(level + 1)
 
+var friction: float = base_friction
 var current_speed = base_speed
 var current_trail: Trail
 var can_push: bool = true

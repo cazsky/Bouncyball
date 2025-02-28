@@ -26,6 +26,7 @@ const BASE_XP_PRICE: int = 50
 const BASE_BOUNCINESS_PRICE: int = 150
 const BASE_SCORE_PRICE: int = 500
 const BASE_FRICTION_PRICE: int = 1000
+const BASE_RELIC_PRICE:int = 10
 
 
 # Consts UI
@@ -256,3 +257,15 @@ func _on_double_ball_pressed() -> void:
 
 func _on_buy_relic_pressed() -> void:
 	pass # Replace with function body.
+
+
+func _on_ascend_pressed() -> void:
+	pass # Replace with function body.
+	
+func _reset_stats() -> void:
+	ball.current_speed = ball.base_speed
+	bounciness = base_bounciness
+	ball.friction = ball.base_friction
+	game.xp_gain = game.base_xp_gain
+	game.add = game.base_add
+	game.score = game.base_score
