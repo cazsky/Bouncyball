@@ -272,3 +272,4 @@ func _reset_stats() -> float:
 	game.xp_gain = game.base_xp_gain
 	game.add = game.base_add
 	game.score = game.base_score
+	return stars
