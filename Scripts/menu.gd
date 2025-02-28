@@ -18,6 +18,7 @@ extends Node2D
 @onready var arrow: Sprite2D = $Control/Arrow
 @onready var ball: CharacterBody2D = $"../Ball"
 @onready var game: Node2D = $"../../Game"
+@onready var relics: Array = [preload("res://Scripts/increase_speed_relic.gd")]
 
 # Base upgrade price
 const BASE_SPEED_PRICE: int = 10
@@ -252,3 +253,6 @@ func _on_double_ball_pressed() -> void:
 			get_parent().remove_child(extra_ball)
 			double_ball_stack -= 1
 			double_ball_button.update_perk(double_ball_stack, max_stacks, double_ball_price)
+
+func _on_buy_relic_pressed() -> void:
+	pass # Replace with function body.

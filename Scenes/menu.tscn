@@ -157,15 +157,6 @@ Relic"
 script = ExtResource("3_hfjpc")
 label_text = "Buy Relic"
 
-[node name="View_Relic" parent="Control/TabContainer/Ascension/GridContainer" instance=ExtResource("2_8dn8m")]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "View
-Relics"
-script = ExtResource("3_hfjpc")
-label_text = "View currently owned relics"
-
 [node name="Relics" type="Control" parent="Control/TabContainer"]
 visible = false
 layout_mode = 2
@@ -217,4 +208,5 @@ offset = Vector2(350, 10)
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Bounciness" to="." method="_on_double_bounciness_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Score" to="." method="_on_double_score_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Ball" to="." method="_on_double_ball_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Ascension/GridContainer/Buy_Relic" to="." method="_on_buy_relic_pressed"]
 [connection signal="pressed" from="Control/Popup" to="." method="_on_texture_button_pressed"]
