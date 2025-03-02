@@ -8,4 +8,4 @@ func _ready() -> void:
 	relic_name = "wings_of_hermes"
 	cost_multiplier = 1.5
 	ball.current_speed *= stat_multiplier
-	cost = BASE_COST * cost_multiplier * level
+	cost = BASE_COST * cost_multiplier * fmod(pow(level,2), 10)
