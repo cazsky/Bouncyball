@@ -20,6 +20,8 @@ extends Node2D
 @onready var game: Node2D = $"../../Game"
 @onready var relics: Array = [preload("res://Scripts/increase_speed_relic.gd")]
 @onready var stars_label: Label = $Control/TabContainer/Ascension/Label
+@onready var tab_container: TabContainer = $Control/TabContainer
+@onready var owned_relics := $Control/TabContainer/Relics/GridContainer
 
 # Base upgrade price
 const BASE_SPEED_PRICE: int = 10
@@ -80,6 +82,8 @@ signal velocity_changed
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Connect the ball bounce signal
+	if stars == 0 and owned_relics.get_child_count() == 0:
+		tab_container.set_tab_hidden(3, true)
 	ball.bounce.connect(_on_ball_bounce)
 	speed_button.update_label(ball.current_speed, speed_upgrade_stat_multiplier, speed_price)
 	bounciness_button.update_label(bounciness, bounciness_upgrade_stat_multiplier, bounciness_price)
