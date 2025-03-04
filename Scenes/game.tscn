@@ -31,7 +31,6 @@ size = Vector2(30, 1280)
 [node name="Game" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_n0h2w")
-score = 2.13213e+06
 gems = 123131123
 
 [node name="Control" type="Control" parent="."]

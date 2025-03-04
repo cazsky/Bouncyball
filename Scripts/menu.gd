@@ -19,6 +19,7 @@ extends Node2D
 @onready var ball: CharacterBody2D = $"../Ball"
 @onready var game: Node2D = $"../../Game"
 @onready var relics: Array = [preload("res://Scripts/increase_speed_relic.gd")]
+@onready var stars_label: Label = $Control/TabContainer/Ascension/Label
 
 # Base upgrade price
 const BASE_SPEED_PRICE: int = 10
@@ -92,6 +93,8 @@ func _ready() -> void:
 	double_score_button.update_perk(double_score_stack, max_stacks, double_score_price)
 	double_bounce_button.update_perk(double_bounce_stack, max_stacks, double_bounce_price)
 	double_ball_button.update_perk(double_ball_stack, max_stacks, double_ball_price)
+	
+	stars_label.text = str("Stars: ", stars)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

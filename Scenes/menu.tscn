@@ -157,6 +157,20 @@ Relic"
 script = ExtResource("3_hfjpc")
 label_text = "Buy Relic"
 
+[node name="Label" type="Label" parent="Control/TabContainer/Ascension"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -396.0
+offset_top = 100.0
+offset_right = -324.0
+offset_bottom = 129.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "Stars:"
+
 [node name="Relics" type="Control" parent="Control/TabContainer"]
 visible = false
 layout_mode = 2
