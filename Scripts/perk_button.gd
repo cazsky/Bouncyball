@@ -9,7 +9,7 @@ func _ready() -> void:
 
 func update_perk(current_stack: int, max_stacks: int, price: float) -> void:
 	stat_label.text = str(current_stack, " / ", max_stacks)
-	price_label.text = str("Current Price: ", "\n", price)
+	price_label.text = str("Current Price: ", "\n", price, " gems")
 	
 #func activate_perk(current_stack: int, max_stacks: int, price: float, stat) -> void:
 	#stat *= 2
