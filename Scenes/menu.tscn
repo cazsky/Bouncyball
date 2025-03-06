@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://5mv5pcy1k2tg"]
+[gd_scene load_steps=6 format=3 uid="uid://5mv5pcy1k2tg"]
 
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="1_5y3mv"]
 [ext_resource type="PackedScene" uid="uid://c0ysgqsg6bis3" path="res://Scenes/upgrade_button.tscn" id="2_8dn8m"]
 [ext_resource type="Texture2D" uid="uid://qgh2hwgbl4hg" path="res://Sprites/tile_0604 (2).png" id="2_a8udu"]
 [ext_resource type="Script" path="res://Scripts/perk_button.gd" id="3_hfjpc"]
+[ext_resource type="Script" path="res://Scenes/ascension_button.gd" id="4_61cg1"]
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_5y3mv")
@@ -145,8 +146,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Ascend"
-script = ExtResource("3_hfjpc")
-label_text = "Reset your stats for a better start"
+script = ExtResource("4_61cg1")
 
 [node name="Buy_Relic" parent="Control/TabContainer/Ascension/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
