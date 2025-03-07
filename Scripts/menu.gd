@@ -1,17 +1,25 @@
 extends Node2D
 
-# Buttons
+# Upgrade Buttons
 @onready var speed_button: UpgradeButton = $Control/TabContainer/Upgrades/GridContainer/Speed
 @onready var friction_button: UpgradeButton = $Control/TabContainer/Upgrades/GridContainer/Friction
 @onready var xp_button: UpgradeButton = $Control/TabContainer/Upgrades/GridContainer/XPGain
 @onready var bounciness_button: UpgradeButton = $Control/TabContainer/Upgrades/GridContainer/Bounciness
 @onready var score_button: UpgradeButton = $Control/TabContainer/Upgrades/GridContainer/Score
 
+# Perk Buttons
 @onready var double_speed_button: PerkButton = $Control/TabContainer/Perks/GridContainer/Double_Speed
 @onready var double_xp_button: PerkButton = $Control/TabContainer/Perks/GridContainer/Double_XP
 @onready var double_score_button: PerkButton = $Control/TabContainer/Perks/GridContainer/Double_Score
 @onready var double_bounce_button: PerkButton = $Control/TabContainer/Perks/GridContainer/Double_Bounciness
 @onready var double_ball_button: PerkButton = $Control/TabContainer/Perks/GridContainer/Double_Ball
+
+# Ascension Buttons
+@onready var ascend_button: AscensionButton = $Control/TabContainer/Ascension/GridContainer/Ascend
+@onready var buy_relic_button: AscensionButton = $Control/TabContainer/Ascension/GridContainer/Buy_Relic
+
+# Relic Buttons
+@onready var owned_relics := $Control/TabContainer/Relics/GridContainer
 
 
 @onready var popup: Button = $Control/Popup
@@ -21,7 +29,6 @@ extends Node2D
 @onready var relics: Array = [preload("res://Scripts/increase_speed_relic.gd")]
 @onready var stars_label: Label = $Control/TabContainer/Ascension/Label
 @onready var tab_container: TabContainer = $Control/TabContainer
-@onready var owned_relics := $Control/TabContainer/Relics/GridContainer
 
 # Base upgrade price
 const BASE_SPEED_PRICE: int = 10
@@ -97,6 +104,7 @@ func _ready() -> void:
 	double_score_button.update_perk(double_score_stack, max_stacks, double_score_price)
 	double_bounce_button.update_perk(double_bounce_stack, max_stacks, double_bounce_price)
 	double_ball_button.update_perk(double_ball_stack, max_stacks, double_ball_price)
+	
 	
 	stars_label.text = str("Stars: ", stars)
 	
