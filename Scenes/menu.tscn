@@ -154,8 +154,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Buy
 Relic"
-script = ExtResource("3_hfjpc")
-label_text = "Buy Relic"
+script = ExtResource("4_61cg1")
 
 [node name="Label" type="Label" parent="Control/TabContainer/Ascension"]
 z_index = 2

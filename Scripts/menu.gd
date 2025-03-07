@@ -68,6 +68,10 @@ var double_score_price: int = 2000
 var double_ball_stack: int = 0
 var double_ball_price: int = 5000
 
+# Ascension Vars
+var relic_price: float = BASE_RELIC_PRICE
+
+
 
 # Initialise vars
 var is_menu_open: bool = false
