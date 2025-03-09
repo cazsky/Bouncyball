@@ -83,7 +83,6 @@ var xp_price: float = BASE_XP_PRICE
 var bounciness_price: float = BASE_BOUNCINESS_PRICE
 var score_price: float = BASE_SCORE_PRICE
 var max_stacks: int = 3
-var stars: float = 0
 
 # Signals
 @warning_ignore("unused_signal")
@@ -93,7 +92,7 @@ signal velocity_changed
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Connect the ball bounce signal
-	if stars == 0 and owned_relics.get_child_count() == 0:
+	if game.stars == 0 and owned_relics.get_child_count() == 0:
 		tab_container.set_tab_hidden(3, true)
 	ball.bounce.connect(_on_ball_bounce)
 	speed_button.update_label(ball.current_speed, speed_upgrade_stat_multiplier, speed_price)
@@ -110,7 +109,7 @@ func _ready() -> void:
 	double_ball_button.update_perk(double_ball_stack, max_stacks, double_ball_price)
 	
 	
-	stars_label.text = str("Stars: ", stars)
+	stars_label.text = str("Stars: ", game.stars)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -280,10 +279,10 @@ func _on_buy_relic_pressed() -> void:
 
 
 func _on_ascend_pressed() -> void:
-	stars = _reset_stats()
-	game.stars += stars
+	game.stars += _reset_stats()
 	
 func _reset_stats() -> float:
+	var stars
 	stars += ball.current_speed * log(250) / 350
 	ball.current_speed = ball.base_speed
 	bounciness = base_bounciness
