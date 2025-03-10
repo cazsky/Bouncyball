@@ -284,8 +284,8 @@ func _on_ascend_pressed() -> void:
 func _reset_stats() -> float:
 	var stars
 	stars += ball.current_speed * log(250) / 350
-	stars += bounciness * 10 + 5
-	stars += 1 / ball.friction * 10
+	stars += pow(2 * bounciness, 2)
+	stars += pow(5/ball.friction, 3) * 2
 	ball.current_speed = ball.base_speed
 	bounciness = base_bounciness
 	ball.friction = ball.base_friction
