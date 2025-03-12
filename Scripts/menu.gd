@@ -283,12 +283,15 @@ func _on_ascend_pressed() -> void:
 	game.stars += _reset_stats()
 	
 func _reset_stats() -> float:
+	# Calculating stars for ascension
 	stars += ball.current_speed * log(250) / 350
 	stars += pow(2 * bounciness, 2)
 	stars += pow(5/ball.friction, 3) * 2
 	stars += pow(game.xp_gain/2, 2) - game.xp_gain/3
 	stars += 5 + (game.add/3) + (pow(game.add, 1.3)/2)
 	stars += game.score/200
+	
+	# Reset all stats
 	ball.current_speed = ball.base_speed
 	bounciness = base_bounciness
 	ball.friction = ball.base_friction
