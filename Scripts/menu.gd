@@ -20,6 +20,7 @@ extends Node2D
 
 # Relic Buttons
 @onready var owned_relics := $Control/TabContainer/Relics/GridContainer
+@onready var stars_label: Label = $Control/TabContainer/Ascension/Star_Label
 
 
 @onready var popup: Button = $Control/Popup
@@ -27,11 +28,10 @@ extends Node2D
 @onready var ball: CharacterBody2D = $"../Ball"
 @onready var game: Node2D = $"../../Game"
 @onready var relics: Array = [preload("res://Scripts/increase_speed_relic.gd")]
-@onready var stars_label: Label = $Control/TabContainer/Ascension/Label
 @onready var tab_container: TabContainer = $Control/TabContainer
 
 # Base upgrade price
-const BASE_SPEED_PRICE: int = 10
+const BASE_SPEED_PRICE: int = 3
 const BASE_XP_PRICE: int = 50
 const BASE_BOUNCINESS_PRICE: int = 150
 const BASE_SCORE_PRICE: int = 500
@@ -83,10 +83,10 @@ var xp_price: float = BASE_XP_PRICE
 var bounciness_price: float = BASE_BOUNCINESS_PRICE
 var score_price: float = BASE_SCORE_PRICE
 var max_stacks: int = 3
-var stars
 
 # Signals
 @warning_ignore("unused_signal")
+# Connected to border.gd in the Game scene
 signal velocity_changed
 
 
@@ -211,7 +211,7 @@ func _on_double_speed_pressed() -> void:
 			emit_signal("velocity_changed", ball.current_speed)
 			double_speed_stack += 1
 			double_speed_button.update_perk(double_speed_stack, max_stacks, double_speed_price)
-			await get_tree().create_timer(60).timeout
+			await get_tree().create_timer(5).timeout
 			ball.current_speed /= 2
 			double_speed_stack -= 1
 			double_speed_button.update_perk(double_speed_stack, max_stacks, double_speed_price)
@@ -281,21 +281,32 @@ func _on_buy_relic_pressed() -> void:
 
 func _on_ascend_pressed() -> void:
 	game.stars += _reset_stats()
+	stars_label.text = str("Stars: ", game.stars)
 	
 func _reset_stats() -> float:
 	# Calculating stars for ascension
-	stars += ball.current_speed * log(250) / 350
+	var stars: int = -70
+	stars += sqrt(ball.current_speed)
+	print_debug("Stars: ", stars)
 	stars += pow(2 * bounciness, 2)
+	print_debug("Stars: ", stars)
 	stars += pow(5/ball.friction, 3) * 2
+	print_debug("Stars: ", stars)
 	stars += pow(game.xp_gain/2, 2) - game.xp_gain/3
+	print_debug("Stars: ", stars)
 	stars += 5 + (game.add/3) + (pow(game.add, 1.3)/2)
+	print_debug("Stars: ", stars)
 	stars += game.score/200
+	print_debug("Stars: ", stars)
 	
-	# Reset all stats
-	ball.current_speed = ball.base_speed
-	bounciness = base_bounciness
-	ball.friction = ball.base_friction
-	game.xp_gain = game.base_xp_gain
-	game.add = game.base_add
-	game.score = game.base_score
+	if stars >= 0:
+		# Reset all stats
+		ball.current_speed = ball.base_speed
+		bounciness = base_bounciness
+		ball.friction = ball.base_friction
+		game.xp_gain = game.base_xp_gain
+		game.add = game.base_add
+		game.score = game.base_score
+	else:
+		stars = 0
 	return stars
