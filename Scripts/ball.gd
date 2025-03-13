@@ -52,14 +52,12 @@ func _physics_process(delta: float) -> void:
 		#velocity *= pow(damping, delta * 60 * friction)
 		velocity = velocity.normalized() * lerp(velocity.length(), current_speed, delta * friction)
 		
-	# Prevent ball from stopping completely
+	# Ensure velocity at least base_speed
 	if velocity.length() < base_speed:
-		print_debug("Velocity: ", velocity.length())
-		print_debug("Base_speed: ", base_speed)
-		print_debug("Current_speed: ", current_speed)
-		velocity = (2 + base_speed) * direction
-	# Cant set to minimum 0 or the ball will just stop i guess
-	#velocity = velocity.clampf(-10000, current_speed)
+		velocity = velocity.normalized() * base_speed
+		
+
+
 
 		
 
