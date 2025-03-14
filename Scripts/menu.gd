@@ -73,6 +73,12 @@ var double_ball_stack: int = 0
 var double_ball_price: int = 5000
 var double_ball_time: int = 30
 
+# Current stats
+var speed_mult: float = 1
+var xp_mult: float = 1
+var bounce_mult: float = 1
+var score_mult: float = 1
+var friction_mult: float = 1
 
 # Ascension Vars
 var relic_price: float = BASE_RELIC_PRICE
@@ -161,8 +167,10 @@ func _on_texture_button_pressed() -> void:
 func _on_speed_pressed() -> void:
 	if game.score >= speed_price:
 		game.score -= speed_price
-		ball.current_speed *= speed_upgrade_stat_multiplier
-		ball.velocity *= speed_upgrade_stat_multiplier
+		#ball.current_speed *= speed_upgrade_stat_multiplier
+		speed_mult *= speed_upgrade_stat_multiplier
+		ball.current_speed = ball.base_speed * speed_mult
+		ball.velocity = ball.velocity.normalized() * ball.base_speed * speed_mult
 		speed_price *= speed_upgrade_price_multiplier
 		speed_button.update_label(ball.current_speed, speed_upgrade_stat_multiplier, speed_price)
 		emit_signal("velocity_changed", ball.current_speed)
