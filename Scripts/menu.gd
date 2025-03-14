@@ -59,14 +59,20 @@ var score_upgrade_stat_multiplier: float = 1.2
 # Perk vars
 var double_speed_stack: int = 0
 var double_speed_price: int = 200
+var double_speed_time: int = 30
 var double_xp_stack: int = 0
 var double_xp_price: int = 500
+var double_xp_time: int = 30
 var double_bounce_stack: int = 0
 var double_bounce_price = 1000
+var double_bounce_time: int = 30
 var double_score_stack: int = 0
 var double_score_price: int = 2000
+var double_score_time: int = 30
 var double_ball_stack: int = 0
 var double_ball_price: int = 5000
+var double_ball_time: int = 30
+
 
 # Ascension Vars
 var relic_price: float = BASE_RELIC_PRICE
@@ -213,7 +219,7 @@ func _on_double_speed_pressed() -> void:
 			emit_signal("velocity_changed", ball.current_speed)
 			double_speed_stack += 1
 			double_speed_button.update_perk(double_speed_stack, max_stacks, double_speed_price)
-			await get_tree().create_timer(5).timeout
+			await get_tree().create_timer(double_ball_time).timeout
 			ball.current_speed /= 2
 			double_speed_stack -= 1
 			double_speed_button.update_perk(double_speed_stack, max_stacks, double_speed_price)
@@ -228,7 +234,7 @@ func _on_double_xp_pressed() -> void:
 			game.xp_gain *= 2
 			double_xp_stack += 1
 			double_xp_button.update_perk(double_xp_stack, max_stacks, double_xp_price)
-			await get_tree().create_timer(60).timeout
+			await get_tree().create_timer(double_xp_time).timeout
 			game.xp_gain /= 2
 			double_xp_stack -= 1
 			double_xp_button.update_perk(double_xp_stack, max_stacks, double_xp_price)
@@ -242,7 +248,7 @@ func _on_double_score_pressed() -> void:
 			game.add *= 2
 			double_score_stack += 1
 			double_score_button.update_perk(double_score_stack, max_stacks, double_score_price)
-			await get_tree().create_timer(60).timeout
+			await get_tree().create_timer(double_score_time).timeout
 			game.add /= 2
 			double_score_stack -= 1
 			double_score_button.update_perk(double_score_stack, max_stacks, double_score_price)
@@ -255,7 +261,7 @@ func _on_double_bounciness_pressed() -> void:
 			bounciness *= 2
 			double_bounce_stack += 1
 			double_bounce_button.update_perk(double_bounce_stack, max_stacks, double_bounce_price)
-			await get_tree().create_timer(60).timeout
+			await get_tree().create_timer(double_bounce_time).timeout
 			bounciness /= 2
 			double_bounce_stack -= 1
 			double_bounce_button.update_perk(double_bounce_stack, max_stacks, double_bounce_price)
@@ -273,7 +279,7 @@ func _on_double_ball_pressed() -> void:
 			double_ball_button.update_perk(double_ball_stack, max_stacks, double_ball_price)
 			extra_ball.global_position = ball.global_position/2
 			get_parent().add_child(extra_ball)
-			await get_tree().create_timer(60).timeout
+			await get_tree().create_timer(double_ball_time).timeout
 			get_parent().remove_child(extra_ball)
 			double_ball_stack -= 1
 			double_ball_button.update_perk(double_ball_stack, max_stacks, double_ball_price)
