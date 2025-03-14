@@ -38,6 +38,10 @@ const BASE_SCORE_PRICE: int = 500
 const BASE_FRICTION_PRICE: int = 1000
 const BASE_RELIC_PRICE:int = 10
 
+# Base stats
+const BASE_BOUNCINESS: float = 1
+
+
 
 # Consts UI
 const MENU_TIME: float = 0.15
@@ -87,14 +91,15 @@ var relic_price: float = BASE_RELIC_PRICE
 
 # Initialise vars
 var is_menu_open: bool = false
-var base_bounciness: float = 1.0
-var bounciness: float = base_bounciness
+var bounciness: float = BASE_BOUNCINESS
+var max_stacks: int = 3
+
 var friction_price: float = BASE_FRICTION_PRICE
 var speed_price: float = BASE_SPEED_PRICE
 var xp_price: float = BASE_XP_PRICE
 var bounciness_price: float = BASE_BOUNCINESS_PRICE
 var score_price: float = BASE_SCORE_PRICE
-var max_stacks: int = 3
+
 
 # Signals
 @warning_ignore("unused_signal")
@@ -186,7 +191,8 @@ func _on_ball_bounce() -> void:
 func _on_bounciness_pressed() -> void:
 	if game.score >= bounciness_price:
 		game.score -= bounciness_price
-		bounciness *= bounciness_upgrade_stat_multiplier
+		bounce_mult *= bounciness_upgrade_stat_multiplier
+		bounciness = BASE_BOUNCINESS * bounce_mult
 		bounciness_price *= bounciness_upgrade_price_multiplier
 		bounciness_button.update_label(bounciness, bounciness_upgrade_stat_multiplier, bounciness_price)
 
@@ -194,7 +200,8 @@ func _on_bounciness_pressed() -> void:
 func _on_friction_pressed() -> void:
 	if game.score >= friction_price:
 		game.score -= friction_price
-		ball.friction *= friction_upgrade_stat_multiplier
+		friction_mult *= friction_upgrade_stat_multiplier
+		ball.friction = ball.base_friction * friction_mult
 		# Increase kinda ok
 		ball.inverse_friction += pow(10 + (0.25 * friction_price), ball.friction)
 		friction_price *= friction_upgrade_price_multiplier
@@ -204,7 +211,9 @@ func _on_friction_pressed() -> void:
 func _on_xp_gain_pressed() -> void:
 	if game.score >= xp_price:
 		game.score -= xp_price
-		game.xp_gain *= xp_upgrade_stat_multiplier
+		xp_mult *= xp_upgrade_stat_multiplier
+		game.xp_gain = game.base_xp_gain * xp_mult
+		#game.xp_gain *= xp_upgrade_stat_multiplier
 		xp_price *= xp_upgrade_price_multiplier
 		xp_button.update_label(game.xp_gain, xp_upgrade_stat_multiplier, xp_price)
 
@@ -212,7 +221,8 @@ func _on_xp_gain_pressed() -> void:
 func _on_score_pressed() -> void:
 	if game.score >= score_price:
 		game.score -= score_price
-		game.add *= score_upgrade_stat_multiplier
+		score_mult *= score_upgrade_stat_multiplier
+		game.add = game.base_add * score_mult
 		score_price *= score_upgrade_price_multiplier
 		score_button.update_label(game.add, score_upgrade_stat_multiplier, score_price)
 
@@ -319,7 +329,7 @@ func _reset_stats() -> float:
 	if stars >= 0:
 		# Reset all stats
 		ball.current_speed = ball.base_speed
-		bounciness = base_bounciness
+		bounciness = BASE_BOUNCINESS
 		ball.friction = ball.base_friction
 		game.xp_gain = game.base_xp_gain
 		game.add = game.base_add
