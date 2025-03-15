@@ -328,11 +328,11 @@ func _reset_stats() -> float:
 	
 	if stars >= 0:
 		# Reset all stats
-		ball.current_speed = ball.base_speed
-		bounciness = BASE_BOUNCINESS
-		ball.friction = ball.base_friction
-		game.xp_gain = game.base_xp_gain
-		game.add = game.base_add
+		speed_mult = 1
+		bounce_mult = 1
+		friction_mult = 1
+		xp_mult = 1
+		score_mult = 1
 		game.score = game.base_score
 	else:
 		stars = 0
