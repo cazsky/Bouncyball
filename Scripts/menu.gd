@@ -337,6 +337,13 @@ func _reset_stats() -> float:
 		friction_mult = 1
 		xp_mult = 1
 		score_mult = 1
+		
+		ball.current_speed = ball.base_speed * speed_mult
+		bounciness = BASE_BOUNCINESS * bounce_mult
+		ball.friction = ball.base_friction * friction_mult
+		game.xp_gain = game.base_xp_gain * xp_mult
+		game.add = game.base_add * score_mult
+		
 		game.score = game.base_score
 	else:
 		stars = 0
