@@ -233,7 +233,6 @@ func _on_double_speed_pressed() -> void:
 		if double_speed_stack < max_stacks:
 			ball.velocity *= 2
 			ball.current_speed *= 2
-			print_debug("Current Speed: ", ball.current_speed)
 			emit_signal("velocity_changed", ball.current_speed)
 			double_speed_stack += 1
 			double_speed_button.update_perk(double_speed_stack, max_stacks, double_speed_price)
@@ -241,7 +240,6 @@ func _on_double_speed_pressed() -> void:
 			ball.current_speed /= 2
 			double_speed_stack -= 1
 			double_speed_button.update_perk(double_speed_stack, max_stacks, double_speed_price)
-			print_debug("Current Speed: ", ball.current_speed)
 			emit_signal("velocity_changed", ball.current_speed)
 	
 
@@ -313,18 +311,24 @@ func _on_ascend_pressed() -> void:
 func _reset_stats() -> float:
 	# Calculating stars for ascension
 	var stars: int = -70
-	stars += sqrt(ball.current_speed)
+	var speed_star: float = ball.current_speed / pow(2, double_speed_stack)
+	var bounce_star: float = bounciness / pow(2, double_bounce_stack)
+	var xp_star: float = ball.friction / pow(2, double_xp_stack)
+	var add_star: float = game.add / pow(2, double_score_stack)
+	stars += sqrt(speed_star)
 	#print_debug("Stars: ", stars)
-	stars += pow(2 * bounciness, 2)
+	stars += pow(2 * bounce_star, 2)
 	#print_debug("Stars: ", stars)
 	stars += pow(5/ball.friction, 3) * 2
 	#print_debug("Stars: ", stars)
-	stars += pow(game.xp_gain/2, 2) - game.xp_gain/3
+	stars += pow(xp_star/2, 2) - game.xp_gain/3
 	#print_debug("Stars: ", stars)
-	stars += 5 + (game.add/3) + (pow(game.add, 1.3)/2)
+	stars += 5 + (add_star/3) + (pow(game.add, 1.3)/2)
 	#print_debug("Stars: ", stars)
 	stars += game.score/200
 	#print_debug("Stars: ", stars)
+	
+	print_debug(stars)
 	
 	if stars >= 0:
 		# Reset all stats
