@@ -330,7 +330,7 @@ func _reset_stats() -> float:
 	
 	print_debug(stars)
 	
-	if stars > 0:
+	if stars > 20:
 		# Reset all stats
 		speed_mult = 1
 		bounce_mult = 1
