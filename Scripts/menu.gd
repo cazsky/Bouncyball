@@ -231,14 +231,17 @@ func _on_double_speed_pressed() -> void:
 	if game.gems >= double_speed_price:
 		game.gems -= double_speed_price
 		if double_speed_stack < max_stacks:
-			ball.velocity *= 2
-			ball.current_speed *= 2
-			emit_signal("velocity_changed", ball.current_speed)
 			double_speed_stack += 1
+			speed_mult *= 2
+			ball.current_speed = ball.base_speed * speed_mult
+			ball.velocity = ball.velocity.normalized() * ball.base_speed * speed_mult
+			emit_signal("velocity_changed", ball.current_speed)
 			double_speed_button.update_perk(double_speed_stack, max_stacks, double_speed_price)
 			await get_tree().create_timer(double_ball_time).timeout
-			ball.current_speed /= 2
 			double_speed_stack -= 1
+			speed_mult /= 2
+			ball.current_speed = ball.base_speed * speed_mult
+			ball.velocity = ball.velocity.normalized() * ball.base_speed * speed_mult
 			double_speed_button.update_perk(double_speed_stack, max_stacks, double_speed_price)
 			emit_signal("velocity_changed", ball.current_speed)
 	
@@ -348,3 +351,7 @@ func _reset_stats() -> float:
 	else:
 		stars = 0
 	return stars
+
+#
+#func _on_ascend_focus_entered() -> void:
+	#if
