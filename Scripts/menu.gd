@@ -250,12 +250,14 @@ func _on_double_xp_pressed() -> void:
 	if game.gems >= double_xp_price:
 		game.gems -= double_xp_price
 		if double_xp_stack < max_stacks:
-			game.xp_gain *= 2
+			xp_mult *= 2
 			double_xp_stack += 1
+			game.xp_gain = game.base_xp_gain * xp_mult
 			double_xp_button.update_perk(double_xp_stack, max_stacks, double_xp_price)
 			await get_tree().create_timer(double_xp_time).timeout
-			game.xp_gain /= 2
+			xp_mult *= 2
 			double_xp_stack -= 1
+			game.xp_gain = game.base_xp_gain * xp_mult
 			double_xp_button.update_perk(double_xp_stack, max_stacks, double_xp_price)
 
 
