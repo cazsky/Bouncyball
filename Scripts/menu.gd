@@ -265,13 +265,14 @@ func _on_double_score_pressed() -> void:
 	if game.gems >= double_score_price:
 		game.gems -= double_score_price
 		if double_score_stack < max_stacks:
-			#double_score_button.activate_perk(double_score_stack, max_stacks, double_score_price, game.add)
-			game.add *= 2
+			score_mult *= 2
 			double_score_stack += 1
+			game.add = game.base_add * score_mult
 			double_score_button.update_perk(double_score_stack, max_stacks, double_score_price)
 			await get_tree().create_timer(double_score_time).timeout
-			game.add /= 2
+			score_mult /= 2
 			double_score_stack -= 1
+			game.add = game.base_add * score_mult
 			double_score_button.update_perk(double_score_stack, max_stacks, double_score_price)
 			
 			
