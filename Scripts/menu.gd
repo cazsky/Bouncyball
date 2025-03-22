@@ -280,12 +280,14 @@ func _on_double_bounciness_pressed() -> void:
 	if game.gems >= double_bounce_price:
 		game.gems -= double_bounce_price
 		if double_bounce_stack < max_stacks:
-			bounciness *= 2
+			bounce_mult *= 2
 			double_bounce_stack += 1
+			bounciness = BASE_BOUNCINESS * bounce_mult
 			double_bounce_button.update_perk(double_bounce_stack, max_stacks, double_bounce_price)
 			await get_tree().create_timer(double_bounce_time).timeout
-			bounciness /= 2
+			bounce_mult /= 2
 			double_bounce_stack -= 1
+			bounciness = BASE_BOUNCINESS * bounce_mult
 			double_bounce_button.update_perk(double_bounce_stack, max_stacks, double_bounce_price)
 
 
