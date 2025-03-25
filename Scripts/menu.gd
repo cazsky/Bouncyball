@@ -323,7 +323,7 @@ func _reset_stats() -> float:
 	var stars: int = -70
 	var speed_star: float = ball.current_speed / pow(2, double_speed_stack)
 	var bounce_star: float = bounciness / pow(2, double_bounce_stack)
-	var xp_star: float = ball.friction / pow(2, double_xp_stack)
+	var xp_star: float = game.xp_gain / pow(2, double_xp_stack)
 	var add_star: float = game.add / pow(2, double_score_stack)
 	stars += sqrt(speed_star)
 	#print_debug("Stars: ", stars)
