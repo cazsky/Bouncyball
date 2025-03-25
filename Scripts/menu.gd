@@ -192,7 +192,7 @@ func _on_bounciness_pressed() -> void:
 	if game.score >= bounciness_price:
 		game.score -= bounciness_price
 		bounce_mult *= bounciness_upgrade_stat_multiplier
-		bounciness = BASE_BOUNCINESS * bounce_mult
+		bounciness = BASE_BOUNCINESS * bounce_mult * pow(2, double_bounce_stack)
 		bounciness_price *= bounciness_upgrade_price_multiplier
 		bounciness_button.update_label(bounciness, bounciness_upgrade_stat_multiplier, bounciness_price)
 
@@ -212,7 +212,7 @@ func _on_xp_gain_pressed() -> void:
 	if game.score >= xp_price:
 		game.score -= xp_price
 		xp_mult *= xp_upgrade_stat_multiplier
-		game.xp_gain = game.base_xp_gain * xp_mult
+		game.xp_gain = game.base_xp_gain * xp_mult * pow(2, double_xp_stack)
 		#game.xp_gain *= xp_upgrade_stat_multiplier
 		xp_price *= xp_upgrade_price_multiplier
 		xp_button.update_label(game.xp_gain, xp_upgrade_stat_multiplier, xp_price)
@@ -221,9 +221,8 @@ func _on_xp_gain_pressed() -> void:
 func _on_score_pressed() -> void:
 	if game.score >= score_price:
 		game.score -= score_price
-		score_mult *= score_upgrade_stat_multiplier
-		print(score_mult)
-		game.add = game.base_add * score_mult
+		score_mult *= score_upgrade_stat_multiplier 
+		game.add = game.base_add * score_mult * pow(2, double_score_stack)
 		score_price *= score_upgrade_price_multiplier
 		score_button.update_label(game.add, score_upgrade_stat_multiplier, score_price)
 
@@ -252,14 +251,12 @@ func _on_double_xp_pressed() -> void:
 	if game.gems >= double_xp_price:
 		game.gems -= double_xp_price
 		if double_xp_stack < max_stacks:
-			xp_mult *= 2
 			double_xp_stack += 1
-			game.xp_gain = game.base_xp_gain * xp_mult
+			game.xp_gain = game.base_xp_gain * xp_mult * pow(2, double_xp_stack)
 			double_xp_button.update_perk(double_xp_stack, max_stacks, double_xp_price)
 			await get_tree().create_timer(double_xp_time).timeout
-			xp_mult *= 2
 			double_xp_stack -= 1
-			game.xp_gain = game.base_xp_gain * xp_mult
+			game.xp_gain = game.base_xp_gain * xp_mult * pow(2, double_xp_stack)
 			double_xp_button.update_perk(double_xp_stack, max_stacks, double_xp_price)
 
 
@@ -267,14 +264,12 @@ func _on_double_score_pressed() -> void:
 	if game.gems >= double_score_price:
 		game.gems -= double_score_price
 		if double_score_stack < max_stacks:
-			score_mult *= 2
 			double_score_stack += 1
-			game.add = game.base_add * score_mult
+			game.add = game.base_add * score_mult * pow(2, double_score_stack)
 			double_score_button.update_perk(double_score_stack, max_stacks, double_score_price)
 			await get_tree().create_timer(double_score_time).timeout
-			score_mult /= 2
 			double_score_stack -= 1
-			game.add = game.base_add * score_mult
+			game.add = game.base_add * score_mult * pow(2, double_score_stack)
 			double_score_button.update_perk(double_score_stack, max_stacks, double_score_price)
 			
 			
@@ -282,14 +277,12 @@ func _on_double_bounciness_pressed() -> void:
 	if game.gems >= double_bounce_price:
 		game.gems -= double_bounce_price
 		if double_bounce_stack < max_stacks:
-			bounce_mult *= 2
 			double_bounce_stack += 1
-			bounciness = BASE_BOUNCINESS * bounce_mult
+			bounciness = BASE_BOUNCINESS * bounce_mult * pow(2, double_bounce_stack)
 			double_bounce_button.update_perk(double_bounce_stack, max_stacks, double_bounce_price)
 			await get_tree().create_timer(double_bounce_time).timeout
-			bounce_mult /= 2
 			double_bounce_stack -= 1
-			bounciness = BASE_BOUNCINESS * bounce_mult
+			bounciness = BASE_BOUNCINESS * bounce_mult * pow(2, double_bounce_stack)
 			double_bounce_button.update_perk(double_bounce_stack, max_stacks, double_bounce_price)
 
 
