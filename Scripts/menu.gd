@@ -63,7 +63,7 @@ var score_upgrade_stat_multiplier: float = 1.2
 # Perk vars
 var double_speed_stack: int = 0
 var double_speed_price: int = 200
-var double_speed_time: int = 30
+var double_speed_time: int = 5
 var double_xp_stack: int = 0
 var double_xp_price: int = 500
 var double_xp_time: int = 30
@@ -174,8 +174,8 @@ func _on_speed_pressed() -> void:
 		game.score -= speed_price
 		#ball.current_speed *= speed_upgrade_stat_multiplier
 		speed_mult *= speed_upgrade_stat_multiplier
-		ball.current_speed = ball.base_speed * speed_mult
-		ball.velocity = ball.velocity.normalized() * ball.base_speed * speed_mult
+		ball.current_speed = ball.base_speed * speed_mult * pow(2, double_speed_stack)
+		ball.velocity = ball.velocity.normalized() * ball.base_speed * speed_mult * pow(2, double_speed_stack)
 		speed_price *= speed_upgrade_price_multiplier
 		speed_button.update_label(ball.current_speed, speed_upgrade_stat_multiplier, speed_price)
 		emit_signal("velocity_changed", ball.current_speed)
@@ -222,6 +222,7 @@ func _on_score_pressed() -> void:
 	if game.score >= score_price:
 		game.score -= score_price
 		score_mult *= score_upgrade_stat_multiplier
+		print(score_mult)
 		game.add = game.base_add * score_mult
 		score_price *= score_upgrade_price_multiplier
 		score_button.update_label(game.add, score_upgrade_stat_multiplier, score_price)
@@ -232,16 +233,17 @@ func _on_double_speed_pressed() -> void:
 		game.gems -= double_speed_price
 		if double_speed_stack < max_stacks:
 			double_speed_stack += 1
-			speed_mult *= 2
-			ball.current_speed = ball.base_speed * speed_mult
-			ball.velocity = ball.velocity.normalized() * ball.base_speed * speed_mult
+			#speed_mult *= 2
+			#ball.current_speed = ball.base_speed * speed_mult
+			# Keep default multipliers and double multipliers separate to prevent bugs
+			ball.current_speed = ball.base_speed * speed_mult * pow(2, double_speed_stack)
+			ball.velocity = ball.velocity.normalized() * ball.base_speed * speed_mult * pow(2, double_speed_stack)
 			emit_signal("velocity_changed", ball.current_speed)
 			double_speed_button.update_perk(double_speed_stack, max_stacks, double_speed_price)
-			await get_tree().create_timer(double_ball_time).timeout
+			await get_tree().create_timer(double_speed_time).timeout
 			double_speed_stack -= 1
-			speed_mult /= 2
-			ball.current_speed = ball.base_speed * speed_mult
-			ball.velocity = ball.velocity.normalized() * ball.base_speed * speed_mult
+			ball.current_speed = ball.base_speed * speed_mult * pow(2, double_speed_stack)
+			ball.velocity = ball.velocity.normalized() * ball.base_speed * speed_mult * pow(2, double_speed_stack)
 			double_speed_button.update_perk(double_speed_stack, max_stacks, double_speed_price)
 			emit_signal("velocity_changed", ball.current_speed)
 	
