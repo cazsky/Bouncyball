@@ -328,7 +328,8 @@ func _reset_stats() -> float:
 	#print_debug("Stars: ", stars)
 	stars += 5 + (add_star/3) + (pow(game.add, 1.3)/2)
 	#print_debug("Stars: ", stars)
-	stars += game.score/200
+	# Yeah idk man
+	stars += pow(game.score/5, 3/4)
 	#print_debug("Stars: ", stars)
 	
 	print_debug(stars)
