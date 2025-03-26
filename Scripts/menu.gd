@@ -325,18 +325,19 @@ func _reset_stats() -> float:
 	var bounce_star: float = bounciness / pow(2, double_bounce_stack)
 	var xp_star: float = game.xp_gain / pow(2, double_xp_stack)
 	var add_star: float = game.add / pow(2, double_score_stack)
-	stars += sqrt(speed_star)
+	stars += int(sqrt(speed_star))
 	#print_debug("Stars: ", stars)
-	stars += pow(2 * bounce_star, 2)
+	stars += int(pow(2 * bounce_star, 2))
 	#print_debug("Stars: ", stars)
-	stars += pow(5/ball.friction, 3) * 2
+	stars += int(pow(5/ball.friction, 3) * 2)
 	#print_debug("Stars: ", stars)
-	stars += pow(xp_star/2, 2) - game.xp_gain/3
+	stars += int(pow(xp_star/2, 2) - game.xp_gain/3)
 	#print_debug("Stars: ", stars)
-	stars += 5 + (add_star/3) + (pow(game.add, 1.3)/2)
+	stars += int(5 + (add_star/3) + (pow(game.add, 1.3)/2))
 	#print_debug("Stars: ", stars)
 	# Yeah idk man
-	stars += pow(game.score/5, 3/4)
+	@warning_ignore("integer_division")
+	stars += int(pow(game.score/5, 3/4))
 	#print_debug("Stars: ", stars)
 	
 	print_debug(stars)
