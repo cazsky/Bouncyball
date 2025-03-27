@@ -110,19 +110,21 @@ signal ascended
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Hide relic tabs until requirements gotten
 	if game.stars == 0 and owned_relics.get_child_count() == 0:
 		tab_container.set_tab_hidden(3, true)
 		
 	# Connect the ball bounce signal
 	ball.bounce.connect(_on_ball_bounce)
 	
+	# Update upgrade buttons labels
 	speed_button.update_label(ball.current_speed, speed_upgrade_stat_multiplier, speed_price)
 	bounciness_button.update_label(bounciness, bounciness_upgrade_stat_multiplier, bounciness_price)
 	xp_button.update_label(game.xp_gain, xp_upgrade_stat_multiplier, xp_price)
 	score_button.update_label(game.add, score_upgrade_stat_multiplier, score_price)
 	friction_button.update_label(ball.friction, friction_upgrade_stat_multiplier, friction_price)
 	
-	
+	# Update perk button labels
 	double_speed_button.update_perk(double_speed_stack, max_stacks, double_speed_price)
 	double_xp_button.update_perk(double_xp_stack, max_stacks, double_xp_price)
 	double_score_button.update_perk(double_score_stack, max_stacks, double_score_price)
