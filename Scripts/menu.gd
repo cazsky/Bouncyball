@@ -110,10 +110,12 @@ signal ascended
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Connect the ball bounce signal
 	if game.stars == 0 and owned_relics.get_child_count() == 0:
 		tab_container.set_tab_hidden(3, true)
+		
+	# Connect the ball bounce signal
 	ball.bounce.connect(_on_ball_bounce)
+	
 	speed_button.update_label(ball.current_speed, speed_upgrade_stat_multiplier, speed_price)
 	bounciness_button.update_label(bounciness, bounciness_upgrade_stat_multiplier, bounciness_price)
 	xp_button.update_label(game.xp_gain, xp_upgrade_stat_multiplier, xp_price)
@@ -127,7 +129,7 @@ func _ready() -> void:
 	double_bounce_button.update_perk(double_bounce_stack, max_stacks, double_bounce_price)
 	double_ball_button.update_perk(double_ball_stack, max_stacks, double_ball_price)
 	
-	
+	ascend_button.price_label.text = ""
 	stars_label.text = str("Stars: ", game.stars)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

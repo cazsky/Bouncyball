@@ -147,7 +147,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Ascend"
 script = ExtResource("4_61cg1")
-label_text = "Reset your stats for relics"
+label_text = "Reset your stats for stars"
 
 [node name="Buy_Relic" parent="Control/TabContainer/Ascension/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
@@ -156,7 +156,7 @@ size_flags_vertical = 0
 text = "Buy
 Relic"
 script = ExtResource("4_61cg1")
-label_text = "Buy relics"
+label_text = "Use stars to buy relics"
 
 [node name="Star_Label" type="Label" parent="Control/TabContainer/Ascension"]
 z_index = 2
