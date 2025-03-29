@@ -213,6 +213,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_a8udu")
 offset = Vector2(350, 10)
 
+[connection signal="ascended" from="." to="." method="_on_ascended"]
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Speed" to="." method="_on_speed_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/XPGain" to="." method="_on_xp_gain_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Bounciness" to="." method="_on_bounciness_pressed"]

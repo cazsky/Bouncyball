@@ -41,8 +41,6 @@ const BASE_RELIC_PRICE:int = 10
 # Base stats
 const BASE_BOUNCINESS: float = 1
 
-
-
 # Consts UI
 const MENU_TIME: float = 0.15
 
@@ -86,6 +84,9 @@ var friction_mult: float = 1
 
 # Ascension Vars
 var relic_price: float = BASE_RELIC_PRICE
+var relic_price_multiplier: float = 2.5
+var relic_upgrade_price_multiplier: float = 1.5
+var relic_upgrade_stat_multiplier: float = 1.1
 
 
 
@@ -368,3 +369,6 @@ func _reset_stats() -> float:
 #
 #func _on_ascend_focus_entered() -> void:
 	#if
+
+func _on_ascended() -> void:
+	tab_container.set_tab_hidden(3, true)
