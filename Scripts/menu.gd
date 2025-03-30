@@ -323,7 +323,7 @@ func _on_ascend_pressed() -> void:
 	game.stars += _reset_stats()
 	stars_label.text = str("Stars: ", game.stars)
 	
-func _reset_stats() -> float:
+func calculate_stars() -> float:
 	# Calculating stars for ascension
 	var stars: int = -70
 	var speed_star: float = ball.current_speed / pow(2, double_speed_stack)
@@ -346,7 +346,10 @@ func _reset_stats() -> float:
 	#print_debug("Stars: ", stars)
 	
 	print_debug(stars)
+	return stars
 	
+func _reset_stats() -> float:
+	var stars = calculate_stars()
 	if stars > 50:
 		# Reset all stats
 		speed_mult = 1
@@ -366,9 +369,19 @@ func _reset_stats() -> float:
 		stars = 0
 	return stars
 
-#
-#func _on_ascend_focus_entered() -> void:
-	#if
+
 
 func _on_ascended() -> void:
 	tab_container.set_tab_hidden(3, true)
+
+
+func _on_tab_container_tab_clicked(tab: int) -> void:
+	# Update potential stars when ascension tab is clicked
+	match tab:
+		2:
+			var stars = calculate_stars()
+			var stars_display = stars
+			if stars_display < 0:
+				stars_display = 0 
+			ascend_button.price_label.text = str("Stars to gain: \n", stars_display)
+			
