@@ -58,6 +58,13 @@ var bounciness_upgrade_stat_multiplier: float = 1.2
 var xp_upgrade_stat_multiplier: float = 1.2
 var score_upgrade_stat_multiplier: float = 1.2
 
+# Ball upgrade levels
+var speed_upgrade_level: float = 1
+var friction_upgrade_level: float = 1
+var bounciness_upgrade_level: float = 1
+var xp_upgrade_level: float = 1
+var score_upgrade_level: float = 1
+
 # Perk vars
 var double_speed_stack: int = 0
 var double_speed_price: int = 200
@@ -181,7 +188,8 @@ func _on_speed_pressed() -> void:
 		speed_mult *= speed_upgrade_stat_multiplier
 		ball.current_speed = ball.base_speed * speed_mult * pow(2, double_speed_stack)
 		ball.velocity = ball.velocity.normalized() * ball.base_speed * speed_mult * pow(2, double_speed_stack)
-		speed_price *= speed_upgrade_price_multiplier
+		speed_price = BASE_SPEED_PRICE * pow(speed_upgrade_price_multiplier, speed_upgrade_level)
+		
 		speed_button.update_label(ball.current_speed, speed_upgrade_stat_multiplier, speed_price)
 		emit_signal("velocity_changed", ball.current_speed)
 
