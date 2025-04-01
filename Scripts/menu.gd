@@ -394,8 +394,10 @@ func _on_tab_container_tab_clicked(tab: int) -> void:
 		2:
 			var stars = calculate_stars()
 			var stars_display = stars
+			ascend_button.disabled = true
 			if stars_display < 0:
 				stars_display = 0
-				ascend_button.disabled = true
+			if stars >= 50:
+				ascend_button.disabled = false
 			ascend_button.price_label.text = str("Stars to gain: \n", stars_display)
 			
