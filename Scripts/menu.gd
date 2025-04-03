@@ -329,8 +329,9 @@ func _on_double_ball_pressed() -> void:
 			double_ball_button.update_perk(double_ball_stack, max_stacks, double_ball_price)
 
 func _on_buy_relic_pressed() -> void:
-	pass # Replace with function body.
-
+	var relic_cost = BASE_RELIC_PRICE * pow(relic_upgrade_price_multiplier, owned_relics.get_child_count())
+	game.stars -= relic_cost
+	buy_relic_button.update_price(relic_cost)
 
 func _on_ascend_pressed() -> void:
 	game.stars += _reset_stats()
@@ -392,6 +393,7 @@ func _on_tab_container_tab_clicked(tab: int) -> void:
 	# Update potential stars when ascension tab is clicked
 	match tab:
 		2:
+			# Calculate gains from ascension
 			var stars = calculate_stars()
 			var stars_display = stars
 			ascend_button.disabled = true
@@ -401,3 +403,6 @@ func _on_tab_container_tab_clicked(tab: int) -> void:
 				ascend_button.disabled = false
 			ascend_button.price_label.text = str("Stars to gain: \n", stars_display)
 			
+			# Calculate relic price
+			var relic_cost = BASE_RELIC_PRICE * pow(relic_upgrade_price_multiplier, owned_relics.get_child_count())
+			buy_relic_button.update_price(relic_cost)
