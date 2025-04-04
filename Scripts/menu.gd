@@ -31,7 +31,7 @@ extends Node2D
 @onready var tab_container: TabContainer = $Control/TabContainer
 
 # Base upgrade price
-const BASE_SPEED_PRICE: int = 3
+const BASE_SPEED_PRICE: int = 5
 const BASE_XP_PRICE: int = 30
 const BASE_BOUNCINESS_PRICE: int = 75
 const BASE_SCORE_PRICE: int = 200
