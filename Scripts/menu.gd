@@ -119,7 +119,7 @@ signal ascended
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Hide relic tabs until requirements gotten
-	if game.stars == 0 and owned_relics.get_child_count() == 0:
+	if owned_relics.get_child_count() == 0:
 		tab_container.set_tab_hidden(3, true)
 		
 	# Connect the ball bounce signal
