@@ -114,6 +114,7 @@ var score_price: float = BASE_SCORE_PRICE
 @warning_ignore("unused_signal")
 # Connected to border.gd in the Game scene
 signal velocity_changed
+@warning_ignore("unused_signal")
 signal ascended
 
 
