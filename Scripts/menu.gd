@@ -27,7 +27,7 @@ extends Node2D
 @onready var arrow: Sprite2D = $Control/Arrow
 @onready var ball: CharacterBody2D = $"../Ball"
 @onready var game: Node2D = $"../../Game"
-@onready var relics: Array = [preload("res://Scripts/increase_speed_relic.gd")]
+@onready var relics: Array = [preload("res://Scenes/relics/increase_speed_relic.tscn")]
 @onready var tab_container: TabContainer = $Control/TabContainer
 
 # Base upgrade price
@@ -108,6 +108,7 @@ var xp_price: float = BASE_XP_PRICE
 var bounciness_price: float = BASE_BOUNCINESS_PRICE
 var score_price: float = BASE_SCORE_PRICE
 
+@onready var relic_cost: float = BASE_RELIC_PRICE * pow(relic_upgrade_price_multiplier, owned_relics.get_child_count())
 
 # Signals
 @warning_ignore("unused_signal")
@@ -329,9 +330,12 @@ func _on_double_ball_pressed() -> void:
 			double_ball_button.update_perk(double_ball_stack, max_stacks, double_ball_price)
 
 func _on_buy_relic_pressed() -> void:
-	var relic_cost = BASE_RELIC_PRICE * pow(relic_upgrade_price_multiplier, owned_relics.get_child_count())
-	game.stars -= relic_cost
-	buy_relic_button.update_price(relic_cost)
+	if game.stars >= relic_cost:
+		game.stars -= relic_cost
+		relic_cost = BASE_RELIC_PRICE * pow(relic_upgrade_price_multiplier, owned_relics.get_child_count())
+		buy_relic_button.update_price(relic_cost)
+		owned_relics.add_child(relics.pick_random().instantiate())
+		stars_label.text = str("Stars: ", game.stars)
 
 func _on_ascend_pressed() -> void:
 	game.stars += _reset_stats()
