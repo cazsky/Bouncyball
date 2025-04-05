@@ -408,5 +408,5 @@ func _on_tab_container_tab_clicked(tab: int) -> void:
 			ascend_button.price_label.text = str("Stars to gain: \n", stars_display)
 			
 			# Calculate relic price
-			var relic_cost = BASE_RELIC_PRICE * pow(relic_upgrade_price_multiplier, owned_relics.get_child_count())
+			relic_cost = BASE_RELIC_PRICE * pow(relic_upgrade_price_multiplier, owned_relics.get_child_count())
 			buy_relic_button.update_price(relic_cost)
