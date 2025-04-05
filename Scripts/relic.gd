@@ -2,7 +2,7 @@ extends Node2D
 class_name Relic
 
 @onready var menu: Node2D = $"../../../../../../Menu"
-@onready var ball: CharacterBody2D = $"../../../../../../Ball"
+@onready var ball: CharacterBody2D = $"root/Game/Ball"
 
 @export var cost: float = 0
 @export var cost_multiplier: float = 0
