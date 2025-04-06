@@ -3,5 +3,5 @@
 [ext_resource type="PackedScene" uid="uid://duvr3sdvpolbo" path="res://Scenes/relic.tscn" id="1_j5a26"]
 [ext_resource type="Script" path="res://Scripts/increase_speed_relic.gd" id="2_lpcfi"]
 
-[node name="Relic" instance=ExtResource("1_j5a26")]
+[node name="Increase_Speed" instance=ExtResource("1_j5a26")]
 script = ExtResource("2_lpcfi")

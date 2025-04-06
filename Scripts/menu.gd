@@ -370,6 +370,7 @@ func _on_buy_relic_pressed() -> void:
 		buy_relic_button.update_price(relic_cost)
 		owned_relics.add_child(relics.pick_random().instantiate())
 		stars_label.text = str("Stars: ", game.stars)
+		tab_container.set_tab_hidden(3, false)
 
 func _on_ascend_pressed() -> void:
 	game.stars += _reset_stats()
