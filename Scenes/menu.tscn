@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/perk_button.gd" id="3_hfjpc"]
 [ext_resource type="Script" path="res://Scenes/ascension_button.gd" id="4_61cg1"]
 
-[node name="Menu" type="Node2D"]
+[node name="Menu" type="Node2D" groups=["Persist"]]
 script = ExtResource("1_5y3mv")
 
 [node name="Control" type="Control" parent="."]

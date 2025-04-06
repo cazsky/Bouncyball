@@ -118,6 +118,8 @@ signal velocity_changed
 signal ascended
 
 
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# Hide relic tabs until requirements gotten
@@ -144,8 +146,39 @@ func _ready() -> void:
 	ascend_button.price_label.text = ""
 	stars_label.text = str("Stars: ", game.stars)
 	
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	pass
+	
+func save_data() -> Dictionary:
+	var save_dict = {
+		# Game vars
+		"pos_x" : ball.position.x,
+		"pos_y" : ball.position.y,
+		"score" : game.score,
+		"gems" : game.gems,
+		# Ball stats
+		"current_speed" : ball.current_speed,
+		"speed_upgrade_level" : speed_upgrade_level,
+		"bounciness_upgrade_level" : bounciness_upgrade_level,
+		"friction_upgrade_level" : friction_upgrade_level,
+		"xp_upgrade_level" : xp_upgrade_level,
+		"score_upgrade_level" : score_upgrade_level,
+		# Double stacks
+		"double_speed_stack" : double_speed_stack,
+		"double_bounce_stack" : double_bounce_stack,
+		"double_xp_stack" : double_xp_stack,
+		"double_score_button" : double_score_button,
+		"double_ball_stack" : double_ball_stack,
+ 	}
+	
+	return save_dict
+	
+func save_game() -> void:
+	var save_nodes = get_tree().get_nodes_in_group("Persist")
+	
+func load_game() -> void:
 	pass
 	
 	

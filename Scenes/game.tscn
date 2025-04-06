@@ -28,7 +28,7 @@ size = Vector2(30, 1280)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4rx8"]
 size = Vector2(30, 1280)
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" groups=["Persist"]]
 texture_filter = 1
 script = ExtResource("1_n0h2w")
 gems = 123131123
@@ -97,7 +97,7 @@ offset_top = 95.0
 offset_right = 131.0
 grow_horizontal = 2
 
-[node name="Ball" parent="." instance=ExtResource("2_iqe1k")]
+[node name="Ball" parent="." groups=["Persist"] instance=ExtResource("2_iqe1k")]
 position = Vector2(354, 482)
 
 [node name="Border" type="StaticBody2D" parent="."]
