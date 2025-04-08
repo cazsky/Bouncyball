@@ -368,7 +368,9 @@ func _on_buy_relic_pressed() -> void:
 		game.stars -= relic_cost
 		relic_cost = BASE_RELIC_PRICE * pow(relic_upgrade_price_multiplier, owned_relics.get_child_count())
 		buy_relic_button.update_price(relic_cost)
-		owned_relics.add_child(relics.pick_random().instantiate())
+		var new_relic = relics.pick_random().instantiate()
+		new_relic.menu = self
+		owned_relics.add_child(new_relic)
 		stars_label.text = str("Stars: ", game.stars)
 		tab_container.set_tab_hidden(3, false)
 
@@ -445,3 +447,8 @@ func _on_tab_container_tab_clicked(tab: int) -> void:
 			# Calculate relic price
 			relic_cost = BASE_RELIC_PRICE * pow(relic_upgrade_price_multiplier, owned_relics.get_child_count())
 			buy_relic_button.update_price(relic_cost)
+
+
+func _on_grid_container_child_entered_tree(relic: Relic) -> void:
+	relic.activate_effect()
+	ball.update_stats()

@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var base_friction: float = 2.0
 
 @onready var velocity_stat_label: Label = $"../Control/Stats/Velocity"
+@onready var menu: Node2D = $"../Menu"
 
 @export var level: int = 1
 
@@ -92,4 +93,8 @@ func level_up() -> void:
 	level += 1
 	experience_required = get_required_expereience(level + 1)
 	emit_signal("levelled_up", level)
+	
+func update_stats() -> void:
+	current_speed = base_speed * menu.speed_mult * pow(2, menu.double_speed_stack)
+	velocity = velocity.normalized() * base_speed * menu.speed_mult * pow(2, menu.double_speed_stack)
 	
