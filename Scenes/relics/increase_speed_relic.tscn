@@ -5,3 +5,6 @@
 
 [node name="Increase_Speed" instance=ExtResource("1_j5a26")]
 script = ExtResource("2_lpcfi")
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="ready" from="." to="." method="_on_ready"]

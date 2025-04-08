@@ -6,3 +6,5 @@
 script = ExtResource("1_oi0nr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

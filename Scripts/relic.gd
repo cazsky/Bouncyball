@@ -3,7 +3,6 @@ class_name Relic
 
 @onready var menu: Node2D = $"../../../../../../Menu"
 @onready var ball: CharacterBody2D = $/root/Game/Ball
-@onready var balls := get_tree()
 
 @export var cost: float = 0
 @export var cost_multiplier: float = 0
@@ -16,6 +15,5 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _upgrade() -> void:
-	print_debug(ball)
 	cost *= cost_multiplier
 	level += 1

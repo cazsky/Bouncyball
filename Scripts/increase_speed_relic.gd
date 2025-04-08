@@ -10,8 +10,8 @@ func _ready() -> void:
 	cost = BASE_COST * cost_multiplier * fmod(pow(level,2), 10)
 	stat_multiplier = 1.05
 	ball.current_speed *= stat_multiplier
-	
-	
 
-func _init() -> void:
-	pass
+
+
+func _on_child_entered_tree(node: Node) -> void:
+	ball.current_speed *= stat_multiplier
