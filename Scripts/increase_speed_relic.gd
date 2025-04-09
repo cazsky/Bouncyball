@@ -4,7 +4,8 @@ const BASE_COST: float = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	super()
+	#super()
+	pass
 	
 	
 func _init() -> void:
@@ -16,5 +17,4 @@ func _init() -> void:
 	
 func activate_effect() -> void:
 	# Without this await ball is null in this function????
-	super()
 	menu.speed_mult *= stat_multiplier
