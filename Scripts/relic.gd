@@ -20,3 +20,6 @@ func _ready() -> void:
 func _upgrade() -> void:
 	cost *= cost_multiplier
 	level += 1
+
+func activate_effect() -> void:
+	await self.ready

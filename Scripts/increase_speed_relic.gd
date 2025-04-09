@@ -16,6 +16,5 @@ func _init() -> void:
 	
 func activate_effect() -> void:
 	# Without this await ball is null in this function????
-	# And I cant put this in the parent??
-	await self.ready
+	super()
 	menu.speed_mult *= stat_multiplier
