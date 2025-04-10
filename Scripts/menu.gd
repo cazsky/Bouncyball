@@ -151,43 +151,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 	
-func save() -> Dictionary:
-	var save_dict = {
-		# Game vars
-		"pos_x" : ball.position.x,
-		"pos_y" : ball.position.y,
-		"score" : game.score,
-		"gems" : game.gems,
-		# Ball stats
-		"current_speed" : ball.current_speed,
-		"speed_upgrade_level" : speed_upgrade_level,
-		"bounciness_upgrade_level" : bounciness_upgrade_level,
-		"friction_upgrade_level" : friction_upgrade_level,
-		"xp_upgrade_level" : xp_upgrade_level,
-		"score_upgrade_level" : score_upgrade_level,
-		# Double stacks
-		"double_speed_stack" : double_speed_stack,
-		"double_bounce_stack" : double_bounce_stack,
-		"double_xp_stack" : double_xp_stack,
-		"double_score_button" : double_score_button,
-		"double_ball_stack" : double_ball_stack,
- 	}
-	
-	return save_dict
-	
-func save_game() -> void:
-	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
-	var save_nodes = get_tree().get_nodes_in_group("Persist")
-	for node in save_nodes:
-		# Check if the node is an instanced scene so it can be instanced again during load
-		if node.scene_file_path.is_empty():
-			print("persistent node '%s' is not an instanced scene, skipped" % node.name)
-			continue
-		
-		#Check if the node has a save function
-	
-func load_game() -> void:
-	pass
 	
 	
 func close_menu() -> void:
