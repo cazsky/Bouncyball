@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/border.gd" id="4_2w6me"]
 [ext_resource type="Shape2D" uid="uid://gwc2tflbixj4" path="res://Scenes/rectangle_border.tres" id="4_moxe7"]
 [ext_resource type="PackedScene" uid="uid://vjcg5lifm6nx" path="res://Scenes/pin_ball.tscn" id="6_xdthl"]
-[ext_resource type="Script" path="res://Scenes/saver_loader.gd" id="9_5stws"]
+[ext_resource type="Script" path="res://Scripts/saver_loader.gd" id="9_5stws"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yd75t"]
 font_size = 24
