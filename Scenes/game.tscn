@@ -170,3 +170,5 @@ script = ExtResource("9_5stws")
 [connection signal="experience_gained" from="Ball" to="Control/xp_bar" method="_on_ball_experience_gained"]
 [connection signal="levelled_up" from="Ball" to="." method="_on_ball_levelled_up"]
 [connection signal="velocity_changed" from="Menu" to="Border" method="_on_menu_velocity_changed"]
+[connection signal="tree_entered" from="Utils/SaverLoader" to="Utils/SaverLoader" method="_on_tree_entered"]
+[connection signal="tree_exited" from="Utils/SaverLoader" to="Utils/SaverLoader" method="_on_tree_exited"]
