@@ -32,3 +32,11 @@ func _on_tree_exited() -> void:
 
 func _on_tree_entered() -> void:
 	load_game()
+
+
+func _on_button_pressed() -> void:
+	save_game()
+
+
+func _on_button_2_pressed() -> void:
+	load_game()

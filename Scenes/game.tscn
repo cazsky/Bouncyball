@@ -166,9 +166,25 @@ position = Vector2(0, 1180)
 [node name="SaverLoader" type="Node" parent="Utils"]
 script = ExtResource("9_5stws")
 
+[node name="Button" type="Button" parent="Utils"]
+offset_left = 560.0
+offset_top = 455.0
+offset_right = 627.0
+offset_bottom = 494.0
+text = "save"
+
+[node name="Button2" type="Button" parent="Utils"]
+offset_left = 561.0
+offset_top = 502.0
+offset_right = 628.0
+offset_bottom = 541.0
+text = "load"
+
 [connection signal="bounce" from="Ball" to="." method="_on_ball_bounce"]
 [connection signal="experience_gained" from="Ball" to="Control/xp_bar" method="_on_ball_experience_gained"]
 [connection signal="levelled_up" from="Ball" to="." method="_on_ball_levelled_up"]
 [connection signal="velocity_changed" from="Menu" to="Border" method="_on_menu_velocity_changed"]
 [connection signal="tree_entered" from="Utils/SaverLoader" to="Utils/SaverLoader" method="_on_tree_entered"]
 [connection signal="tree_exited" from="Utils/SaverLoader" to="Utils/SaverLoader" method="_on_tree_exited"]
+[connection signal="pressed" from="Utils/Button" to="Utils/SaverLoader" method="_on_button_pressed"]
+[connection signal="pressed" from="Utils/Button2" to="Utils/SaverLoader" method="_on_button_2_pressed"]
