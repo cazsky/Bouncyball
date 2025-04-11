@@ -17,9 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SaveData="res://Scripts/save_data.gd"
 SaveLoader="*res://Scripts/saver_loader.gd"
-SaveSystem="*res://addons/save_system/save_system.gd"
 
 [display]
 
