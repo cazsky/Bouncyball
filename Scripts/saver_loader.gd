@@ -1,20 +1,18 @@
 class_name SaverLoader
 extends Node
 
-#@onready var ball: CharacterBody2D = get_tree().current_scene.get_node("Ball")
-#@onready var menu: Node2D = get_tree().current_scene.get_node("Menu")
-#@onready var game: Node2D = get_tree().current_scene
+@onready var ball: CharacterBody2D = get_tree().current_scene.get_node("Ball")
+@onready var menu: Node2D = get_tree().current_scene.get_node("Menu")
+@onready var game: Node2D = get_tree().current_scene
 
-# Cant define on 
-@onready var ball: CharacterBody2D
-@onready var menu: Node2D
-@onready var game: Node2D
+# Order of calls
+# 1. _init()
+# 2. _enter_tree()
+# 3. (tree_entered signal → _on_tree_entered() if connected)
+# 4. _ready()
+# Cant call load_game() before _ready() if defining vars at @onready
 
 func _ready() -> void:
-	ball = get_tree().current_scene.get_node("Ball")
-	menu = get_tree().current_scene.get_node("Menu")
-	game = get_tree().current_scene
-
 	# Load game when this is ready ig
 	load_game()
 
