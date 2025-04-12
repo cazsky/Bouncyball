@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://fjfbecm0ff1n"]
 
-[ext_resource type="Script" path="res://Scripts/xp_bar.gd" id="1_u4oa7"]
+[ext_resource type="Script" uid="uid://dtqv3rclwado7" path="res://Scripts/xp_bar.gd" id="1_u4oa7"]
 [ext_resource type="FontFile" uid="uid://c572enc7hn4ys" path="res://fonts/Rubik/static/Rubik-Bold.ttf" id="2_khel2"]
 
 [sub_resource type="Gradient" id="Gradient_0x2gj"]

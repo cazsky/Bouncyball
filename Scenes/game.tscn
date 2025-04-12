@@ -1,14 +1,14 @@
 [gd_scene load_steps=15 format=3 uid="uid://2edwhbltk0kg"]
 
-[ext_resource type="Script" path="res://Scripts/game.gd" id="1_n0h2w"]
+[ext_resource type="Script" uid="uid://rfluvn364s2l" path="res://Scripts/game.gd" id="1_n0h2w"]
 [ext_resource type="PackedScene" uid="uid://5mv5pcy1k2tg" path="res://Scenes/menu.tscn" id="2_au3wm"]
 [ext_resource type="PackedScene" uid="uid://gor1tghl876f" path="res://Scenes/ball.tscn" id="2_iqe1k"]
 [ext_resource type="PackedScene" uid="uid://fjfbecm0ff1n" path="res://Scenes/xp_bar.tscn" id="2_qb754"]
 [ext_resource type="FontFile" uid="uid://c572enc7hn4ys" path="res://fonts/Rubik/static/Rubik-Bold.ttf" id="2_tlbd8"]
-[ext_resource type="Script" path="res://Scripts/border.gd" id="4_2w6me"]
+[ext_resource type="Script" uid="uid://dde207b265qjd" path="res://Scripts/border.gd" id="4_2w6me"]
 [ext_resource type="Shape2D" uid="uid://gwc2tflbixj4" path="res://Scenes/rectangle_border.tres" id="4_moxe7"]
 [ext_resource type="PackedScene" uid="uid://vjcg5lifm6nx" path="res://Scenes/pin_ball.tscn" id="6_xdthl"]
-[ext_resource type="Script" path="res://Scripts/saver_loader.gd" id="9_5stws"]
+[ext_resource type="Script" uid="uid://d107glijj6ucq" path="res://Scripts/saver_loader.gd" id="9_5stws"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yd75t"]
 font_size = 24

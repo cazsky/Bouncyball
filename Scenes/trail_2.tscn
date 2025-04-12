@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d3oy3s6hqw1b4"]
 
-[ext_resource type="Script" path="res://Scripts/trail_2.gd" id="1_eurhb"]
+[ext_resource type="Script" uid="uid://cklqsn14icxma" path="res://Scripts/trail_2.gd" id="1_eurhb"]
 
 [sub_resource type="Curve" id="Curve_sm8wr"]
 bake_resolution = 1000
