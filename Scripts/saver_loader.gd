@@ -2,7 +2,7 @@ class_name SaverLoader
 extends Node
 
 @onready var ball: CharacterBody2D = get_tree().current_scene.get_node("Ball")
-@onready var menu: Node2D = get_tree().current_scene.get_node("Menu")
+@onready var menu: Node2D = get_tree().current_scene.get_node("Menu") 
 @onready var game: Node2D = get_tree().current_scene
 
 # Order of calls
@@ -24,6 +24,13 @@ func save_game() -> void:
 	saved_game.ball_position = ball.global_position
 	saved_game.score = game.score
 	saved_game.gems = game.gems
+	
+	saved_game.speed_upgrade_level = menu.speed_upgrade_level
+	saved_game.bounciness_upgrade_level = menu.bounciness_upgrade_level
+	saved_game.friction_upgrade_level = menu.friction_upgrade_level
+	saved_game.xp_upgrade_level = menu.xp_upgrade_level
+	saved_game.score_upgrade_level = menu.score_upgrade_level
+	
 	
 	ResourceSaver.save(saved_game, "user://savegame.tres")
 	

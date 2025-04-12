@@ -23,6 +23,9 @@ extends Node2D
 @onready var stars_label: Label = $Control/TabContainer/Ascension/Star_Label
 
 
+# Util Nodes
+@onready var saver_loader: SaveLoader = $"../Utils/SaverLoader"
+
 @onready var popup: Button = $Control/Popup
 @onready var arrow: Sprite2D = $Control/Arrow
 @onready var ball: CharacterBody2D = $"../Ball"
@@ -122,12 +125,21 @@ signal ascended
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Wait for game load
+	await saver_loader.ready
+	
 	# Hide relic tabs until requirements gotten
 	if owned_relics.get_child_count() == 0:
 		tab_container.set_tab_hidden(3, true)
 		
 	# Connect the ball bounce signal
 	ball.bounce.connect(_on_ball_bounce)
+	
+	# Reload upgrade levels
+	ball.current_speed = ball.base_speed * speed_mult * pow(2, double_speed_stack)
+	ball.velocity = ball.velocity.normalized() * ball.base_speed * speed_mult * pow(2, double_speed_stack)
+	bounciness = BASE_BOUNCINESS * bounce_mult * pow(2, double_bounce_stack)
+	
 	
 	# Update upgrade buttons labels
 	speed_button.update_label(ball.current_speed, speed_upgrade_stat_multiplier, speed_price)
@@ -142,6 +154,7 @@ func _ready() -> void:
 	double_score_button.update_perk(double_score_stack, max_stacks, double_score_price)
 	double_bounce_button.update_perk(double_bounce_stack, max_stacks, double_bounce_price)
 	double_ball_button.update_perk(double_ball_stack, max_stacks, double_ball_price)
+	
 	
 	ascend_button.price_label.text = ""
 	stars_label.text = str("Stars: ", game.stars)
