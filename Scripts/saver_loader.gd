@@ -32,6 +32,11 @@ func save_game() -> void:
 	saved_game.xp_upgrade_level = menu.xp_upgrade_level
 	saved_game.score_upgrade_level = menu.score_upgrade_level
 	
+	saved_game.double_speed_stack = menu.double_speed_stack
+	saved_game.double_bounce_stack = menu.double_bounce_stack
+	saved_game.double_xp_stack = menu.double_xp_stack
+	saved_game.double_score_stack = menu.double_score_stack
+	saved_game.double_ball_stack = menu.double_ball_stack
 	
 	ResourceSaver.save(saved_game, "user://savegame.tres")
 	
@@ -49,10 +54,13 @@ func load_game() -> void:
 	menu.friction_upgrade_level = saved_game.friction_upgrade_level
 	menu.xp_upgrade_level = saved_game.xp_upgrade_level
 	menu.score_upgrade_level = saved_game.score_upgrade_level
-
-#func _on_tree_exited() -> void:
-	#save_game()
-#
+	
+	menu.double_speed_stack = saved_game.double_speed_stack
+	menu.double_bounce_stack = saved_game.double_bounce_stack
+	menu.double_xp_stack = saved_game.double_xp_stack
+	menu.double_score_stack = saved_game.double_score_stack
+	menu.double_ball_stack = saved_game.double_ball_stack
+	
 
 
 func _on_button_pressed() -> void:
