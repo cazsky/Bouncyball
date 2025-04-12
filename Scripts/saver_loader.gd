@@ -17,7 +17,7 @@ func _ready() -> void:
 	load_game()
 
 func save_game() -> void:
-	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+	var _save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 	
 	var saved_game: SavedGame = SavedGame.new()
 	
