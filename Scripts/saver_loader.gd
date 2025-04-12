@@ -43,6 +43,11 @@ func load_game() -> void:
 	game.score = saved_game.score
 	game.gems = saved_game.gems
 
+	menu.speed_upgrade_level = saved_game.speed_upgrade_level
+	menu.bounciness_upgrade_level = saved_game.bounciness_upgrade_level
+	menu.friction_upgrade_level = saved_game.friction_upgrade_level
+	menu.xp_upgrade_level = saved_game.xp_upgrade_level
+	menu.score_upgrade_level = saved_game.score_upgrade_level
 
 #func _on_tree_exited() -> void:
 	#save_game()

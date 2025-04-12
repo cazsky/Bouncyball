@@ -136,8 +136,8 @@ func _ready() -> void:
 	ball.bounce.connect(_on_ball_bounce)
 	
 	# Reload upgrade levels
-	ball.current_speed = ball.base_speed * speed_mult * pow(2, double_speed_stack)
-	ball.velocity = ball.velocity.normalized() * ball.base_speed * speed_mult * pow(2, double_speed_stack)
+	ball.current_speed = ball.base_speed * pow(speed_upgrade_stat_multiplier, speed_upgrade_level) * pow(2, double_speed_stack)
+	ball.velocity = ball.velocity.normalized() * ball.base_speed * pow(speed_upgrade_stat_multiplier, speed_upgrade_level) * pow(2, double_speed_stack)
 	bounciness = BASE_BOUNCINESS * bounce_mult * pow(2, double_bounce_stack)
 	
 	
