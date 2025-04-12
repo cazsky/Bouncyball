@@ -62,11 +62,11 @@ var xp_upgrade_stat_multiplier: float = 1.2
 var score_upgrade_stat_multiplier: float = 1.2
 
 # Ball upgrade levels
-var speed_upgrade_level: float = 0
-var friction_upgrade_level: float = 0
-var bounciness_upgrade_level: float = 0
-var xp_upgrade_level: float = 0
-var score_upgrade_level: float = 0
+var speed_upgrade_level: int = 0
+var friction_upgrade_level: int = 0
+var bounciness_upgrade_level: int = 0
+var xp_upgrade_level: int = 0
+var score_upgrade_level: int = 0
 
 # Perk vars
 var double_speed_stack: int = 0

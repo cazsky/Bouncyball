@@ -8,11 +8,11 @@ extends Resource
 @export var ball_velocity: float
 
 # Ball stats
-@export var speed_upgrade_level: float
-@export var bounciness_upgrade_level: float
-@export var friction_upgrade_level: float
-@export var xp_upgrade_level: float
-@export var score_upgrade_level: float
+@export var speed_upgrade_level: int
+@export var bounciness_upgrade_level: int
+@export var friction_upgrade_level: int
+@export var xp_upgrade_level: int
+@export var score_upgrade_level: int
 
 # Double stacks
 @export var double_speed_stack: int
