@@ -24,6 +24,7 @@ func save_game() -> void:
 	saved_game.ball_position = ball.global_position
 	saved_game.score = game.score
 	saved_game.gems = game.gems
+	saved_game.ball_velocity = ball.velocity.length()
 	
 	saved_game.speed_upgrade_level = menu.speed_upgrade_level
 	saved_game.bounciness_upgrade_level = menu.bounciness_upgrade_level
