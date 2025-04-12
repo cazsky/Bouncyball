@@ -136,11 +136,21 @@ func _ready() -> void:
 	ball.bounce.connect(_on_ball_bounce)
 	
 	# Reload upgrade levels
-	ball.current_speed = ball.base_speed * pow(speed_upgrade_stat_multiplier, speed_upgrade_level) * pow(2, double_speed_stack)
-	ball.velocity = ball.velocity.normalized() * ball.base_speed * pow(speed_upgrade_stat_multiplier, speed_upgrade_level) * pow(2, double_speed_stack)
-	bounciness = BASE_BOUNCINESS * bounce_mult * pow(2, double_bounce_stack)
+	reload_upgrade_levels()
+	
+	# Update perk and upgrade buttons labels
+	update_labels_on_ready()
 	
 	
+	ascend_button.price_label.text = ""
+	stars_label.text = str("Stars: ", game.stars)
+	
+	
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	pass
+	
+func update_labels_on_ready() -> void:
 	# Update upgrade buttons labels
 	speed_button.update_label(ball.current_speed, speed_upgrade_stat_multiplier, speed_price)
 	bounciness_button.update_label(bounciness, bounciness_upgrade_stat_multiplier, bounciness_price)
@@ -155,17 +165,12 @@ func _ready() -> void:
 	double_bounce_button.update_perk(double_bounce_stack, max_stacks, double_bounce_price)
 	double_ball_button.update_perk(double_ball_stack, max_stacks, double_ball_price)
 	
-	
-	ascend_button.price_label.text = ""
-	stars_label.text = str("Stars: ", game.stars)
-	
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	pass
-	
-	
-	
+func reload_upgrade_levels() -> void:
+	ball.current_speed = ball.base_speed * pow(speed_upgrade_stat_multiplier, speed_upgrade_level) * pow(2, double_speed_stack)
+	ball.velocity = ball.velocity.normalized() * ball.base_speed * pow(speed_upgrade_stat_multiplier, speed_upgrade_level) * pow(2, double_speed_stack)
+	bounciness = BASE_BOUNCINESS * bounce_mult * pow(2, double_bounce_stack)
+
+
 func close_menu() -> void:
 	arrow.flip_v = false
 	var tw := get_tree().create_tween()
