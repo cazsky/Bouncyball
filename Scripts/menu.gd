@@ -151,6 +151,13 @@ func _process(_delta: float) -> void:
 	pass
 	
 func update_labels_on_ready() -> void:
+	# Update prices
+	speed_price = BASE_SPEED_PRICE * pow(speed_upgrade_price_multiplier, speed_upgrade_level)
+	bounciness_price = BASE_BOUNCINESS_PRICE * pow(bounciness_upgrade_price_multiplier, bounciness_upgrade_level)
+	friction_price = BASE_FRICTION_PRICE * pow(friction_upgrade_price_multiplier, friction_upgrade_level)
+	xp_price = BASE_XP_PRICE * pow(xp_upgrade_price_multiplier, xp_upgrade_level)
+	score_price = BASE_SCORE_PRICE * pow(score_upgrade_price_multiplier, score_upgrade_level)
+	
 	# Update upgrade buttons labels
 	speed_button.update_label(ball.current_speed, speed_upgrade_stat_multiplier, speed_price)
 	bounciness_button.update_label(bounciness, bounciness_upgrade_stat_multiplier, bounciness_price)
@@ -233,6 +240,7 @@ func _on_bounciness_pressed() -> void:
 		
 		bounce_mult = pow(bounciness_upgrade_stat_multiplier, bounciness_upgrade_level)
 		bounciness = BASE_BOUNCINESS * bounce_mult * pow(2, double_bounce_stack)
+		
 		bounciness_price = BASE_BOUNCINESS_PRICE * pow(bounciness_upgrade_price_multiplier, bounciness_upgrade_level)
 		bounciness_button.update_label(bounciness, bounciness_upgrade_stat_multiplier, bounciness_price)
 
