@@ -290,7 +290,7 @@ func _on_double_speed_pressed() -> void:
 			emit_signal("velocity_changed", ball.current_speed)
 			double_speed_button.update_perk(double_speed_stack, max_stacks, double_speed_price)
 			speed_button.update_label(ball.current_speed, speed_upgrade_stat_multiplier, speed_price)
-			await get_tree().create_timer(double_speed_time).timeout
+			await get_tree().create_timer(double_speed_time, false).timeout
 			double_speed_stack -= 1
 			ball.current_speed = ball.base_speed * speed_mult * pow(2, double_speed_stack)
 			ball.velocity = ball.velocity.normalized() * ball.base_speed * speed_mult * pow(2, double_speed_stack)
@@ -414,7 +414,7 @@ func _reset_stats() -> float:
 		bounciness = BASE_BOUNCINESS * bounce_mult * pow(2, double_bounce_stack)
 		ball.friction = ball.base_friction * friction_mult
 		game.xp_gain = game.base_xp_gain * xp_mult * pow(2, double_xp_stack)
-		game.add = game.base_add * score_mult* pow(2, double_score_stack)
+		game.add = game.base_add * score_mult * pow(2, double_score_stack)
 		
 		game.score = game.base_score
 	else:
