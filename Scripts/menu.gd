@@ -141,6 +141,8 @@ func _ready() -> void:
 	# Update perk and upgrade buttons labels
 	update_labels_on_ready()
 	
+	# Activate owned relics
+	activate_all_relics(owned_relics.get_children())
 	
 	ascend_button.price_label.text = ""
 	stars_label.text = str("Stars: ", game.stars)
@@ -461,4 +463,9 @@ func calculate_ball_stat_mults() -> void:
 	bounce_mult = pow(bounciness_upgrade_stat_multiplier, bounciness_upgrade_level)
 	friction_mult = pow(friction_upgrade_stat_multiplier, friction_upgrade_level)
 	xp_mult = pow(xp_upgrade_stat_multiplier, xp_upgrade_level)
-	score_mult = pow(score_upgrade_stat_multiplier, score_upgrade_level) 
+	score_mult = pow(score_upgrade_stat_multiplier, score_upgrade_level)
+	
+func activate_all_relics(relics: Array) -> void:
+	for relic in relics:
+		relic.activate_effect()
+	
