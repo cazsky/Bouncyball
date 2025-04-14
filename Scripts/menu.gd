@@ -136,7 +136,7 @@ func _ready() -> void:
 	ball.bounce.connect(_on_ball_bounce)
 	
 	# Reload upgrade levels
-	reload_upgrade_levels()
+	ball.update_stats()
 	
 	# Update perk and upgrade buttons labels
 	update_labels_on_ready()
@@ -172,10 +172,6 @@ func update_labels_on_ready() -> void:
 	double_bounce_button.update_perk(double_bounce_stack, max_stacks, double_bounce_price)
 	double_ball_button.update_perk(double_ball_stack, max_stacks, double_ball_price)
 	
-func reload_upgrade_levels() -> void:
-	ball.current_speed = ball.base_speed * pow(speed_upgrade_stat_multiplier, speed_upgrade_level) * pow(2, double_speed_stack)
-	ball.velocity = ball.velocity.normalized() * ball.base_speed * pow(speed_upgrade_stat_multiplier, speed_upgrade_level) * pow(2, double_speed_stack)
-	bounciness = BASE_BOUNCINESS * bounce_mult * pow(2, double_bounce_stack)
 
 
 func close_menu() -> void:

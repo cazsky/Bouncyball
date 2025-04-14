@@ -7,6 +7,7 @@ extends CharacterBody2D
 
 @onready var velocity_stat_label: Label = $"../Control/Stats/Velocity"
 @onready var menu: Node2D = $"../Menu"
+@onready var game: Node2D = $"../"
 
 @export var level: int = 1
 
@@ -95,6 +96,10 @@ func level_up() -> void:
 	emit_signal("levelled_up", level)
 	
 func update_stats() -> void:
-	current_speed = base_speed * menu.speed_mult * pow(2, menu.double_speed_stack)
-	velocity = velocity.normalized() * base_speed * menu.speed_mult * pow(2, menu.double_speed_stack)
+	current_speed = base_speed * pow(menu.speed_upgrade_stat_multiplier, menu.speed_upgrade_level) * pow(2, menu.double_speed_stack)
+	velocity = velocity.normalized() * base_speed * pow(menu.speed_upgrade_stat_multiplier, menu.speed_upgrade_level) * pow(2, menu.double_speed_stack)
+	menu.bounciness = menu.BASE_BOUNCINESS * pow(menu.bounciness_upgrade_stat_multiplier, menu.bounciness_upgrade_level) * pow(2, menu.double_bounce_stack)
+	friction = base_friction * pow(menu.friction_upgrade_stat_multiplier, menu.friction_upgrade_level)
+	game.xp_gain = game.base_xp_gain * pow(menu.xp_upgrade_stat_multiplier, menu.xp_upgrade_level) * pow(2, menu.double_xp_stack)
+	game.add = game.base_add * menu.score_mult * pow(2, menu.double_score_stack)
 	
