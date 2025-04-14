@@ -15,6 +15,8 @@ extends Node
 func _ready() -> void:
 	# Load game when this is ready ig
 	load_game()
+	menu.calculate_ball_stat_mults()
+	
 
 func save_game() -> void:
 	var _save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
@@ -61,7 +63,7 @@ func load_game() -> void:
 	menu.double_score_stack = saved_game.double_score_stack
 	menu.double_ball_stack = saved_game.double_ball_stack
 	
-
+	
 
 func _on_button_pressed() -> void:
 	save_game()
