@@ -264,7 +264,7 @@ func _on_xp_gain_pressed() -> void:
 		game.score -= xp_price
 		xp_upgrade_level += 1
 		
-		xp_mult = xp_upgrade_stat_multiplier
+		xp_mult *= xp_upgrade_stat_multiplier
 		#xp_mult = pow(xp_upgrade_stat_multiplier, xp_upgrade_level)
 		game.xp_gain = game.base_xp_gain * xp_mult * pow(2, double_xp_stack)
 		#game.xp_gain *= xp_upgrade_stat_multiplier
@@ -277,7 +277,7 @@ func _on_score_pressed() -> void:
 		game.score -= score_price
 		score_upgrade_level += 1
 		
-		score_mult = score_upgrade_stat_multiplier
+		score_mult *= score_upgrade_stat_multiplier
 		#score_mult = pow(score_upgrade_stat_multiplier, score_upgrade_level) 
 		game.add = game.base_add * score_mult * pow(2, double_score_stack)
 		score_price = BASE_SCORE_PRICE * pow(score_upgrade_price_multiplier, score_upgrade_level)
