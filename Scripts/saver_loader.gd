@@ -43,8 +43,10 @@ func save_game() -> void:
 	ResourceSaver.save(saved_game, "user://savegame.tres")
 	
 func load_game() -> void:
-	var saved_game: SavedGame = load("user://savegame.tres") as SavedGame
+	var saved_game: SavedGame = SafeResourceLoader.load("user://savegame.tres") as SavedGame
+	
 	if saved_game == null:
+		print_debug("Saved game is null, abort")
 		return
 	#
 	ball.global_position = saved_game.ball_position
