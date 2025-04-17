@@ -12,7 +12,7 @@ extends Node2D
 
 # Init variables
 @export var base_add: float = 1
-@export var base_xp_gain: float = 5.0
+@export var base_xp_gain: float = 1.0
 @export var base_score: float = 0
 @export var gems = 0
 @export var stars = 500
