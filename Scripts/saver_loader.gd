@@ -40,6 +40,10 @@ func save_game() -> void:
 	saved_game.double_score_stack = menu.double_score_stack
 	saved_game.double_ball_stack = menu.double_ball_stack
 	
+	#for relic in menu.owned_relics.get_children():
+		#saved_game.owned_relics.append(relic)
+	print_debug(menu.owned_relics.get_children())
+	
 	ResourceSaver.save(saved_game, "user://savegame.tres")
 	
 func load_game() -> void:
@@ -64,6 +68,9 @@ func load_game() -> void:
 	menu.double_xp_stack = saved_game.double_xp_stack
 	menu.double_score_stack = saved_game.double_score_stack
 	menu.double_ball_stack = saved_game.double_ball_stack
+	
+	for relic in saved_game.owned_relics:
+		menu.owned_relics.add_child(relic)
 	
 	
 
