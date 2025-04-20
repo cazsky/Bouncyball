@@ -20,3 +20,5 @@ extends Resource
 @export var double_xp_stack: int
 @export var double_score_stack: int
 @export var double_ball_stack: int
+
+@export var owned_relics: Array

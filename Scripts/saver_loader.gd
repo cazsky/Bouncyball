@@ -40,10 +40,7 @@ func save_game() -> void:
 	saved_game.double_score_stack = menu.double_score_stack
 	saved_game.double_ball_stack = menu.double_ball_stack
 	
-	#for relic in menu.owned_relics.get_children():
-		#saved_game.owned_relics.append(relic)
-	print_debug(menu.owned_relics.get_children())
-	
+	saved_game.owned_relics = save_owned_relics()
 	ResourceSaver.save(saved_game, "user://savegame.tres")
 	
 func load_game() -> void:
@@ -73,7 +70,20 @@ func load_game() -> void:
 		menu.owned_relics.add_child(relic)
 	
 	
-
+func save_owned_relics() -> Array:
+	var recorded_relics: Array = []
+	for relic in menu.owned_relics().get_children():
+		var saved_relic = SavedRelicData.new()
+		saved_relic.relic_name = relic.relic_name
+		saved_relic.cost = relic.cost
+		saved_relic.cost_multiplier = relic.cost_multiplier
+		saved_relic.stat_multiplier = relic.stat_multiplier
+		saved_relic.level = relic.level
+		recorded_relics.append(saved_relic)
+	
+	return recorded_relics
+	
+	
 func _on_button_pressed() -> void:
 	save_game()
 
