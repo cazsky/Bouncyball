@@ -16,7 +16,7 @@ func _init() -> void:
 	stat_multiplier = 1.05
 
 	
-func activate_effect() -> void:
+func _activate_effect() -> void:
 	# Without this await ball is null in this function????
 	menu.speed_mult *= stat_multiplier
 	

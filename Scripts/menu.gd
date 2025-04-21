@@ -128,6 +128,7 @@ func _ready() -> void:
 	# Wait for game load
 	await saver_loader.ready
 	
+	saver_loader.load_game()
 	# Hide relic tabs until requirements gotten
 	if owned_relics.get_child_count() == 0:
 		tab_container.set_tab_hidden(3, true)
@@ -454,7 +455,7 @@ func _on_tab_container_tab_clicked(tab: int) -> void:
 
 
 func _on_grid_container_child_entered_tree(relic: Relic) -> void:
-	relic.activate_effect()
+	relic._activate_effect()
 	ball.update_stats()
 
 
@@ -467,5 +468,5 @@ func calculate_ball_stat_mults() -> void:
 	
 func activate_all_relics(relics: Array) -> void:
 	for relic in relics:
-		relic.activate_effect()
+		relic._activate_effect()
 	

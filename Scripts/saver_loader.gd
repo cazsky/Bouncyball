@@ -14,7 +14,6 @@ extends Node
 
 func _ready() -> void:
 	# Load game when this is ready ig
-	load_game()
 	menu.calculate_ball_stat_mults()
 	
 
@@ -66,13 +65,19 @@ func load_game() -> void:
 	menu.double_score_stack = saved_game.double_score_stack
 	menu.double_ball_stack = saved_game.double_ball_stack
 	
-	for relic in saved_game.owned_relics:
+	for saved_relic in saved_game.owned_relics:
+		var relic = Relic.new()
+		relic.relic_name = saved_relic.relic_name
+		relic.cost = saved_relic.cost
+		relic.cost_multiplier = saved_relic.cost_multiplier
+		relic.stat_multiplier = saved_relic.stat_multiplier
+		relic.level = saved_relic.level
 		menu.owned_relics.add_child(relic)
 	
 	
 func save_owned_relics() -> Array:
 	var recorded_relics: Array = []
-	for relic in menu.owned_relics().get_children():
+	for relic in menu.owned_relics.get_children():
 		var saved_relic = SavedRelicData.new()
 		saved_relic.relic_name = relic.relic_name
 		saved_relic.cost = relic.cost
