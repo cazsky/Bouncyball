@@ -65,6 +65,8 @@ func load_game() -> void:
 	menu.double_score_stack = saved_game.double_score_stack
 	menu.double_ball_stack = saved_game.double_ball_stack
 	
+	clear_relics()
+	
 	for saved_relic in saved_game.owned_relics:
 		var relic = Relic.new()
 		relic.relic_name = saved_relic.relic_name
@@ -88,6 +90,9 @@ func save_owned_relics() -> Array:
 	
 	return recorded_relics
 	
+func clear_relics() -> void:
+	for relic in menu.owned_relics.get_children():
+		menu.owned_relics.remove_child(relic)
 	
 func _on_button_pressed() -> void:
 	save_game()
