@@ -1,3 +1,4 @@
+class_name WingsOfHermes
 extends Relic
 
 const BASE_COST: float = 10

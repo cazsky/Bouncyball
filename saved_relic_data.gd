@@ -7,3 +7,4 @@ extends SavedGame
 @export var relic_name: String
 @export var level: int
  
+# var relic_dictionary: Dictionary = {"wing_of_hermes": "speed_mult"}

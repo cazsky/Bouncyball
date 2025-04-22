@@ -91,6 +91,7 @@ func save_owned_relics() -> Array:
 	return recorded_relics
 	
 func clear_relics() -> void:
+	# Relics duplicate when manually loading multiple times
 	for relic in menu.owned_relics.get_children():
 		menu.owned_relics.remove_child(relic)
 	
