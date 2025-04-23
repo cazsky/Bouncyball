@@ -458,7 +458,6 @@ func _on_tab_container_tab_clicked(tab: int) -> void:
 
 
 func _on_grid_container_child_entered_tree(relic: Relic) -> void:
-	await self.ready
 	relic._activate_effect()
 	ball.update_stats()
 
