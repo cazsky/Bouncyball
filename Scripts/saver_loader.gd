@@ -5,6 +5,9 @@ extends Node
 @onready var menu: Node2D = get_tree().current_scene.get_node("Menu") 
 @onready var game: Node2D = get_tree().current_scene
 
+
+const SAVE_RELIC_PATH: String = "user://SavedRelics.tscn"
+
 # Order of calls
 # 1. _init()
 # 2. _enter_tree()
@@ -39,7 +42,7 @@ func save_game() -> void:
 	saved_game.double_score_stack = menu.double_score_stack
 	saved_game.double_ball_stack = menu.double_ball_stack
 	
-	saved_game.owned_relics = save_owned_relics()
+	save_relics()
 	ResourceSaver.save(saved_game, "user://savegame.tres")
 	
 func load_game() -> void:
@@ -66,16 +69,17 @@ func load_game() -> void:
 	menu.double_ball_stack = saved_game.double_ball_stack
 	
 	clear_relics()
+	load_relics()
 	
-	for saved_relic in saved_game.owned_relics:
-		var relic = Relic.new()
-		relic.relic_name = saved_relic.relic_name
-		relic.cost = saved_relic.cost
-		relic.cost_multiplier = saved_relic.cost_multiplier
-		relic.stat_multiplier = saved_relic.stat_multiplier
-		relic.level = saved_relic.level
-		menu.owned_relics.add_child(relic)
-	
+	#for saved_relic in saved_game.owned_relics:
+		#var relic = Relic.new()
+		#relic.relic_name = saved_relic.relic_name
+		#relic.cost = saved_relic.cost
+		#relic.cost_multiplier = saved_relic.cost_multiplier
+		#relic.stat_multiplier = saved_relic.stat_multiplier
+		#relic.level = saved_relic.level
+		#menu.owned_relics.add_child(relic)
+	#
 	
 func save_owned_relics() -> Array:
 	var recorded_relics: Array = []
@@ -89,6 +93,21 @@ func save_owned_relics() -> Array:
 		recorded_relics.append(saved_relic)
 	
 	return recorded_relics
+	
+func save_relics() -> void:
+	var node_to_save = menu.owned_relics.get_children()
+	var scene = PackedScene.new()
+	for relic in node_to_save:
+		scene.pack(relic)
+		ResourceSaver.save(scene, SAVE_RELIC_PATH)
+	
+func load_relics() -> void:
+	# Check if there are any relics saved
+	if !FileAccess.file_exists(SAVE_RELIC_PATH):
+		pass
+	else:
+		var scene = ResourceLoader.load(SAVE_RELIC_PATH).instantiate()
+		menu.owned_relics.add_child(scene)
 	
 func clear_relics() -> void:
 	# Relics duplicate when manually loading multiple times

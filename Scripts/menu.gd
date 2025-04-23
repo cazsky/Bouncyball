@@ -98,7 +98,10 @@ var relic_price_multiplier: float = 2.5
 var relic_upgrade_price_multiplier: float = 1.5
 var relic_upgrade_stat_multiplier: float = 1.1
 
-
+# Relic Dictionary
+var relic_dictionary: Dictionary = {
+	"WingsOfHermes" : speed_mult,
+}
 
 # Initialise vars
 var is_menu_open: bool = false
@@ -455,6 +458,7 @@ func _on_tab_container_tab_clicked(tab: int) -> void:
 
 
 func _on_grid_container_child_entered_tree(relic: Relic) -> void:
+	await self.ready
 	relic._activate_effect()
 	ball.update_stats()
 
@@ -469,4 +473,6 @@ func calculate_ball_stat_mults() -> void:
 func activate_all_relics(relics: Array) -> void:
 	for relic in relics:
 		relic._activate_effect()
+	
+
 	
