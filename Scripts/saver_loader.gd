@@ -7,6 +7,7 @@ extends Node
 
 
 const SAVE_RELIC_PATH: String = "user://SavedRelics.tscn"
+const SAVE_GAME_PATH: String = "user://savegame.save"
 
 # Order of calls
 # 1. _init()
@@ -21,7 +22,7 @@ func _ready() -> void:
 	
 
 func save_game() -> void:
-	var _save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+	#var _save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 	
 	var saved_game: SavedGame = SavedGame.new()
 	
@@ -70,16 +71,6 @@ func load_game() -> void:
 	
 	clear_relics()
 	load_relics()
-	
-	#for saved_relic in saved_game.owned_relics:
-		#var relic = Relic.new()
-		#relic.relic_name = saved_relic.relic_name
-		#relic.cost = saved_relic.cost
-		#relic.cost_multiplier = saved_relic.cost_multiplier
-		#relic.stat_multiplier = saved_relic.stat_multiplier
-		#relic.level = saved_relic.level
-		#menu.owned_relics.add_child(relic)
-	#
 	
 func save_owned_relics() -> Array:
 	var recorded_relics: Array = []
