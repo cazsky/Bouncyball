@@ -22,7 +22,6 @@ func _ready() -> void:
 	
 
 func save_game() -> void:
-	#var _save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
 	
 	var saved_game: SavedGame = SavedGame.new()
 	
@@ -95,12 +94,12 @@ func load_relics() -> void:
 	else:
 		var loaded_collection = ResourceLoader.load(SAVE_RELIC_PATH) as SavedRelicCollection
 		for relic in loaded_collection.relics:
-			var load_relic = Relic.new()
-			load_relic.cost_multiplier = relic.cost_multiplier
-			load_relic.stat_multiplier = relic.stat_multiplier
-			load_relic.relic_name = relic.relic_name
-			load_relic.level = relic.level
-			menu.owned_relics.add_child(load_relic)
+			var relic_to_load = Relic.new()
+			relic_to_load.cost_multiplier = relic.cost_multiplier
+			relic_to_load.stat_multiplier = relic.stat_multiplier
+			relic_to_load.relic_name = relic.relic_name
+			relic_to_load.level = relic.level
+			menu.owned_relics.add_child(relic_to_load)
 	
 func clear_relics() -> void:
 	# Relics duplicate when manually loading multiple times
