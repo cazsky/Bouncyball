@@ -23,3 +23,7 @@ func _upgrade() -> void:
 
 func _activate_effect() -> void:
 	pass
+
+
+func _on_tree_entered() -> void:
+	_activate_effect()

@@ -98,11 +98,6 @@ var relic_price_multiplier: float = 2.5
 var relic_upgrade_price_multiplier: float = 1.5
 var relic_upgrade_stat_multiplier: float = 1.1
 
-# Relic Dictionary
-var relic_dictionary: Dictionary = {
-	"WingsOfHermes" : speed_mult,
-}
-
 # Initialise vars
 var is_menu_open: bool = false
 var bounciness: float = BASE_BOUNCINESS
@@ -458,7 +453,7 @@ func _on_tab_container_tab_clicked(tab: int) -> void:
 
 
 func _on_grid_container_child_entered_tree(relic: Relic) -> void:
-	relic._activate_effect()
+	#relic._activate_effect()
 	ball.update_stats()
 
 
