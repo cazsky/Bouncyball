@@ -6,8 +6,8 @@ extends Node
 @onready var game: Node2D = get_tree().current_scene
 
 
-const SAVE_RELIC_PATH: String = "user://SavedRelics.tscn"
-const SAVE_GAME_PATH: String = "user://savegame.save"
+const SAVE_RELIC_PATH: String = "user://SavedRelics.tres"
+const SAVE_GAME_PATH: String = "user://savegame.tres"
 
 # Order of calls
 # 1. _init()
@@ -44,10 +44,10 @@ func save_game() -> void:
 	saved_game.double_ball_stack = menu.double_ball_stack
 	
 	save_relics()
-	ResourceSaver.save(saved_game, "user://savegame.tres")
+	ResourceSaver.save(saved_game, SAVE_GAME_PATH)
 	
 func load_game() -> void:
-	var saved_game: SavedGame = SafeResourceLoader.load("user://savegame.tres") as SavedGame
+	var saved_game: SavedGame = SafeResourceLoader.load(SAVE_GAME_PATH) as SavedGame
 	
 	if saved_game == null:
 		print_debug("Saved game is null, abort")
@@ -72,33 +72,35 @@ func load_game() -> void:
 	clear_relics()
 	load_relics()
 	
-func save_owned_relics() -> Array:
-	var recorded_relics: Array = []
-	for relic in menu.owned_relics.get_children():
-		var saved_relic = SavedRelicData.new()
-		saved_relic.relic_name = relic.relic_name
-		saved_relic.cost = relic.cost
-		saved_relic.cost_multiplier = relic.cost_multiplier
-		saved_relic.stat_multiplier = relic.stat_multiplier
-		saved_relic.level = relic.level
-		recorded_relics.append(saved_relic)
-	
-	return recorded_relics
 	
 func save_relics() -> void:
 	var node_to_save = menu.owned_relics.get_children()
-	var scene = PackedScene.new()
+	print_debug(node_to_save)
+	var relic_collection = SavedRelicCollection.new()
 	for relic in node_to_save:
-		scene.pack(relic)
-		ResourceSaver.save(scene, SAVE_RELIC_PATH)
+		var relic_to_save = SavedRelicData.new()
+		relic_to_save.cost_multiplier = relic.cost_multiplier
+		relic_to_save.stat_multiplier = relic.stat_multiplier
+		relic_to_save.relic_name = relic.relic_name
+		relic_to_save.level = relic.level
+		print_debug("Relic: ", relic)
+		relic_collection.relics.append(relic_to_save)
+	print_debug(relic_collection.relics)
+	ResourceSaver.save(relic_collection, SAVE_RELIC_PATH)
 	
 func load_relics() -> void:
 	# Check if there are any relics saved
 	if !FileAccess.file_exists(SAVE_RELIC_PATH):
-		pass
+		return
 	else:
-		var scene = ResourceLoader.load(SAVE_RELIC_PATH).instantiate()
-		menu.owned_relics.add_child(scene)
+		var loaded_collection = ResourceLoader.load(SAVE_RELIC_PATH) as SavedRelicCollection
+		for relic in loaded_collection.relics:
+			var load_relic = Relic.new()
+			load_relic.cost_multiplier = relic.cost_multiplier
+			load_relic.stat_multiplier = relic.stat_multiplier
+			load_relic.relic_name = relic.relic_name
+			load_relic.level = relic.level
+			menu.owned_relics.add_child(load_relic)
 	
 func clear_relics() -> void:
 	# Relics duplicate when manually loading multiple times
