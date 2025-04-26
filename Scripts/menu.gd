@@ -141,7 +141,7 @@ func _ready() -> void:
 	update_labels_on_ready()
 	
 	# Activate owned relics
-	activate_all_relics(owned_relics.get_children())
+	#activate_all_relics(owned_relics.get_children())
 	
 	ascend_button.price_label.text = ""
 	stars_label.text = str("Stars: ", game.stars)
@@ -453,7 +453,6 @@ func _on_tab_container_tab_clicked(tab: int) -> void:
 
 
 func _on_grid_container_child_entered_tree(relic: Relic) -> void:
-	#relic._activate_effect()
 	ball.update_stats()
 
 
@@ -466,7 +465,7 @@ func calculate_ball_stat_mults() -> void:
 	
 func activate_all_relics(relics: Array) -> void:
 	for relic in relics:
-		relic.call_deferred_thread_group("_activate_effect")
+		relic._activate_effect()
 	
 
 	

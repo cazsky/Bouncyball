@@ -30,3 +30,10 @@ func _activate_effect() -> void:
 
 func _on_tree_entered() -> void:
 	_activate_effect()
+	
+func wait_for_node(path: NodePath) -> Node:
+	var node = get_node_or_null(path)
+	while node == null:
+		await get_tree().process_frame
+		node = get_node_or_null(path)
+	return node
