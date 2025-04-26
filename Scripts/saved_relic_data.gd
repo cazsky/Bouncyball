@@ -5,4 +5,4 @@ extends SavedGame
 @export var stat_multiplier: float
 @export var relic_name: String
 @export var level: int
-@export var script_path: String
+@export var scene_path: String

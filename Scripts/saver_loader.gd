@@ -78,8 +78,7 @@ func save_relics() -> void:
 	var relic_collection = SavedRelicCollection.new()
 	for relic in node_to_save:
 		var relic_to_save = SavedRelicData.new()
-		relic_to_save.script_path = relic.get_script().get_global_name()
-		print_debug("relic get script ", relic.get_script().get_global_name())
+		relic_to_save.scene_path = relic.scene_path
 		relic_to_save.cost_multiplier = relic.cost_multiplier
 		relic_to_save.stat_multiplier = relic.stat_multiplier
 		relic_to_save.relic_name = relic.relic_name
@@ -96,7 +95,8 @@ func load_relics() -> void:
 	else:
 		var loaded_collection = ResourceLoader.load(SAVE_RELIC_PATH) as SavedRelicCollection
 		for relic in loaded_collection.relics:
-			var relic_to_load = Relic.new()
+			print_debug("Relic scene path: ", relic.scene_path)
+			var relic_to_load = load(relic.scene_path).instantiate()
 			relic_to_load.cost_multiplier = relic.cost_multiplier
 			relic_to_load.stat_multiplier = relic.stat_multiplier
 			relic_to_load.relic_name = relic.relic_name

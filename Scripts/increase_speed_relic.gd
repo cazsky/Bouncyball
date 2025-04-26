@@ -15,6 +15,7 @@ func _init() -> void:
 	cost = BASE_COST * cost_multiplier * fmod(pow(level,2), 10)
 	stat_multiplier = 1.05
 	relic_effect = "speed_mult"
+	scene_path = "res://Scenes/relics/increase_speed_relic.tscn"
 
 	
 func _activate_effect() -> void:

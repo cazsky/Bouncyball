@@ -1,0 +1,232 @@
+[gd_scene load_steps=6 format=3 uid="uid://5mv5pcy1k2tg"]
+
+[ext_resource type="Script" uid="uid://d3eiednewg6p1" path="res://Scripts/menu.gd" id="1_5y3mv"]
+[ext_resource type="PackedScene" uid="uid://c0ysgqsg6bis3" path="res://Scenes/upgrade_button.tscn" id="2_8dn8m"]
+[ext_resource type="Texture2D" uid="uid://qgh2hwgbl4hg" path="res://Sprites/tile_0604 (2).png" id="2_a8udu"]
+[ext_resource type="Script" uid="uid://8jjoie2kme46" path="res://Scripts/perk_button.gd" id="3_hfjpc"]
+[ext_resource type="Script" uid="uid://dbhlth1ajeq54" path="res://Scenes/ascension_button.gd" id="4_61cg1"]
+
+[node name="Menu" type="Node2D" groups=["Persist"]]
+script = ExtResource("1_5y3mv")
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(720, 1280)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 720.0
+offset_bottom = 1280.0
+focus_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="Control"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+mouse_filter = 2
+tab_alignment = 1
+current_tab = 2
+
+[node name="Upgrades" type="Control" parent="Control/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Upgrades"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.9
+offset_top = 100.0
+offset_bottom = 650.0
+grow_horizontal = 2
+pivot_offset = Vector2(175, 0)
+theme_override_constants/h_separation = 150
+theme_override_constants/v_separation = 100
+
+[node name="Speed" parent="Control/TabContainer/Upgrades/GridContainer" instance=ExtResource("2_8dn8m")]
+layout_mode = 2
+text = "Speed"
+label_text = "Speed of ball"
+
+[node name="XPGain" parent="Control/TabContainer/Upgrades/GridContainer" instance=ExtResource("2_8dn8m")]
+layout_mode = 2
+text = "XP Gain"
+label_text = "Gain more XP per bounce"
+
+[node name="Bounciness" parent="Control/TabContainer/Upgrades/GridContainer" instance=ExtResource("2_8dn8m")]
+layout_mode = 2
+text = "Bounciness"
+label_text = "Add speed on bounce"
+
+[node name="Score" parent="Control/TabContainer/Upgrades/GridContainer" instance=ExtResource("2_8dn8m")]
+layout_mode = 2
+text = "Score"
+label_text = "Score gained per bounce"
+
+[node name="Friction" parent="Control/TabContainer/Upgrades/GridContainer" instance=ExtResource("2_8dn8m")]
+layout_mode = 2
+text = "Friction"
+label_text = "Decreases friction after bounce"
+
+[node name="Perks" type="Control" parent="Control/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="GridContainer" type="GridContainer" parent="Control/TabContainer/Perks"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.9
+offset_top = 100.0
+offset_bottom = 650.0
+grow_horizontal = 2
+pivot_offset = Vector2(175, 0)
+theme_override_constants/h_separation = 150
+theme_override_constants/v_separation = 100
+
+[node name="Double_Speed" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
+layout_mode = 2
+text = "Double
+Speed"
+script = ExtResource("3_hfjpc")
+label_text = "Doubles max speed for 1 minute"
+
+[node name="Double_XP" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
+layout_mode = 2
+text = "Double
+XP"
+script = ExtResource("3_hfjpc")
+label_text = "Doubles XP gain on bounce for 1 minute"
+
+[node name="Double_Bounciness" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
+layout_mode = 2
+text = "Double
+Bounciness"
+script = ExtResource("3_hfjpc")
+label_text = "Doubles speed gained on bounce for 1 minute"
+
+[node name="Double_Score" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
+layout_mode = 2
+text = "Double
+Score"
+script = ExtResource("3_hfjpc")
+label_text = "Doubles score gained per bounce for 1 minute"
+
+[node name="Double_Ball" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
+editor_description = "Extra Ball gets properties of ball at the time of buying. Does not upgrade with ball."
+layout_mode = 2
+text = "Extra 
+Ball"
+script = ExtResource("3_hfjpc")
+label_text = "Adds 1 more ball on screen"
+
+[node name="Ascension" type="Control" parent="Control/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="GridContainer" type="VBoxContainer" parent="Control/TabContainer/Ascension"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.9
+offset_top = 100.0
+offset_bottom = 898.0
+grow_horizontal = 2
+pivot_offset = Vector2(175, 0)
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="Ascend" parent="Control/TabContainer/Ascension/GridContainer" instance=ExtResource("2_8dn8m")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Ascend"
+script = ExtResource("4_61cg1")
+label_text = "Reset your stats for stars"
+
+[node name="Buy_Relic" parent="Control/TabContainer/Ascension/GridContainer" instance=ExtResource("2_8dn8m")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Buy
+Relic"
+script = ExtResource("4_61cg1")
+label_text = "Use stars to buy relics"
+
+[node name="Star_Label" type="Label" parent="Control/TabContainer/Ascension"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -396.0
+offset_top = 100.0
+offset_right = -324.0
+offset_bottom = 129.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "Stars:"
+
+[node name="Relics" type="Control" parent="Control/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="GridContainer" type="VBoxContainer" parent="Control/TabContainer/Relics"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.9
+offset_top = 100.0
+offset_bottom = 898.0
+grow_horizontal = 2
+pivot_offset = Vector2(175, 0)
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="Popup" type="Button" parent="Control"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_bottom = 89.0
+grow_horizontal = 0
+pivot_offset = Vector2(720, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Control/Popup"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 35.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[node name="Arrow" type="Sprite2D" parent="Control"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_a8udu")
+offset = Vector2(350, 10)
+
+[connection signal="ascended" from="." to="." method="_on_ascended"]
+[connection signal="tab_clicked" from="Control/TabContainer" to="." method="_on_tab_container_tab_clicked"]
+[connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Speed" to="." method="_on_speed_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/XPGain" to="." method="_on_xp_gain_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Bounciness" to="." method="_on_bounciness_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Score" to="." method="_on_score_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Upgrades/GridContainer/Friction" to="." method="_on_friction_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Speed" to="." method="_on_double_speed_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_XP" to="." method="_on_double_xp_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Bounciness" to="." method="_on_double_bounciness_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Score" to="." method="_on_double_score_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Perks/GridContainer/Double_Ball" to="." method="_on_double_ball_pressed"]
+[connection signal="focus_entered" from="Control/TabContainer/Ascension/GridContainer/Ascend" to="." method="_on_ascend_focus_entered"]
+[connection signal="pressed" from="Control/TabContainer/Ascension/GridContainer/Ascend" to="." method="_on_ascend_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Ascension/GridContainer/Buy_Relic" to="." method="_on_buy_relic_pressed"]
+[connection signal="child_entered_tree" from="Control/TabContainer/Relics/GridContainer" to="." method="_on_grid_container_child_entered_tree"]
+[connection signal="pressed" from="Control/Popup" to="." method="_on_texture_button_pressed"]

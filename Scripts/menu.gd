@@ -466,7 +466,7 @@ func calculate_ball_stat_mults() -> void:
 	
 func activate_all_relics(relics: Array) -> void:
 	for relic in relics:
-		relic._activate_effect()
+		relic.call_deferred_thread_group("_activate_effect")
 	
 
 	

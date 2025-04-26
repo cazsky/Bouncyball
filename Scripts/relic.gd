@@ -12,6 +12,7 @@ var stat_multiplier: float = 1
 var relic_name: String
 var level: int = 1
 var relic_effect: String
+var scene_path: String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
