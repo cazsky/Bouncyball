@@ -99,6 +99,7 @@ func load_relics() -> void:
 			relic_to_load.stat_multiplier = relic.stat_multiplier
 			relic_to_load.relic_name = relic.relic_name
 			relic_to_load.level = relic.level
+			#print_debug(relic.script_path)
 			menu.owned_relics.add_child(relic_to_load)
 	
 func clear_relics() -> void:
