@@ -74,10 +74,12 @@ func load_game() -> void:
 	
 func save_relics() -> void:
 	var node_to_save = menu.owned_relics.get_children()
-	print_debug(node_to_save)
+	#print_debug(node_to_save)
 	var relic_collection = SavedRelicCollection.new()
 	for relic in node_to_save:
 		var relic_to_save = SavedRelicData.new()
+		relic_to_save.script_path = relic.get_script().get_global_name()
+		print_debug("relic get script ", relic.get_script().get_global_name())
 		relic_to_save.cost_multiplier = relic.cost_multiplier
 		relic_to_save.stat_multiplier = relic.stat_multiplier
 		relic_to_save.relic_name = relic.relic_name
