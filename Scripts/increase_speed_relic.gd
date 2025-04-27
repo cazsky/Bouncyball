@@ -19,9 +19,6 @@ func _init() -> void:
 
 	
 func _activate_effect() -> void:
-	# Without this await ball is null in this function????
-	# This is causing issues i think :3
-	#await self.ready
 	menu = await wait_for_node("../../../../../../Menu")
 	menu.speed_mult = menu.get(relic_effect) * stat_multiplier
 	print_debug("Effect speed mult: ", menu.get(relic_effect))
