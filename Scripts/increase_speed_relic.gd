@@ -6,13 +6,12 @@ const BASE_MULT: float = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	cost = BASE_COST * cost_multiplier * fmod(pow(level,2), 10)
 	
 	
 func _init() -> void:
 	relic_name = "wings_of_hermes"
 	cost_multiplier = 1.5
-	cost = BASE_COST * cost_multiplier * fmod(pow(level,2), 10)
 	stat_multiplier = 1.05
 	relic_effect = "speed_mult"
 	scene_path = "res://Scenes/relics/increase_speed_relic.tscn"
