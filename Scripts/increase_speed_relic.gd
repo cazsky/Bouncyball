@@ -18,7 +18,7 @@ func _init() -> void:
 
 	
 func _activate_effect() -> void:
-	menu = await wait_for_node("../../../../../../Menu")
+	super()
 	menu.speed_mult = menu.get(relic_effect) * stat_multiplier
 	print_debug("Effect speed mult: ", menu.get(relic_effect))
 	

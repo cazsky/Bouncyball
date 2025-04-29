@@ -24,8 +24,8 @@ func _upgrade() -> void:
 	level += 1
 
 func _activate_effect() -> void:
-	print_debug("Parent relic")
-	pass
+	menu = await wait_for_node("../../../../../../Menu")
+
 
 
 func _on_tree_entered() -> void:
