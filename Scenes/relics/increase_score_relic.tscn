@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bao2j76y06dab"]
+
+[ext_resource type="PackedScene" uid="uid://duvr3sdvpolbo" path="res://Scenes/relic.tscn" id="1_5o013"]
+[ext_resource type="Script" uid="uid://bligrxfkikaus" path="res://Scripts/increase_score_relic.gd" id="2_bf56g"]
+
+[node name="increase_score_relic" instance=ExtResource("1_5o013")]
+script = ExtResource("2_bf56g")
