@@ -20,7 +20,6 @@ func _init() -> void:
 func _activate_effect() -> void:
 	super()
 	menu.speed_mult = menu.get(relic_effect) * stat_multiplier
-	print_debug("Effect speed mult: ", menu.get(relic_effect))
 	
 func _upgrade() -> void:
 	super()

@@ -395,7 +395,6 @@ func calculate_stars() -> float:
 	#print_debug("XP Stars: ", stars)
 	stars += int(5 + (add_star/3) + (pow(add_star, 1.3)/2))
 	#print_debug("Score Stars: ", stars)
-	# Yeah idk man
 	@warning_ignore("integer_division")
 	stars += int(pow(game.score/5, 3/4))
 	#print_debug("Stars: ", stars)
