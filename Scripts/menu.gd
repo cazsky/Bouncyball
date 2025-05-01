@@ -140,9 +140,6 @@ func _ready() -> void:
 	# Update perk and upgrade buttons labels
 	update_labels_on_ready()
 	
-	# Activate owned relics
-	#activate_all_relics(owned_relics.get_children())
-	
 	ascend_button.price_label.text = ""
 	stars_label.text = str("Stars: ", game.stars)
 	

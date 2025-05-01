@@ -1,7 +1,7 @@
 class_name BallTalisman
 extends Relic
 
-const BASE_COST: float = 10
+const BASE_COST: float = 30
 const BASE_MULT: float = 1
 
 # Called when the node enters the scene tree for the first time.
