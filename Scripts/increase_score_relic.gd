@@ -19,7 +19,6 @@ func _init() -> void:
 	
 func _activate_effect() -> void:
 	super()
-	menu.score_mult = menu.get(relic_effect) * stat_multiplier
 	
 func _upgrade() -> void:
 	super()
