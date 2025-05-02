@@ -16,10 +16,7 @@ func _init() -> void:
 	relic_effect = "speed_mult"
 	scene_path = "res://Scenes/relics/increase_speed_relic.tscn"
 
-	
-func _activate_effect() -> void:
-	super()
-	
+
 func _upgrade() -> void:
 	super()
 	stat_multiplier = pow(BASE_MULT, self.level)
