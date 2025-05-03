@@ -13,7 +13,7 @@ func _init() -> void:
 	relic_name = "ball_mania"
 	cost_multiplier = 1.5
 	stat_multiplier = 1.05
-	relic_effect = "ball.bounce"
+	relic_effect = "bounce_mult"
 	scene_path = "res://Scenes/relics/increase_bounce_relic.tscn"
 
 	
