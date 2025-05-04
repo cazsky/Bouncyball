@@ -127,6 +127,7 @@ func _ready() -> void:
 	await saver_loader.ready
 	
 	saver_loader.load_game()
+	calculate_ball_stat_mults()
 	# Hide relic tabs until requirements gotten
 	if owned_relics.get_child_count() == 0:
 		tab_container.set_tab_hidden(3, true)
