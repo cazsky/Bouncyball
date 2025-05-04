@@ -459,5 +459,4 @@ func activate_all_relics(relics: Array) -> void:
 	for relic in relics:
 		relic._activate_effect()
 	
-
 	

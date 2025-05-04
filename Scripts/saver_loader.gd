@@ -115,3 +115,8 @@ func _on_button_pressed() -> void:
 
 func _on_button_2_pressed() -> void:
 	load_game()
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST or what == NOTIFICATION_APPLICATION_FOCUS_OUT:
+		save_game()
+		get_tree().quit()
