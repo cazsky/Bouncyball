@@ -30,7 +30,7 @@ extends Node2D
 @onready var arrow: Sprite2D = $Control/Arrow
 @onready var ball: CharacterBody2D = $"../Ball"
 @onready var game: Node2D = $"../../Game"
-@onready var relics: Array = [preload("res://Scenes/relics/increase_speed_relic.tscn"), preload("res://Scenes/relics/increase_score_relic.tscn"), preload("res://Scenes/relics/increase_bounce_relic.tscn")]
+@onready var relics: Array = [preload("res://Scenes/relics/increase_speed_relic.tscn"), preload("res://Scenes/relics/increase_score_relic.tscn"), preload("res://Scenes/relics/increase_bounce_relic.tscn"), preload("res://Scenes/relics/increase_xp_relic.tscn"),]
 @onready var tab_container: TabContainer = $Control/TabContainer
 
 # Base upgrade price
