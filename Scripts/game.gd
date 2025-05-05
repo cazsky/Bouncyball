@@ -21,6 +21,7 @@ extends Node2D
 var add: float = base_add
 var xp_gain: float = base_xp_gain
 var score: float = base_score
+var gem_gain_multiplier: float = 5
 
 func _init() -> void:
 	# Randomise seed to start the game launching ball in random direction
@@ -45,7 +46,7 @@ func _on_ball_bounce() -> void:
 
 func _on_ball_levelled_up(level: int) -> void:
 	score += 10 + pow(level, 2.2)
-	gems += 1 + snapped (level, 10) * 5
+	gems += 1 + snapped (level, 10) * gem_gain_multiplier
 	display_level_up_text()
 
 
