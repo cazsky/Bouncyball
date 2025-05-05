@@ -120,3 +120,6 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		save_game()
 		get_tree().quit()
+	if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
+		# Putting get_tree().quit() would make things weird I think
+		save_game()
