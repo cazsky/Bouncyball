@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dprrf37kiyfbr"]
+
+[ext_resource type="PackedScene" uid="uid://duvr3sdvpolbo" path="res://Scenes/relic.tscn" id="1_j3qhm"]
+[ext_resource type="Script" uid="uid://csphc0bwnqey8" path="res://Scripts/Relic Scripts/increase_gem_gain_relic.gd" id="2_nydsp"]
+
+[node name="increase_gem_gain_relic" instance=ExtResource("1_j3qhm")]
+script = ExtResource("2_nydsp")
