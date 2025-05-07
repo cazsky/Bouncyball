@@ -6,6 +6,7 @@ extends Resource
 @export var score: float
 @export var gems: float
 @export var ball_velocity: float
+@export var stars: float
 
 # Ball stats
 @export var speed_upgrade_level: int
