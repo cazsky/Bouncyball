@@ -30,7 +30,7 @@ extends Node2D
 @onready var arrow: Sprite2D = $Control/Arrow
 @onready var ball: CharacterBody2D = $"../Ball"
 @onready var game: Node2D = $"../../Game"
-@onready var relics: Array = [preload("res://Scenes/relics/increase_speed_relic.tscn"), preload("res://Scenes/relics/increase_score_relic.tscn"), preload("res://Scenes/relics/increase_bounce_relic.tscn"), preload("res://Scenes/relics/increase_xp_relic.tscn"), preload("res://Scenes/relics/increase_bounce_relic.tscn"),]
+@onready var relic_pool: Array = [preload("res://Scenes/relics/increase_speed_relic.tscn"), preload("res://Scenes/relics/increase_score_relic.tscn"), preload("res://Scenes/relics/increase_bounce_relic.tscn"), preload("res://Scenes/relics/increase_xp_relic.tscn"), preload("res://Scenes/relics/increase_bounce_relic.tscn"),]
 @onready var tab_container: TabContainer = $Control/TabContainer
 
 # Base upgrade price
@@ -369,9 +369,9 @@ func _on_buy_relic_pressed() -> void:
 		game.stars -= relic_cost
 		relic_cost = BASE_RELIC_PRICE * pow(relic_upgrade_price_multiplier, owned_relics.get_child_count())
 		buy_relic_button.update_price(relic_cost)
-		var new_relic = relics.pick_random().instantiate()
+		var new_relic = relic_pool.pick_random().instantiate()
 		# Remove bought relic from pool
-		self.relics.erase(new_relic)
+		self.relic_pool.erase(new_relic)
 		new_relic.menu = self
 		owned_relics.add_child(new_relic)
 		stars_label.text = str("Stars: ", game.stars)

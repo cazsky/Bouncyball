@@ -43,7 +43,7 @@ func save_game() -> void:
 	saved_game.double_score_stack = menu.double_score_stack
 	saved_game.double_ball_stack = menu.double_ball_stack
 	
-	saved_game.relics = menu.relics
+	saved_game.relic_pool = menu.relic_pool
 	save_relics()
 	ResourceSaver.save(saved_game, SAVE_GAME_PATH)
 	
@@ -71,7 +71,7 @@ func load_game() -> void:
 	menu.double_score_stack = saved_game.double_score_stack
 	menu.double_ball_stack = saved_game.double_ball_stack
 	
-	menu.relics_pool = saved_game.relic_pool	
+	menu.relic_pool = saved_game.relic_pool
 	clear_relics()
 	load_relics()
 	
