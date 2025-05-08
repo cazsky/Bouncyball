@@ -43,6 +43,7 @@ func save_game() -> void:
 	saved_game.double_score_stack = menu.double_score_stack
 	saved_game.double_ball_stack = menu.double_ball_stack
 	
+	saved_game.relics = menu.relics
 	save_relics()
 	ResourceSaver.save(saved_game, SAVE_GAME_PATH)
 	
@@ -70,6 +71,7 @@ func load_game() -> void:
 	menu.double_score_stack = saved_game.double_score_stack
 	menu.double_ball_stack = saved_game.double_ball_stack
 	
+	menu.relics_pool = saved_game.relic_pool	
 	clear_relics()
 	load_relics()
 	
@@ -86,8 +88,8 @@ func save_relics() -> void:
 		relic_to_save.relic_name = relic.relic_name
 		relic_to_save.level = relic.level
 		print_debug("Relic: ", relic)
-		relic_collection.relics.append(relic_to_save)
-	print_debug(relic_collection.relics)
+		relic_collection.owned_relics.append(relic_to_save)
+	print_debug(relic_collection.owned_relics)
 	ResourceSaver.save(relic_collection, SAVE_RELIC_PATH)
 	
 func load_relics() -> void:
@@ -96,7 +98,7 @@ func load_relics() -> void:
 		return
 	else:
 		var loaded_collection = ResourceLoader.load(SAVE_RELIC_PATH) as SavedRelicCollection
-		for relic in loaded_collection.relics:
+		for relic in loaded_collection.owned_relics:
 			print_debug("Relic scene path: ", relic.scene_path)
 			var relic_to_load = load(relic.scene_path).instantiate()
 			relic_to_load.cost_multiplier = relic.cost_multiplier
