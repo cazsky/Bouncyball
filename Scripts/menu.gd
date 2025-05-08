@@ -370,6 +370,8 @@ func _on_buy_relic_pressed() -> void:
 		relic_cost = BASE_RELIC_PRICE * pow(relic_upgrade_price_multiplier, owned_relics.get_child_count())
 		buy_relic_button.update_price(relic_cost)
 		var new_relic = relics.pick_random().instantiate()
+		# Remove bought relic from pool
+		self.relics.erase(new_relic)
 		new_relic.menu = self
 		owned_relics.add_child(new_relic)
 		stars_label.text = str("Stars: ", game.stars)
