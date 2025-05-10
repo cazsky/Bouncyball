@@ -24,12 +24,17 @@ var damping: float = 0.98
 var direction: Vector2
 var inverse_friction: float = 0 
 
+
+
+
 @warning_ignore("unused_signal")
 signal bounce
 @warning_ignore("unused_signal")
 signal experience_gained(growth_data)
 @warning_ignore("unused_signal")
 signal levelled_up(level)
+
+
 
 func _ready() -> void:
 	# Generate a random direction
@@ -107,3 +112,7 @@ func update_stats() -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	await get_tree().create_timer(3).timeout
+	print_debug("Yeppers")
+	var pos = get_viewport_rect().size / 2.0
+	var reset_ball_button = preload("res://Scenes/reset_ball_button.tscn").instantiate()
+	reset_ball_button.global_position = pos

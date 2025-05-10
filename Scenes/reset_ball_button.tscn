@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cek3hly70kj75"]
+
+[node name="reset_ball_button" type="Button"]
+offset_right = 47.0
+offset_bottom = 16.0
+text = "Ball gone?"

@@ -78,7 +78,6 @@ func load_game() -> void:
 	
 func save_relics() -> void:
 	var node_to_save = menu.owned_relics.get_children()
-	#print_debug(node_to_save)
 	var relic_collection = SavedRelicCollection.new()
 	for relic in node_to_save:
 		var relic_to_save = SavedRelicData.new()
@@ -87,9 +86,7 @@ func save_relics() -> void:
 		relic_to_save.stat_multiplier = relic.stat_multiplier
 		relic_to_save.relic_name = relic.relic_name
 		relic_to_save.level = relic.level
-		print_debug("Relic: ", relic)
 		relic_collection.owned_relics.append(relic_to_save)
-	print_debug(relic_collection.owned_relics)
 	ResourceSaver.save(relic_collection, SAVE_RELIC_PATH)
 	
 func load_relics() -> void:
@@ -99,13 +96,12 @@ func load_relics() -> void:
 	else:
 		var loaded_collection = ResourceLoader.load(SAVE_RELIC_PATH) as SavedRelicCollection
 		for relic in loaded_collection.owned_relics:
-			print_debug("Relic scene path: ", relic.scene_path)
 			var relic_to_load = load(relic.scene_path).instantiate()
 			relic_to_load.cost_multiplier = relic.cost_multiplier
 			relic_to_load.stat_multiplier = relic.stat_multiplier
 			relic_to_load.relic_name = relic.relic_name
 			relic_to_load.level = relic.level
-			#print_debug(relic.script_path)
+			#(relic.script_path)
 			menu.owned_relics.add_child(relic_to_load)
 	
 func clear_relics() -> void:
