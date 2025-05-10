@@ -98,6 +98,14 @@ offset_top = 95.0
 offset_right = 131.0
 grow_horizontal = 2
 
+[node name="reset_ball_button" type="Button" parent="Control"]
+visible = false
+offset_left = 560.0
+offset_top = 551.0
+offset_right = 627.0
+offset_bottom = 590.0
+text = "reset"
+
 [node name="Ball" parent="." groups=["Persist"] instance=ExtResource("2_iqe1k")]
 position = Vector2(354, 482)
 
@@ -180,6 +188,7 @@ offset_right = 628.0
 offset_bottom = 541.0
 text = "load"
 
+[connection signal="pressed" from="Control/reset_ball_button" to="Utils/SaverLoader" method="_on_button_pressed"]
 [connection signal="bounce" from="Ball" to="." method="_on_ball_bounce"]
 [connection signal="experience_gained" from="Ball" to="Control/xp_bar" method="_on_ball_experience_gained"]
 [connection signal="levelled_up" from="Ball" to="." method="_on_ball_levelled_up"]

@@ -6,6 +6,7 @@ extends Node2D
 @onready var ball: CharacterBody2D = $Ball
 @onready var xp_bar: TextureProgressBar = $Control/xp_bar
 @onready var gems_label: Label = $Control/GemsLabel
+@onready var reset_ball_button: Button = $Control/reset_ball_button
 #@onready var level_up_text: Label = $Control/xp_bar/level_up_text
 
 
@@ -31,6 +32,7 @@ func _init() -> void:
 func _ready() -> void:
 	xp_bar.initialise(ball.experience, ball.experience_required)
 	score_label.text = str("Score: ", snapped(score, 0.01))
+	ball.visibility_detector.screen_exited.connect(_on_ball_exit_screen)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -67,3 +69,6 @@ func display_level_up_text() -> void:
 	#await tw.finished
 	await get_tree().create_timer(0.45).timeout
 	xp_bar.remove_child(level_up_text)
+	
+func _on_ball_exit_screen() -> void:
+	reset_ball_button.visible = true

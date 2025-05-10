@@ -4,12 +4,13 @@ extends CharacterBody2D
 # Friction above 1 makes it stickier, closer to 0 means less sticky
 # Dont go to negative friction
 @export var base_friction: float = 2.0
+@export var level: int = 1
+
 
 @onready var velocity_stat_label: Label = $"../Control/Stats/Velocity"
 @onready var menu: Node2D = $"../Menu"
 @onready var game: Node2D = $"../"
-
-@export var level: int = 1
+@onready var visibility_detector = $VisibleOnScreenNotifier2D
 
 
 var experience: float = 0
@@ -44,6 +45,8 @@ func _ready() -> void:
 	# cos(angle) gives the distance along the x-axis and sin(angle) for y-axis
 	direction = Vector2(cos(angle), sin(angle)).normalized()
 	velocity = direction * current_speed
+	
+	print_debug(global_position)
 
 	make_trail()
 
@@ -108,11 +111,3 @@ func update_stats() -> void:
 	game.xp_gain = game.base_xp_gain * menu.xp_mult * pow(2, menu.double_xp_stack)
 	game.add = game.base_add * menu.score_mult * pow(2, menu.double_score_stack)
 	
-
-
-func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
-	await get_tree().create_timer(3).timeout
-	print_debug("Yeppers")
-	var pos = get_viewport_rect().size / 2.0
-	var reset_ball_button = preload("res://Scenes/reset_ball_button.tscn").instantiate()
-	reset_ball_button.global_position = pos

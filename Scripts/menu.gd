@@ -206,6 +206,12 @@ func _on_texture_button_pressed() -> void:
 	is_menu_open = !is_menu_open
 
 
+# Bounciness effect on collide
+func _on_ball_bounce() -> void:
+	if snapped(ball.velocity.length(),2) <= ball.current_speed + ball.inverse_friction:
+		ball.velocity *= bounciness
+		emit_signal("velocity_changed", ball.velocity.length())
+		
 
 func _on_speed_pressed() -> void:
 	if game.score >= speed_price:
@@ -222,11 +228,6 @@ func _on_speed_pressed() -> void:
 		emit_signal("velocity_changed", ball.current_speed)
 
 
-# Bounciness effect on collide
-func _on_ball_bounce() -> void:
-	if snapped(ball.velocity.length(),2) <= ball.current_speed + ball.inverse_friction:
-		ball.velocity *= bounciness
-		emit_signal("velocity_changed", ball.velocity.length())
 
 # Bounciness upgrade
 func _on_bounciness_pressed() -> void:
@@ -462,4 +463,5 @@ func activate_all_relics(relics: Array) -> void:
 	for relic in relics:
 		relic._activate_effect()
 	
+
 	
