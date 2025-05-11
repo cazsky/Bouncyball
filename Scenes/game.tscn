@@ -100,6 +100,7 @@ grow_horizontal = 2
 
 [node name="reset_ball_button" type="Button" parent="Control"]
 visible = false
+layout_mode = 0
 offset_left = 560.0
 offset_top = 551.0
 offset_right = 627.0

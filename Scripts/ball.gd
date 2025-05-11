@@ -11,7 +11,7 @@ extends CharacterBody2D
 @onready var menu: Node2D = $"../Menu"
 @onready var game: Node2D = $"../"
 @onready var visibility_detector = $VisibleOnScreenNotifier2D
-
+@onready var visibilty_timer: Timer = $VisibleOnScreenNotifier2D/visibility_timer
 
 var experience: float = 0
 var experience_total: float = 0

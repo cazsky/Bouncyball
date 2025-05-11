@@ -33,6 +33,7 @@ func _ready() -> void:
 	xp_bar.initialise(ball.experience, ball.experience_required)
 	score_label.text = str("Score: ", snapped(score, 0.01))
 	ball.visibility_detector.screen_exited.connect(_on_ball_exit_screen)
+	ball.visibility_detector.screen_entered.connect(_on_ball_enter_screen)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -71,4 +72,10 @@ func display_level_up_text() -> void:
 	xp_bar.remove_child(level_up_text)
 	
 func _on_ball_exit_screen() -> void:
+	await ball.visibilty_timer.start(3).timeout()
 	reset_ball_button.visible = true
+
+func _on_ball_enter_screen() -> void:
+	await ball.ready
+	ball.visibility_timer.stop()
+	ball.visibility_timer.queue_free()
