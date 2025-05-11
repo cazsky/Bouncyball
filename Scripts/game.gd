@@ -72,10 +72,16 @@ func display_level_up_text() -> void:
 	xp_bar.remove_child(level_up_text)
 	
 func _on_ball_exit_screen() -> void:
-	await ball.visibilty_timer.start(3).timeout()
+	print_debug("Ball gone")
+	ball.visibility_timer.timeout.connect(_ball_visibility_timer_Timeout)
+	await ball.visibilty_timer.start()
 	reset_ball_button.visible = true
 
 func _on_ball_enter_screen() -> void:
+	print_debug("Ball in")
 	await ball.ready
 	ball.visibility_timer.stop()
 	ball.visibility_timer.queue_free()
+
+func _ball_visibility_timer_Timeout() -> void:
+	queue_free()
