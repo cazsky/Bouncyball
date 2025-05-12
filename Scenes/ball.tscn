@@ -37,7 +37,7 @@ anim_speed_min = 1.0
 anim_speed_max = 10.0
 
 [node name="OOB_timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 3.0
 autostart = true
 
 [connection signal="timeout" from="OOB_timer" to="." method="_on_oob_timer_timeout"]
