@@ -9,7 +9,7 @@ extends Node2D
 @onready var reset_ball_button: Button = $Control/reset_ball_button
 #@onready var level_up_text: Label = $Control/xp_bar/level_up_text
 
-
+@onready var ball_ready: bool = false
 
 # Init variables
 @export var base_add: float = 1
@@ -30,10 +30,10 @@ func _init() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	await ball.ready
 	xp_bar.initialise(ball.experience, ball.experience_required)
 	score_label.text = str("Score: ", snapped(score, 0.01))
-	ball.visibility_detector.screen_exited.connect(_on_ball_exit_screen)
-	ball.visibility_detector.screen_entered.connect(_on_ball_enter_screen)
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -71,17 +71,3 @@ func display_level_up_text() -> void:
 	await get_tree().create_timer(0.45).timeout
 	xp_bar.remove_child(level_up_text)
 	
-func _on_ball_exit_screen() -> void:
-	print_debug("Ball gone")
-	ball.visibility_timer.timeout.connect(_ball_visibility_timer_Timeout)
-	await ball.visibilty_timer.start()
-	reset_ball_button.visible = true
-
-func _on_ball_enter_screen() -> void:
-	print_debug("Ball in")
-	await ball.ready
-	ball.visibility_timer.stop()
-	ball.visibility_timer.queue_free()
-
-func _ball_visibility_timer_Timeout() -> void:
-	queue_free()

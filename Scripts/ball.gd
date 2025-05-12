@@ -10,8 +10,6 @@ extends CharacterBody2D
 @onready var velocity_stat_label: Label = $"../Control/Stats/Velocity"
 @onready var menu: Node2D = $"../Menu"
 @onready var game: Node2D = $"../"
-@onready var visibility_detector = $VisibleOnScreenNotifier2D
-@onready var visibilty_timer: Timer = $VisibleOnScreenNotifier2D/visibility_timer
 
 var experience: float = 0
 var experience_total: float = 0
@@ -47,7 +45,8 @@ func _ready() -> void:
 	velocity = direction * current_speed
 	
 	print_debug(global_position)
-
+	
+	
 	make_trail()
 
 
@@ -111,3 +110,14 @@ func update_stats() -> void:
 	game.xp_gain = game.base_xp_gain * menu.xp_mult * pow(2, menu.double_xp_stack)
 	game.add = game.base_add * menu.score_mult * pow(2, menu.double_score_stack)
 	
+func check_ball_in_bounds() -> bool:
+	print_debug("OOB Check: ", global_position)
+	if 0 > global_position.x and global_position.x < 720:
+		if 0 > global_position.y and global_position.y < 1280:
+			return true
+	return false
+
+
+func _on_oob_timer_timeout() -> void:
+	if !check_ball_in_bounds():
+		global_position = get_viewport().get_visible_rect().size / 2

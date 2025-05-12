@@ -36,8 +36,8 @@ scale_amount_max = 10.0
 anim_speed_min = 1.0
 anim_speed_max = 10.0
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="OOB_timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
 
-[node name="visibility_timer" type="Timer" parent="VisibleOnScreenNotifier2D"]
-wait_time = 3.0
-one_shot = true
+[connection signal="timeout" from="OOB_timer" to="." method="_on_oob_timer_timeout"]
