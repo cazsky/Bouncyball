@@ -383,6 +383,7 @@ func _on_buy_relic_pressed() -> void:
 func _on_ascend_pressed() -> void:
 	game.stars += _reset_stats()
 	stars_label.text = str("Stars: ", game.stars)
+	update_ascension_tab()
 	
 func calculate_stars() -> float:
 	# Calculating stars for ascension
@@ -435,21 +436,12 @@ func _on_tab_container_tab_clicked(tab: int) -> void:
 	# Update potential stars when ascension tab is clicked
 	match tab:
 		2:
-			# Calculate gains from ascension
-			var stars = calculate_stars()
-			var stars_display = stars
-			ascend_button.disabled = true
-			if stars_display < 0:
-				stars_display = 0
-			if stars >= 50:
-				ascend_button.disabled = false
-			ascend_button.price_label.text = str("Stars to gain: \n", stars_display)
-			
-			# Calculate relic price
-			relic_cost = BASE_RELIC_PRICE * pow(relic_upgrade_price_multiplier, owned_relics.get_child_count())
-			buy_relic_button.update_price(relic_cost)
+			update_ascension_tab()
 
 func update_menu_labels() -> void:
+	update_ascension_tab()
+	
+func update_ascension_tab() -> void:
 	# Calculate gains from ascension
 	var stars = calculate_stars()
 	var stars_display = stars
@@ -458,13 +450,11 @@ func update_menu_labels() -> void:
 		stars_display = 0
 	if stars >= 50:
 		ascend_button.disabled = false
-	ascend_button.price_label.text = str("Stars to gain: \n", stars_display)
+	ascend_button.price_label.text = str("Stars to gain: \n", snapped(stars_display, 0.01))
 
 	# Calculate relic price
 	relic_cost = BASE_RELIC_PRICE * pow(relic_upgrade_price_multiplier, owned_relics.get_child_count())
 	buy_relic_button.update_price(relic_cost)
-	
-	ascend_button.price_label.text = str("Stars to gain: \n", stars_display)
 
 func _on_grid_container_child_entered_tree(relic: Relic) -> void:
 	ball.update_stats()
