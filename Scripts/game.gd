@@ -39,7 +39,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	score_label.text = str("Score: ", snapped(score, 0.01))
-	gems_label.text = str("Gems: ", gems, " ")
+	gems_label.text = str("Gems: ", snapped(gems,0.01), " ")
 	velocity_label.text = str("Current velocity: ", snapped(ball.velocity.length(), 0.01))
 
 func _on_ball_bounce() -> void:
