@@ -138,8 +138,8 @@ func _ready() -> void:
 	# Reload upgrade levels
 	ball.update_stats()
 	
-	# Update perk and upgrade buttons labels
-	update_labels_on_ready()
+	# Update menu labels 4head
+	update_menu_labels()
 	
 	ascend_button.price_label.text = ""
 	stars_label.text = str("Stars: ", game.stars)
@@ -149,7 +149,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 	
-func update_labels_on_ready() -> void:
+func update_upgrade_labels() -> void:
 	# Update prices
 	speed_price = BASE_SPEED_PRICE * pow(speed_upgrade_price_multiplier, speed_upgrade_level)
 	bounciness_price = BASE_BOUNCINESS_PRICE * pow(bounciness_upgrade_price_multiplier, bounciness_upgrade_level)
@@ -440,6 +440,8 @@ func _on_tab_container_tab_clicked(tab: int) -> void:
 
 func update_menu_labels() -> void:
 	update_ascension_tab()
+	update_upgrade_labels()
+	
 	
 func update_ascension_tab() -> void:
 	# Calculate gains from ascension
