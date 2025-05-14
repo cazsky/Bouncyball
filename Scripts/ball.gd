@@ -111,9 +111,8 @@ func update_stats() -> void:
 	game.add = game.base_add * menu.score_mult * pow(2, menu.double_score_stack)
 	
 func check_ball_in_bounds() -> bool:
-	print_debug("OOB Check: ", global_position)
-	if 0 > global_position.x and global_position.x < 720:
-		if 0 > global_position.y and global_position.y < 1280:
+	if global_position.x > 0 and global_position.x < 720:
+		if global_position.y > 0 and global_position.y < 1280:
 			return true
 	return false
 
