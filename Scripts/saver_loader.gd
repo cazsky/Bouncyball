@@ -65,11 +65,11 @@ func load_game() -> void:
 	menu.xp_upgrade_level = saved_game.xp_upgrade_level
 	menu.score_upgrade_level = saved_game.score_upgrade_level
 	
-	menu.double_speed_stack = saved_game.double_speed_stack
-	menu.double_bounce_stack = saved_game.double_bounce_stack
-	menu.double_xp_stack = saved_game.double_xp_stack
-	menu.double_score_stack = saved_game.double_score_stack
-	menu.double_ball_stack = saved_game.double_ball_stack
+	#menu.double_speed_stack = saved_game.double_speed_stack
+	#menu.double_bounce_stack = saved_game.double_bounce_stack
+	#menu.double_xp_stack = saved_game.double_xp_stack
+	#menu.double_score_stack = saved_game.double_score_stack
+	#menu.double_ball_stack = saved_game.double_ball_stack
 	
 	menu.relic_pool = saved_game.relic_pool
 	clear_relics()
@@ -105,6 +105,12 @@ func load_relics() -> void:
 			menu.owned_relics.add_child(relic_to_load)
 	
 func save_perks() -> void:
+	var saved_perk_data = SavedPerkData.new()
+	menu.double_speed_stack = saved_perk_data.double_speed_stack
+	menu.double_bounce_stack = saved_perk_data.double_bounce_stack
+	menu.double_xp_stack = saved_perk_data.double_xp_stack
+	menu.double_score_stack = saved_perk_data.double_score_stack
+	menu.double_ball_stack = saved_perk_data.double_ball_stack
 	pass
 	
 func load_perks() -> void:
