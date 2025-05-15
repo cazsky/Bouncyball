@@ -15,11 +15,4 @@ extends Resource
 @export var xp_upgrade_level: int
 @export var score_upgrade_level: int
 
-# Double stacks
-@export var double_speed_stack: int
-@export var double_bounce_stack: int
-@export var double_xp_stack: int
-@export var double_score_stack: int
-@export var double_ball_stack: int
-
 @export var relic_pool: Array

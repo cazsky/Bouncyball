@@ -104,6 +104,12 @@ func load_relics() -> void:
 			#(relic.script_path)
 			menu.owned_relics.add_child(relic_to_load)
 	
+func save_perks() -> void:
+	pass
+	
+func load_perks() -> void:
+	pass
+
 func clear_relics() -> void:
 	# Relics duplicate when manually loading multiple times
 	for relic in menu.owned_relics.get_children():
