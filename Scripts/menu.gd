@@ -14,6 +14,13 @@ extends Node2D
 @onready var double_bounce_button: PerkButton = $Control/TabContainer/Perks/GridContainer/Double_Bounciness
 @onready var double_ball_button: PerkButton = $Control/TabContainer/Perks/GridContainer/Double_Ball
 
+# Perk Timer Buttons
+@onready var double_speed_timer: Timer = $Control/TabContainer/Perks/GridContainer/Double_Speed/Double_Speed_Timer
+@onready var double_xp_timer: Timer = $Control/TabContainer/Perks/GridContainer/Double_Speed/Double_XP_Timer
+@onready var double_bounce_timer: Timer = $Control/TabContainer/Perks/GridContainer/Double_Speed/Double_Bounciness_Timer
+@onready var double_score_timer: Timer = $Control/TabContainer/Perks/GridContainer/Double_Speed/Double_Score_Timer
+@onready var double_ball_timer: Timer = $Control/TabContainer/Perks/GridContainer/Double_Speed/Double_Ball_Timer
+
 # Ascension Buttons
 @onready var ascend_button: AscensionButton = $Control/TabContainer/Ascension/GridContainer/Ascend
 @onready var buy_relic_button: AscensionButton = $Control/TabContainer/Ascension/GridContainer/Buy_Relic
@@ -26,6 +33,7 @@ extends Node2D
 # Util Nodes
 @onready var saver_loader: SaveLoader = $"../Utils/SaverLoader"
 
+# UI and Game Nodes
 @onready var popup: Button = $Control/Popup
 @onready var arrow: Sprite2D = $Control/Arrow
 @onready var ball: CharacterBody2D = $"../Ball"

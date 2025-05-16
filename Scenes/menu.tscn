@@ -96,12 +96,16 @@ Speed"
 script = ExtResource("3_hfjpc")
 label_text = "Doubles max speed for 1 minute"
 
+[node name="Double_Speed_Timer" type="Timer" parent="Control/TabContainer/Perks/GridContainer/Double_Speed"]
+
 [node name="Double_XP" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
 text = "Double
 XP"
 script = ExtResource("3_hfjpc")
 label_text = "Doubles XP gain on bounce for 1 minute"
+
+[node name="Double_XP_Timer" type="Timer" parent="Control/TabContainer/Perks/GridContainer/Double_XP"]
 
 [node name="Double_Bounciness" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
@@ -110,12 +114,16 @@ Bounciness"
 script = ExtResource("3_hfjpc")
 label_text = "Doubles speed gained on bounce for 1 minute"
 
+[node name="Double_Bounciness_Timer" type="Timer" parent="Control/TabContainer/Perks/GridContainer/Double_Bounciness"]
+
 [node name="Double_Score" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
 text = "Double
 Score"
 script = ExtResource("3_hfjpc")
 label_text = "Doubles score gained per bounce for 1 minute"
+
+[node name="Double_Score_Timer" type="Timer" parent="Control/TabContainer/Perks/GridContainer/Double_Score"]
 
 [node name="Double_Ball" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
 editor_description = "Extra Ball gets properties of ball at the time of buying. Does not upgrade with ball."
@@ -124,6 +132,8 @@ text = "Extra
 Ball"
 script = ExtResource("3_hfjpc")
 label_text = "Adds 1 more ball on screen"
+
+[node name="Double_Ball_Timer" type="Timer" parent="Control/TabContainer/Perks/GridContainer/Double_Ball"]
 
 [node name="Ascension" type="Control" parent="Control/TabContainer"]
 layout_mode = 2
