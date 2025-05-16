@@ -8,6 +8,7 @@ extends Node
 
 const SAVE_RELIC_PATH: String = "user://SavedRelics.tres"
 const SAVE_GAME_PATH: String = "user://savegame.tres"
+const SAVE_PERK_PATH: String =  "user://saveperk.tres"
 
 # Order of calls
 # 1. _init()
@@ -45,6 +46,7 @@ func save_game() -> void:
 	
 	saved_game.relic_pool = menu.relic_pool
 	save_relics()
+	save_perks()
 	ResourceSaver.save(saved_game, SAVE_GAME_PATH)
 	
 func load_game() -> void:
@@ -65,15 +67,11 @@ func load_game() -> void:
 	menu.xp_upgrade_level = saved_game.xp_upgrade_level
 	menu.score_upgrade_level = saved_game.score_upgrade_level
 	
-	#menu.double_speed_stack = saved_game.double_speed_stack
-	#menu.double_bounce_stack = saved_game.double_bounce_stack
-	#menu.double_xp_stack = saved_game.double_xp_stack
-	#menu.double_score_stack = saved_game.double_score_stack
-	#menu.double_ball_stack = saved_game.double_ball_stack
-	
 	menu.relic_pool = saved_game.relic_pool
 	clear_relics()
 	load_relics()
+	
+	load_perks()
 	
 	
 func save_relics() -> void:
@@ -106,15 +104,47 @@ func load_relics() -> void:
 	
 func save_perks() -> void:
 	var saved_perk_data = SavedPerkData.new()
-	menu.double_speed_stack = saved_perk_data.double_speed_stack
-	menu.double_bounce_stack = saved_perk_data.double_bounce_stack
-	menu.double_xp_stack = saved_perk_data.double_xp_stack
-	menu.double_score_stack = saved_perk_data.double_score_stack
-	menu.double_ball_stack = saved_perk_data.double_ball_stack
-	pass
 	
+	menu.double_speed_stack = saved_perk_data.double_speed_stack
+	menu.double_speed_price = saved_perk_data.double_speed_price
+	menu.double_speed_time = saved_perk_data.double_speed_time
+	menu.double_xp_stack = saved_perk_data.double_xp_stack
+	menu.double_xp_price = saved_perk_data.double_xp_price
+	menu.double_xp_time = saved_perk_data.double_xp_time
+	menu.double_bounce_stack = saved_perk_data.double_bounce_stack
+	menu.double_bounce_price = saved_perk_data.double_bounce_price
+	menu.double_bounce_time = saved_perk_data.double_bounce_time
+	menu.double_score_stack = saved_perk_data.double_score_stack
+	menu.double_score_price = saved_perk_data.double_score_price
+	menu.double_score_time = saved_perk_data.double_score_time
+	menu.double_ball_stack = saved_perk_data.double_ball_stack
+	menu.double_ball_price = saved_perk_data.double_ball_price
+	menu.double_ball_time = saved_perk_data.double_ball_time
+
+	
+	ResourceSaver.save(saved_perk_data, SAVE_PERK_PATH)
 func load_perks() -> void:
-	pass
+	# Check if save file exists
+	if !FileAccess.file_exists(SAVE_PERK_PATH):
+		return
+	else:
+		var loaded_perks = ResourceLoader.load(SAVE_PERK_PATH) as SavedPerkData
+		loaded_perks.double_speed_stack = menu.double_speed_stack
+		loaded_perks.double_speed_price = menu.double_speed_price
+		loaded_perks.double_speed_time = menu.double_speed_time
+		loaded_perks.double_xp_stack = menu.double_xp_stack
+		loaded_perks.double_xp_price = menu.double_xp_price
+		loaded_perks.double_xp_time = menu.double_xp_time
+		loaded_perks.double_bounce_stack = menu.double_bounce_stack
+		loaded_perks.double_bounce_price = menu.double_bounce_price
+		loaded_perks.double_bounce_time = menu.double_bounce_time
+		loaded_perks.double_score_stack = menu.double_score_stack
+		loaded_perks.double_score_price = menu.double_score_price
+		loaded_perks.double_score_time = menu.double_score_time
+		loaded_perks.double_ball_stack = menu.double_ball_stack
+		loaded_perks.double_ball_price = menu.double_ball_price
+		loaded_perks.double_ball_time = menu.double_ball_time
+		
 
 func clear_relics() -> void:
 	# Relics duplicate when manually loading multiple times
