@@ -38,12 +38,7 @@ func save_game() -> void:
 	saved_game.xp_upgrade_level = menu.xp_upgrade_level
 	saved_game.score_upgrade_level = menu.score_upgrade_level
 	
-	saved_game.double_speed_stack = menu.double_speed_stack
-	saved_game.double_bounce_stack = menu.double_bounce_stack
-	saved_game.double_xp_stack = menu.double_xp_stack
-	saved_game.double_score_stack = menu.double_score_stack
-	saved_game.double_ball_stack = menu.double_ball_stack
-	
+
 	saved_game.relic_pool = menu.relic_pool
 	save_relics()
 	save_perks()
