@@ -15,6 +15,7 @@ extends Node2D
 @onready var double_ball_button: PerkButton = $Control/TabContainer/Perks/GridContainer/Double_Ball
 
 # Perk Timer Buttons
+# Raises errors but timers exist on _ready()
 @onready var double_speed_timer: Timer = $Control/TabContainer/Perks/GridContainer/Double_Speed/Double_Speed_Timer
 @onready var double_xp_timer: Timer = $Control/TabContainer/Perks/GridContainer/Double_Speed/Double_XP_Timer
 @onready var double_bounce_timer: Timer = $Control/TabContainer/Perks/GridContainer/Double_Speed/Double_Bounciness_Timer
@@ -467,7 +468,7 @@ func update_ascension_tab() -> void:
 	relic_cost = BASE_RELIC_PRICE * pow(relic_upgrade_price_multiplier, owned_relics.get_child_count())
 	buy_relic_button.update_price(relic_cost)
 
-func _on_grid_container_child_entered_tree(relic: Relic) -> void:
+func _on_grid_container_child_entered_tree(_relic: Relic) -> void:
 	ball.update_stats()
 
 
