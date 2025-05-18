@@ -323,7 +323,8 @@ func _on_double_xp_pressed() -> void:
 			game.xp_gain = game.base_xp_gain * xp_mult * pow(2, double_xp_stack)
 			double_xp_button.update_perk(double_xp_stack, max_stacks, double_xp_price)
 			xp_button.update_label(game.xp_gain, xp_upgrade_stat_multiplier, xp_price)
-			await get_tree().create_timer(double_xp_time).timeout
+			double_xp_timer.start(double_xp_time)
+			await double_xp_timer.timeout
 			double_xp_stack -= 1
 			game.xp_gain = game.base_xp_gain * xp_mult * pow(2, double_xp_stack)
 			double_xp_button.update_perk(double_xp_stack, max_stacks, double_xp_price)
