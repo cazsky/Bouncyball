@@ -338,7 +338,8 @@ func _on_double_score_pressed() -> void:
 			game.add = game.base_add * score_mult * pow(2, double_score_stack)
 			double_score_button.update_perk(double_score_stack, max_stacks, double_score_price)
 			score_button.update_label(game.add, score_upgrade_stat_multiplier, score_price)
-			await get_tree().create_timer(double_score_time).timeout
+			double_score_timer.start(double_score_time)
+			await double_score_timer.timeout
 			double_score_stack -= 1
 			game.add = game.base_add * score_mult * pow(2, double_score_stack)
 			double_score_button.update_perk(double_score_stack, max_stacks, double_score_price)
