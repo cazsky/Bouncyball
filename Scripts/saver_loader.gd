@@ -116,6 +116,8 @@ func save_perks() -> void:
 	menu.double_ball_price = saved_perk_data.double_ball_price
 	menu.double_ball_time = saved_perk_data.double_ball_time
 
+	if menu.double_speed_timer.is
+	
 	
 	ResourceSaver.save(saved_perk_data, SAVE_PERK_PATH)
 func load_perks() -> void:

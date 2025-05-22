@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://5mv5pcy1k2tg"]
+[gd_scene load_steps=7 format=3 uid="uid://5mv5pcy1k2tg"]
 
 [ext_resource type="Script" uid="uid://d3eiednewg6p1" path="res://Scripts/menu.gd" id="1_5y3mv"]
 [ext_resource type="PackedScene" uid="uid://c0ysgqsg6bis3" path="res://Scenes/upgrade_button.tscn" id="2_8dn8m"]
 [ext_resource type="Texture2D" uid="uid://qgh2hwgbl4hg" path="res://Sprites/tile_0604 (2).png" id="2_a8udu"]
 [ext_resource type="Script" uid="uid://8jjoie2kme46" path="res://Scripts/perk_button.gd" id="3_hfjpc"]
 [ext_resource type="Script" uid="uid://dbhlth1ajeq54" path="res://Scenes/ascension_button.gd" id="4_61cg1"]
+[ext_resource type="Script" uid="uid://b6lqe4mkjt270" path="res://Scripts/perk_timer.gd" id="4_jsrd8"]
 
 [node name="Menu" type="Node2D" groups=["Persist"]]
 script = ExtResource("1_5y3mv")
@@ -99,6 +100,7 @@ label_text = "Doubles max speed for 1 minute"
 [node name="Double_Speed_Timer" type="Timer" parent="Control/TabContainer/Perks/GridContainer/Double_Speed"]
 wait_time = 5.0
 one_shot = true
+script = ExtResource("4_jsrd8")
 
 [node name="Double_XP" parent="Control/TabContainer/Perks/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
