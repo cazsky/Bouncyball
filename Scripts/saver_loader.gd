@@ -100,18 +100,28 @@ func load_relics() -> void:
 func save_perks() -> void:
 	var saved_perk_data = SavedPerkData.new()
 	
+	# Double Speed
 	menu.double_speed_stack = saved_perk_data.double_speed_stack
 	menu.double_speed_price = saved_perk_data.double_speed_price
 	menu.double_speed_time = saved_perk_data.double_speed_time
+	
+	
+	# Double XP
 	menu.double_xp_stack = saved_perk_data.double_xp_stack
 	menu.double_xp_price = saved_perk_data.double_xp_price
 	menu.double_xp_time = saved_perk_data.double_xp_time
+	
+	# Double Bounce
 	menu.double_bounce_stack = saved_perk_data.double_bounce_stack
 	menu.double_bounce_price = saved_perk_data.double_bounce_price
 	menu.double_bounce_time = saved_perk_data.double_bounce_time
+	
+	# Double Score
 	menu.double_score_stack = saved_perk_data.double_score_stack
 	menu.double_score_price = saved_perk_data.double_score_price
 	menu.double_score_time = saved_perk_data.double_score_time
+	
+	#Double Ball
 	menu.double_ball_stack = saved_perk_data.double_ball_stack
 	menu.double_ball_price = saved_perk_data.double_ball_price
 	menu.double_ball_time = saved_perk_data.double_ball_time
