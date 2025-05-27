@@ -81,23 +81,18 @@ var score_upgrade_level: int = 0
 var double_speed_stack: int = 0
 var double_speed_price: int = 200
 var double_speed_time: int = 5
-var double_speed_time_left: float
 var double_xp_stack: int = 0
 var double_xp_price: int = 500
 var double_xp_time: int = 30
-var double_xp_time_left: float
 var double_bounce_stack: int = 0
 var double_bounce_price: int  = 1000
 var double_bounce_time: int = 30
-var double_bounce_time_left: float
 var double_score_stack: int = 0
 var double_score_price: int = 2000
 var double_score_time: int = 30
-var double_score_time_left: float
 var double_ball_stack: int = 0
 var double_ball_price: int = 5000
 var double_ball_time: int = 30
-var double_ball_time_left: float
 
 # Current stats
 var speed_mult: float = 1
