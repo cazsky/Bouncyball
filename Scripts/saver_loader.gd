@@ -136,26 +136,31 @@ func save_perks() -> void:
 	saved_perk_data.double_speed_stack = menu.double_speed_stack
 	saved_perk_data.double_speed_price = menu.double_speed_price
 	saved_perk_data.double_speed_time = menu.double_speed_time
+	saved_perk_data.double_speed_time_left = menu.double_speed_time_left
 	
 	# Double XP
 	saved_perk_data.double_xp_stack = menu.double_xp_stack
 	saved_perk_data.double_xp_price = menu.double_xp_price
 	saved_perk_data.double_xp_time = menu.double_xp_time
+	saved_perk_data.double_xp_time_left = menu.double_xp_time_left
 	
 	# Double Bounce
 	saved_perk_data.double_bounce_stack = menu.double_bounce_stack
 	saved_perk_data.double_bounce_price = menu.double_bounce_price
 	saved_perk_data.double_bounce_time = menu.double_bounce_time
+	saved_perk_data.double_bounce_time_left = menu.double_bounce_time_left
 	
 	# Double Score
 	saved_perk_data.double_score_stack = menu.double_score_stack
 	saved_perk_data.double_score_price = menu.double_score_price
 	saved_perk_data.double_score_time = menu.double_score_time
+	saved_perk_data.double_score_time_left = menu.double_score_time_left
 	
 	# Double Ball
 	saved_perk_data.double_ball_stack = menu.double_ball_stack
 	saved_perk_data.double_ball_price = menu.double_ball_price
 	saved_perk_data.double_ball_time = menu.double_ball_time
+	saved_perk_data.double_ball_time_left = menu.double_ball_time_left
 		
 	ResourceSaver.save(saved_perk_data, SAVE_PERK_PATH)
 
