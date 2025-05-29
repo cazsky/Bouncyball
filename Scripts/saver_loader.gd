@@ -107,26 +107,31 @@ func load_perks() -> void:
 		menu.double_speed_stack = loaded_perks.double_speed_stack
 		menu.double_speed_price = loaded_perks.double_speed_price
 		menu.double_speed_time = loaded_perks.double_speed_time
+		menu.double_speed_time_left = loaded_perks.double_speed_time_left
 
 		# Double XP
 		menu.double_xp_stack = loaded_perks.double_xp_stack
 		menu.double_xp_price = loaded_perks.double_xp_price
 		menu.double_xp_time = loaded_perks.double_xp_time
+		menu.double_xp_time_left = loaded_perks.double_xp_time_left
 		
 		# Double Bounce
 		menu.double_bounce_stack = loaded_perks.double_bounce_stack
 		menu.double_bounce_price = loaded_perks.double_bounce_price
 		menu.double_bounce_time = loaded_perks.double_bounce_time
+		menu.double_bounce_time_left = loaded_perks.double_bounce_time_left
 		
 		# Double Score
 		menu.double_score_stack = loaded_perks.double_score_stack
 		menu.double_score_price = loaded_perks.double_score_price
 		menu.double_score_time = loaded_perks.double_score_time
+		menu.double_score_time_left = loaded_perks.double_score_time_left
 		
 		#Double Ball
 		menu.double_ball_stack = loaded_perks.double_ball_stack
 		menu.double_ball_price = loaded_perks.double_ball_price
 		menu.double_ball_time = loaded_perks.double_ball_time
+		menu.double_ball_time_left = loaded_perks.double_ball_time_left
 
 	
 func save_perks() -> void:
