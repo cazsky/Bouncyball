@@ -380,21 +380,24 @@ func _on_double_ball_pressed() -> void:
 	if game.gems >= double_ball_price:
 		game.gems -= double_ball_price
 		if double_ball_stack < max_stacks:
-			double_ball_stack += 1
-			var extra_ball = load("res://Scenes/ball.tscn").instantiate()
-			extra_ball.bounce.connect(Callable(game, "_on_ball_bounce"))
-			extra_ball.current_speed = ball.current_speed
-			extra_ball.friction = ball.friction
-			double_ball_button.update_perk(double_ball_stack, max_stacks, double_ball_price)
-			extra_ball.global_position = ball.global_position/2
-			get_parent().add_child(extra_ball)
-			double_ball_timer.start(double_ball_time)
-			double_ball_timer.is_active = true
-			await double_ball_timer.timeout
-			double_ball_timer.is_active = false
-			get_parent().remove_child(extra_ball)
-			double_ball_stack -= 1
-			double_ball_button.update_perk(double_ball_stack, max_stacks, double_ball_price)
+			activate_double_ball_perk()
+
+func activate_double_ball_perk() -> void:
+	double_ball_stack += 1
+	var extra_ball = load("res://Scenes/ball.tscn").instantiate()
+	extra_ball.bounce.connect(Callable(game, "_on_ball_bounce"))
+	extra_ball.current_speed = ball.current_speed
+	extra_ball.friction = ball.friction
+	double_ball_button.update_perk(double_ball_stack, max_stacks, double_ball_price)
+	extra_ball.global_position = ball.global_position/2
+	get_parent().add_child(extra_ball)
+	double_ball_timer.start(double_ball_time)
+	double_ball_timer.is_active = true
+	await double_ball_timer.timeout
+	double_ball_timer.is_active = false
+	get_parent().remove_child(extra_ball)
+	double_ball_stack -= 1
+	double_ball_button.update_perk(double_ball_stack, max_stacks, double_ball_price)
 
 func _on_buy_relic_pressed() -> void:
 	if game.stars >= relic_cost:
