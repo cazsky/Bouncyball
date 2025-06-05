@@ -112,7 +112,11 @@ func load_perks() -> void:
 			menu.double_speed_time = loaded_perks.double_speed_time_left
 			menu.activate_double_speed_perk()
 			menu.double_speed_time = loaded_perks.double_speed_time
-
+		
+		if loaded_perks.double_bounce_is_active:
+			menu.double_bounce_time = loaded_perks.double_bounce_time_left
+			menu.activate_double_bounciness_perk()
+			menu.double_bounce_time = loaded_perks.double_bounce_time
 		# Double XP
 		menu.double_xp_stack = loaded_perks.double_xp_stack
 		menu.double_xp_price = loaded_perks.double_xp_price
