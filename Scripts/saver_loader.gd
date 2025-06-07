@@ -108,26 +108,9 @@ func load_perks() -> void:
 		menu.double_speed_price = loaded_perks.double_speed_price
 		menu.double_speed_time = loaded_perks.double_speed_time
 		menu.double_speed_timer.set_wait_time(loaded_perks.double_speed_time_left)
-		if loaded_perks.double_speed_is_active:
-			menu.double_speed_time = loaded_perks.double_speed_time_left
-			menu.activate_double_speed_perk()
-			menu.double_speed_time = loaded_perks.double_speed_time
 		
-		if loaded_perks.double_xp_is_active:
-			menu.double_xp_time = loaded_perks.double_xp_time_left
-			menu.activate_double_xp_perk()
-			menu.double_xp_time = loaded_perks.double_xp_time
-			
-		if loaded_perks.double_score_is_active:
-			menu.double_score_time = loaded_perks.double_score_time_left
-			menu.activate_double_score_perk()
-			menu.double_score_time = loaded_perks.double_score_time
+		check_active_perks(loaded_perks)
 		
-		if loaded_perks.double_bounce_is_active:
-			menu.double_bounce_time = loaded_perks.double_bounce_time_left
-			menu.activate_double_bounciness_perk()
-			menu.double_bounce_time = loaded_perks.double_bounce_time
-			
 		# Double XP
 		menu.double_xp_stack = loaded_perks.double_xp_stack
 		menu.double_xp_price = loaded_perks.double_xp_price
@@ -208,3 +191,29 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
 		# Putting get_tree().quit() would make things weird I think
 		save_game()
+
+func check_active_perks(loaded_perks) -> void:
+	if loaded_perks.double_speed_is_active:
+		menu.double_speed_time = loaded_perks.double_speed_time_left
+		menu.activate_double_speed_perk()
+		menu.double_speed_time = loaded_perks.double_speed_time
+	
+	if loaded_perks.double_xp_is_active:
+		menu.double_xp_time = loaded_perks.double_xp_time_left
+		menu.activate_double_xp_perk()
+		menu.double_xp_time = loaded_perks.double_xp_time
+		
+	if loaded_perks.double_score_is_active:
+		menu.double_score_time = loaded_perks.double_score_time_left
+		menu.activate_double_score_perk()
+		menu.double_score_time = loaded_perks.double_score_time
+	
+	if loaded_perks.double_bounce_is_active:
+		menu.double_bounce_time = loaded_perks.double_bounce_time_left
+		menu.activate_double_bounciness_perk()
+		menu.double_bounce_time = loaded_perks.double_bounce_time
+		
+	if loaded_perks.double_ball_is_active:
+		menu.double_ball_time = loaded_perks.double_ball_time_left
+		menu.activate_double_ball_perk()
+		menu.double_ball_time = loaded_perks.double_ball_time
