@@ -107,7 +107,6 @@ func load_perks() -> void:
 		menu.double_speed_stack = loaded_perks.double_speed_stack
 		menu.double_speed_price = loaded_perks.double_speed_price
 		menu.double_speed_time = loaded_perks.double_speed_time
-		menu.double_speed_timer.set_wait_time(loaded_perks.double_speed_time_left)
 		
 		check_active_perks(loaded_perks)
 		
@@ -195,6 +194,7 @@ func _notification(what: int) -> void:
 func check_active_perks(loaded_perks) -> void:
 	if loaded_perks.double_speed_is_active:
 		menu.double_speed_time = loaded_perks.double_speed_time_left
+		menu.double_speed_timer.set_wait_time(loaded_perks.double_speed_time_left)
 		menu.activate_double_speed_perk()
 		menu.double_speed_time = loaded_perks.double_speed_time
 	
