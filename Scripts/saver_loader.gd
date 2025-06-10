@@ -200,6 +200,7 @@ func check_active_perks(loaded_perks) -> void:
 	
 	if loaded_perks.double_xp_is_active:
 		menu.double_xp_time = loaded_perks.double_xp_time_left
+		menu.double_xp_timer.set_wait_time(loaded_perks.double_xp_time_left)
 		menu.activate_double_xp_perk()
 		menu.double_xp_time = loaded_perks.double_xp_time
 		
