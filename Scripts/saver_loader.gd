@@ -206,6 +206,7 @@ func check_active_perks(loaded_perks) -> void:
 		
 	if loaded_perks.double_score_is_active:
 		menu.double_score_time = loaded_perks.double_score_time_left
+		menu.double_score_timer.set_wait_time(loaded_perks.double_score_time_left)
 		menu.activate_double_score_perk()
 		menu.double_score_time = loaded_perks.double_score_time
 	
