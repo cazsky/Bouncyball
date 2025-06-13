@@ -212,6 +212,7 @@ func check_active_perks(loaded_perks) -> void:
 	
 	if loaded_perks.double_bounce_is_active:
 		menu.double_bounce_time = loaded_perks.double_bounce_time_left
+		menu.double_bounce_timer.set_wait_time(loaded_perks.double_bounce_time_left)
 		menu.activate_double_bounciness_perk()
 		menu.double_bounce_time = loaded_perks.double_bounce_time
 		
