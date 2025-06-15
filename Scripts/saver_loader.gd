@@ -108,8 +108,6 @@ func load_perks() -> void:
 		menu.double_speed_price = loaded_perks.double_speed_price
 		menu.double_speed_time = loaded_perks.double_speed_time
 		
-		check_active_perks(loaded_perks)
-		
 		# Double XP
 		menu.double_xp_stack = loaded_perks.double_xp_stack
 		menu.double_xp_price = loaded_perks.double_xp_price
@@ -134,6 +132,7 @@ func load_perks() -> void:
 		menu.double_ball_time = loaded_perks.double_ball_time
 		menu.double_ball_time_left = loaded_perks.double_ball_time_left
 
+		check_active_perks(loaded_perks)
 	
 func save_perks() -> void:
 	var saved_perk_data = SavedPerkData.new()
