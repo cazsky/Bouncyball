@@ -44,9 +44,6 @@ func _ready() -> void:
 	direction = Vector2(cos(angle), sin(angle)).normalized()
 	velocity = direction * current_speed
 	
-	print_debug(global_position)
-	
-	
 	make_trail()
 
 
