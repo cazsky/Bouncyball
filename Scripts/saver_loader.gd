@@ -104,30 +104,31 @@ func load_perks() -> void:
 	else:
 		var loaded_perks = ResourceLoader.load(SAVE_PERK_PATH) as SavedPerkData
 		# Double Speed
-		menu.double_speed_stack = loaded_perks.double_speed_stack
+		#menu.double_speed_stack = loaded_perks.double_speed_stack
 		menu.double_speed_price = loaded_perks.double_speed_price
 		menu.double_speed_time = loaded_perks.double_speed_time
+		menu.double_speed_time_left = loaded_perks.double_speed_time_left
 		
 		# Double XP
-		menu.double_xp_stack = loaded_perks.double_xp_stack
+		#menu.double_xp_stack = loaded_perks.double_xp_stack
 		menu.double_xp_price = loaded_perks.double_xp_price
 		menu.double_xp_time = loaded_perks.double_xp_time
 		menu.double_xp_time_left = loaded_perks.double_xp_time_left
 		
 		# Double Bounce
-		menu.double_bounce_stack = loaded_perks.double_bounce_stack
+		#menu.double_bounce_stack = loaded_perks.double_bounce_stack
 		menu.double_bounce_price = loaded_perks.double_bounce_price
 		menu.double_bounce_time = loaded_perks.double_bounce_time
 		menu.double_bounce_time_left = loaded_perks.double_bounce_time_left
 		
 		# Double Score
-		menu.double_score_stack = loaded_perks.double_score_stack
+		#menu.double_score_stack = loaded_perks.double_score_stack
 		menu.double_score_price = loaded_perks.double_score_price
 		menu.double_score_time = loaded_perks.double_score_time
 		menu.double_score_time_left = loaded_perks.double_score_time_left
 		
 		#Double Ball
-		menu.double_ball_stack = loaded_perks.double_ball_stack
+		#menu.double_ball_stack = loaded_perks.double_ball_stack
 		menu.double_ball_price = loaded_perks.double_ball_price
 		menu.double_ball_time = loaded_perks.double_ball_time
 		menu.double_ball_time_left = loaded_perks.double_ball_time_left
@@ -139,6 +140,7 @@ func save_perks() -> void:
 	
 	# Double Speed
 	saved_perk_data.double_speed_stack = menu.double_speed_stack
+	print_debug("Saving ", menu.double_speed_stack, " speed stacks")
 	saved_perk_data.double_speed_price = menu.double_speed_price
 	saved_perk_data.double_speed_time = menu.double_speed_time
 	saved_perk_data.double_speed_time_left = menu.double_speed_time_left
@@ -194,7 +196,10 @@ func check_active_perks(loaded_perks) -> void:
 	if loaded_perks.double_speed_is_active:
 		menu.double_speed_time = loaded_perks.double_speed_time_left
 		menu.double_speed_timer.set_wait_time(loaded_perks.double_speed_time_left)
-		menu.activate_double_speed_perk()
+		print_debug("Loading ", loaded_perks.double_speed_stacks, " speed stacks")
+		for stack in loaded_perks.double_speed_stacks:
+			print_debug(stack)
+			menu.activate_double_speed_perk()
 		menu.double_speed_time = loaded_perks.double_speed_time
 	
 	if loaded_perks.double_xp_is_active:
