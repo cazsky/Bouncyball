@@ -314,6 +314,7 @@ func _on_double_speed_pressed() -> void:
 			activate_double_speed_perk()
 	
 func activate_double_speed_perk() -> void:
+	double_speed_is_active = true
 	double_speed_stack += 1
 	#speed_mult *= 2
 	#ball.current_speed = ball.base_speed * speed_mult
@@ -325,6 +326,7 @@ func activate_double_speed_perk() -> void:
 	speed_button.update_label(ball.current_speed, speed_upgrade_stat_multiplier, speed_price)
 	double_speed_timer.start(double_speed_time)
 	await double_speed_timer.timeout
+	double_speed_is_active = false
 	double_speed_stack -= 1
 	ball.current_speed = ball.base_speed * speed_mult * pow(2, double_speed_stack)
 	ball.velocity = ball.velocity.normalized() * ball.base_speed * speed_mult * pow(2, double_speed_stack)
@@ -339,12 +341,14 @@ func _on_double_xp_pressed() -> void:
 			activate_double_xp_perk()
 
 func activate_double_xp_perk() -> void:
+	double_xp_is_active = true
 	double_xp_stack += 1
 	game.xp_gain = game.base_xp_gain * xp_mult * pow(2, double_xp_stack)
 	double_xp_button.update_perk(double_xp_stack, max_stacks, double_xp_price)
 	xp_button.update_label(game.xp_gain, xp_upgrade_stat_multiplier, xp_price)
 	double_xp_timer.start(double_xp_time)
 	await double_xp_timer.timeout
+	double_xp_is_active = false
 	double_xp_stack -= 1
 	game.xp_gain = game.base_xp_gain * xp_mult * pow(2, double_xp_stack)
 	double_xp_button.update_perk(double_xp_stack, max_stacks, double_xp_price)
@@ -357,12 +361,12 @@ func _on_double_score_pressed() -> void:
 			activate_double_score_perk()
 
 func activate_double_score_perk() -> void:
+	double_score_timer.is_active = true
 	double_score_stack += 1
 	game.add = game.base_add * score_mult * pow(2, double_score_stack)
 	double_score_button.update_perk(double_score_stack, max_stacks, double_score_price)
 	score_button.update_label(game.add, score_upgrade_stat_multiplier, score_price)
 	double_score_timer.start(double_score_time)
-	double_score_timer.is_active = true
 	await double_score_timer.timeout
 	double_score_timer.is_active = false
 	double_score_stack -= 1
@@ -377,12 +381,12 @@ func _on_double_bounciness_pressed() -> void:
 			activate_double_bounciness_perk()
 			
 func activate_double_bounciness_perk() -> void:
+	double_bounce_timer.is_active = true
 	double_bounce_stack += 1
 	bounciness = BASE_BOUNCINESS * bounce_mult * pow(2, double_bounce_stack)
 	double_bounce_button.update_perk(double_bounce_stack, max_stacks, double_bounce_price)
 	bounciness_button.update_label(bounciness, bounciness_upgrade_stat_multiplier, bounciness_price)
 	double_bounce_timer.start(double_bounce_time)
-	double_bounce_timer.is_active = true
 	await double_bounce_timer.timeout
 	double_bounce_timer.is_active = false
 	double_bounce_stack -= 1
