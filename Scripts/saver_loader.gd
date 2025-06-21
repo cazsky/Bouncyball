@@ -144,6 +144,7 @@ func save_perks() -> void:
 	saved_perk_data.double_speed_price = menu.double_speed_price
 	saved_perk_data.double_speed_time = menu.double_speed_time
 	saved_perk_data.double_speed_time_left = menu.double_speed_time_left
+	saved_perk_data.double_speed_is_active = menu.double_speed_is_active
 	
 	# Double XP
 	saved_perk_data.double_xp_stack = menu.double_xp_stack
