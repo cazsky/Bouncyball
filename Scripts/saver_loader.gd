@@ -158,6 +158,7 @@ func save_perks() -> void:
 	saved_perk_data.double_bounce_price = menu.double_bounce_price
 	saved_perk_data.double_bounce_time = menu.double_bounce_time
 	saved_perk_data.double_bounce_time_left = menu.double_bounce_time_left
+	saved_perk_data.double_bounce_is_active = menu.double_bounce_is_active
 	
 	# Double Score
 	saved_perk_data.double_score_stack = menu.double_score_stack
