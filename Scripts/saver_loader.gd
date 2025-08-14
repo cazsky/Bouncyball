@@ -201,6 +201,7 @@ func check_active_perks(loaded_perks) -> void:
 	if loaded_perks.double_speed_is_active:
 		menu.double_speed_time = loaded_perks.double_speed_time_left
 		menu.double_speed_timer.set_wait_time(loaded_perks.double_speed_time_left)
+		# Loading still continues to keep double speed
 		print_debug("Loading ", loaded_perks.double_speed_stack, " speed stacks")
 		for stack in loaded_perks.double_speed_stack:
 			print_debug(stack)
