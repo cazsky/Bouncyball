@@ -225,12 +225,13 @@ func check_active_perks(loaded_perks) -> void:
 	if loaded_perks.double_bounce_is_active:
 		menu.double_bounce_time = loaded_perks.double_bounce_time_left
 		menu.double_bounce_timer.set_wait_time(loaded_perks.double_bounce_time_left)
-		for stack in loaded_perks.double_bounce_perk:
+		for stack in loaded_perks.double_bounce_stack:
 			menu.activate_double_bounciness_perk()
 		menu.double_bounce_time = loaded_perks.double_bounce_time
 		
 	if loaded_perks.double_ball_is_active:
 		menu.double_ball_time = loaded_perks.double_ball_time_left
 		menu.double_ball_timer.set_wait_time(loaded_perks.double_ball_time_left)
-		menu.activate_double_ball_perk()
+		for stack in loaded_perks.double_ball_stack:
+			menu.activate_double_ball_perk()
 		menu.double_ball_time = loaded_perks.double_ball_time
