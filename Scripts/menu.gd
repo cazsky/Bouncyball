@@ -17,10 +17,10 @@ extends Node2D
 # Perk Timer Buttons
 # Raises errors but timers exist on _ready()
 @onready var double_speed_timer: Timer = $Control/TabContainer/Perks/GridContainer/Double_Speed/Double_Speed_Timer
-@onready var double_xp_timer: Timer = $Control/TabContainer/Perks/GridContainer/Double_Speed/Double_XP_Timer
-@onready var double_bounce_timer: Timer = $Control/TabContainer/Perks/GridContainer/Double_Speed/Double_Bounciness_Timer
-@onready var double_score_timer: Timer = $Control/TabContainer/Perks/GridContainer/Double_Speed/Double_Score_Timer
-@onready var double_ball_timer: Timer = $Control/TabContainer/Perks/GridContainer/Double_Speed/Double_Ball_Timer
+@onready var double_xp_timer: Timer = $Control/TabContainer/Perks/GridContainer/Double_XP/Double_XP_Timer
+@onready var double_bounce_timer: Timer = $Control/TabContainer/Perks/GridContainer/Double_Bounciness/Double_Bounciness_Timer
+@onready var double_score_timer: Timer = $Control/TabContainer/Perks/GridContainer/Double_Score/Double_Score_Timer
+@onready var double_ball_timer: Timer = $Control/TabContainer/Perks/GridContainer/Double_Ball/Double_Ball_Timer
 
 # Ascension Buttons
 @onready var ascend_button: AscensionButton = $Control/TabContainer/Ascension/GridContainer/Ascend
