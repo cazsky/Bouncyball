@@ -368,7 +368,7 @@ func activate_double_score_perk() -> void:
 	score_button.update_label(game.add, score_upgrade_stat_multiplier, score_price)
 	double_score_timer.start(double_score_time)
 	await double_score_timer.timeout
-	double_score_timer.is_active = false
+	double_score_is_active = false
 	double_score_stack -= 1
 	game.add = game.base_add * score_mult * pow(2, double_score_stack)
 	double_score_button.update_perk(double_score_stack, max_stacks, double_score_price)
