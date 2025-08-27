@@ -388,7 +388,7 @@ func activate_double_bounciness_perk() -> void:
 	bounciness_button.update_label(bounciness, bounciness_upgrade_stat_multiplier, bounciness_price)
 	double_bounce_timer.start(double_bounce_time)
 	await double_bounce_timer.timeout
-	double_bounce_timer.is_active = false
+	double_bounce_is_active = false
 	double_bounce_stack -= 1
 	bounciness = BASE_BOUNCINESS * bounce_mult * pow(2, double_bounce_stack)
 	double_bounce_button.update_perk(double_bounce_stack, max_stacks, double_bounce_price)
