@@ -411,9 +411,8 @@ func activate_double_ball_perk() -> void:
 	extra_ball.global_position = ball.global_position/2
 	get_parent().add_child(extra_ball)
 	double_ball_timer.start(double_ball_time)
-	double_ball_timer.is_active = true
 	await double_ball_timer.timeout
-	double_ball_timer.is_active = false
+	double_ball_is_active = false
 	get_parent().remove_child(extra_ball)
 	double_ball_stack -= 1
 	double_ball_button.update_perk(double_ball_stack, max_stacks, double_ball_price)
