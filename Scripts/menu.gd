@@ -409,7 +409,7 @@ func activate_double_ball_perk() -> void:
 	extra_ball.friction = ball.friction
 	double_ball_button.update_perk(double_ball_stack, max_stacks, double_ball_price)
 	extra_ball.global_position = ball.global_position/2
-	get_parent().add_child(extra_ball)
+	get_parent().add_child.call_deferred(extra_ball)
 	double_ball_timer.start(double_ball_time)
 	await double_ball_timer.timeout
 	double_ball_is_active = false
