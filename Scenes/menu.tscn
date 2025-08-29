@@ -29,7 +29,7 @@ grow_vertical = 2
 focus_mode = 2
 mouse_filter = 2
 tab_alignment = 1
-current_tab = 2
+current_tab = 4
 
 [node name="Upgrades" type="Control" parent="Control/TabContainer"]
 visible = false
@@ -148,6 +148,7 @@ wait_time = 60.0
 one_shot = true
 
 [node name="Ascension" type="Control" parent="Control/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -211,6 +212,39 @@ pivot_offset = Vector2(175, 0)
 theme_override_constants/separation = 150
 alignment = 1
 
+[node name="Settings" type="Control" parent="Control/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="GridContainer" type="VBoxContainer" parent="Control/TabContainer/Settings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_right = 0.9
+offset_top = 100.0
+offset_bottom = 898.0
+grow_horizontal = 2
+pivot_offset = Vector2(175, 0)
+theme_override_constants/separation = 150
+alignment = 1
+
+[node name="Ascend" parent="Control/TabContainer/Settings/GridContainer" instance=ExtResource("2_8dn8m")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Ascend"
+script = ExtResource("4_61cg1")
+label_text = "Reset your stats for stars"
+
+[node name="Buy_Relic" parent="Control/TabContainer/Settings/GridContainer" instance=ExtResource("2_8dn8m")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Buy
+Relic"
+script = ExtResource("4_61cg1")
+label_text = "Use stars to buy relics"
+
 [node name="Popup" type="Button" parent="Control"]
 texture_filter = 1
 layout_mode = 1
@@ -250,4 +284,7 @@ offset = Vector2(350, 10)
 [connection signal="pressed" from="Control/TabContainer/Ascension/GridContainer/Ascend" to="." method="_on_ascend_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Ascension/GridContainer/Buy_Relic" to="." method="_on_buy_relic_pressed"]
 [connection signal="child_entered_tree" from="Control/TabContainer/Relics/GridContainer" to="." method="_on_grid_container_child_entered_tree"]
+[connection signal="focus_entered" from="Control/TabContainer/Settings/GridContainer/Ascend" to="." method="_on_ascend_focus_entered"]
+[connection signal="pressed" from="Control/TabContainer/Settings/GridContainer/Ascend" to="." method="_on_ascend_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Settings/GridContainer/Buy_Relic" to="." method="_on_buy_relic_pressed"]
 [connection signal="pressed" from="Control/Popup" to="." method="_on_texture_button_pressed"]
