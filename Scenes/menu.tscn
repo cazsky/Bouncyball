@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://5mv5pcy1k2tg"]
+[gd_scene load_steps=8 format=3 uid="uid://5mv5pcy1k2tg"]
 
 [ext_resource type="Script" uid="uid://d3eiednewg6p1" path="res://Scripts/menu.gd" id="1_5y3mv"]
 [ext_resource type="PackedScene" uid="uid://c0ysgqsg6bis3" path="res://Scenes/upgrade_button.tscn" id="2_8dn8m"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://8jjoie2kme46" path="res://Scripts/perk_button.gd" id="3_hfjpc"]
 [ext_resource type="Script" uid="uid://dbhlth1ajeq54" path="res://Scenes/ascension_button.gd" id="4_61cg1"]
 [ext_resource type="Script" uid="uid://b6lqe4mkjt270" path="res://Scripts/perk_timer.gd" id="4_jsrd8"]
+[ext_resource type="Script" uid="uid://dpdp55xlu77wt" path="res://Scripts/delete_save.gd" id="6_wbdvm"]
 
 [node name="Menu" type="Node2D" groups=["Persist"]]
 script = ExtResource("1_5y3mv")
@@ -232,9 +233,8 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-text = "Ascend"
-script = ExtResource("4_61cg1")
-label_text = "Reset your stats for stars"
+text = "Reset Save"
+script = ExtResource("6_wbdvm")
 
 [node name="Buy_Relic" parent="Control/TabContainer/Settings/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
