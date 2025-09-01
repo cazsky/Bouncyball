@@ -229,7 +229,7 @@ pivot_offset = Vector2(175, 0)
 theme_override_constants/separation = 150
 alignment = 1
 
-[node name="Ascend" parent="Control/TabContainer/Settings/GridContainer" instance=ExtResource("2_8dn8m")]
+[node name="Reset_Save" parent="Control/TabContainer/Settings/GridContainer" instance=ExtResource("2_8dn8m")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -284,7 +284,6 @@ offset = Vector2(350, 10)
 [connection signal="pressed" from="Control/TabContainer/Ascension/GridContainer/Ascend" to="." method="_on_ascend_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Ascension/GridContainer/Buy_Relic" to="." method="_on_buy_relic_pressed"]
 [connection signal="child_entered_tree" from="Control/TabContainer/Relics/GridContainer" to="." method="_on_grid_container_child_entered_tree"]
-[connection signal="focus_entered" from="Control/TabContainer/Settings/GridContainer/Ascend" to="." method="_on_ascend_focus_entered"]
-[connection signal="pressed" from="Control/TabContainer/Settings/GridContainer/Ascend" to="." method="_on_ascend_pressed"]
+[connection signal="pressed" from="Control/TabContainer/Settings/GridContainer/Reset_Save" to="Control/TabContainer/Settings/GridContainer/Reset_Save" method="_on_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Settings/GridContainer/Buy_Relic" to="." method="_on_buy_relic_pressed"]
 [connection signal="pressed" from="Control/Popup" to="." method="_on_texture_button_pressed"]
