@@ -431,7 +431,10 @@ func _on_buy_relic_pressed() -> void:
 		tab_container.set_tab_hidden(3, false)
 
 func _on_ascend_pressed() -> void:
-	game.stars += _reset_stats()
+	var stars = calculate_stars()
+	if stars > 50:
+		_reset_stats()
+		game.stars += stars
 	stars_label.text = str("Stars: ", game.stars)
 	update_ascension_tab()
 	
@@ -459,22 +462,17 @@ func calculate_stars() -> float:
 	print_debug(stars)
 	return stars
 	
-func _reset_stats() -> float:
-	var stars = calculate_stars()
-	if stars > 50:
-		# Reset all stats
-		speed_mult = 1
-		bounce_mult = 1
-		friction_mult = 1
-		xp_mult = 1
-		score_mult = 1
-		
-		ball.update_stats()
-		
-		game.score = game.base_score
-	else:
-		stars = 0
-	return stars
+func _reset_stats() -> void:
+	# Reset all stats
+	speed_mult = 1
+	bounce_mult = 1
+	friction_mult = 1
+	xp_mult = 1
+	score_mult = 1
+	
+	ball.update_stats()
+	
+	game.score = game.base_score
 
 
 
