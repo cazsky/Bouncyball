@@ -1,5 +1,6 @@
 extends Button
+const SAVE_GAME_PATH: String = "user://savegame.tres"
 
 # Delete save
 func _on_pressed() -> void:
-	pass # Replace with function body.
+	DirAccess.remove_absolute(SAVE_GAME_PATH)
