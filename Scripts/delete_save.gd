@@ -8,4 +8,9 @@ func _on_pressed() -> void:
 	DirAccess.remove_absolute(SAVE_GAME_PATH)
 	menu._reset_stats()
 	menu.saver_loader.save_game()
+	print_debug(menu.game)
+	menu.game.stars = 0
+	menu.game.gems = 0
+	
+
 	
