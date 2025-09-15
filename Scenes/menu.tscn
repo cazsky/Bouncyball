@@ -229,11 +229,8 @@ pivot_offset = Vector2(175, 0)
 theme_override_constants/separation = 150
 alignment = 1
 
-[node name="Reset_Save" parent="Control/TabContainer/Settings/GridContainer" instance=ExtResource("2_8dn8m")]
+[node name="Reset_Save" type="Button" parent="Control/TabContainer/Settings/GridContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "Reset Save"
 script = ExtResource("6_wbdvm")
 
 [node name="Popup" type="Button" parent="Control"]
