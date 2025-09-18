@@ -287,5 +287,6 @@ offset = Vector2(350, 10)
 [connection signal="pressed" from="Control/TabContainer/Ascension/GridContainer/Ascend" to="." method="_on_ascend_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Ascension/GridContainer/Buy_Relic" to="." method="_on_buy_relic_pressed"]
 [connection signal="child_entered_tree" from="Control/TabContainer/Relics/GridContainer" to="." method="_on_grid_container_child_entered_tree"]
+[connection signal="changed" from="Control/TabContainer/Settings/GridContainer/HSlider" to="Control/TabContainer/Settings/GridContainer/HSlider" method="_on_changed"]
 [connection signal="pressed" from="Control/TabContainer/Settings/GridContainer/Reset_Save" to="Control/TabContainer/Settings/GridContainer/Reset_Save" method="_on_pressed"]
 [connection signal="pressed" from="Control/Popup" to="." method="_on_texture_button_pressed"]

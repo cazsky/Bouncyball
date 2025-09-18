@@ -8,3 +8,8 @@ func _ready() -> void:
 	var db = AudioServer.get_bus_volume_db(master_volume_index)
 	self.value = db_to_linear(db)
 	
+
+
+func _on_changed(value: float) -> void:
+	var db = linear_to_db(value)
+	AudioServer.set_bus_volume_db(master_volume_index, db)
