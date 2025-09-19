@@ -31,10 +31,9 @@ grow_vertical = 2
 focus_mode = 2
 mouse_filter = 2
 tab_alignment = 1
-current_tab = 4
+current_tab = 0
 
 [node name="Upgrades" type="Control" parent="Control/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -215,6 +214,7 @@ theme_override_constants/separation = 150
 alignment = 1
 
 [node name="Settings" type="Control" parent="Control/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 4
 

@@ -244,7 +244,6 @@ func _on_speed_pressed() -> void:
 		speed_upgrade_level += 1
 		
 		speed_mult *= speed_upgrade_stat_multiplier
-		#speed_mult = pow(speed_upgrade_stat_multiplier, speed_upgrade_level)
 		ball.current_speed = ball.base_speed * speed_mult * pow(2, double_speed_stack)
 		ball.velocity = ball.velocity.normalized() * ball.base_speed * speed_mult * pow(2, double_speed_stack)
 		speed_price = BASE_SPEED_PRICE * pow(speed_upgrade_price_multiplier, speed_upgrade_level)
@@ -261,7 +260,6 @@ func _on_bounciness_pressed() -> void:
 		bounciness_upgrade_level += 1
 		
 		bounce_mult *= bounciness_upgrade_stat_multiplier
-		#bounce_mult = pow(bounciness_upgrade_stat_multiplier, bounciness_upgrade_level)
 		bounciness = BASE_BOUNCINESS * bounce_mult * pow(2, double_bounce_stack)
 		
 		bounciness_price = BASE_BOUNCINESS_PRICE * pow(bounciness_upgrade_price_multiplier, bounciness_upgrade_level)
@@ -274,7 +272,6 @@ func _on_friction_pressed() -> void:
 		friction_upgrade_level += 1
 		
 		friction_mult *= friction_upgrade_stat_multiplier
-		#friction_mult = pow(friction_upgrade_stat_multiplier,friction_upgrade_level)
 		ball.friction = ball.base_friction * friction_mult
 		# Increase kinda ok
 		ball.inverse_friction += pow(10 + (0.25 * friction_price), ball.friction)
@@ -288,9 +285,7 @@ func _on_xp_gain_pressed() -> void:
 		xp_upgrade_level += 1
 		
 		xp_mult *= xp_upgrade_stat_multiplier
-		#xp_mult = pow(xp_upgrade_stat_multiplier, xp_upgrade_level)
 		game.xp_gain = game.base_xp_gain * xp_mult * pow(2, double_xp_stack)
-		#game.xp_gain *= xp_upgrade_stat_multiplier
 		xp_price = BASE_XP_PRICE * pow(xp_upgrade_price_multiplier, xp_upgrade_level)
 		xp_button.update_label(game.xp_gain, xp_upgrade_stat_multiplier, xp_price)
 
@@ -301,7 +296,6 @@ func _on_score_pressed() -> void:
 		score_upgrade_level += 1
 		
 		score_mult *= score_upgrade_stat_multiplier
-		#score_mult = pow(score_upgrade_stat_multiplier, score_upgrade_level) 
 		game.add = game.base_add * score_mult * pow(2, double_score_stack)
 		score_price = BASE_SCORE_PRICE * pow(score_upgrade_price_multiplier, score_upgrade_level)
 		score_button.update_label(game.add, score_upgrade_stat_multiplier, score_price)
@@ -316,8 +310,6 @@ func _on_double_speed_pressed() -> void:
 func activate_double_speed_perk() -> void:
 	double_speed_is_active = true
 	double_speed_stack += 1
-	#speed_mult *= 2
-	#ball.current_speed = ball.base_speed * speed_mult
 	# Keep default multipliers and double multipliers separate to prevent bugs
 	ball.current_speed = ball.base_speed * speed_mult * pow(2, double_speed_stack)
 	ball.velocity = ball.velocity.normalized() * ball.base_speed * speed_mult * pow(2, double_speed_stack)
@@ -446,18 +438,12 @@ func calculate_stars() -> float:
 	var xp_star: float = game.xp_gain / pow(2, double_xp_stack)
 	var add_star: float = game.add / pow(2, double_score_stack)
 	stars += int(sqrt(speed_star))
-	#print_debug("Speed Stars: ", stars)
 	stars += int(pow(2 * bounce_star, 2))
-	#print_debug("Bounce Stars: ", stars)
 	stars += int(pow(5/ball.friction, 3) * 2)
-	#print_debug("Friction Stars: ", stars)
 	stars += int(pow(xp_star/2, 2) - xp_star/3)
-	#print_debug("XP Stars: ", stars)
 	stars += int(5 + (add_star/3) + (pow(add_star, 1.3)/2))
-	#print_debug("Score Stars: ", stars)
 	@warning_ignore("integer_division")
 	stars += int(pow(game.score/5, 3/4))
-	#print_debug("Stars: ", stars)
 	
 	print_debug(stars)
 	return stars
