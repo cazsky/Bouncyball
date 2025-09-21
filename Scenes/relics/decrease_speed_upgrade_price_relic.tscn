@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfp3i6q4834f7"]
+
+[ext_resource type="PackedScene" uid="uid://duvr3sdvpolbo" path="res://Scenes/relic.tscn" id="1_6t0k5"]
+[ext_resource type="Script" uid="uid://bficwoqxhg7cl" path="res://Scripts/Relic Scripts/decrease_speed_upgrade_price_relic.gd" id="2_5h8x8"]
+
+[node name="decrease_speed_upgrade_price_relic" instance=ExtResource("1_6t0k5")]
+script = ExtResource("2_5h8x8")
