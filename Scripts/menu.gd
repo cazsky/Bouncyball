@@ -255,7 +255,7 @@ func _on_speed_pressed() -> void:
 		speed_upgrade_level += 1
 		
 		speed_mult *= speed_upgrade_stat_multiplier
-		ball.current_speed = ball.base_speed * speed_mult * pow(2, double_speed_stack)
+		ball.current_speed = (ball.base_speed * speed_mult * pow(2, double_speed_stack)) * (1/speed_upgrade_discount) * (1/global_discount)
 		ball.velocity = ball.velocity.normalized() * ball.base_speed * speed_mult * pow(2, double_speed_stack)
 		speed_price = BASE_SPEED_PRICE * pow(speed_upgrade_price_multiplier, speed_upgrade_level)
 		
