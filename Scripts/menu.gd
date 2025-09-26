@@ -255,9 +255,9 @@ func _on_speed_pressed() -> void:
 		speed_upgrade_level += 1
 		
 		speed_mult *= speed_upgrade_stat_multiplier
-		ball.current_speed = (ball.base_speed * speed_mult * pow(2, double_speed_stack)) * (1/speed_upgrade_discount) * (1/global_discount)
+		ball.current_speed = (ball.base_speed * speed_mult * pow(2, double_speed_stack))
 		ball.velocity = ball.velocity.normalized() * ball.base_speed * speed_mult * pow(2, double_speed_stack)
-		speed_price = BASE_SPEED_PRICE * pow(speed_upgrade_price_multiplier, speed_upgrade_level)
+		speed_price = BASE_SPEED_PRICE * pow(speed_upgrade_price_multiplier, speed_upgrade_level) * (1/speed_upgrade_discount) * (1/global_discount)
 		
 		speed_button.update_label(ball.current_speed, speed_upgrade_stat_multiplier, speed_price)
 		emit_signal("velocity_changed", ball.current_speed)
@@ -271,9 +271,9 @@ func _on_bounciness_pressed() -> void:
 		bounciness_upgrade_level += 1
 		
 		bounce_mult *= bounciness_upgrade_stat_multiplier
-		bounciness = BASE_BOUNCINESS * bounce_mult * pow(2, double_bounce_stack)
+		bounciness = BASE_BOUNCINESS * bounce_mult * pow(2, double_bounce_stack) 
 		
-		bounciness_price = BASE_BOUNCINESS_PRICE * pow(bounciness_upgrade_price_multiplier, bounciness_upgrade_level)
+		bounciness_price = BASE_BOUNCINESS_PRICE * pow(bounciness_upgrade_price_multiplier, bounciness_upgrade_level) * (1/bounciness_upgrade_discount) * (1/global_discount)
 		bounciness_button.update_label(bounciness, bounciness_upgrade_stat_multiplier, bounciness_price)
 
 # Friction upgrade
