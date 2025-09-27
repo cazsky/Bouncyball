@@ -286,7 +286,7 @@ func _on_friction_pressed() -> void:
 		ball.friction = ball.base_friction * friction_mult
 		# Increase kinda ok
 		ball.inverse_friction += pow(10 + (0.25 * friction_price), ball.friction)
-		friction_price = BASE_FRICTION_PRICE * pow(friction_upgrade_price_multiplier, friction_upgrade_level)
+		friction_price = BASE_FRICTION_PRICE * pow(friction_upgrade_price_multiplier, friction_upgrade_level) * (1/friction_upgrade_discount) * (1/global_discount)
 		friction_button.update_label(ball.friction, friction_upgrade_stat_multiplier, friction_price)
 
 
