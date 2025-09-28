@@ -297,7 +297,7 @@ func _on_xp_gain_pressed() -> void:
 		
 		xp_mult *= xp_upgrade_stat_multiplier
 		game.xp_gain = game.base_xp_gain * xp_mult * pow(2, double_xp_stack)
-		xp_price = BASE_XP_PRICE * pow(xp_upgrade_price_multiplier, xp_upgrade_level)
+		xp_price = BASE_XP_PRICE * pow(xp_upgrade_price_multiplier, xp_upgrade_level) * (1/bounciness_upgrade_discount) * (1/global_discount)
 		xp_button.update_label(game.xp_gain, xp_upgrade_stat_multiplier, xp_price)
 
 
