@@ -297,7 +297,7 @@ func _on_xp_gain_pressed() -> void:
 		
 		xp_mult *= xp_upgrade_stat_multiplier
 		game.xp_gain = game.base_xp_gain * xp_mult * pow(2, double_xp_stack)
-		xp_price = BASE_XP_PRICE * pow(xp_upgrade_price_multiplier, xp_upgrade_level) * (1/bounciness_upgrade_discount) * (1/global_discount)
+		xp_price = BASE_XP_PRICE * pow(xp_upgrade_price_multiplier, xp_upgrade_level) * (1/xp_upgrade_discount) * (1/global_discount)
 		xp_button.update_label(game.xp_gain, xp_upgrade_stat_multiplier, xp_price)
 
 
@@ -307,7 +307,7 @@ func _on_score_pressed() -> void:
 		score_upgrade_level += 1
 		
 		score_mult *= score_upgrade_stat_multiplier
-		game.add = game.base_add * score_mult * pow(2, double_score_stack)
+		game.add = game.base_add * score_mult * pow(2, double_score_stack) * (1/score_upgrade_discount) * (1/global_discount)
 		score_price = BASE_SCORE_PRICE * pow(score_upgrade_price_multiplier, score_upgrade_level)
 		score_button.update_label(game.add, score_upgrade_stat_multiplier, score_price)
 
