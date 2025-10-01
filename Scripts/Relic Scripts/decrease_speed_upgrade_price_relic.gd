@@ -1,4 +1,4 @@
-class_name Hustler
+class_name Speed_Hustler
 extends Relic
 
 const BASE_COST: float = 30
@@ -10,10 +10,10 @@ func _ready() -> void:
 	
 	
 func _init() -> void:
-	relic_name = "hustler"
+	relic_name = "speed_hustler"
 	cost_multiplier = 1.5
 	stat_multiplier = 1.05
-	relic_effect = "bounce_mult"
+	relic_effect = "speed_upgrade_discount" #?
 	scene_path = "res://Scripts/Relic Scripts/decrease_speed_upgrade_price_relic.gd"
 
 	
