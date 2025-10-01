@@ -307,8 +307,8 @@ func _on_score_pressed() -> void:
 		score_upgrade_level += 1
 		
 		score_mult *= score_upgrade_stat_multiplier
-		game.add = game.base_add * score_mult * pow(2, double_score_stack) * (1/score_upgrade_discount) * (1/global_discount)
-		score_price = BASE_SCORE_PRICE * pow(score_upgrade_price_multiplier, score_upgrade_level)
+		game.add = game.base_add * score_mult * pow(2, double_score_stack) 
+		score_price = BASE_SCORE_PRICE * pow(score_upgrade_price_multiplier, score_upgrade_level)  * (1/xp_upgrade_discount) * (1/global_discount)
 		score_button.update_label(game.add, score_upgrade_stat_multiplier, score_price)
 
 
