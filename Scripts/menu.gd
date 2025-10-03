@@ -433,6 +433,7 @@ func _on_buy_relic_pressed() -> void:
 		owned_relics.add_child(new_relic)
 		stars_label.text = str("Stars: ", game.stars)
 		tab_container.set_tab_hidden(3, false)
+		
 
 func _on_ascend_pressed() -> void:
 	var stars = calculate_stars()

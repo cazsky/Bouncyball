@@ -1,10 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://duvr3sdvpolbo"]
+[gd_scene load_steps=3 format=3 uid="uid://duvr3sdvpolbo"]
 
 [ext_resource type="Script" uid="uid://bvgx5h4lyn00j" path="res://Scripts/relic.gd" id="1_oi0nr"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0o1bs"]
 
 [node name="Relic" type="Node2D"]
 script = ExtResource("1_oi0nr")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(2, 0)
+texture = SubResource("NoiseTexture2D_0o1bs")
+centered = false
+offset = Vector2(-0.01, 0)
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]

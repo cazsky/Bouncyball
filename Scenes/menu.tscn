@@ -31,9 +31,10 @@ grow_vertical = 2
 focus_mode = 2
 mouse_filter = 2
 tab_alignment = 1
-current_tab = 0
+current_tab = 3
 
 [node name="Upgrades" type="Control" parent="Control/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -197,7 +198,6 @@ theme_override_font_sizes/font_size = 24
 text = "Stars:"
 
 [node name="Relics" type="Control" parent="Control/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
