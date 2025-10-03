@@ -16,7 +16,7 @@ extends Node2D
 @export var base_xp_gain: float = 1.0
 @export var base_score: float = 0
 @export var gems = 0
-@export var stars = 500
+@export var stars = 10000
 
 
 var add: float = base_add
@@ -33,7 +33,7 @@ func _ready() -> void:
 	await ball.ready
 	xp_bar.initialise(ball.experience, ball.experience_required)
 	score_label.text = str("Score: ", snapped(score, 0.01))
-
+	print_debug(str("Game Stars: ", stars))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

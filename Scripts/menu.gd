@@ -177,6 +177,7 @@ func _ready() -> void:
 	
 	ascend_button.price_label.text = ""
 	stars_label.text = str("Stars: ", game.stars)
+	print_debug(str("Stars: ", game.stars))
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -490,12 +491,12 @@ func update_menu_labels() -> void:
 	
 func update_ascension_tab() -> void:
 	# Calculate gains from ascension
-	var stars = calculate_stars()
-	var stars_display = stars
+	#var stars = calculate_stars()
+	var stars_display = calculate_stars()
 	ascend_button.disabled = true
 	if stars_display < 0:
 		stars_display = 0
-	if stars >= 50:
+	if stars_display >= 50:
 		ascend_button.disabled = false
 	ascend_button.price_label.text = str("Stars to gain: \n", snapped(stars_display, 0.01))
 
