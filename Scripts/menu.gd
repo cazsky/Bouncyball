@@ -175,6 +175,8 @@ func _ready() -> void:
 	# Update menu labels 4head
 	update_menu_labels()
 	
+	relic_pool = clean_relic_pool(owned_relics.get_children())
+	
 	ascend_button.price_label.text = ""
 	stars_label.text = str("Stars: ", game.stars)
 	print_debug(str("Stars: ", game.stars))
@@ -520,5 +522,11 @@ func activate_all_relics(relics: Array) -> void:
 	for relic in relics:
 		relic._activate_effect()
 	
-
+func clean_relic_pool(relics: Array) -> Array:
+	var filtered: Array = []
+	for relic in relic_pool:
+		if relic not in owned_relics:
+			filtered.append(relic)
+	
+	return filtered
 	
