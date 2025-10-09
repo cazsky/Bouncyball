@@ -524,9 +524,9 @@ func activate_all_relics(relics: Array) -> void:
 	
 func clean_relic_pool(relics: Array) -> Array:
 	var filtered: Array = []
-	for relic in relic_pool:
-		if relic not in owned_relics:
-			filtered.append(relic)
+	for item in relic_pool:
+		if item not in relics:
+			filtered.append(item)
 	
 	return filtered
 	
