@@ -15,7 +15,7 @@ func _init() -> void:
 	stat_multiplier = 1.05
 	relic_effect = "speed_mult"
 	scene_path = "res://Scenes/relics/increase_speed_relic.tscn"
-
+	relic_id = 3
 
 func _upgrade() -> void:
 	super()

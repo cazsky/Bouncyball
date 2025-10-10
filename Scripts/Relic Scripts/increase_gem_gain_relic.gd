@@ -15,6 +15,8 @@ func _init() -> void:
 	stat_multiplier = 1.05
 	relic_effect = "gem_gain_multiplier"
 	scene_path = "res://Scenes/relics/increase_bounce_relic.tscn"
+	relic_id = 5
+
 
 func _activate_effect() -> void:
 	menu = await wait_for_node("../../../../../../Menu")
