@@ -428,6 +428,8 @@ func activate_double_ball_perk() -> void:
 
 func _on_buy_relic_pressed() -> void:
 	if game.stars >= relic_cost:
+		if relic_pool.is_empty():
+			return
 		game.stars -= relic_cost
 		relic_cost = BASE_RELIC_PRICE * pow(relic_upgrade_price_multiplier, owned_relics.get_child_count())
 		buy_relic_button.update_price(relic_cost)
@@ -435,7 +437,6 @@ func _on_buy_relic_pressed() -> void:
 		var new_relic = template.instantiate()
 		# Remove bought relic from pool
 		self.relic_pool.erase(template)
-		new_relic.menu = self
 		owned_relics.add_child(new_relic)
 		stars_label.text = str("Stars: ", game.stars)
 		tab_container.set_tab_hidden(3, false)
