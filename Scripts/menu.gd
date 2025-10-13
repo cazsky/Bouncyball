@@ -429,6 +429,7 @@ func activate_double_ball_perk() -> void:
 func _on_buy_relic_pressed() -> void:
 	if game.stars >= relic_cost:
 		if relic_pool.is_empty():
+			print("No more relics for now")
 			return
 		game.stars -= relic_cost
 		relic_cost = BASE_RELIC_PRICE * pow(relic_upgrade_price_multiplier, owned_relics.get_child_count())
