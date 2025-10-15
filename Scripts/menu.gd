@@ -529,9 +529,13 @@ func activate_all_relics(relics: Array) -> void:
 	
 func clean_relic_pool(relics: Array) -> Array:
 	var filtered: Array = []
+	var found = false
 	for item in relic_pool:
-		if item not in relics:
+		for r in relics:
+			if r.relic_id == item.relic_id:
+				found = true
+				break
+		if not found:
 			filtered.append(item)
-	
 	return filtered
 	
