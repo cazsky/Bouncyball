@@ -206,9 +206,9 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.1
 anchor_right = 0.9
+anchor_bottom = 0.2
 offset_top = 100.0
 offset_bottom = 898.0
-grow_horizontal = 2
 pivot_offset = Vector2(175, 0)
 theme_override_constants/separation = 150
 alignment = 1
@@ -286,7 +286,6 @@ offset = Vector2(350, 10)
 [connection signal="focus_entered" from="Control/TabContainer/Ascension/GridContainer/Ascend" to="." method="_on_ascend_focus_entered"]
 [connection signal="pressed" from="Control/TabContainer/Ascension/GridContainer/Ascend" to="." method="_on_ascend_pressed"]
 [connection signal="pressed" from="Control/TabContainer/Ascension/GridContainer/Buy_Relic" to="." method="_on_buy_relic_pressed"]
-[connection signal="child_entered_tree" from="Control/TabContainer/Relics/GridContainer" to="." method="_on_grid_container_child_entered_tree"]
 [connection signal="changed" from="Control/TabContainer/Settings/GridContainer/HSlider" to="Control/TabContainer/Settings/GridContainer/HSlider" method="_on_changed"]
 [connection signal="pressed" from="Control/TabContainer/Settings/GridContainer/Reset_Save" to="Control/TabContainer/Settings/GridContainer/Reset_Save" method="_on_pressed"]
 [connection signal="pressed" from="Control/Popup" to="." method="_on_texture_button_pressed"]

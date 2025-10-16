@@ -5,3 +5,7 @@
 
 [node name="increase_bounce_relic" instance=ExtResource("1_c55c5")]
 script = ExtResource("2_e6c6o")
+
+[node name="Sprite2D" parent="Control" index="0"]
+position = Vector2(0, 0)
+offset = Vector2(0, 0)

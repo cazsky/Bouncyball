@@ -7,17 +7,10 @@
 [node name="Relic" type="Node2D"]
 script = ExtResource("1_oi0nr")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+[node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-
-[node name="Sprite2D" type="Sprite2D" parent="Control"]
-position = Vector2(1.9961917, 0)
-scale = Vector2(0.6191601, 0.16210938)
 texture = SubResource("NoiseTexture2D_0o1bs")
-centered = false
-offset = Vector2(-0.01, 0)
+expand_mode = 2
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
