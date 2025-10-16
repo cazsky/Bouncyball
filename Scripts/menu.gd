@@ -39,9 +39,9 @@ extends Node2D
 @onready var arrow: Sprite2D = $Control/Arrow
 @onready var ball: CharacterBody2D = $"../Ball"
 @onready var game: Node2D = $"../../Game"
-# @onready var relic_pool: Array = [preload("res://Scenes/relics/increase_speed_relic.tscn"), preload("res://Scenes/relics/increase_score_relic.tscn"), preload("res://Scenes/relics/increase_bounce_relic.tscn"), preload("res://Scenes/relics/increase_xp_relic.tscn"), preload("res://Scenes/relics/increase_bounce_relic.tscn"),]
-@onready var relic_pool: Array = []
-@onready var relic_pool_number: int = 7
+@onready var relic_pool: Array = [preload("res://Scenes/relics/increase_speed_relic.tscn"), preload("res://Scenes/relics/increase_score_relic.tscn"), preload("res://Scenes/relics/increase_bounce_relic.tscn"), preload("res://Scenes/relics/increase_xp_relic.tscn"), preload("res://Scenes/relics/increase_bounce_relic.tscn"),]
+#@onready var relic_pool: Array = []
+#@onready var relic_pool_number: int = 7
 @onready var tab_container: TabContainer = $Control/TabContainer
 
 # Base upgrade price
@@ -183,7 +183,7 @@ func _ready() -> void:
 	stars_label.text = str("Stars: ", game.stars)
 	print_debug(str("Stars: ", game.stars))
 	
-	relic_pool = range(1, relic_pool_number+1)
+	#relic_pool = range(1, relic_pool_number+1)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -530,8 +530,10 @@ func activate_all_relics(relics: Array) -> void:
 func clean_relic_pool(relics: Array) -> Array:
 	var filtered: Array = []
 	var found = false
+	print(relic_pool)
 	for item in relic_pool:
 		for r in relics:
+			print("AAA ", item, "r ", r)
 			if r.relic_id == item.relic_id:
 				found = true
 				break
