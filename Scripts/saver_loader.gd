@@ -72,7 +72,8 @@ func load_game() -> void:
 func save_relics() -> void:
 	var node_to_save = menu.owned_relics.get_children()
 	var relic_collection = SavedRelicCollection.new()
-	for relic in node_to_save:
+	for child in node_to_save:
+		var relic = child.get_child(0)
 		var relic_to_save = SavedRelicData.new()
 		relic_to_save.scene_path = relic.scene_path
 		relic_to_save.cost_multiplier = relic.cost_multiplier
