@@ -1,7 +1,7 @@
 extends Node2D
 class_name Relic
 
-@onready var menu: Node2D = $"../../../../../../Menu"
+@onready var menu: Node2D = $"../../../../../../../Menu"
 #@export var ball_path: NodePath
 #@onready var ball: CharacterBody2D = get_node("NodePath")
 @onready var ball: CharacterBody2D = get_tree().current_scene.get_node("Ball")
@@ -25,7 +25,7 @@ func _upgrade() -> void:
 	level += 1
 
 func _activate_effect() -> void:
-	menu = await wait_for_node("../../../../../../Menu")
+	menu = await wait_for_node("../../../../../../../Menu")
 	menu.set(relic_effect, menu.get(relic_effect) * stat_multiplier)
 
 

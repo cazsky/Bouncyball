@@ -100,7 +100,7 @@ func load_relics() -> void:
 			relic_to_load.relic_name = relic.relic_name
 			relic_to_load.level = relic.level
 			#(relic.script_path)
-			menu.owned_relics.add_child(relic_to_load)
+			menu.owned_relics.add_wrapped_child(relic_to_load)
 	
 func load_perks() -> void:
 	# Check if save file exists
