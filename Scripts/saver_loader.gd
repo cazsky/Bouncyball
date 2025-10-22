@@ -74,6 +74,7 @@ func save_relics() -> void:
 	var relic_collection = SavedRelicCollection.new()
 	var relic
 	for child in node_to_save:
+		# Ignore the control wrappers
 		if child is Control:
 			relic = child.get_child(0)
 		else:
