@@ -541,3 +541,4 @@ func clean_relic_pool(relics: Array) -> Array:
 			filtered.append(item)
 	return filtered
 	
+	

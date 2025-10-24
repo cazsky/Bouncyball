@@ -10,8 +10,11 @@ func _on_pressed() -> void:
 	menu.game.stars = 0
 	menu.game.stars_label.text = 0
 	menu.game.gems = 0
+	remove_owned_relics()
 	menu.saver_loader.save_game()
 	print_debug(menu.game)
 	
-
-	
+func remove_owned_relics() -> void:
+	var owned_relics = menu.owned_relics.get_children()
+	for relic in owned_relics:
+		menu.owned_relics.remove_child(relic)
