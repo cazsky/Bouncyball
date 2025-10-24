@@ -8,7 +8,7 @@ func _on_pressed() -> void:
 	DirAccess.remove_absolute(SAVE_GAME_PATH)
 	menu._reset_stats()
 	menu.game.stars = 0
-	menu.game.stars_label.text = 0
+	menu.stars_label.text = str("Stars: ", menu.game.stars)
 	menu.game.gems = 0
 	remove_owned_relics()
 	menu.saver_loader.save_game()

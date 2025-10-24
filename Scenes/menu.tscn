@@ -32,7 +32,7 @@ grow_vertical = 2
 focus_mode = 2
 mouse_filter = 2
 tab_alignment = 1
-current_tab = 3
+current_tab = 2
 
 [node name="Upgrades" type="Control" parent="Control/TabContainer"]
 visible = false
@@ -151,7 +151,6 @@ wait_time = 60.0
 one_shot = true
 
 [node name="Ascension" type="Control" parent="Control/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -199,6 +198,7 @@ theme_override_font_sizes/font_size = 24
 text = "Stars:"
 
 [node name="Relics" type="Control" parent="Control/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
