@@ -60,15 +60,15 @@ const MENU_TIME: float = 0.15
 
 # Ball price upgrade multiplers
 var speed_upgrade_price_multiplier: float = 1.2
-var speed_upgrade_discount: float = 0
+var speed_upgrade_discount: float = 1
 var friction_upgrade_price_multiplier: float = 1.2
-var friction_upgrade_discount: float = 0
+var friction_upgrade_discount: float = 1
 var bounciness_upgrade_price_multiplier: float = 1.3
-var bounciness_upgrade_discount: float = 0
+var bounciness_upgrade_discount: float = 1
 var xp_upgrade_price_multiplier: float = 1.3
-var xp_upgrade_discount: float = 0
+var xp_upgrade_discount: float = 1
 var score_upgrade_price_multiplier: float = 1.3
-var score_upgrade_discount: float = 0
+var score_upgrade_discount: float = 1
 
 # Ball stats upgrades multipliers
 var speed_upgrade_stat_multiplier: float = 1.05
@@ -137,7 +137,7 @@ var relic_upgrade_stat_multiplier: float = 1.1
 var is_menu_open: bool = false
 var bounciness: float = BASE_BOUNCINESS
 var max_stacks: int = 3
-var global_discount: float = 0
+var global_discount: float = 1
 
 var friction_price: float = BASE_FRICTION_PRICE
 var speed_price: float = BASE_SPEED_PRICE
@@ -257,7 +257,7 @@ func _on_ball_bounce() -> void:
 
 func _on_speed_pressed() -> void:
 	if game.score >= speed_price:
-		game.score -= speed_price
+		game.score -= speed_price 
 		speed_upgrade_level += 1
 		
 		speed_mult *= speed_upgrade_stat_multiplier
