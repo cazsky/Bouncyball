@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://6qn7etujdads"]
+
+[ext_resource type="PackedScene" uid="uid://duvr3sdvpolbo" path="res://Scenes/relic.tscn" id="1_rqf5s"]
+
+[node name="decrease_bounce_upgrade_price" instance=ExtResource("1_rqf5s")]
