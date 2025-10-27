@@ -530,15 +530,19 @@ func activate_all_relics(relics: Array) -> void:
 func clean_relic_pool(relics: Array) -> Array:
 	var filtered: Array = []
 	var found = false
-	print(relic_pool)
+	var instance
 	for item in relic_pool:
 		for r in relics:
-			print()
-			if r.relic_id == item.relic_id:
+			print("R ", r)
+			print("R child ", r.get_child(0))
+			print("item ", item)
+			instance = item.instantiate()
+			if r.get_child(0).relic_effect == instance.relic_effect:
 				found = true
 				break
 		if not found:
 			filtered.append(item)
+		instance.queue(free)
 	return filtered
 	
 	
