@@ -1,4 +1,4 @@
-class_name BounceMania
+class_name Bounce_Mania
 extends Relic
 
 const BASE_COST: float = 30

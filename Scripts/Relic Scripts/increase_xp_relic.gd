@@ -1,4 +1,4 @@
-class_name CrystalBall
+class_name Crystal_Ball
 extends Relic
 
 const BASE_COST: float = 20

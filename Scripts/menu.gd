@@ -533,6 +533,7 @@ func clean_relic_pool(relics: Array) -> Array:
 	print(relic_pool)
 	for item in relic_pool:
 		for r in relics:
+			print()
 			if r.relic_id == item.relic_id:
 				found = true
 				break

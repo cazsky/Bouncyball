@@ -1,4 +1,4 @@
-class_name ShinyOrb
+class_name Shiny_Orb
 extends Relic
 
 const BASE_COST: float = 30
@@ -10,7 +10,7 @@ func _ready() -> void:
 	
 	
 func _init() -> void:
-	relic_name = "ball_mania"
+	relic_name = "shiny_orb"
 	cost_multiplier = 1.5
 	stat_multiplier = 1.05
 	relic_effect = "gem_gain_multiplier"

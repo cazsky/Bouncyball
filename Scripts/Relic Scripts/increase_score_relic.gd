@@ -1,4 +1,4 @@
-class_name BallTalisman
+class_name Ball_Talisman
 extends Relic
 
 const BASE_COST: float = 50
