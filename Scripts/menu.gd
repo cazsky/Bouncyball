@@ -533,16 +533,13 @@ func clean_relic_pool(relics: Array) -> Array:
 	var instance
 	for item in relic_pool:
 		for r in relics:
-			print("R ", r)
-			print("R child ", r.get_child(0))
-			print("item ", item)
 			instance = item.instantiate()
 			if r.get_child(0).relic_effect == instance.relic_effect:
 				found = true
 				break
 		if not found:
 			filtered.append(item)
-		instance.queue(free)
+		instance.queue_free()
 	return filtered
 	
 	
