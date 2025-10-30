@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://qkqcplf2bj2s"]
+[gd_scene load_steps=4 format=3 uid="uid://qkqcplf2bj2s"]
 
 [ext_resource type="PackedScene" uid="uid://duvr3sdvpolbo" path="res://Scenes/relic.tscn" id="1_7oinr"]
 [ext_resource type="Script" uid="uid://lqvs82440y6a" path="res://Scripts/Relic Scripts/increase_xp_relic.gd" id="2_138ce"]
+[ext_resource type="Texture2D" uid="uid://b2opjt1ssejv5" path="res://Sprites/Ninja Adventure - Asset Pack/Items/Object/Gourd.png" id="3_138ce"]
 
 [node name="increase_xp_relic" instance=ExtResource("1_7oinr")]
 script = ExtResource("2_138ce")
+
+[node name="TextureRect" parent="." index="0"]
+texture = ExtResource("3_138ce")

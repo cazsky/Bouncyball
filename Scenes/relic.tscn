@@ -5,6 +5,7 @@
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0o1bs"]
 
 [node name="Relic" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_oi0nr")
 
 [node name="TextureRect" type="TextureRect" parent="."]
