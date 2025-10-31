@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://qkqcplf2bj2s"]
+[gd_scene load_steps=5 format=3 uid="uid://qkqcplf2bj2s"]
 
 [ext_resource type="PackedScene" uid="uid://duvr3sdvpolbo" path="res://Scenes/relic.tscn" id="1_7oinr"]
 [ext_resource type="Script" uid="uid://lqvs82440y6a" path="res://Scripts/Relic Scripts/increase_xp_relic.gd" id="2_138ce"]
-[ext_resource type="Texture2D" uid="uid://b2opjt1ssejv5" path="res://Sprites/Ninja Adventure - Asset Pack/Items/Object/Gourd.png" id="3_138ce"]
+[ext_resource type="Shader" uid="uid://csl877lgee7qe" path="res://Shaders/increase_xp_relic.gdshader" id="3_138ce"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dxrll"]
+shader = ExtResource("3_138ce")
+shader_parameter/tint_color = Vector4(1.235, 1, 4.66, 1)
 
 [node name="increase_xp_relic" instance=ExtResource("1_7oinr")]
 script = ExtResource("2_138ce")
 
-[node name="TextureRect" parent="." index="0"]
-texture = ExtResource("3_138ce")
+[node name="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_dxrll")
