@@ -15,7 +15,6 @@ func _init() -> void:
 	stat_multiplier = 1.05
 	relic_effect = "bounce_upgrade_discount" #?
 	scene_path = "res://Scripts/Relic Scripts/decrease_bounce_upgrade_price_relic.gd"
-	relic_id = 6
 	
 func _upgrade() -> void:
 	super()
