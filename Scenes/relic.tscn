@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://duvr3sdvpolbo"]
 
 [ext_resource type="Script" uid="uid://bvgx5h4lyn00j" path="res://Scripts/relic.gd" id="1_oi0nr"]
-[ext_resource type="Texture2D" uid="uid://co42palpcanqv" path="res://Sprites/Ninja Adventure - Asset Pack/FX/Projectile/CanonBall.png" id="2_1rr6e"]
+[ext_resource type="Texture2D" uid="uid://bs3fyiubr1d70" path="res://Sprites/Ninja Adventure - Asset Pack/Items/Scroll/Scroll.png" id="2_1rr6e"]
 
 [node name="Relic" type="Node2D"]
 texture_filter = 1
@@ -10,6 +10,5 @@ script = ExtResource("1_oi0nr")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
 texture = ExtResource("2_1rr6e")
-hframes = 5
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
