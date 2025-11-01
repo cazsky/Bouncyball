@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://qkqcplf2bj2s"]
+[gd_scene load_steps=6 format=3 uid="uid://qkqcplf2bj2s"]
 
 [ext_resource type="PackedScene" uid="uid://duvr3sdvpolbo" path="res://Scenes/relic.tscn" id="1_7oinr"]
 [ext_resource type="Script" uid="uid://lqvs82440y6a" path="res://Scripts/Relic Scripts/increase_xp_relic.gd" id="2_138ce"]
 [ext_resource type="Shader" uid="uid://csl877lgee7qe" path="res://Shaders/increase_xp_relic.gdshader" id="3_138ce"]
+[ext_resource type="Texture2D" uid="uid://co42palpcanqv" path="res://Sprites/Ninja Adventure - Asset Pack/FX/Projectile/CanonBall.png" id="4_dxrll"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dxrll"]
 shader = ExtResource("3_138ce")
@@ -13,3 +14,5 @@ script = ExtResource("2_138ce")
 
 [node name="Sprite2D" parent="." index="0"]
 material = SubResource("ShaderMaterial_dxrll")
+texture = ExtResource("4_dxrll")
+hframes = 5
