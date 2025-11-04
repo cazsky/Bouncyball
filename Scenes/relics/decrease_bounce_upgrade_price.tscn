@@ -9,4 +9,3 @@ script = ExtResource("2_ami10")
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("3_q8w54")
-hframes = 1
