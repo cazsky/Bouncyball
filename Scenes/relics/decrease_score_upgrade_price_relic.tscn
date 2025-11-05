@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmb0qtjohsohp"]
+
+[ext_resource type="PackedScene" uid="uid://duvr3sdvpolbo" path="res://Scenes/relic.tscn" id="1_6axdj"]
+[ext_resource type="Texture2D" uid="uid://cbwkeap8hb8dn" path="res://Sprites/Ninja Adventure - Asset Pack/Items/Resource/GemRed.png" id="2_exdab"]
+[ext_resource type="Script" uid="uid://deg3lud18d6ps" path="res://Scripts/Relic Scripts/decrease_score_upgrade_price_relic.gd" id="2_gedbk"]
+
+[node name="decrease_score_upgrade_price_relic" instance=ExtResource("1_6axdj")]
+script = ExtResource("2_gedbk")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_exdab")
