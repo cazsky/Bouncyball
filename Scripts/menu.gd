@@ -539,7 +539,8 @@ func clean_relic_pool(relics: Array) -> Array:
 				break
 		if not found:
 			filtered.append(item)
-		instance.queue_free()
+		if is_instance_valid(instance):
+			instance.queue_free()
 	return filtered
 	
 	
