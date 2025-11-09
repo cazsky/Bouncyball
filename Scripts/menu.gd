@@ -27,7 +27,7 @@ extends Node2D
 @onready var buy_relic_button: AscensionButton = $Control/TabContainer/Ascension/GridContainer/Buy_Relic
 
 # Relic Buttons
-@onready var owned_relics := $Control/TabContainer/Relics/GridContainer
+@onready var owned_relics := $Control/TabContainer/Relics/ScrollContainer/GridContainer
 @onready var stars_label: Label = $Control/TabContainer/Ascension/Star_Label
 
 

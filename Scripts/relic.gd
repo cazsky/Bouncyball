@@ -1,7 +1,7 @@
 extends Node2D
 class_name Relic
 
-@onready var menu: Node2D = $"../../../../../../../Menu"
+@onready var menu: Node2D = $"../../../../../../../../Menu"
 #@export var ball_path: NodePath
 #@onready var ball: CharacterBody2D = get_node("NodePath")
 @onready var ball: CharacterBody2D = get_tree().current_scene.get_node("Ball")
