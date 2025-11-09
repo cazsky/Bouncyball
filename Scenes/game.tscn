@@ -179,6 +179,7 @@ offset_left = 560.0
 offset_top = 455.0
 offset_right = 627.0
 offset_bottom = 494.0
+mouse_filter = 1
 text = "save"
 
 [node name="Button2" type="Button" parent="Utils"]
@@ -186,6 +187,7 @@ offset_left = 561.0
 offset_top = 502.0
 offset_right = 628.0
 offset_bottom = 541.0
+mouse_filter = 1
 text = "load"
 
 [connection signal="pressed" from="Control/reset_ball_button" to="Utils/SaverLoader" method="_on_button_pressed"]
