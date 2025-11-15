@@ -13,7 +13,7 @@ func _init() -> void:
 	relic_name = "spring_loaded"
 	cost_multiplier = 1.5
 	stat_multiplier = 1.05
-	relic_effect = "bounce_upgrade_discount" #?
+	relic_effect = "bounciness_upgrade_discount" #?
 	scene_path = "res://Scripts/Relic Scripts/decrease_bounce_upgrade_price_relic.gd"
 	
 func _upgrade() -> void:
