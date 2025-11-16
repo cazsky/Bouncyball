@@ -1,5 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://di60i7tymnu26"]
+[gd_scene load_steps=3 format=3 uid="uid://di60i7tymnu26"]
 
 [ext_resource type="PackedScene" uid="uid://duvr3sdvpolbo" path="res://Scenes/relic.tscn" id="1_sg1p7"]
+[ext_resource type="Script" uid="uid://c4k2p083ecy6e" path="res://Scripts/Relic Scripts/decrease_friction_upgrade_price_relic.gd" id="2_2xxtj"]
 
 [node name="decrease_friction_upgrade_price_relic" instance=ExtResource("1_sg1p7")]
+script = ExtResource("2_2xxtj")
