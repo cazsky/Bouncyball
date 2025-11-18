@@ -14,7 +14,7 @@ func _init() -> void:
 	cost_multiplier = 1.5
 	stat_multiplier = 1.05
 	relic_effect = "speed_upgrade_discount" #?
-	scene_path = "res://Scripts/Relic Scripts/decrease_speed_upgrade_price_relic.gd"
+	scene_path = "res://Scripts/Relic Scripts/decrease_speed_upgrade_price_relic.tscn"
 	
 func _upgrade() -> void:
 	super()
