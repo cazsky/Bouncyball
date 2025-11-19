@@ -39,7 +39,7 @@ extends Node2D
 @onready var arrow: Sprite2D = $Control/Arrow
 @onready var ball: CharacterBody2D = $"../Ball"
 @onready var game: Node2D = $"../../Game"
-@onready var relic_pool: Array = [preload("res://Scenes/relics/increase_speed_relic.tscn"), preload("res://Scenes/relics/increase_score_relic.tscn"), preload("res://Scenes/relics/increase_bounce_relic.tscn"), preload("res://Scenes/relics/increase_xp_relic.tscn"), preload("res://Scenes/relics/increase_bounce_relic.tscn"), preload("res://Scenes/relics/decrease_bounce_upgrade_price.tscn"), preload("res://Scenes/relics/decrease_friction_upgrade_price_relic.tscn"), preload("res://Scenes/relics/decrease_score_upgrade_price_relic.tscn"), preload("res://Scenes/relics/decrease_speed_upgrade_price_relic.tscn"), preload("res://Scenes/relics/decrease_xp_upgrade_price_relic.tscn")]
+@onready var relic_pool: Array = [preload("res://Scenes/relics/increase_speed_relic.tscn"), preload("res://Scenes/relics/increase_score_relic.tscn"), preload("res://Scenes/relics/increase_bounce_relic.tscn"), preload("res://Scenes/relics/increase_xp_relic.tscn"), preload("res://Scenes/relics/increase_bounce_relic.tscn"), preload("res://Scenes/relics/decrease_bounce_upgrade_price_relic.tscn"), preload("res://Scenes/relics/decrease_friction_upgrade_price_relic.tscn"), preload("res://Scenes/relics/decrease_score_upgrade_price_relic.tscn"), preload("res://Scenes/relics/decrease_speed_upgrade_price_relic.tscn"), preload("res://Scenes/relics/decrease_xp_upgrade_price_relic.tscn")]
 #@onready var relic_pool: Array = []
 #@onready var relic_pool_number: int = 7
 @onready var tab_container: TabContainer = $Control/TabContainer

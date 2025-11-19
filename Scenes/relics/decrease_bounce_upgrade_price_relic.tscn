@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctm2p4t2l6fvw"]
+
+[ext_resource type="PackedScene" uid="uid://duvr3sdvpolbo" path="res://Scenes/relic.tscn" id="1_4nnf2"]
+[ext_resource type="Script" uid="uid://uxp350qaf8sf" path="res://Scripts/Relic Scripts/decrease_bounce_upgrade_price.gd" id="2_ts17n"]
+[ext_resource type="Texture2D" uid="uid://dqsys7nlfpg2q" path="res://Sprites/Ninja Adventure - Asset Pack/Items/Resource/GemGreen.png" id="3_7pkk7"]
+
+[node name="decrease_bounce_upgrade_price_relic" instance=ExtResource("1_4nnf2")]
+script = ExtResource("2_ts17n")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_7pkk7")
