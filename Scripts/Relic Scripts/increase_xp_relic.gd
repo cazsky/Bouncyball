@@ -13,7 +13,7 @@ func _init() -> void:
 	relic_name = "crstal_ball"
 	cost_multiplier = 1.5
 	stat_multiplier = 1.05
-	relic_effect = "speed_mult"
+	relic_effect = "xp_mult"
 	scene_path = "res://Scenes/relics/increase_xp_relic.tscn"
 
 func _upgrade() -> void:

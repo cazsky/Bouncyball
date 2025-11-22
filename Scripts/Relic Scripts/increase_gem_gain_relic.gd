@@ -14,7 +14,7 @@ func _init() -> void:
 	cost_multiplier = 1.5
 	stat_multiplier = 1.05
 	relic_effect = "gem_gain_multiplier"
-	scene_path = "res://Scenes/relics/increase_bounce_relic.tscn"
+	scene_path = "res://Scenes/relics/increase_gem_gain_relic.tscn"
 
 
 func _activate_effect() -> void:
