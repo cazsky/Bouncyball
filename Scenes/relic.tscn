@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://duvr3sdvpolbo"]
+[gd_scene load_steps=4 format=3 uid="uid://duvr3sdvpolbo"]
 
 [ext_resource type="Script" uid="uid://bvgx5h4lyn00j" path="res://Scripts/relic.gd" id="1_oi0nr"]
 [ext_resource type="Texture2D" uid="uid://bs3fyiubr1d70" path="res://Sprites/Ninja Adventure - Asset Pack/Items/Scroll/Scroll.png" id="2_1rr6e"]
+[ext_resource type="Script" uid="uid://v6338hw2pum4" path="res://Scenes/relic_upgrade_button.gd" id="3_a0j5y"]
 
 [node name="Relic" type="Node2D"]
 texture_filter = 1
@@ -17,5 +18,22 @@ offset_left = 93.0
 offset_top = 15.0
 offset_right = 324.0
 offset_bottom = 46.0
+text = "a"
+
+[node name="PriceLabel" type="Label" parent="."]
+offset_left = 93.0
+offset_top = 15.0
+offset_right = 324.0
+offset_bottom = 46.0
+text = "a"
+
+[node name="RelicUpgradeButton" type="Button" parent="."]
+offset_left = 331.0
+offset_top = 18.0
+offset_right = 379.0
+offset_bottom = 40.0
+script = ExtResource("3_a0j5y")
+label_text = null
+metadata/_custom_type_script = "uid://dh4x3gtcx5dg0"
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
