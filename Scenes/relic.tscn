@@ -21,17 +21,19 @@ offset_bottom = 46.0
 text = "a"
 
 [node name="PriceLabel" type="Label" parent="."]
-offset_left = 93.0
-offset_top = 15.0
-offset_right = 324.0
-offset_bottom = 46.0
+z_index = 1
+offset_left = 438.0
+offset_top = 18.0
+offset_right = 504.0
+offset_bottom = 49.0
 text = "a"
 
 [node name="RelicUpgradeButton" type="Button" parent="."]
-offset_left = 331.0
-offset_top = 18.0
-offset_right = 379.0
-offset_bottom = 40.0
+offset_left = 478.0
+offset_top = 11.0
+offset_right = 580.0
+offset_bottom = 52.0
+text = "Upgrade"
 script = ExtResource("3_a0j5y")
 metadata/_custom_type_script = "uid://dh4x3gtcx5dg0"
 
