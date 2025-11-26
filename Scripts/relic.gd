@@ -17,7 +17,8 @@ var relic_id: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	await ready
+	await ready # Necessary for some reason
+	
 	
 func _upgrade() -> void:
 	cost *= cost_multiplier
@@ -25,11 +26,12 @@ func _upgrade() -> void:
 
 func _activate_effect() -> void:
 	menu.set(relic_effect, menu.get(relic_effect) * stat_multiplier)
+	upgrade_button.update_label(cost)
 	update_label()
 
 
 func _on_tree_entered() -> void:
-	await ready
+	await ready # Necessary for some reason
 	_activate_effect()
 	
 func wait_for_node(path: NodePath) -> Node:
@@ -41,7 +43,6 @@ func wait_for_node(path: NodePath) -> Node:
 	
 func update_label() -> void:
 	label.text = "%s: +%s%%" % [relic_effect, stat_multiplier]
-
 
 func _on_relic_upgrade_button_pressed() -> void:
 	upgrade_button.update_label(cost)
