@@ -36,3 +36,4 @@ script = ExtResource("3_a0j5y")
 metadata/_custom_type_script = "uid://dh4x3gtcx5dg0"
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="pressed" from="RelicUpgradeButton" to="." method="_on_relic_upgrade_button_pressed"]

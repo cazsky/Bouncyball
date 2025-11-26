@@ -4,6 +4,7 @@ class_name Relic
 @onready var menu: Node2D = $"../../../../../../../../Menu"
 @onready var ball: CharacterBody2D = get_tree().current_scene.get_node("Ball")
 @onready var label: Label = $Label
+@onready var upgrade_button: RelicUpgradeButton = $RelicUpgradeButton
 
 var cost: float = 0
 var cost_multiplier: float = 0
@@ -40,3 +41,7 @@ func wait_for_node(path: NodePath) -> Node:
 	
 func update_label() -> void:
 	label.text = "%s: +%s%%" % [relic_effect, stat_multiplier]
+
+
+func _on_relic_upgrade_button_pressed() -> void:
+	upgrade_button.update_label(cost)
