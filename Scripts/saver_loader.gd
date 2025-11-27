@@ -95,7 +95,6 @@ func load_relics() -> void:
 	else:
 		var loaded_collection = ResourceLoader.load(SAVE_RELIC_PATH) as SavedRelicCollection
 		for relic in loaded_collection.owned_relics:
-			print("SCENE PATH: ", relic.scene_path)
 			var relic_to_load = load(relic.scene_path).instantiate()
 			relic_to_load.cost_multiplier = relic.cost_multiplier
 			relic_to_load.stat_multiplier = relic.stat_multiplier

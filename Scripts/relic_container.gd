@@ -2,6 +2,7 @@ extends VBoxContainer
 class_name Relic_Container
 
 @export var wrapper_class: String = "Control"
+@export var counter: int = 0
 
 func add_wrapped_child(child: Node) -> void:
 	var wrapper: Control
@@ -11,6 +12,8 @@ func add_wrapped_child(child: Node) -> void:
 	
 	# Add child to control node
 	wrapper.add_child(child)
+	child.relic_number = counter + 1
+	counter += 1
 	
 	# Add control node to grid container
 	add_child(wrapper)

@@ -5,6 +5,7 @@ class_name Relic
 @onready var ball: CharacterBody2D = get_tree().current_scene.get_node("Ball")
 @onready var label: Label = $Label
 @onready var upgrade_button: RelicUpgradeButton = $RelicUpgradeButton
+@onready var relic_container: Control = get_parent()
 
 var cost: float = 0
 var cost_multiplier: float = 0
@@ -14,11 +15,11 @@ var level: int = 1
 var relic_effect: String
 var scene_path: String
 var relic_id: int
+var relic_number: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await ready # Necessary for some reason
-	
 	
 func _upgrade() -> void:
 	cost *= cost_multiplier
