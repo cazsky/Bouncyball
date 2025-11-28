@@ -30,7 +30,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 2
-mouse_filter = 2
 tab_alignment = 1
 current_tab = 3
 
