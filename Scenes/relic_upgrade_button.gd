@@ -10,5 +10,5 @@ func _ready() -> void:
 	pass
 	
 func update_label(price: float) -> void:
-	price_label.text = str("Current Price: \n", snapped(price,0.01), " score")
+	price_label.text = str("Current Price: \n", snapped(price,0.01), " stars")
 	relic.update_label()

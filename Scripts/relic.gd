@@ -22,8 +22,11 @@ func _ready() -> void:
 	await ready # Necessary for some reason
 	
 func _upgrade() -> void:
-	cost *= cost_multiplier
-	level += 1
+	if menu.game.stars >= cost:
+		menu.game.stars -= cost
+		cost *= cost_multiplier
+		level += 1
+	menu.stars_label.text = str("Stars: ", menu.game.stars)
 
 func _activate_effect() -> void:
 	menu.set(relic_effect, menu.get(relic_effect) * stat_multiplier)
@@ -46,4 +49,6 @@ func update_label() -> void:
 	label.text = "%s: +%s%%" % [relic_effect, stat_multiplier]
 
 func _on_relic_upgrade_button_pressed() -> void:
+	_upgrade()
 	upgrade_button.update_label(cost)
+	
