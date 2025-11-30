@@ -180,7 +180,7 @@ func _ready() -> void:
 	relic_pool = clean_relic_pool(owned_relics.get_children())
 	
 	ascend_button.price_label.text = ""
-	stars_label.text = str("Stars: ", game.stars)
+	stars_label.text = str("Stars: ", snapped(game.stars,0.02))
 	print_debug(str("Stars: ", game.stars))
 	
 	#relic_pool = range(1, relic_pool_number+1)
