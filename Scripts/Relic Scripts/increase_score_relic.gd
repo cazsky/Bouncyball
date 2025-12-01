@@ -6,7 +6,12 @@ const BASE_MULT: float = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print("BASE COST: ", BASE_COST)
+	print("COST MULT: ", cost_multiplier)
+	print("LEVEL: ", level)
+	
 	cost = BASE_COST * cost_multiplier * fmod(pow(level,2), 10)
+	print("COST: ", cost)
 	
 	
 func _init() -> void:
@@ -19,4 +24,5 @@ func _init() -> void:
 func _upgrade() -> void:
 	super()
 	stat_multiplier = pow(BASE_MULT, self.level)
+	cost = BASE_COST * cost_multiplier * fmod(pow(level,2), 10)
 	_activate_effect()

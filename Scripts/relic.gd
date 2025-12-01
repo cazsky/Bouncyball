@@ -36,6 +36,7 @@ func _activate_effect() -> void:
 
 func _on_tree_entered() -> void:
 	await ready # Necessary for some reason
+	#_ready()
 	_activate_effect()
 	
 func wait_for_node(path: NodePath) -> Node:

@@ -19,4 +19,5 @@ func _init() -> void:
 func _upgrade() -> void:
 	super()
 	stat_multiplier = pow(BASE_MULT, self.level)
+	cost = BASE_COST * cost_multiplier * pow(level,2)
 	_activate_effect()
