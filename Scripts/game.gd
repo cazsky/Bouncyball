@@ -7,7 +7,7 @@ extends Node2D
 @onready var xp_bar: TextureProgressBar = $Control/xp_bar
 @onready var gems_label: Label = $Control/GemsLabel
 @onready var reset_ball_button: Button = $Control/reset_ball_button
-#@onready var level_up_text: Label = $Control/xp_bar/level_up_text
+@onready var menu := $Menu
 
 @onready var ball_ready: bool = false
 
@@ -40,6 +40,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	score_label.text = str("Score: ", snapped(score, 0.01))
 	gems_label.text = str("Gems: ", snapped(gems,0.01), " ")
+	menu.stars_label.text = str("Stars: ", stars)
 	velocity_label.text = str("Current velocity: ", snapped(ball.velocity.length(), 0.01))
 
 func _on_ball_bounce() -> void:
@@ -71,3 +72,8 @@ func display_level_up_text() -> void:
 	await get_tree().create_timer(0.45).timeout
 	xp_bar.remove_child(level_up_text)
 	
+
+
+func _on_button_3_pressed() -> void:
+	print_debug("Button 3 ")
+	stars += 1000000000000

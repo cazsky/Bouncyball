@@ -179,7 +179,6 @@ offset_left = 560.0
 offset_top = 455.0
 offset_right = 627.0
 offset_bottom = 494.0
-mouse_filter = 2
 text = "save"
 
 [node name="Button2" type="Button" parent="Utils"]
@@ -187,8 +186,14 @@ offset_left = 561.0
 offset_top = 502.0
 offset_right = 628.0
 offset_bottom = 541.0
-mouse_filter = 2
 text = "load"
+
+[node name="Button3" type="Button" parent="Utils"]
+offset_left = 559.0
+offset_top = 552.0
+offset_right = 626.0
+offset_bottom = 591.0
+text = "Stars"
 
 [connection signal="pressed" from="Control/reset_ball_button" to="Utils/SaverLoader" method="_on_button_pressed"]
 [connection signal="bounce" from="Ball" to="." method="_on_ball_bounce"]
@@ -199,3 +204,4 @@ text = "load"
 [connection signal="tree_exited" from="Utils/SaverLoader" to="Utils/SaverLoader" method="_on_tree_exited"]
 [connection signal="pressed" from="Utils/Button" to="Utils/SaverLoader" method="_on_button_pressed"]
 [connection signal="pressed" from="Utils/Button2" to="Utils/SaverLoader" method="_on_button_2_pressed"]
+[connection signal="pressed" from="Utils/Button3" to="." method="_on_button_3_pressed"]
