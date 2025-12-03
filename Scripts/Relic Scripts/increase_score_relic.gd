@@ -10,7 +10,7 @@ func _ready() -> void:
 	print("COST MULT: ", cost_multiplier)
 	print("LEVEL: ", level)
 	
-	cost = BASE_COST * cost_multiplier * fmod(pow(level,2), 10)
+	cost = BASE_COST * cost_multiplier * pow(level,2)
 	print("COST: ", cost)
 	
 	
@@ -24,5 +24,9 @@ func _init() -> void:
 func _upgrade() -> void:
 	super()
 	stat_multiplier = pow(BASE_MULT, self.level)
-	cost = BASE_COST * cost_multiplier * fmod(pow(level,2), 10)
+	cost = BASE_COST * cost_multiplier * pow(level,2)
+	print("BASE COST: ", BASE_COST)
+	print("COST MULT: ", cost_multiplier)
+	print("LEVEL: ", level)
+	print("COST: ", cost)
 	_activate_effect()
